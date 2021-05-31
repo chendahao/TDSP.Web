@@ -20,6 +20,7 @@
     "jszip-utils": "^0.1.0",
     "leaflet": "^1.6.0",
     "lodash": "^4.17.21",
+    "lowdb": "^2.1.0",
     "nprogress": "^0.2.0",
     "rap": "^1.2.0",
     "screenfull": "^5.0.2",

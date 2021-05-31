@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import fullscreen from './modules/fullscreen'
 import tabledense from './modules/tabledense'
+import app from './modules/app'
+import userinfo from './modules/userinfo'
 
 Vue.use(Vuex)
 
@@ -24,6 +26,8 @@ export default new Vuex.Store({
   },
   modules: {
     fullscreen,
-    tabledense
+    tabledense,
+    app,
+    userinfo
   }
 })

@@ -78,8 +78,7 @@
         </v-card-actions>
       </v-card>
       <v-card width="450" v-show="dialog">
-        <v-card-text>
-          <v-list>
+        <v-list>
           <v-list-item>
             <v-list-item-avatar>
               <v-icon>alarm</v-icon>
@@ -93,8 +92,8 @@
             </v-list-item-action>
           </v-list-item>
         </v-list>
-
         <v-divider></v-divider>
+        <v-card-text>
           <v-form>
             <v-text-field label="标题" v-model="record.title"></v-text-field>
             <v-textarea filled label="详细" v-model="record.content"></v-textarea>
@@ -198,11 +197,40 @@
         </v-card-actions>
       </v-card> -->
       <v-alert
-        border="top"
-        color="red lighten-2"
+        border="left"
+        color="green"
         dark
+        width="500"
       >
-        I'm an alert with a top border and red color
+      <v-row align="center">
+        <v-col class="grow">
+          I'm an alert with a top border and red color
+          <br>
+          I'm an alert with a top border and red color
+          I'm an alert with a top border and red colorI'm an alert with a top border and red colorI'm an alert with a top border and red color
+        </v-col>
+        <v-col class="shrink">
+          <v-btn color="primary">text</v-btn>
+        </v-col>
+      </v-row>
+      </v-alert>
+      <v-alert
+        border="left"
+        color="green"
+        dark
+        width="500"
+      >
+        <v-row align="center">
+          <v-col class="grow">
+            I'm an alert with a top border and red color
+            <br>
+            I'm an alert with a top border and red color
+            I'm an alert with a top border and red colorI'm an alert with a top border and red colorI'm an alert with a top border and red color
+          </v-col>
+          <v-col class="shrink">
+            <v-btn color="primary">text</v-btn>
+          </v-col>
+        </v-row>
       </v-alert>
     </div>
   </div>

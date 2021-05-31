@@ -7256,6 +7256,13 @@
   dependencies:
     "js-tokens" "^3.0.0 || ^4.0.0"
 
+"lowdb@^2.1.0":
+  "integrity" "sha1-yAY+Iotas+CC7OkOBRJTfstuHio="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/lowdb/-/lowdb-2.1.0.tgz"
+  "version" "2.1.0"
+  dependencies:
+    "steno" "^1.0.0"
+
 "lower-case@^1.1.1":
   "integrity" "sha1-miyr0bno4K6ZOkv31YdcOcQujqw="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/lower-case/-/lower-case-1.1.4.tgz"
@@ -10364,6 +10371,11 @@
   "integrity" "sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/stealthy-require/-/stealthy-require-1.1.1.tgz"
   "version" "1.1.1"
+
+"steno@^1.0.0":
+  "integrity" "sha1-R14yxgZuyXYCKeqvFVBgF2T77Lo="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/steno/-/steno-1.0.0.tgz"
+  "version" "1.0.0"
 
 "stream-browserify@^2.0.1":
   "integrity" "sha1-h1IdOKRKp+6RzhzSpH3wy0ndZgs="

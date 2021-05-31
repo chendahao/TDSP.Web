@@ -16,7 +16,7 @@
           <v-list-item-title class="font" style="color:#white;text-align:center;font-size:35px;z-index:16;">拖轮调度系统</v-list-item-title>
         </v-list-item>
         <!-- <img v-show="drawer" src="./assets/logo.png" alt style="position: absolute;width:256px;height:66px;z-index:16" /> -->
-        <nav-list v-model="menuData"></nav-list>
+        <nav-list v-model="menuList"></nav-list>
       </v-navigation-drawer>
       <Layouttop v-on:CallBack="CallBack"></Layouttop>
       <v-main class="font">
@@ -74,6 +74,7 @@ import api from '@/api/auth/AccountApi'
 import dayjs from 'dayjs'
 import scrolltop from '@/components/ScrollTop'
 import storagedata from '@/plugins/storagedata.js'
+import { mapGetters } from 'vuex'
 var RefreshT
 export default {
   components: {
@@ -125,7 +126,7 @@ export default {
         controllerName: '/',
         children: [
           { name: '动态计划查询', controllerName: '/plan/list' },
-          { name: '计划申报状态', controllerName: '/plan/declarstatus' },
+          // { name: '计划申报状态', controllerName: '/plan/declarstatus' },
           // { name: '计划期间管理', controllerName: '/plan/period' },
           { name: '动态计划审核', controllerName: '/plan/check' },
           { name: '动态计划排序', controllerName: '/plan/smartsort' },
@@ -221,6 +222,9 @@ export default {
     // 初始化WS
     // console.log()
     // this.initWebSocket()
+  },
+  computed: {
+    ...mapGetters({ menuList: 'menuList' })
   },
   methods: {
     initWebSocket () {

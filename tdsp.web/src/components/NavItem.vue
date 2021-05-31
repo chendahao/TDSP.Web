@@ -3,11 +3,11 @@
     <v-list-group
       sub-group
       no-action
-      :prepend-icon="value.icon"
+      :prepend-icon="value.meta.icon"
       v-if="isFolder"
     >
       <template v-slot:activator>
-        <v-list-item-title class="font">{{value.name}}</v-list-item-title>
+        <v-list-item-title class="font" style="color:white" :title="value.meta.title">{{value.meta.title}}</v-list-item-title>
       </template>
       <items
         v-for="item in value.children"
@@ -18,12 +18,12 @@
 
     <v-list-item
       v-else
-      :to="value.controllerName"
+      :to="{ name: value.name }"
     >
       <v-list-item-icon>
-        <!-- <v-icon>{{value.icon}}</v-icon> -->
+        <v-icon>{{value.meta.icon}}</v-icon>
       </v-list-item-icon>
-      <v-list-item-title v-text="value.name" class="font" style="color:white"></v-list-item-title>
+      <v-list-item-title class="font" v-text="value.meta.title" :title="value.meta.title" style="color:white"></v-list-item-title>
     </v-list-item>
 
   </div>

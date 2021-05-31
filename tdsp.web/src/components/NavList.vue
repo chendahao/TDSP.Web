@@ -6,21 +6,34 @@
       </v-list-item-icon>
       <v-list-item-title style="color:white" class="font">首页</v-list-item-title>
     </v-list-item>
-
-    <v-list-group
+    <div
       v-for="(item,i) in value"
       :key="i"
-      :prepend-icon="item.icon"
     >
-      <template v-slot:activator>
-        <v-list-item-title class="font">{{item.name}}</v-list-item-title>
-      </template>
-      <nav-item
-        v-for="(child,j) in item.children"
-        :value="child"
-        :key="i+j"
-      />
-    </v-list-group>
+      <v-list-group
+        v-if="item.children"
+        :prepend-icon="item.icon"
+      >
+        <template v-slot:activator>
+          <v-list-item-title class="font" style="color:white" :title="item.meta.title">{{item.meta.title}}</v-list-item-title>
+        </template>
+        <nav-item
+          v-for="(child,j) in item.children"
+          :value="child"
+          :parent="item.path"
+          :key="i+j"
+        />
+      </v-list-group>
+      <v-list-item
+        v-else
+        :to="{ name: item.name }"
+      >
+        <v-list-item-icon>
+          <v-icon>{{item.meta.icon}}</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title class="font" v-text="item.meta.title" :title="item.meta.title" style="color:white"></v-list-item-title>
+      </v-list-item>
+    </div>
   </v-list>
 </template>
 

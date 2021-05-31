@@ -14,10 +14,12 @@ const baseRoutes = [
     name: 'main',
     component: Layout,
     meta: {
-      keepAlive: false, // 是否需要被缓存
+      icon: 'home',
+      keepAlive: false,
       needLogin: true,
       title: '首页',
-      fullwidth: false
+      fullwidth: false,
+      hideInMenu: true
     },
     children: [
       {
@@ -26,9 +28,11 @@ const baseRoutes = [
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: 'home',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: true
         }
       }
     ]
@@ -39,9 +43,11 @@ const baseRoutes = [
     component: Login,
     meta: {
       keepAlive: false,
+      icon: 'home',
       needLogin: false,
       title: '登录',
-      fullwidth: false
+      fullwidth: false,
+      hideInMenu: true
     }
   },
   {
@@ -50,9 +56,11 @@ const baseRoutes = [
     component: () => import(/* webpackChunkName: "404" */ '@/views/404page.vue'),
     meta: {
       keepAlive: false,
+      icon: 'home',
       needLogin: true,
       title: '404',
-      fullwidth: false
+      fullwidth: false,
+      hideInMenu: true
     }
   },
   {
@@ -61,9 +69,11 @@ const baseRoutes = [
     component: () => import(/* webpackChunkName: "401" */ '@/views/401page.vue'),
     meta: {
       keepAlive: false,
+      icon: 'home',
       needLogin: true,
       title: '401',
-      fullwidth: false
+      fullwidth: false,
+      hideInMenu: true
     }
   }
 ]
@@ -71,11 +81,12 @@ const baseRoutes = [
 const misRoutes = [
   {
     path: '/',
-    name: 'p',
+    name: 'routers',
     redirect: 'home',
     component: Layout,
     meta: {
-      keepAlive: false, // 是否需要被缓存
+      keepAlive: false,
+      icon: 'home', // 是否需要被缓存
       needLogin: true,
       title: '首页',
       fullwidth: false
@@ -89,10 +100,12 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "berthview" */ '@/views/base/berthview/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '港池信息',
           fullwidth: false,
-          access: ['root']
+          hideInMenu: false,
+          access: ['admin']
         }
       },
       {
@@ -104,7 +117,8 @@ const misRoutes = [
           needLogin: true,
           title: '港池信息',
           fullwidth: false,
-          access: ['root']
+          hideInMenu: false,
+          access: ['admin']
         }
       },
       // 港池编辑
@@ -114,9 +128,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "harboredit" */ '@/views/base/nenv/harbor/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '港池信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: true
         }
       },
       // 码头
@@ -128,7 +144,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '码头信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -137,9 +154,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "wharfedit" */ '@/views/base/nenv/wharf/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '码头信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: true
         }
       },
       // 泊位组
@@ -151,7 +170,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '泊位组信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -160,9 +180,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "berthgroupedit" */ '@/views/base/nenv/berthgroup/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '泊位组信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: true
         }
       },
       // 泊位
@@ -174,7 +196,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '泊位信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -183,9 +206,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "berthedit" */ '@/views/base/nenv/berth/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '泊位信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: true
         }
       },
       // 航道
@@ -197,7 +222,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '航道信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -206,9 +232,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "channeledit" */ '@/views/base/nenv/channel/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '航道信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: true
         }
       },
       // 锚地
@@ -220,7 +248,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '锚地信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -229,9 +258,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "anchorageedit" */ '@/views/base/nenv/anchorage/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '锚地信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: true
         }
       },
       // 定线制
@@ -243,7 +274,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '定线制信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -252,9 +284,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "customlineedit" */ '@/views/base/nenv/customline/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '定线制信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: true
         }
       },
       // 涉水工程
@@ -266,7 +300,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '涉水工程',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -275,9 +310,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "wadingWorksedit" */ '@/views/base/nenv/wadingWorks/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '涉水工程',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: true
         }
       },
       // 船舶标识
@@ -289,7 +326,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '船舶标识',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -298,9 +336,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "shipmarkdit" */ '@/views/base/shipmark/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '船舶标识',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: true
         }
       },
       // 自定义区域
@@ -312,7 +352,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '自定义区域',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -321,9 +362,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "customareaedit" */ '@/views/base/nenv/customarea/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '自定义区域',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 助航设施
@@ -335,7 +378,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '助航设施',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -344,9 +388,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "facilityedit" */ '@/views/base/nenv/facility/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '助航设施',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // base end
@@ -358,9 +404,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "plancheck" */ '@/views/plan/plancheck/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '动态计划审核',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 船舶计划查询
@@ -370,9 +418,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "planlist" */ '@/views/plan/planlist/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '动态计划查询',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 智能排序
@@ -382,9 +432,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "smartSort" */ '@/views/plan/smartsort/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '智能排序',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 执行
@@ -394,9 +446,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "planAction" */ '@/views/plan/planaction/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '计划执行',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // plan end
@@ -410,7 +464,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '实时船舶信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 动态计划查询
@@ -422,7 +477,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '动态计划查询',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 历史计划查询
@@ -432,9 +488,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "planhistpry" */ '@/views/tdyn/planhistory/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '历史计划查询',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 动态计划执行查询
@@ -446,7 +504,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '计划执行查询',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 交通动态 tdyn end
@@ -460,7 +519,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '潮汐信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -469,9 +529,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "newsedit" */ '@/views/tinfo/news/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '新闻公告',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -480,9 +542,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "newsdetail" */ '@/views/tinfo/news/detail.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '新闻公告',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -491,9 +555,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "newsindex" */ '@/views/tinfo/news/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '新闻公告',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 船舶数据库
@@ -505,7 +571,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '船舶数据库',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -516,7 +583,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '船舶数据库',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 气象
@@ -528,7 +596,8 @@ const misRoutes = [
           keepAlive: true,
           needLogin: true,
           title: '气象信息',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // tinfo end
@@ -540,9 +609,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "CustomAreaChart" */ '@/views/chart/customarea/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '自定义区域船舶统计',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 定线制水域船舶统计
@@ -552,9 +623,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "CustomLineChart" */ '@/views/chart/customline/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '定线制水域船舶统计',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 报告线水域船舶统计
@@ -564,9 +637,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "ReportLineChart" */ '@/views/chart/reportline/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '报告线水域船舶统计',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 港口吞吐量统计
@@ -576,9 +651,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "Throughput" */ '@/views/chart/throughput/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '港口吞吐量统计',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -587,9 +664,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "Throughputwharf" */ '@/views/chart/throughput/wharf.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '码头吞吐量统计',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 交通流统计
@@ -599,9 +678,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "TransLine" */ '@/views/chart/transline/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '交通流统计',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -610,9 +691,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "TransLinelist" */ '@/views/chart/transline/list.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '交通流量线',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -621,9 +704,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "TransLineedit" */ '@/views/chart/transline/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '交通流量线',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -632,9 +717,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "TransLindrawline" */ '@/views/chart/transline/drawline.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '交通流量线',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 泊位占用统计
@@ -644,9 +731,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "berthchart" */ '@/views/chart/berthstatus/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '泊位占用统计',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -655,9 +744,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "complex" */ '@/views/chart/complex/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '交通流量综合统计',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -666,9 +757,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "form" */ '@/views/chart/throughput/form.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '吞吐量统计表',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       // 系统管理 sys
@@ -678,9 +771,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "user" */ '@/views/sys/user/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '用户管理',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -689,9 +784,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "useredit" */ '@/views/sys/user/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '用户管理',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -700,9 +797,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "userregist" */ '@/views/sys/user/regist.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '用户注册',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -711,9 +810,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "userrole" */ '@/views/sys/user/userrole.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '用户管理',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -722,9 +823,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "role" */ '@/views/sys/role/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '角色管理',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -733,9 +836,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "org" */ '@/views/sys/org/index.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '组织机构管理',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       },
       {
@@ -744,9 +849,11 @@ const misRoutes = [
         component: () => import(/* webpackChunkName: "orgedit" */ '@/views/sys/org/edit.vue'),
         meta: {
           keepAlive: false,
+          icon: 'home',
           needLogin: true,
           title: '组织机构管理',
-          fullwidth: false
+          fullwidth: false,
+          hideInMenu: false
         }
       }
     ]
