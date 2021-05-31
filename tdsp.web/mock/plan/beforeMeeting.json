@@ -1,0 +1,38 @@
+[
+  {
+    "beforeMeetingId": "b73b9bb3-c6f3-48f5-a0b8-7e081a632903",
+    "iMO": "000000000",
+    "shipNameCn": "天意",
+    "shipNameEn": "KWK PROVIDENCE",
+    "regDate": "/Date(1505750400000)/",
+    "shipLength": 289,
+    "shipWidth": 45,
+    "frontDraft": 13.21,
+    "behindDraft": 13.21,
+    "agent": "兴泰物流",
+    "totalTon": 0,
+    "cargoTon": 175531.2,
+    "cargoMi": 0,
+    "author": "张奇",
+    "remark": null,
+    "status": 1
+  },
+  {
+    "beforeMeetingId": "b73b9bb3-c6f3-48f5-a0b8-7e081a632903",
+    "iMO": "12123123",
+    "shipNameCn": "1天意",
+    "shipNameEn": "1KWK PROVIDENCE",
+    "regDate": "/Date(1505750400000)/",
+    "shipLength": 289,
+    "shipWidth": 45,
+    "frontDraft": 13.21,
+    "behindDraft": 13.21,
+    "agent": "兴泰物流",
+    "totalTon": 0,
+    "cargoTon": 175531.2,
+    "cargoMi": 0,
+    "author": "张奇",
+    "remark": null,
+    "status": 1
+  }
+]

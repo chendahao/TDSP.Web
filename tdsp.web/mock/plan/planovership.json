@@ -1,0 +1,56 @@
+[
+  {
+    "planOverShipId":"5719e311-128e-4a72-82f5-3c2c7989c176",
+    "orgName":"交管中心",
+    "regDate":"2017-10-23 00:00:00.000",
+    "timespan":"3",
+    "mMSI":"413703370",
+    "shipNameEn":"413703370",
+    "actionPlan":"加油船"
+  },
+  {
+    "planOverShipId":"58bd3cca-cfcf-4698-bea5-857a0b1ab942",
+    "orgName":"交管中心",
+    "regDate":"2017-10-23 00:00:00.000",
+    "timespan":"3",
+    "mMSI":"412206590",
+    "shipNameEn":"412206590",
+    "actionPlan":"加油船"
+  },
+  {
+    "planOverShipId":"5719e311-128e-4a72-82f5-3c2c7989c176",
+    "orgName":"交管中心",
+    "regDate":"2017-10-23 00:00:00.000",
+    "timespan":"3",
+    "mMSI":"477826100",
+    "shipNameEn":"477826100",
+    "actionPlan":"加油船"
+  },
+  {
+    "planOverShipId":"5719e311-128e-4a72-82f5-3c2c7989c176",
+    "orgName":"交管中心",
+    "regDate":"2017-10-23 00:00:00.000",
+    "timespan":"3",
+    "mMSI":"413272450",
+    "shipNameEn":"413272450",
+    "actionPlan":"加油船"
+  },
+  {
+    "planOverShipId":"5719e311-128e-4a72-82f5-3c2c7989c176",
+    "orgName":"交管中心",
+    "regDate":"2017-10-23 00:00:00.000",
+    "timespan":"3",
+    "mMSI":"413550470",
+    "shipNameEn":"413550470",
+    "actionPlan":"加油船"
+  },
+  {
+    "planOverShipId":"5719e311-128e-4a72-82f5-3c2c7989c176",
+    "orgName":"交管中心",
+    "regDate":"2017-10-23 00:00:00.000",
+    "timespan":"3",
+    "mMSI":"412302180",
+    "shipNameEn":"412302180",
+    "actionPlan":"加油船"
+  }
+]

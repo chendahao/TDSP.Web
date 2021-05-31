@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`home.vue renders props.msg when passed 1`] = `
+<v-container-stub>
+  <v-layout-stub text-xs-center="" wrap="">
+    <v-flex-stub xs12="">
+      <v-img-stub src="" contain="" height="200" class="my-3"></v-img-stub>
+    </v-flex-stub>
+    <v-flex-stub mb-4="">
+      <h1 class="display-2 font-weight-bold mb-3">
+        欢迎使用VTS MIS系统
+      </h1>
+    </v-flex-stub>
+  </v-layout-stub>
+</v-container-stub>
+`;

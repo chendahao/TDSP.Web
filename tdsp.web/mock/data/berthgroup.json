@@ -1,0 +1,402 @@
+[
+    {
+        "groupId": "bf5daa72-aa8c-46f8-b342-08ff391e26d2",
+        "groupNo": "中石油",
+        "length": 1270,
+        "maxLoadWeight": 7500,
+        "minLoadWeight": 1,
+        "wharfId": "05955dac-7f99-4e66-b902-b1948a84a0bd",
+        "parentWharf": {
+            "wharfId": "05955dac-7f99-4e66-b902-b1948a84a0bd",
+            "wharfNo": "石油集团生产支持基地",
+            "longitude": 118.4901351928711,
+            "latitude": 39.082359313964844,
+            "addInfor": "15.0",
+            "harborId": "f110912c-8c99-460a-8aed-22c96e72ceae",
+            "parentHarbor": null,
+            "orgId": "28d4246f-de70-41c8-ab23-796100ae95b6",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "2882bf0c-f21b-4adc-84bb-0f19e978dc0f",
+        "groupNo": "矿一",
+        "length": 808,
+        "maxLoadWeight": 275000,
+        "minLoadWeight": 45001,
+        "wharfId": "20adba9f-dfcd-4428-83a4-ea1b627996d8",
+        "parentWharf": {
+            "wharfId": "20adba9f-dfcd-4428-83a4-ea1b627996d8",
+            "wharfNo": "矿石码头一期",
+            "longitude": 118.49895477294922,
+            "latitude": 38.91439437866211,
+            "addInfor": "15.0",
+            "harborId": "e7d340d8-a8c6-4c78-9ae1-073674e8ef54",
+            "parentHarbor": null,
+            "orgId": "33a14910-9698-4080-85f1-327c8d1fe6d8",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "757f1884-0d6e-453b-b0d2-115e927ec6d2",
+        "groupNo": "LNG码头",
+        "length": 410,
+        "maxLoadWeight": 175000,
+        "minLoadWeight": 45001,
+        "wharfId": "167e322f-997f-40c8-84a5-379cda265e3a",
+        "parentWharf": {
+            "wharfId": "167e322f-997f-40c8-84a5-379cda265e3a",
+            "wharfNo": "LNG码头",
+            "longitude": 118.5485153198,
+            "latitude": 38.9194717407,
+            "addInfor": "15.0",
+            "harborId": "e7d340d8-a8c6-4c78-9ae1-073674e8ef54",
+            "parentHarbor": null,
+            "orgId": "b48503bb-4441-4863-8dcf-0a3f48257544",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "5e15c67a-812e-4d8c-a45b-1aa73cffb326",
+        "groupNo": "液化",
+        "length": 624,
+        "maxLoadWeight": 65000,
+        "minLoadWeight": 45001,
+        "wharfId": "42dcd64e-aeee-4fb0-8f1a-236896327c7e",
+        "parentWharf": {
+            "wharfId": "42dcd64e-aeee-4fb0-8f1a-236896327c7e",
+            "wharfNo": "液化码头",
+            "longitude": 118.52224731445312,
+            "latitude": 39.0450553894043,
+            "addInfor": "15.0",
+            "harborId": "f110912c-8c99-460a-8aed-22c96e72ceae",
+            "parentHarbor": null,
+            "orgId": "2e3548dc-bf9c-4066-a9ac-38f12781d281",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "70dd959a-eea3-4c9d-998e-29236cdf36f4",
+        "groupNo": "矿二",
+        "length": 790,
+        "maxLoadWeight": 325000,
+        "minLoadWeight": 85001,
+        "wharfId": "5206f0c4-463d-473c-bc08-3dfe10690d4b",
+        "parentWharf": {
+            "wharfId": "5206f0c4-463d-473c-bc08-3dfe10690d4b",
+            "wharfNo": "矿石码头二期",
+            "longitude": 118.49234771728516,
+            "latitude": 38.91569900512695,
+            "addInfor": "15.0",
+            "harborId": "e7d340d8-a8c6-4c78-9ae1-073674e8ef54",
+            "parentHarbor": null,
+            "orgId": "33a14910-9698-4080-85f1-327c8d1fe6d8",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "a7e9987b-8953-46ad-a1f6-32c5c66b8325",
+        "groupNo": "西港二期",
+        "length": 992,
+        "maxLoadWeight": 65000,
+        "minLoadWeight": 1501,
+        "wharfId": "e338e20c-1b91-4bc5-911d-46d38f2ef37a",
+        "parentWharf": {
+            "wharfId": "e338e20c-1b91-4bc5-911d-46d38f2ef37a",
+            "wharfNo": "西港码头",
+            "longitude": 118.40350341796875,
+            "latitude": 38.99470138549805,
+            "addInfor": "15.0",
+            "harborId": "e741a8ab-41ff-4ca1-bbe6-6eb123873f3b",
+            "parentHarbor": null,
+            "orgId": "2e3548dc-bf9c-4066-a9ac-38f12781d281",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "08a03e87-7dec-45e1-9696-3bf7cff86800",
+        "groupNo": "弘毅二期",
+        "length": 711,
+        "maxLoadWeight": 85000,
+        "minLoadWeight": 7501,
+        "wharfId": "7d660829-7a20-4915-8ec5-55997e0f1f63",
+        "parentWharf": {
+            "wharfId": "7d660829-7a20-4915-8ec5-55997e0f1f63",
+            "wharfNo": "通用散货码头",
+            "longitude": 118.45490264892578,
+            "latitude": 38.995609283447266,
+            "addInfor": "15.0",
+            "harborId": "16bde24e-633d-48de-8157-6b084e9e376b",
+            "parentHarbor": null,
+            "orgId": "2e3548dc-bf9c-4066-a9ac-38f12781d281",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "22f69020-7046-4ccd-b343-425d2886ea93",
+        "groupNo": "首钢",
+        "length": 1240,
+        "maxLoadWeight": 65000,
+        "minLoadWeight": 4501,
+        "wharfId": "02f37e8c-db98-4110-9484-226dbb385f4c",
+        "parentWharf": {
+            "wharfId": "02f37e8c-db98-4110-9484-226dbb385f4c",
+            "wharfNo": "首钢码头",
+            "longitude": 118.47799682617188,
+            "latitude": 38.99470138549805,
+            "addInfor": "15.0",
+            "harborId": "16bde24e-633d-48de-8157-6b084e9e376b",
+            "parentHarbor": null,
+            "orgId": "cddd0a10-c78e-43a2-8f6f-8bc59f7b6cdf",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "fc4ced6e-b0bb-4ab5-a80b-51165d88a086",
+        "groupNo": "煤二期",
+        "length": 1435,
+        "maxLoadWeight": 105000,
+        "minLoadWeight": 12501,
+        "wharfId": "d883912d-4d31-4651-8162-fb21a5202400",
+        "parentWharf": {
+            "wharfId": "d883912d-4d31-4651-8162-fb21a5202400",
+            "wharfNo": "煤二期",
+            "longitude": 118.44999694824219,
+            "latitude": 38.959999084472656,
+            "addInfor": "15.0",
+            "harborId": "16bde24e-633d-48de-8157-6b084e9e376b",
+            "parentHarbor": null,
+            "orgId": "39216186-43b8-43ba-ace2-13b1d135f932",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "cc4f23d8-cd8c-4f55-ad9b-5c7f24a0dd4c",
+        "groupNo": "原油",
+        "length": 522,
+        "maxLoadWeight": 275000,
+        "minLoadWeight": 85001,
+        "wharfId": "48e4b9af-fd1b-42e6-b6a3-c2fee4fdc6ac",
+        "parentWharf": {
+            "wharfId": "48e4b9af-fd1b-42e6-b6a3-c2fee4fdc6ac",
+            "wharfNo": "原油码头",
+            "longitude": 118.5243148803711,
+            "latitude": 38.915313720703125,
+            "addInfor": "15.0",
+            "harborId": "e7d340d8-a8c6-4c78-9ae1-073674e8ef54",
+            "parentHarbor": null,
+            "orgId": "06517b65-7961-4c55-90e6-dbe6eb3e7c80",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "d65997ef-689b-445f-8f2a-6dad80f4a61b",
+        "groupNo": "华能煤码头",
+        "length": 1428,
+        "maxLoadWeight": 105000,
+        "minLoadWeight": 17501,
+        "wharfId": "90939e64-74ac-4018-aeca-ee48d5c0e17b",
+        "parentWharf": {
+            "wharfId": "90939e64-74ac-4018-aeca-ee48d5c0e17b",
+            "wharfNo": "华能煤码头",
+            "longitude": 118.433333,
+            "latitude": 38.933333,
+            "addInfor": "15.0",
+            "harborId": "e7d340d8-a8c6-4c78-9ae1-073674e8ef54",
+            "parentHarbor": null,
+            "orgId": "6732135c-1975-4220-a0b0-430a5a45eb40",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "ed24d636-11bf-4f6c-92aa-6edbeb56639c",
+        "groupNo": "通用",
+        "length": 1840,
+        "maxLoadWeight": 105000,
+        "minLoadWeight": 4501,
+        "wharfId": "359190c0-cf5f-404c-9a2c-8d3bec5dad31",
+        "parentWharf": {
+            "wharfId": "359190c0-cf5f-404c-9a2c-8d3bec5dad31",
+            "wharfNo": "通用码头",
+            "longitude": 118.45999908447266,
+            "latitude": 38.93000030517578,
+            "addInfor": "15.0",
+            "harborId": "16bde24e-633d-48de-8157-6b084e9e376b",
+            "parentHarbor": null,
+            "orgId": "2e3548dc-bf9c-4066-a9ac-38f12781d281",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "a03e2643-ab67-435f-8e49-900c82074533",
+        "groupNo": "弘毅",
+        "length": 605,
+        "maxLoadWeight": 175000,
+        "minLoadWeight": 7501,
+        "wharfId": "7d660829-7a20-4915-8ec5-55997e0f1f63",
+        "parentWharf": {
+            "wharfId": "7d660829-7a20-4915-8ec5-55997e0f1f63",
+            "wharfNo": "通用散货码头",
+            "longitude": 118.45490264892578,
+            "latitude": 38.995609283447266,
+            "addInfor": "15.0",
+            "harborId": "16bde24e-633d-48de-8157-6b084e9e376b",
+            "parentHarbor": null,
+            "orgId": "2e3548dc-bf9c-4066-a9ac-38f12781d281",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "3ac7ceb4-2ad2-4f6f-85df-9a9049ab7a21",
+        "groupNo": "文丰",
+        "length": 521,
+        "maxLoadWeight": 35000,
+        "minLoadWeight": 4501,
+        "wharfId": "b10e781e-a8c8-4e40-9881-094b3f0c4994",
+        "parentWharf": {
+            "wharfId": "b10e781e-a8c8-4e40-9881-094b3f0c4994",
+            "wharfNo": "文丰码头",
+            "longitude": 118.50104522705078,
+            "latitude": 38.850250244140625,
+            "addInfor": "15.0",
+            "harborId": "f110912c-8c99-460a-8aed-22c96e72ceae",
+            "parentHarbor": null,
+            "orgId": "db74a8c0-3e0e-4fbd-9e65-c72f66995884",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "694aed14-c802-468d-a850-a9ecc57a8922",
+        "groupNo": "综保区码头",
+        "length": 520,
+        "maxLoadWeight": 55000,
+        "minLoadWeight": 2501,
+        "wharfId": "fe08d1b6-e1ff-4c61-a51d-a6008e31327f",
+        "parentWharf": {
+            "wharfId": "fe08d1b6-e1ff-4c61-a51d-a6008e31327f",
+            "wharfNo": "综保区码头",
+            "longitude": 118.5675753,
+            "latitude": 39.10352361,
+            "addInfor": "15.0",
+            "harborId": "f110912c-8c99-460a-8aed-22c96e72ceae",
+            "parentHarbor": null,
+            "orgId": "5179b4c6-2c6b-4125-9458-3bc0975bf19d",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "09de3fd2-f03f-4cac-8a5f-ac4c0d2e3a5e",
+        "groupNo": "河北钢铁",
+        "length": 893,
+        "maxLoadWeight": 65000,
+        "minLoadWeight": 7501,
+        "wharfId": "641ac8d0-37ac-486b-9b08-1e3a823d52f6",
+        "parentWharf": {
+            "wharfId": "641ac8d0-37ac-486b-9b08-1e3a823d52f6",
+            "wharfNo": "河北钢铁码头",
+            "longitude": 118.41658020019531,
+            "latitude": 39.00455856323242,
+            "addInfor": "15.0",
+            "harborId": "e741a8ab-41ff-4ca1-bbe6-6eb123873f3b",
+            "parentHarbor": null,
+            "orgId": "04a6598c-06d0-4f5a-954d-e74759a44edc",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "6b5d2254-c6ed-403d-9831-bb610d21a93f",
+        "groupNo": "联运码头",
+        "length": 855,
+        "maxLoadWeight": 175000,
+        "minLoadWeight": 2501,
+        "wharfId": "02da2370-485c-426f-ad0a-a6803e21c252",
+        "parentWharf": {
+            "wharfId": "02da2370-485c-426f-ad0a-a6803e21c252",
+            "wharfNo": "联运码头",
+            "longitude": 118.45,
+            "latitude": 39,
+            "addInfor": "15.0",
+            "harborId": "16bde24e-633d-48de-8157-6b084e9e376b",
+            "parentHarbor": null,
+            "orgId": "ec0db567-d9ca-4c94-80c5-50e116f8b944",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "4b8337d1-8724-419c-bdff-bc99b9188562",
+        "groupNo": "煤码头续建",
+        "length": 1534,
+        "maxLoadWeight": 105000,
+        "minLoadWeight": 12501,
+        "wharfId": "8ab8bf02-2d13-4957-afe3-d1a767d3b999",
+        "parentWharf": {
+            "wharfId": "8ab8bf02-2d13-4957-afe3-d1a767d3b999",
+            "wharfNo": "国投煤码头",
+            "longitude": 118.4549255371,
+            "latitude": 38.9730033875,
+            "addInfor": "15.0",
+            "harborId": "16bde24e-633d-48de-8157-6b084e9e376b",
+            "parentHarbor": null,
+            "orgId": "4f5afa34-f567-48f2-9a0b-4db4bac254f4",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "13545db2-fda4-488e-a9a9-c32fb091ca66",
+        "groupNo": "西港",
+        "length": 521,
+        "maxLoadWeight": 65000,
+        "minLoadWeight": 1501,
+        "wharfId": "e338e20c-1b91-4bc5-911d-46d38f2ef37a",
+        "parentWharf": {
+            "wharfId": "e338e20c-1b91-4bc5-911d-46d38f2ef37a",
+            "wharfNo": "西港码头",
+            "longitude": 118.40350341796875,
+            "latitude": 38.99470138549805,
+            "addInfor": "15.0",
+            "harborId": "e741a8ab-41ff-4ca1-bbe6-6eb123873f3b",
+            "parentHarbor": null,
+            "orgId": "2e3548dc-bf9c-4066-a9ac-38f12781d281",
+            "status": 3
+        },
+        "status": 3
+    },
+    {
+        "groupId": "40fe4889-3b61-4de3-98c0-c8dcf2bccaaf",
+        "groupNo": "通用多用途泊位",
+        "length": 440,
+        "maxLoadWeight": 65000,
+        "minLoadWeight": 4501,
+        "wharfId": "359190c0-cf5f-404c-9a2c-8d3bec5dad31",
+        "parentWharf": {
+            "wharfId": "359190c0-cf5f-404c-9a2c-8d3bec5dad31",
+            "wharfNo": "通用码头",
+            "longitude": 118.45999908447266,
+            "latitude": 38.93000030517578,
+            "addInfor": "15.0",
+            "harborId": "16bde24e-633d-48de-8157-6b084e9e376b",
+            "parentHarbor": null,
+            "orgId": "2e3548dc-bf9c-4066-a9ac-38f12781d281",
+            "status": 3
+        },
+        "status": 3
+    }
+]

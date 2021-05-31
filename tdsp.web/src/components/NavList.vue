@@ -1,0 +1,57 @@
+<template>
+  <v-list style="margin-top:64px">
+    <v-list-item to="/">
+      <v-list-item-icon>
+        <v-icon style="color:white">home</v-icon>
+      </v-list-item-icon>
+      <v-list-item-title style="color:white" class="font">首页</v-list-item-title>
+    </v-list-item>
+
+    <v-list-group
+      v-for="(item,i) in value"
+      :key="i"
+      :prepend-icon="item.icon"
+    >
+      <template v-slot:activator>
+        <v-list-item-title class="font">{{item.name}}</v-list-item-title>
+      </template>
+      <nav-item
+        v-for="(child,j) in item.children"
+        :value="child"
+        :key="i+j"
+      />
+    </v-list-group>
+  </v-list>
+</template>
+
+<script>
+import NavItem from './NavItem.vue'
+export default {
+  name: 'navlist',
+  props: ['value'],
+  components: { NavItem },
+  data () {
+    return {
+      // 打开系统管理子系统
+      sys: null
+    }
+  },
+  methods: {
+    tosys () {
+      if (this.sys === null) {
+        this.sys = window.open('/sys/', 'sys')
+      } else if (this.sys.closed) {
+        this.sys = window.open('/sys/', 'sys')
+      } else {
+        this.sys.focus()
+      }
+    }
+  }
+}
+</script>
+<style lang="scss">
+  .v-list .v-list-item--active {
+    color: #e7ecea;
+  }
+
+</style>

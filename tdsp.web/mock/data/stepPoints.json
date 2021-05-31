@@ -1,0 +1,20 @@
+[
+  {
+    "id":"处置措施要点表 ",
+    "planId":"",
+    "stepId":"",
+    "pointdesc":""
+  },
+  {
+    "id":"1",
+    "planId":"1",
+    "stepId":"1",
+    "pointdesc":"要点描述1"
+  },
+  {
+    "id":"2",
+    "planId":"2",
+    "stepId":"2",
+    "pointdesc":"要点描述2"
+  }
+]

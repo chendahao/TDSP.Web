@@ -1,0 +1,112 @@
+[
+    {
+        "cctvId": "08b6afb4-31eb-4c9d-9be2-4cc89fa0d945",
+        "name": "首钢二号监控点",
+        "location": "综合港",
+        "longitude": 118.4786212038,
+        "latitude": 38.9599757131,
+        "videoAddress": "198.13.60.142",
+        "person": "首钢二号监控点",
+        "phone": "0315",
+        "status": 1
+    },
+    {
+        "cctvId": "26dd3f01-49fd-49cd-8d1d-7d22c40bef56",
+        "name": "华电码头",
+        "location": "纳潮海",
+        "longitude": 118.5051216544,
+        "latitude": 39.0802473072,
+        "videoAddress": "198.13.60.133",
+        "person": "华电码头",
+        "phone": "315",
+        "status": 1
+    },
+    {
+        "cctvId": "2df68d46-f1f9-42ff-9554-b50acfb4b9c7",
+        "name": "煤续建码头",
+        "location": "西港",
+        "longitude": 118.4592915686,
+        "latitude": 38.9464455741,
+        "videoAddress": "198.13.60.136",
+        "person": "煤续建码头",
+        "phone": "315",
+        "status": 1
+    },
+    {
+        "cctvId": "39de5dcf-cc08-401b-baa9-c20091fceb85",
+        "name": "海事基地",
+        "location": "支队",
+        "longitude": 118.4800577041,
+        "latitude": 38.9328085801,
+        "videoAddress": "198.13.60.132",
+        "person": "海事基地",
+        "phone": "315",
+        "status": 1
+    },
+    {
+        "cctvId": "3d9cae46-6f99-4556-a2b9-5647d521a62a",
+        "name": "联想码头",
+        "location": "滦南",
+        "longitude": 118.4031986363,
+        "latitude": 38.9956643035,
+        "videoAddress": "198.13.60.131",
+        "person": "联想码头",
+        "phone": "0315",
+        "status": 1
+    },
+    {
+        "cctvId": "3dcef16f-8412-4200-aedc-b37034c6da75",
+        "name": "首钢一号监控点",
+        "location": "综合港",
+        "longitude": 118.4911727782,
+        "latitude": 38.9449536225,
+        "videoAddress": "198.13.60.141",
+        "person": "首钢一号监控点",
+        "phone": "315",
+        "status": 1
+    },
+    {
+        "cctvId": "3ede5541-95db-4bc6-807d-0ca301a655b0",
+        "name": "支持基地",
+        "location": "纳潮海",
+        "longitude": 118.488400676,
+        "latitude": 39.0846471185,
+        "videoAddress": "198.13.60.134",
+        "person": "支持基地",
+        "phone": "315",
+        "status": 1
+    },
+    {
+        "cctvId": "47570476-43e6-4c55-a72d-bb0a2d69b086",
+        "name": "弘毅码头",
+        "location": "西港",
+        "longitude": 118.4550325433,
+        "latitude": 39.005376642,
+        "videoAddress": "198.13.60.137",
+        "person": "弘毅码头",
+        "phone": "0315",
+        "status": 1
+    },
+    {
+        "cctvId": "5a3b46e0-9671-40b2-8175-bd6143f5432a",
+        "name": "通用码头1号",
+        "location": "综合港",
+        "longitude": 118.4691270849,
+        "latitude": 38.9820311021,
+        "videoAddress": "198.13.60.143",
+        "person": "通用码头1号",
+        "phone": "315",
+        "status": 1
+    },
+    {
+        "cctvId": "be48e8d5-45c8-4b1e-8727-950954ef4059",
+        "name": "通用码头2号",
+        "location": "综合港",
+        "longitude": 118.4692383879,
+        "latitude": 38.9923188277,
+        "videoAddress": "198.13.60.144",
+        "person": "通用码头2号",
+        "phone": "315",
+        "status": 1
+    }
+]

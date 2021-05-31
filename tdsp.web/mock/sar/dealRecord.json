@@ -1,0 +1,20 @@
+[
+  {
+    "recordId":"1",
+    "alarmRecordId":"1",
+    "dealTime":"2019-04-23 12:00",
+    "dealCovers":"处置内容1"
+  },
+  {
+    "recordId":"2",
+    "alarmRecordId":"2",
+    "dealTime":"2019-04-23 12:00",
+    "dealCovers":"处置内容2"
+  },
+  {
+    "recordId":"3",
+    "alarmRecordId":"3",
+    "dealTime":"2019-04-23 12:00",
+    "dealCovers":"处置内容3"
+  }
+]

@@ -1,0 +1,112 @@
+[
+	{
+			"wharfId": "167e322f-997f-40c8-84a5-379cda265e3a",
+			"wharfNo": "LNG码头",
+			"longitude": 118.5485153198,
+			"latitude": 38.9194717407,
+			"addInfor": "15.0",
+			"harborId": "e7d340d8-a8c6-4c78-9ae1-073674e8ef54",
+			"harborName": "开敞",
+			"orgId": "b48503bb-4441-4863-8dcf-0a3f48257544",
+			"ogName": "LNG码头"
+	},
+	{
+			"wharfId": "8ab8bf02-2d13-4957-afe3-d1a767d3b999",
+			"wharfNo": "国投煤码头",
+			"longitude": 118.4549255371,
+			"latitude": 38.9730033875,
+			"addInfor": "15.0",
+			"harborId": "16bde24e-633d-48de-8157-6b084e9e376b",
+			"harborName": "第一港池",
+			"orgId": "4f5afa34-f567-48f2-9a0b-4db4bac254f4",
+			"orgName": "国投码头"
+	},
+	{
+			"wharfId": "641ac8d0-37ac-486b-9b08-1e3a823d52f6",
+			"wharfNo": "河北钢铁码头",
+			"longitude": 118.41658020019531,
+			"latitude": 39.004558563232422,
+			"addInfor": "15.0",
+			"harborId": "e741a8ab-41ff-4ca1-bbe6-6eb123873f3b",
+			"harborName": "第二港池",
+			"orgId": "04a6598c-06d0-4f5a-954d-e74759a44edc",
+			"orgName": "唐山曹妃甸钢铁物流有限公司"
+	},
+	{
+			"wharfId": "9f9b1878-6d7e-4eb1-8c0c-0a510be43c96",
+			"wharfNo": "华电曹妃甸重工码头",
+			"longitude": 118.49756622314453,
+			"latitude": 39.080207824707031,
+			"addInfor": "15.0",
+			"harborId": "f110912c-8c99-460a-8aed-22c96e72ceae",
+			"harborName": "第三港池",
+			"orgId": "60ffd991-24ac-48c6-a803-322662cfbfc4",
+			"orgName": "华电曹妃甸重工装备有限公司"
+	},
+	{
+			"wharfId": "90939e64-74ac-4018-aeca-ee48d5c0e17b",
+			"wharfNo": "华能煤码头",
+			"longitude": 118.433333,
+			"latitude": 38.933333,
+			"addInfor": "15.0",
+			"harborId": "e7d340d8-a8c6-4c78-9ae1-073674e8ef54",
+			"harborName": "开敞",
+			"orgId": "6732135c-1975-4220-a0b0-430a5a45eb40",
+			"orgName": "华能曹妃甸港口有限公司"
+	},
+	{
+			"wharfId": "f37ca5d9-eeac-4485-86c0-315e9099c483",
+			"wharfNo": "集装箱码头",
+			"longitude": 118.47799682617187,
+			"latitude": 38.960109710693359,
+			"addInfor": "15.0",
+			"harborId": "16bde24e-633d-48de-8157-6b084e9e376b",
+			"harborName": "第一港池",
+			"orgId": "2e3548dc-bf9c-4066-a9ac-38f12781d281",
+			"orgName": "港口集团-通用码头"
+	},
+	{
+			"wharfId": "5206f0c4-463d-473c-bc08-3dfe10690d4b",
+			"wharfNo": "矿石码头二期",
+			"longitude": 118.49234771728516,
+			"latitude": 38.915699005126953,
+			"addInfor": "15.0",
+			"harborId": "e7d340d8-a8c6-4c78-9ae1-073674e8ef54",
+			"harborName": "开敞",
+			"orgId": "33a14910-9698-4080-85f1-327c8d1fe6d8",
+			"orgName": "实业公司码头"
+	},
+	{
+			"wharfId": "af3abc65-5216-45fa-8b98-34a6e75ceeb2",
+			"wharfNo": "矿石码头三期",
+			"longitude": 118.50838470458984,
+			"latitude": 38.914394378662109,
+			"addInfor": "15.0",
+			"harborId": "e7d340d8-a8c6-4c78-9ae1-073674e8ef54",
+			"harborName": "开敞",
+			"orgId": "2e3548dc-bf9c-4066-a9ac-38f12781d281",
+			"orgName": "港口集团-通用码头"
+	},
+	{
+			"wharfId": "20adba9f-dfcd-4428-83a4-ea1b627996d8",
+			"wharfNo": "矿石码头一期",
+			"longitude": 118.49895477294922,
+			"latitude": 38.914394378662109,
+			"addInfor": "15.0",
+			"harborId": "e7d340d8-a8c6-4c78-9ae1-073674e8ef54",
+			"harborName": "开敞",
+			"orgId": "33a14910-9698-4080-85f1-327c8d1fe6d8",
+			"orgName": "实业公司码头"
+	},
+	{
+			"wharfId": "02da2370-485c-426f-ad0a-a6803e21c252",
+			"wharfNo": "联运码头",
+			"longitude": 118.45,
+			"latitude": 39,
+			"addInfor": "15.0",
+			"harborId": "16bde24e-633d-48de-8157-6b084e9e376b",
+			"harborName": "第一港池",
+			"orgId": "ec0db567-d9ca-4c94-80c5-50e116f8b944",
+			"orgName": "曹妃甸港联运码头有限公司"
+	}
+]
