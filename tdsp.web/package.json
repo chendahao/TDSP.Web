@@ -1,5 +1,5 @@
 {
-  "name": "vts.psc.web",
+  "name": "tdsp.web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,12 +7,9 @@
     "build": "vue-cli-service build --report",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "bundle-report": "webpack-bundle-analyzer --port 8123 dist/stats.json",
-    "rapper": "rapper --type normal --rapperPath \"src/rapper\" --apiUrl \"http://rap2api.taobao.org/repository/get?id=282336&token=9tcvQIgldFxnzB8GUuXkts9LbV8jYsnP\" --rapUrl \"http://rap2.taobao.org\""
+    "bundle-report": "webpack-bundle-analyzer --port 8123 dist/stats.json"
   },
   "dependencies": {
-    "@types/jszip": "^3.4.1",
-    "@types/leaflet": "^1.5.15",
     "docxtemplater": "^3.19.3",
     "echarts": "^4.8.0",
     "file-saver": "^2.0.2",
@@ -20,7 +17,7 @@
     "jszip-utils": "^0.1.0",
     "leaflet": "^1.6.0",
     "lodash": "^4.17.21",
-    "lowdb": "^2.1.0",
+    "lowdb": "^1.0.0",
     "nprogress": "^0.2.0",
     "rap": "^1.2.0",
     "screenfull": "^5.0.2",
@@ -40,6 +37,10 @@
   "devDependencies": {
     "@therobot/vue-cli-plugin-drop-console": "^0.0.2",
     "@types/jest": "^23.1.4",
+    "@types/jszip": "^3.4.1",
+    "@types/leaflet": "^1.5.15",
+    "@types/lodash": "^4.14.170",
+    "@types/lowdb": "^1.0.10",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-plugin-typescript": "^4.4.6",

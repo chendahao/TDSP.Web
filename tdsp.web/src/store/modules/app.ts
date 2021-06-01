@@ -4,7 +4,7 @@ import {
   getHomeRoute
 } from '@/libs/util'
 import routers from '@/router/routes'
-import { RouteConfig, Route } from 'vue-router/types/router'
+import { RouteConfig, Route } from 'vue-router'
 const { homeName } = { homeName: 'home' }
 
 export default {

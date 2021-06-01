@@ -18,12 +18,12 @@
         <weather></weather>
       </v-row>
     </v-col>
-    <v-col cols="12" sm="12" md="4" lg="4" :style="{'background-color':$vuetify.theme.dark? '#082338':'#f1f5f8'}">
+    <!-- <v-col cols="12" sm="12" md="4" lg="4" :style="{'background-color':$vuetify.theme.dark? '#082338':'#f1f5f8'}">
       <kj></kj>
     </v-col>
     <v-col cols="12" sm="12" md="8" lg="8" :style="{'background-color':$vuetify.theme.dark? '#082338':'#f1f5f8'}">
       <throughput></throughput>
-    </v-col>
+    </v-col> -->
     <v-col cols="12" sm="12" md="7" lg="7" :style="{'background-color':$vuetify.theme.dark? '#082338':'#f1f5f8'}">
       <tide></tide>
     </v-col>

@@ -1,4 +1,4 @@
-import { Commit, Dispatch } from 'vuex/types/index'
+import { Commit, Dispatch } from 'vuex'
 interface info {
   fullName: string,
   gh: string,

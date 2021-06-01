@@ -14,7 +14,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/@babel/compat-data/-/compat-data-7.13.15.tgz"
   "version" "7.13.15"
 
-"@babel/core@^7.0.0":
+"@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.4.0-0":
   "integrity" "sha1-ptQJF98CdIe1QxIgKgaBLE93ktA="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/@babel/core/-/core-7.13.15.tgz"
   "version" "7.13.15"
@@ -803,12 +803,24 @@
   dependencies:
     "jszip" "*"
 
-"@types/leaflet@^1.5.15":
+"@types/leaflet@^1.5.15", "@types/leaflet@^1.5.7":
   "integrity" "sha1-NwD7XSmoIU+9SWVlsI7CjkDO6Ag="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/@types/leaflet/-/leaflet-1.7.0.tgz"
   "version" "1.7.0"
   dependencies:
     "@types/geojson" "*"
+
+"@types/lodash@*", "@types/lodash@^4.14.170":
+  "integrity" "sha1-DWdxHUv39MpRR+kJG4R0ebh5JdY="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/@types/lodash/-/lodash-4.14.170.tgz"
+  "version" "4.14.170"
+
+"@types/lowdb@^1.0.10":
+  "integrity" "sha1-b5kW2F+1NbPtLb8kxDR7OvmxGnI="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/@types/lowdb/-/lowdb-1.0.10.tgz"
+  "version" "1.0.10"
+  dependencies:
+    "@types/lodash" "*"
 
 "@types/minimatch@*":
   "integrity" "sha1-8Owl2/Lw5LGGRzE6wDETTKWySyE="
@@ -875,7 +887,7 @@
     "@typescript-eslint/typescript-estree" "1.13.0"
     "eslint-scope" "^4.0.0"
 
-"@typescript-eslint/parser@^1.1.0":
+"@typescript-eslint/parser@^1.1.0", "@typescript-eslint/parser@^1.9.0":
   "integrity" "sha1-Yax4EepSeRxH3J/U3UoYT66aw1U="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/@typescript-eslint/parser/-/parser-1.13.0.tgz"
   "version" "1.13.0"
@@ -1055,7 +1067,7 @@
     "jest-watch-typeahead" "0.2.1"
     "vue-jest" "^3.0.4"
 
-"@vue/cli-service@^3.5.0":
+"@vue/cli-service@^3.0.0 || ^4.0.0-0", "@vue/cli-service@^3.5.0":
   "integrity" "sha1-EyILHBiSVOfAAzkN8ykIb5tud+Y="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/@vue/cli-service/-/cli-service-3.12.1.tgz"
   "version" "3.12.1"
@@ -1424,7 +1436,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/acorn/-/acorn-5.7.4.tgz"
   "version" "5.7.4"
 
-"acorn@^6.0.1", "acorn@^6.0.2", "acorn@^6.0.7", "acorn@^6.1.1", "acorn@^6.4.1":
+"acorn@^6.0.0 || ^7.0.0 || ^8.0.0", "acorn@^6.0.1", "acorn@^6.0.2", "acorn@^6.0.7", "acorn@^6.1.1", "acorn@^6.4.1":
   "integrity" "sha1-NYZv1xBSjpLeEM8GAWSY5H454eY="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/acorn/-/acorn-6.4.2.tgz"
   "version" "6.4.2"
@@ -1470,7 +1482,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ajv-keywords/-/ajv-keywords-3.5.2.tgz"
   "version" "3.5.2"
 
-"ajv@^5.2.3":
+"ajv@^5.0.0", "ajv@^5.2.3", "ajv@^5.3.0":
   "integrity" "sha1-c7Xuyj+rZT49P5Qis0GtQiBdyWU="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ajv/-/ajv-5.5.2.tgz"
   "version" "5.5.2"
@@ -1480,17 +1492,7 @@
     "fast-json-stable-stringify" "^2.0.0"
     "json-schema-traverse" "^0.3.0"
 
-"ajv@^5.3.0":
-  "integrity" "sha1-c7Xuyj+rZT49P5Qis0GtQiBdyWU="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ajv/-/ajv-5.5.2.tgz"
-  "version" "5.5.2"
-  dependencies:
-    "co" "^4.6.0"
-    "fast-deep-equal" "^1.0.0"
-    "fast-json-stable-stringify" "^2.0.0"
-    "json-schema-traverse" "^0.3.0"
-
-"ajv@^6.1.0", "ajv@^6.10.2", "ajv@^6.12.2", "ajv@^6.12.3", "ajv@^6.12.4", "ajv@^6.12.5", "ajv@^6.9.1":
+"ajv@^6.1.0", "ajv@^6.10.2", "ajv@^6.12.2", "ajv@^6.12.3", "ajv@^6.12.4", "ajv@^6.12.5", "ajv@^6.9.1", "ajv@>=5.0.0":
   "integrity" "sha1-uvWmLoArB9l3A0WG+MO69a3ybfQ="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ajv/-/ajv-6.12.6.tgz"
   "version" "6.12.6"
@@ -1527,12 +1529,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ansi-html/-/ansi-html-0.0.7.tgz"
   "version" "0.0.7"
 
-"ansi-regex@^2.0.0":
-  "integrity" "sha1-w7M6te42DYbg5ijwRorn7yfWVN8="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ansi-regex/-/ansi-regex-2.1.1.tgz"
-  "version" "2.1.1"
-
-"ansi-regex@^2.1.1":
+"ansi-regex@^2.0.0", "ansi-regex@^2.1.1":
   "integrity" "sha1-w7M6te42DYbg5ijwRorn7yfWVN8="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ansi-regex/-/ansi-regex-2.1.1.tgz"
   "version" "2.1.1"
@@ -1811,6 +1808,11 @@
     "esutils" "^2.0.2"
     "js-tokens" "^3.0.2"
 
+"babel-core@^6.0.0 || ^7.0.0-0", "babel-core@^6.25.0 || ^7.0.0-0", "babel-core@7.0.0-bridge.0":
+  "integrity" "sha1-laSS3dkPm06aSh2hTrM1uHtjTs4="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/babel-core/-/babel-core-7.0.0-bridge.0.tgz"
+  "version" "7.0.0-bridge.0"
+
 "babel-core@^6.0.0":
   "integrity" "sha1-suLwnjQtDwyI4vAuBneUEl51wgc="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/babel-core/-/babel-core-6.26.3.tgz"
@@ -1860,11 +1862,6 @@
     "private" "^0.1.8"
     "slash" "^1.0.0"
     "source-map" "^0.5.7"
-
-"babel-core@7.0.0-bridge.0":
-  "integrity" "sha1-laSS3dkPm06aSh2hTrM1uHtjTs4="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/babel-core/-/babel-core-7.0.0-bridge.0.tgz"
-  "version" "7.0.0-bridge.0"
 
 "babel-eslint@^10.0.1":
   "integrity" "sha1-aWjlaKkQt4+zd5zdi2rC9HmUMjI="
@@ -2160,22 +2157,17 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/bluebird/-/bluebird-3.7.2.tgz"
   "version" "3.7.2"
 
-"bn.js@^4.0.0":
+"bn.js@^4.0.0", "bn.js@^4.1.0", "bn.js@^4.11.9":
   "integrity" "sha1-d1s/J477uXGO7HNh9IP7Nvu/6og="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/bn.js/-/bn.js-4.12.0.tgz"
   "version" "4.12.0"
 
-"bn.js@^4.1.0":
-  "integrity" "sha1-d1s/J477uXGO7HNh9IP7Nvu/6og="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/bn.js/-/bn.js-4.12.0.tgz"
-  "version" "4.12.0"
+"bn.js@^5.0.0":
+  "integrity" "sha1-NYhgZ0OWxpl3canQUfzBtX1K4AI="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/bn.js/-/bn.js-5.2.0.tgz"
+  "version" "5.2.0"
 
-"bn.js@^4.11.9":
-  "integrity" "sha1-d1s/J477uXGO7HNh9IP7Nvu/6og="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/bn.js/-/bn.js-4.12.0.tgz"
-  "version" "4.12.0"
-
-"bn.js@^5.0.0", "bn.js@^5.1.1":
+"bn.js@^5.1.1":
   "integrity" "sha1-NYhgZ0OWxpl3canQUfzBtX1K4AI="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/bn.js/-/bn.js-5.2.0.tgz"
   "version" "5.2.0"
@@ -2873,12 +2865,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/clone/-/clone-1.0.4.tgz"
   "version" "1.0.4"
 
-"clone@^2.1.1":
-  "integrity" "sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/clone/-/clone-2.1.2.tgz"
-  "version" "2.1.2"
-
-"clone@2.x":
+"clone@^2.1.1", "clone@2.x":
   "integrity" "sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/clone/-/clone-2.1.2.tgz"
   "version" "2.1.2"
@@ -3251,7 +3238,7 @@
     "safe-buffer" "^5.0.1"
     "sha.js" "^2.4.8"
 
-"cross-spawn@^5.0.1":
+"cross-spawn@^5.0.1", "cross-spawn@^5.1.0":
   "integrity" "sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/cross-spawn/-/cross-spawn-5.1.0.tgz"
   "version" "5.1.0"
@@ -3260,16 +3247,18 @@
     "shebang-command" "^1.2.0"
     "which" "^1.2.9"
 
-"cross-spawn@^5.1.0":
-  "integrity" "sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/cross-spawn/-/cross-spawn-5.1.0.tgz"
-  "version" "5.1.0"
+"cross-spawn@^6.0.0":
+  "integrity" "sha1-Sl7Hxk364iw6FBJNus3uhG2Ay8Q="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/cross-spawn/-/cross-spawn-6.0.5.tgz"
+  "version" "6.0.5"
   dependencies:
-    "lru-cache" "^4.0.1"
+    "nice-try" "^1.0.4"
+    "path-key" "^2.0.1"
+    "semver" "^5.5.0"
     "shebang-command" "^1.2.0"
     "which" "^1.2.9"
 
-"cross-spawn@^6.0.0", "cross-spawn@^6.0.5":
+"cross-spawn@^6.0.5":
   "integrity" "sha1-Sl7Hxk364iw6FBJNus3uhG2Ay8Q="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/cross-spawn/-/cross-spawn-6.0.5.tgz"
   "version" "6.0.5"
@@ -3319,7 +3308,7 @@
     "postcss" "^7.0.1"
     "timsort" "^0.3.0"
 
-"css-loader@^1.0.1":
+"css-loader@*", "css-loader@^1.0.1":
   "integrity" "sha1-aIW7UjOzXsR7AGBX2gHMZAtref4="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/css-loader/-/css-loader-1.0.1.tgz"
   "version" "1.0.1"
@@ -3542,28 +3531,7 @@
     "bindings" "^1.5.0"
     "node-addon-api" "^1.7.1"
 
-"debug@^2.2.0":
-  "integrity" "sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/debug/-/debug-2.6.9.tgz"
-  "version" "2.6.9"
-  dependencies:
-    "ms" "2.0.0"
-
-"debug@^2.3.3":
-  "integrity" "sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/debug/-/debug-2.6.9.tgz"
-  "version" "2.6.9"
-  dependencies:
-    "ms" "2.0.0"
-
-"debug@^2.6.8":
-  "integrity" "sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/debug/-/debug-2.6.9.tgz"
-  "version" "2.6.9"
-  dependencies:
-    "ms" "2.0.0"
-
-"debug@^2.6.9":
+"debug@^2.2.0", "debug@^2.3.3", "debug@^2.6.8", "debug@^2.6.9", "debug@2.6.9":
   "integrity" "sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/debug/-/debug-2.6.9.tgz"
   "version" "2.6.9"
@@ -3591,7 +3559,21 @@
   dependencies:
     "ms" "^2.1.1"
 
-"debug@^4.0.1", "debug@^4.1.0", "debug@^4.1.1":
+"debug@^4.0.1":
+  "integrity" "sha1-8NIpxQXgxtjEmsVT0bE9wYP2su4="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/debug/-/debug-4.3.1.tgz"
+  "version" "4.3.1"
+  dependencies:
+    "ms" "2.1.2"
+
+"debug@^4.1.0":
+  "integrity" "sha1-8NIpxQXgxtjEmsVT0bE9wYP2su4="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/debug/-/debug-4.3.1.tgz"
+  "version" "4.3.1"
+  dependencies:
+    "ms" "2.1.2"
+
+"debug@^4.1.1":
   "integrity" "sha1-8NIpxQXgxtjEmsVT0bE9wYP2su4="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/debug/-/debug-4.3.1.tgz"
   "version" "4.3.1"
@@ -3609,13 +3591,6 @@
   "integrity" "sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/debug/-/debug-3.1.0.tgz"
   "version" "3.1.0"
-  dependencies:
-    "ms" "2.0.0"
-
-"debug@2.6.9":
-  "integrity" "sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/debug/-/debug-2.6.9.tgz"
-  "version" "2.6.9"
   dependencies:
     "ms" "2.0.0"
 
@@ -4207,7 +4182,7 @@
     "eslint-utils" "^1.4.2"
     "regexpp" "^2.0.1"
 
-"eslint-plugin-import@^2.14.0":
+"eslint-plugin-import@^2.14.0", "eslint-plugin-import@>=2.13.0":
   "integrity" "sha1-CJbH5qDPRBCaLZe5WQPCu2iddwI="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/eslint-plugin-import/-/eslint-plugin-import-2.22.1.tgz"
   "version" "2.22.1"
@@ -4226,7 +4201,7 @@
     "resolve" "^1.17.0"
     "tsconfig-paths" "^3.9.0"
 
-"eslint-plugin-node@^8.0.0":
+"eslint-plugin-node@^8.0.0", "eslint-plugin-node@>=7.0.0":
   "integrity" "sha1-Va41YAIoY9FB+noReZUyNApoWWQ="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/eslint-plugin-node/-/eslint-plugin-node-8.0.1.tgz"
   "version" "8.0.1"
@@ -4238,12 +4213,12 @@
     "resolve" "^1.8.1"
     "semver" "^5.5.0"
 
-"eslint-plugin-promise@^4.0.1":
+"eslint-plugin-promise@^4.0.1", "eslint-plugin-promise@>=4.0.0":
   "integrity" "sha1-YUhd8qNZ4DFJ/a/AposOAwrSrEU="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/eslint-plugin-promise/-/eslint-plugin-promise-4.3.1.tgz"
   "version" "4.3.1"
 
-"eslint-plugin-standard@^4.0.0":
+"eslint-plugin-standard@^4.0.0", "eslint-plugin-standard@>=4.0.0":
   "integrity" "sha1-DDvzpn6FP4u7xYD7SUX78W9Bt8U="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/eslint-plugin-standard/-/eslint-plugin-standard-4.1.0.tgz"
   "version" "4.1.0"
@@ -4290,7 +4265,49 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/eslint-visitor-keys/-/eslint-visitor-keys-1.3.0.tgz"
   "version" "1.3.0"
 
-"eslint@^4.19.1":
+"eslint@*", "eslint@^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0", "eslint@^5.0.0", "eslint@^5.8.0", "eslint@>= 4.12.1", "eslint@>=4.19.1", "eslint@>=5.0.0":
+  "integrity" "sha1-oeOsGq5KP72Clvz496tzFMu2q+o="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/eslint/-/eslint-5.16.0.tgz"
+  "version" "5.16.0"
+  dependencies:
+    "@babel/code-frame" "^7.0.0"
+    "ajv" "^6.9.1"
+    "chalk" "^2.1.0"
+    "cross-spawn" "^6.0.5"
+    "debug" "^4.0.1"
+    "doctrine" "^3.0.0"
+    "eslint-scope" "^4.0.3"
+    "eslint-utils" "^1.3.1"
+    "eslint-visitor-keys" "^1.0.0"
+    "espree" "^5.0.1"
+    "esquery" "^1.0.1"
+    "esutils" "^2.0.2"
+    "file-entry-cache" "^5.0.1"
+    "functional-red-black-tree" "^1.0.1"
+    "glob" "^7.1.2"
+    "globals" "^11.7.0"
+    "ignore" "^4.0.6"
+    "import-fresh" "^3.0.0"
+    "imurmurhash" "^0.1.4"
+    "inquirer" "^6.2.2"
+    "js-yaml" "^3.13.0"
+    "json-stable-stringify-without-jsonify" "^1.0.1"
+    "levn" "^0.3.0"
+    "lodash" "^4.17.11"
+    "minimatch" "^3.0.4"
+    "mkdirp" "^0.5.1"
+    "natural-compare" "^1.4.0"
+    "optionator" "^0.8.2"
+    "path-is-inside" "^1.0.2"
+    "progress" "^2.0.0"
+    "regexpp" "^2.0.1"
+    "semver" "^5.5.1"
+    "strip-ansi" "^4.0.0"
+    "strip-json-comments" "^2.0.1"
+    "table" "^5.2.3"
+    "text-table" "^0.2.0"
+
+"eslint@^3.18.0 || ^4.0.0", "eslint@^4.19.1", "eslint@>=1.6.0 <7.0.0", "eslint@>=3.9.0":
   "integrity" "sha1-MtHWU+HZBAiFS/spbwdux+GGowA="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/eslint/-/eslint-4.19.1.tgz"
   "version" "4.19.1"
@@ -4333,48 +4350,6 @@
     "strip-json-comments" "~2.0.1"
     "table" "4.0.2"
     "text-table" "~0.2.0"
-
-"eslint@^5.8.0":
-  "integrity" "sha1-oeOsGq5KP72Clvz496tzFMu2q+o="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/eslint/-/eslint-5.16.0.tgz"
-  "version" "5.16.0"
-  dependencies:
-    "@babel/code-frame" "^7.0.0"
-    "ajv" "^6.9.1"
-    "chalk" "^2.1.0"
-    "cross-spawn" "^6.0.5"
-    "debug" "^4.0.1"
-    "doctrine" "^3.0.0"
-    "eslint-scope" "^4.0.3"
-    "eslint-utils" "^1.3.1"
-    "eslint-visitor-keys" "^1.0.0"
-    "espree" "^5.0.1"
-    "esquery" "^1.0.1"
-    "esutils" "^2.0.2"
-    "file-entry-cache" "^5.0.1"
-    "functional-red-black-tree" "^1.0.1"
-    "glob" "^7.1.2"
-    "globals" "^11.7.0"
-    "ignore" "^4.0.6"
-    "import-fresh" "^3.0.0"
-    "imurmurhash" "^0.1.4"
-    "inquirer" "^6.2.2"
-    "js-yaml" "^3.13.0"
-    "json-stable-stringify-without-jsonify" "^1.0.1"
-    "levn" "^0.3.0"
-    "lodash" "^4.17.11"
-    "minimatch" "^3.0.4"
-    "mkdirp" "^0.5.1"
-    "natural-compare" "^1.4.0"
-    "optionator" "^0.8.2"
-    "path-is-inside" "^1.0.2"
-    "progress" "^2.0.0"
-    "regexpp" "^2.0.1"
-    "semver" "^5.5.1"
-    "strip-ansi" "^4.0.0"
-    "strip-json-comments" "^2.0.1"
-    "table" "^5.2.3"
-    "text-table" "^0.2.0"
 
 "espree@^3.5.2", "espree@^3.5.4":
   "integrity" "sha1-sPRHGHyKi+2US4FaZgvd9d610ac="
@@ -4632,7 +4607,15 @@
   dependencies:
     "is-extendable" "^0.1.0"
 
-"extend-shallow@^3.0.0", "extend-shallow@^3.0.2":
+"extend-shallow@^3.0.0":
+  "integrity" "sha1-Jqcarwc7OfshJxcnRhMcJwQCjbg="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/extend-shallow/-/extend-shallow-3.0.2.tgz"
+  "version" "3.0.2"
+  dependencies:
+    "assign-symbols" "^1.0.0"
+    "is-extendable" "^1.0.1"
+
+"extend-shallow@^3.0.2":
   "integrity" "sha1-Jqcarwc7OfshJxcnRhMcJwQCjbg="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/extend-shallow/-/extend-shallow-3.0.2.tgz"
   "version" "3.0.2"
@@ -5134,25 +5117,6 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
 
-"fsevents@^1.2.3":
-  "integrity" "sha1-8yXLBFVZJCi88Rs4M3DvcOO/zDg="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/fsevents/-/fsevents-1.2.13.tgz"
-  "version" "1.2.13"
-  dependencies:
-    "bindings" "^1.5.0"
-
-"fsevents@^1.2.7":
-  "integrity" "sha1-8yXLBFVZJCi88Rs4M3DvcOO/zDg="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/fsevents/-/fsevents-1.2.13.tgz"
-  "version" "1.2.13"
-  dependencies:
-    "bindings" "^1.5.0"
-
-"fsevents@~2.3.1":
-  "integrity" "sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/fsevents/-/fsevents-2.3.2.tgz"
-  "version" "2.3.2"
-
 "function-bind@^1.1.1":
   "integrity" "sha1-pWiZ0+o8m6uHS7l3O3xe3pL0iV0="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/function-bind/-/function-bind-1.1.1.tgz"
@@ -5173,12 +5137,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/get-caller-file/-/get-caller-file-1.0.3.tgz"
   "version" "1.0.3"
 
-"get-caller-file@^2.0.1":
-  "integrity" "sha1-T5RBKoLbMvNuOwuXQfipf+sDH34="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/get-caller-file/-/get-caller-file-2.0.5.tgz"
-  "version" "2.0.5"
-
-"get-caller-file@^2.0.5":
+"get-caller-file@^2.0.1", "get-caller-file@^2.0.5":
   "integrity" "sha1-T5RBKoLbMvNuOwuXQfipf+sDH34="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/get-caller-file/-/get-caller-file-2.0.5.tgz"
   "version" "2.0.5"
@@ -5317,7 +5276,7 @@
     "pify" "^4.0.1"
     "slash" "^2.0.0"
 
-"graceful-fs@^4.1.11", "graceful-fs@^4.1.15", "graceful-fs@^4.1.2", "graceful-fs@^4.1.6", "graceful-fs@^4.2.0", "graceful-fs@^4.2.2":
+"graceful-fs@^4.1.11", "graceful-fs@^4.1.15", "graceful-fs@^4.1.2", "graceful-fs@^4.1.3", "graceful-fs@^4.1.6", "graceful-fs@^4.2.0", "graceful-fs@^4.2.2":
   "integrity" "sha1-/wQLKwhTsjw9MQJ1I3BvGIXXa+4="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/graceful-fs/-/graceful-fs-4.2.6.tgz"
   "version" "4.2.6"
@@ -5549,7 +5508,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/html-tags/-/html-tags-2.0.0.tgz"
   "version" "2.0.0"
 
-"html-webpack-plugin@^3.2.0":
+"html-webpack-plugin@^3.2.0", "html-webpack-plugin@>=2.26.0":
   "integrity" "sha1-sBq71yOsqqeze2r0SS69oD2d03s="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/html-webpack-plugin/-/html-webpack-plugin-3.2.0.tgz"
   "version" "3.2.0"
@@ -6020,16 +5979,7 @@
     "is-data-descriptor" "^0.1.4"
     "kind-of" "^5.0.0"
 
-"is-descriptor@^1.0.0":
-  "integrity" "sha1-OxWXRqZmBLBPjIFSS6NlxfFNhuw="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/is-descriptor/-/is-descriptor-1.0.2.tgz"
-  "version" "1.0.2"
-  dependencies:
-    "is-accessor-descriptor" "^1.0.0"
-    "is-data-descriptor" "^1.0.0"
-    "kind-of" "^6.0.2"
-
-"is-descriptor@^1.0.2":
+"is-descriptor@^1.0.0", "is-descriptor@^1.0.2":
   "integrity" "sha1-OxWXRqZmBLBPjIFSS6NlxfFNhuw="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/is-descriptor/-/is-descriptor-1.0.2.tgz"
   "version" "1.0.2"
@@ -6077,7 +6027,12 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/is-extglob/-/is-extglob-1.0.0.tgz"
   "version" "1.0.0"
 
-"is-extglob@^2.1.0", "is-extglob@^2.1.1":
+"is-extglob@^2.1.0":
+  "integrity" "sha1-qIwCU1eR8C7TfHahueqXc8gz+MI="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/is-extglob/-/is-extglob-2.1.1.tgz"
+  "version" "2.1.1"
+
+"is-extglob@^2.1.1":
   "integrity" "sha1-qIwCU1eR8C7TfHahueqXc8gz+MI="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/is-extglob/-/is-extglob-2.1.1.tgz"
   "version" "2.1.1"
@@ -6222,7 +6177,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/is-primitive/-/is-primitive-2.0.0.tgz"
   "version" "2.0.0"
 
-"is-promise@^2.2.2":
+"is-promise@^2.1.0", "is-promise@^2.2.2":
   "integrity" "sha1-OauVnMv5p3TPB597QMeib3YxNfE="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/is-promise/-/is-promise-2.2.2.tgz"
   "version" "2.2.2"
@@ -6734,7 +6689,7 @@
   dependencies:
     "merge-stream" "^1.0.1"
 
-"jest@^23.6.0":
+"jest@^23.6.0", "jest@>=22 <24":
   "integrity" "sha1-rVg16SPr9uGeeh11KaQy7f7ngT0="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/jest/-/jest-23.6.0.tgz"
   "version" "23.6.0"
@@ -6934,7 +6889,7 @@
   "integrity" "sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/jsonfile/-/jsonfile-4.0.0.tgz"
   "version" "4.0.0"
-  dependencies:
+  optionalDependencies:
     "graceful-fs" "^4.1.6"
 
 "jsonfile@^6.0.1":
@@ -6942,8 +6897,9 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/jsonfile/-/jsonfile-6.1.0.tgz"
   "version" "6.1.0"
   dependencies:
-    "graceful-fs" "^4.1.6"
     "universalify" "^2.0.0"
+  optionalDependencies:
+    "graceful-fs" "^4.1.6"
 
 "jsprim@^1.2.2":
   "integrity" "sha1-MT5mvB5cwG5Di8G3SZwuXFastqI="
@@ -6972,21 +6928,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/killable/-/killable-1.0.1.tgz"
   "version" "1.0.1"
 
-"kind-of@^3.0.2":
-  "integrity" "sha1-MeohpzS6ubuw8yRm2JOupR5KPGQ="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/kind-of/-/kind-of-3.2.2.tgz"
-  "version" "3.2.2"
-  dependencies:
-    "is-buffer" "^1.1.5"
-
-"kind-of@^3.0.3":
-  "integrity" "sha1-MeohpzS6ubuw8yRm2JOupR5KPGQ="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/kind-of/-/kind-of-3.2.2.tgz"
-  "version" "3.2.2"
-  dependencies:
-    "is-buffer" "^1.1.5"
-
-"kind-of@^3.2.0":
+"kind-of@^3.0.2", "kind-of@^3.0.3", "kind-of@^3.2.0":
   "integrity" "sha1-MeohpzS6ubuw8yRm2JOupR5KPGQ="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/kind-of/-/kind-of-3.2.2.tgz"
   "version" "3.2.2"
@@ -7005,7 +6947,12 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/kind-of/-/kind-of-5.1.0.tgz"
   "version" "5.1.0"
 
-"kind-of@^6.0.0", "kind-of@^6.0.2":
+"kind-of@^6.0.0":
+  "integrity" "sha1-B8BQNKbDSfoG4k+jWqdttFgM5N0="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/kind-of/-/kind-of-6.0.3.tgz"
+  "version" "6.0.3"
+
+"kind-of@^6.0.2":
   "integrity" "sha1-B8BQNKbDSfoG4k+jWqdttFgM5N0="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/kind-of/-/kind-of-6.0.3.tgz"
   "version" "6.0.3"
@@ -7037,7 +6984,7 @@
   dependencies:
     "invert-kv" "^2.0.0"
 
-"leaflet@^1.6.0":
+"leaflet@^1.3.4", "leaflet@^1.6.0":
   "integrity" "sha1-ENaEkW7f4b9B1oijuXEnwDIqKhk="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/leaflet/-/leaflet-1.7.1.tgz"
   "version" "1.7.1"
@@ -7056,16 +7003,16 @@
     "loader-utils" "^1.1.0"
     "pify" "^3.0.0"
 
-"less@^3.0.4":
+"less@^2.3.1 || ^3.0.0", "less@^3.0.4":
   "integrity" "sha1-DryR0qDpwMZzW4PUlrCrBYMHeQk="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/less/-/less-3.13.1.tgz"
   "version" "3.13.1"
   dependencies:
     "copy-anything" "^2.0.1"
-    "errno" "^0.1.1"
-    "graceful-fs" "^4.1.2"
     "tslib" "^1.10.0"
   optionalDependencies:
+    "errno" "^0.1.1"
+    "graceful-fs" "^4.1.2"
     "image-size" "~0.5.0"
     "make-dir" "^2.1.0"
     "mime" "^1.4.1"
@@ -7225,7 +7172,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/lodash.uniq/-/lodash.uniq-4.5.0.tgz"
   "version" "4.5.0"
 
-"lodash@^4.17.11", "lodash@^4.17.12", "lodash@^4.17.14", "lodash@^4.17.15", "lodash@^4.17.19", "lodash@^4.17.20", "lodash@^4.17.21", "lodash@^4.17.3", "lodash@^4.17.4", "lodash@^4.3.0":
+"lodash@^4.17.11", "lodash@^4.17.12", "lodash@^4.17.14", "lodash@^4.17.15", "lodash@^4.17.19", "lodash@^4.17.20", "lodash@^4.17.21", "lodash@^4.17.3", "lodash@^4.17.4", "lodash@^4.3.0", "lodash@4":
   "integrity" "sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
@@ -7256,43 +7203,23 @@
   dependencies:
     "js-tokens" "^3.0.0 || ^4.0.0"
 
-"lowdb@^2.1.0":
-  "integrity" "sha1-yAY+Iotas+CC7OkOBRJTfstuHio="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/lowdb/-/lowdb-2.1.0.tgz"
-  "version" "2.1.0"
+"lowdb@^1.0.0":
+  "integrity" "sha1-UkO+ayJ4bMzjDlDJoz6sNrIMgGQ="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/lowdb/-/lowdb-1.0.0.tgz"
+  "version" "1.0.0"
   dependencies:
-    "steno" "^1.0.0"
+    "graceful-fs" "^4.1.3"
+    "is-promise" "^2.1.0"
+    "lodash" "4"
+    "pify" "^3.0.0"
+    "steno" "^0.4.1"
 
 "lower-case@^1.1.1":
   "integrity" "sha1-miyr0bno4K6ZOkv31YdcOcQujqw="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/lower-case/-/lower-case-1.1.4.tgz"
   "version" "1.1.4"
 
-"lru-cache@^4.0.1":
-  "integrity" "sha1-i75Q6oW+1ZvJ4z3KuCNe6bz0Q80="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/lru-cache/-/lru-cache-4.1.5.tgz"
-  "version" "4.1.5"
-  dependencies:
-    "pseudomap" "^1.0.2"
-    "yallist" "^2.1.2"
-
-"lru-cache@^4.1.1":
-  "integrity" "sha1-i75Q6oW+1ZvJ4z3KuCNe6bz0Q80="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/lru-cache/-/lru-cache-4.1.5.tgz"
-  "version" "4.1.5"
-  dependencies:
-    "pseudomap" "^1.0.2"
-    "yallist" "^2.1.2"
-
-"lru-cache@^4.1.2":
-  "integrity" "sha1-i75Q6oW+1ZvJ4z3KuCNe6bz0Q80="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/lru-cache/-/lru-cache-4.1.5.tgz"
-  "version" "4.1.5"
-  dependencies:
-    "pseudomap" "^1.0.2"
-    "yallist" "^2.1.2"
-
-"lru-cache@^4.1.5":
+"lru-cache@^4.0.1", "lru-cache@^4.1.1", "lru-cache@^4.1.2", "lru-cache@^4.1.5":
   "integrity" "sha1-i75Q6oW+1ZvJ4z3KuCNe6bz0Q80="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/lru-cache/-/lru-cache-4.1.5.tgz"
   "version" "4.1.5"
@@ -7328,7 +7255,7 @@
   dependencies:
     "pify" "^3.0.0"
 
-"make-dir@^2.0.0":
+"make-dir@^2.0.0", "make-dir@^2.1.0":
   "integrity" "sha1-XwMQ4YuL6JjMBwCSlaMK5B6R5vU="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/make-dir/-/make-dir-2.1.0.tgz"
   "version" "2.1.0"
@@ -7336,15 +7263,14 @@
     "pify" "^4.0.1"
     "semver" "^5.6.0"
 
-"make-dir@^2.1.0":
-  "integrity" "sha1-XwMQ4YuL6JjMBwCSlaMK5B6R5vU="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/make-dir/-/make-dir-2.1.0.tgz"
-  "version" "2.1.0"
+"make-dir@^3.0.2":
+  "integrity" "sha1-QV6WcEazp/HRhSd9hKpYIDcmoT8="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/make-dir/-/make-dir-3.1.0.tgz"
+  "version" "3.1.0"
   dependencies:
-    "pify" "^4.0.1"
-    "semver" "^5.6.0"
+    "semver" "^6.0.0"
 
-"make-dir@^3.0.2", "make-dir@^3.1.0":
+"make-dir@^3.1.0":
   "integrity" "sha1-QV6WcEazp/HRhSd9hKpYIDcmoT8="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/make-dir/-/make-dir-3.1.0.tgz"
   "version" "3.1.0"
@@ -7572,32 +7498,27 @@
   dependencies:
     "mime-db" "1.47.0"
 
-"mime@^1.4.1":
+"mime@^1.4.1", "mime@1.6.0":
   "integrity" "sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/mime/-/mime-1.6.0.tgz"
   "version" "1.6.0"
 
-"mime@^2.0.3", "mime@^2.4.4":
+"mime@^2.0.3":
   "integrity" "sha1-bj3GzCuVEGQ4MOXxnVy3U9pe6r4="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/mime/-/mime-2.5.2.tgz"
   "version" "2.5.2"
 
-"mime@1.6.0":
-  "integrity" "sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/mime/-/mime-1.6.0.tgz"
-  "version" "1.6.0"
+"mime@^2.4.4":
+  "integrity" "sha1-bj3GzCuVEGQ4MOXxnVy3U9pe6r4="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/mime/-/mime-2.5.2.tgz"
+  "version" "2.5.2"
 
 "mimic-fn@^1.0.0":
   "integrity" "sha1-ggyGo5M0ZA6ZUWkovQP8qIBX0CI="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/mimic-fn/-/mimic-fn-1.2.0.tgz"
   "version" "1.2.0"
 
-"mimic-fn@^2.0.0":
-  "integrity" "sha1-ftLCzMyvhNP/y3pptXcR/CCDQBs="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/mimic-fn/-/mimic-fn-2.1.0.tgz"
-  "version" "2.1.0"
-
-"mimic-fn@^2.1.0":
+"mimic-fn@^2.0.0", "mimic-fn@^2.1.0":
   "integrity" "sha1-ftLCzMyvhNP/y3pptXcR/CCDQBs="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/mimic-fn/-/mimic-fn-2.1.0.tgz"
   "version" "2.1.0"
@@ -7736,7 +7657,7 @@
     "rimraf" "^2.5.4"
     "run-queue" "^1.0.3"
 
-"ms@^2.1.1", "ms@2.1.2":
+"ms@^2.1.1":
   "integrity" "sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ms/-/ms-2.1.2.tgz"
   "version" "2.1.2"
@@ -7750,6 +7671,11 @@
   "integrity" "sha1-MKWGTrPrsKZvLr5tcnrwagnYbgo="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ms/-/ms-2.1.1.tgz"
   "version" "2.1.1"
+
+"ms@2.1.2":
+  "integrity" "sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ms/-/ms-2.1.2.tgz"
+  "version" "2.1.2"
 
 "multicast-dns-service-types@^1.1.0":
   "integrity" "sha1-iZ8R2WhuXgXLkbNdXw5jt3PPyQE="
@@ -8963,17 +8889,17 @@
     "postcss" "^7.0.0"
     "uniqs" "^2.0.0"
 
-"postcss-value-parser@^3.0.0":
+"postcss-value-parser@^3.0.0", "postcss-value-parser@^3.3.0":
   "integrity" "sha1-n/giVH4okyE88cMO+lGsX9G6goE="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/postcss-value-parser/-/postcss-value-parser-3.3.1.tgz"
   "version" "3.3.1"
 
-"postcss-value-parser@^3.3.0":
-  "integrity" "sha1-n/giVH4okyE88cMO+lGsX9G6goE="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/postcss-value-parser/-/postcss-value-parser-3.3.1.tgz"
-  "version" "3.3.1"
+"postcss-value-parser@^4.0.2":
+  "integrity" "sha1-RD9qIM7WSBor2k+oUypuVdeJoss="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz"
+  "version" "4.1.0"
 
-"postcss-value-parser@^4.0.2", "postcss-value-parser@^4.1.0":
+"postcss-value-parser@^4.1.0":
   "integrity" "sha1-RD9qIM7WSBor2k+oUypuVdeJoss="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz"
   "version" "4.1.0"
@@ -9523,7 +9449,7 @@
     "stealthy-require" "^1.1.1"
     "tough-cookie" "^2.3.3"
 
-"request@^2.87.0", "request@^2.88.2":
+"request@^2.34", "request@^2.87.0", "request@^2.88.2":
   "integrity" "sha1-1zyRhzHLWofaBH4gcjQUb2ZNErM="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/request/-/request-2.88.2.tgz"
   "version" "2.88.2"
@@ -9793,7 +9719,25 @@
     "ajv-errors" "^1.0.0"
     "ajv-keywords" "^3.1.0"
 
-"schema-utils@^2.0.0", "schema-utils@^2.6.1", "schema-utils@^2.6.5":
+"schema-utils@^2.0.0":
+  "integrity" "sha1-HKTzLRskxZDCA7jnpQvw6kzTlNc="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/schema-utils/-/schema-utils-2.7.1.tgz"
+  "version" "2.7.1"
+  dependencies:
+    "@types/json-schema" "^7.0.5"
+    "ajv" "^6.12.4"
+    "ajv-keywords" "^3.5.2"
+
+"schema-utils@^2.6.1":
+  "integrity" "sha1-HKTzLRskxZDCA7jnpQvw6kzTlNc="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/schema-utils/-/schema-utils-2.7.1.tgz"
+  "version" "2.7.1"
+  dependencies:
+    "@types/json-schema" "^7.0.5"
+    "ajv" "^6.12.4"
+    "ajv-keywords" "^3.5.2"
+
+"schema-utils@^2.6.5":
   "integrity" "sha1-HKTzLRskxZDCA7jnpQvw6kzTlNc="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/schema-utils/-/schema-utils-2.7.1.tgz"
   "version" "2.7.1"
@@ -9844,32 +9788,32 @@
   dependencies:
     "node-forge" "^0.10.0"
 
-"semver@^5.3.0":
+"semver@^5.3.0", "semver@^5.5", "semver@^5.5.0", "semver@^5.5.1", "semver@^5.6.0", "semver@2 || 3 || 4 || 5":
   "integrity" "sha1-qVT5Ma66UI0we78Gnv8MAclhFvc="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/semver/-/semver-5.7.1.tgz"
   "version" "5.7.1"
 
-"semver@^5.5.0":
-  "integrity" "sha1-qVT5Ma66UI0we78Gnv8MAclhFvc="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/semver/-/semver-5.7.1.tgz"
-  "version" "5.7.1"
+"semver@^6.0.0":
+  "integrity" "sha1-7gpkyK9ejO6mdoexM3YeG+y9HT0="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/semver/-/semver-6.3.0.tgz"
+  "version" "6.3.0"
 
-"semver@^5.5.1":
-  "integrity" "sha1-qVT5Ma66UI0we78Gnv8MAclhFvc="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/semver/-/semver-5.7.1.tgz"
-  "version" "5.7.1"
+"semver@^6.1.0":
+  "integrity" "sha1-7gpkyK9ejO6mdoexM3YeG+y9HT0="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/semver/-/semver-6.3.0.tgz"
+  "version" "6.3.0"
 
-"semver@^5.5":
-  "integrity" "sha1-qVT5Ma66UI0we78Gnv8MAclhFvc="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/semver/-/semver-5.7.1.tgz"
-  "version" "5.7.1"
+"semver@^6.1.1":
+  "integrity" "sha1-7gpkyK9ejO6mdoexM3YeG+y9HT0="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/semver/-/semver-6.3.0.tgz"
+  "version" "6.3.0"
 
-"semver@^5.6.0":
-  "integrity" "sha1-qVT5Ma66UI0we78Gnv8MAclhFvc="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/semver/-/semver-5.7.1.tgz"
-  "version" "5.7.1"
+"semver@^6.1.2":
+  "integrity" "sha1-7gpkyK9ejO6mdoexM3YeG+y9HT0="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/semver/-/semver-6.3.0.tgz"
+  "version" "6.3.0"
 
-"semver@^6.0.0", "semver@^6.1.0", "semver@^6.1.1", "semver@^6.1.2", "semver@^6.3.0":
+"semver@^6.3.0":
   "integrity" "sha1-7gpkyK9ejO6mdoexM3YeG+y9HT0="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/semver/-/semver-6.3.0.tgz"
   "version" "6.3.0"
@@ -9887,11 +9831,6 @@
   "version" "7.3.5"
   dependencies:
     "lru-cache" "^6.0.0"
-
-"semver@2 || 3 || 4 || 5":
-  "integrity" "sha1-qVT5Ma66UI0we78Gnv8MAclhFvc="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/semver/-/semver-5.7.1.tgz"
-  "version" "5.7.1"
 
 "semver@5.5.0":
   "integrity" "sha1-3Eu8emyp2Rbe5dQ1FvAJK1j3uKs="
@@ -10197,17 +10136,22 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/source-map-url/-/source-map-url-0.4.1.tgz"
   "version" "0.4.1"
 
-"source-map@^0.5.0", "source-map@^0.5.3", "source-map@^0.5.6", "source-map@^0.5.7":
+"source-map@^0.5.0":
   "integrity" "sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/source-map/-/source-map-0.5.7.tgz"
   "version" "0.5.7"
 
-"source-map@^0.6.0":
-  "integrity" "sha1-dHIq8y6WFOnCh6jQu95IteLxomM="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/source-map/-/source-map-0.6.1.tgz"
-  "version" "0.6.1"
+"source-map@^0.5.3":
+  "integrity" "sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/source-map/-/source-map-0.5.7.tgz"
+  "version" "0.5.7"
 
-"source-map@^0.6.1":
+"source-map@^0.5.6", "source-map@^0.5.7":
+  "integrity" "sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/source-map/-/source-map-0.5.7.tgz"
+  "version" "0.5.7"
+
+"source-map@^0.6.0", "source-map@^0.6.1", "source-map@~0.6.0", "source-map@~0.6.1":
   "integrity" "sha1-dHIq8y6WFOnCh6jQu95IteLxomM="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/source-map/-/source-map-0.6.1.tgz"
   "version" "0.6.1"
@@ -10216,16 +10160,6 @@
   "integrity" "sha1-UwL4FpAxc1ImVECS5kmB91F1A4M="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/source-map/-/source-map-0.7.3.tgz"
   "version" "0.7.3"
-
-"source-map@~0.6.0":
-  "integrity" "sha1-dHIq8y6WFOnCh6jQu95IteLxomM="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/source-map/-/source-map-0.6.1.tgz"
-  "version" "0.6.1"
-
-"source-map@~0.6.1":
-  "integrity" "sha1-dHIq8y6WFOnCh6jQu95IteLxomM="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/source-map/-/source-map-0.6.1.tgz"
-  "version" "0.6.1"
 
 "spdx-correct@^3.0.0":
   "integrity" "sha1-3s6BrJweZxPl99G28X1Gj6U9iak="
@@ -10372,10 +10306,12 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/stealthy-require/-/stealthy-require-1.1.1.tgz"
   "version" "1.1.1"
 
-"steno@^1.0.0":
-  "integrity" "sha1-R14yxgZuyXYCKeqvFVBgF2T77Lo="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/steno/-/steno-1.0.0.tgz"
-  "version" "1.0.0"
+"steno@^0.4.1":
+  "integrity" "sha1-BxEFvfwobmYVwEA8J+nXtdy4Vcs="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/steno/-/steno-0.4.4.tgz"
+  "version" "0.4.4"
+  dependencies:
+    "graceful-fs" "^4.1.3"
 
 "stream-browserify@^2.0.1":
   "integrity" "sha1-h1IdOKRKp+6RzhzSpH3wy0ndZgs="
@@ -10446,7 +10382,16 @@
     "is-fullwidth-code-point" "^2.0.0"
     "strip-ansi" "^4.0.0"
 
-"string-width@^3.0.0", "string-width@^3.1.0":
+"string-width@^3.0.0":
+  "integrity" "sha1-InZ74htirxCBV0MG9prFG2IgOWE="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/string-width/-/string-width-3.1.0.tgz"
+  "version" "3.1.0"
+  dependencies:
+    "emoji-regex" "^7.0.1"
+    "is-fullwidth-code-point" "^2.0.0"
+    "strip-ansi" "^5.1.0"
+
+"string-width@^3.1.0":
   "integrity" "sha1-InZ74htirxCBV0MG9prFG2IgOWE="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/string-width/-/string-width-3.1.0.tgz"
   "version" "3.1.0"
@@ -10512,7 +10457,21 @@
   dependencies:
     "ansi-regex" "^3.0.0"
 
-"strip-ansi@^5", "strip-ansi@^5.0.0", "strip-ansi@^5.1.0", "strip-ansi@^5.2.0":
+"strip-ansi@^5.0.0", "strip-ansi@^5.1.0":
+  "integrity" "sha1-jJpTb+tq/JYr36WxBKUJHBrZwK4="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/strip-ansi/-/strip-ansi-5.2.0.tgz"
+  "version" "5.2.0"
+  dependencies:
+    "ansi-regex" "^4.1.0"
+
+"strip-ansi@^5.1.0", "strip-ansi@^5.2.0":
+  "integrity" "sha1-jJpTb+tq/JYr36WxBKUJHBrZwK4="
+  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/strip-ansi/-/strip-ansi-5.2.0.tgz"
+  "version" "5.2.0"
+  dependencies:
+    "ansi-regex" "^4.1.0"
+
+"strip-ansi@^5":
   "integrity" "sha1-jJpTb+tq/JYr36WxBKUJHBrZwK4="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/strip-ansi/-/strip-ansi-5.2.0.tgz"
   "version" "5.2.0"
@@ -10533,12 +10492,7 @@
   dependencies:
     "is-utf8" "^0.2.0"
 
-"strip-bom@^3.0.0":
-  "integrity" "sha1-IzTBjpx1n3vdVv3vfprj1YjmjtM="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/strip-bom/-/strip-bom-3.0.0.tgz"
-  "version" "3.0.0"
-
-"strip-bom@3.0.0":
+"strip-bom@^3.0.0", "strip-bom@3.0.0":
   "integrity" "sha1-IzTBjpx1n3vdVv3vfprj1YjmjtM="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/strip-bom/-/strip-bom-3.0.0.tgz"
   "version" "3.0.0"
@@ -10581,7 +10535,7 @@
     "lodash.clonedeep" "^4.5.0"
     "when" "~3.6.x"
 
-"stylus@^0.54.5":
+"stylus@^0.54.5", "stylus@>=0.52.4":
   "integrity" "sha1-PaPmWWa8Vnp7BEv+DuzmU+CZ0Uc="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/stylus/-/stylus-0.54.8.tgz"
   "version" "0.54.8"
@@ -11025,7 +10979,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/typedarray/-/typedarray-0.0.6.tgz"
   "version" "0.0.6"
 
-"typescript@~3.9.3":
+"typescript@*", "typescript@>=2", "typescript@>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >= 3.0.0-dev || >= 3.1.0-dev", "typescript@>=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >=3.0.0-dev || >= 3.1.0-dev || >= 3.2.0-dev", "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", "typescript@~3.9.3":
   "integrity" "sha1-5pkFxUvAaB0FGL1NWHzG8tCxpnQ="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/typescript/-/typescript-3.9.9.tgz"
   "version" "3.9.9"
@@ -11374,7 +11328,7 @@
     "hash-sum" "^1.0.2"
     "loader-utils" "^1.0.2"
 
-"vue-template-compiler@^2.6.11":
+"vue-template-compiler@^2.0.0", "vue-template-compiler@^2.6.10", "vue-template-compiler@^2.6.11", "vue-template-compiler@^2.x":
   "integrity" "sha1-lH7XGWdEyKUoXr4SM/6WBDf8xX4="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/vue-template-compiler/-/vue-template-compiler-2.6.12.tgz"
   "version" "2.6.12"
@@ -11387,7 +11341,7 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2.6.11", "vue@^2.6.4":
+"vue@^2.0.0", "vue@^2.5.17", "vue@^2.6.0", "vue@^2.6.11", "vue@^2.6.4", "vue@^2.x", "vue@2.x":
   "integrity" "sha1-9evU+mvShpQD4pqJau1JBEVskSM="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/vue/-/vue-2.6.12.tgz"
   "version" "2.6.12"
@@ -11406,7 +11360,7 @@
     "file-loader" "^6.2.0"
     "loader-utils" "^2.0.0"
 
-"vuetify@^2.4.11":
+"vuetify@^1.3.0 || ^2.0.0", "vuetify@^2.4.11":
   "integrity" "sha1-OroZoyzYnF3OUjJg9YnPldkOLc4="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/vuetify/-/vuetify-2.4.11.tgz"
   "version" "2.4.11"
@@ -11460,10 +11414,10 @@
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/watchpack/-/watchpack-1.7.5.tgz"
   "version" "1.7.5"
   dependencies:
-    "chokidar" "^3.4.1"
     "graceful-fs" "^4.1.2"
     "neo-async" "^2.5.0"
   optionalDependencies:
+    "chokidar" "^3.4.1"
     "watchpack-chokidar2" "^2.0.1"
 
 "wbuf@^1.1.0", "wbuf@^1.7.3":
@@ -11585,7 +11539,7 @@
     "source-list-map" "^2.0.0"
     "source-map" "~0.6.1"
 
-"webpack@^4.0.0":
+"webpack@^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0", "webpack@^2.0.0 || ^3.0.0 || ^4.0.0", "webpack@^3.0.0 || ^4.0.0", "webpack@^3.0.0 || ^4.1.0 || ^5.0.0-0", "webpack@^4.0.0", "webpack@^4.0.0 || ^5.0.0", "webpack@^4.3.0", "webpack@^4.3.0 || ^5.0.0", "webpack@^4.4.0", "webpack@>=2", "webpack@>=2.0.0 <5.0.0", "webpack@>=4.0.0":
   "integrity" "sha1-v5tEBOogoHNgXgoBHRiNd8tq1UI="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/webpack/-/webpack-4.46.0.tgz"
   "version" "4.46.0"
@@ -11788,21 +11742,14 @@
   dependencies:
     "async-limiter" "~1.0.0"
 
-"ws@^6.0.0":
+"ws@^6.0.0", "ws@^6.2.1":
   "integrity" "sha1-RC/fCkftZPWbal2P8TD0dI7VJPs="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ws/-/ws-6.2.1.tgz"
   "version" "6.2.1"
   dependencies:
     "async-limiter" "~1.0.0"
 
-"ws@^6.2.1":
-  "integrity" "sha1-RC/fCkftZPWbal2P8TD0dI7VJPs="
-  "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/ws/-/ws-6.2.1.tgz"
-  "version" "6.2.1"
-  dependencies:
-    "async-limiter" "~1.0.0"
-
-"xe-utils@^3.0.4":
+"xe-utils@^3.0.0", "xe-utils@^3.0.4":
   "integrity" "sha1-6YPu28XoJNEnbOfvB3wFbfsdakk="
   "resolved" "https://pkgs.dev.azure.com/VTSMIS/_packaging/CCHP.VTS/npm/registry/xe-utils/-/xe-utils-3.1.13.tgz"
   "version" "3.1.13"
