@@ -227,9 +227,9 @@ export default {
           // 编辑
         }
         if (data.status === 200 || data.status === 201) {
-          this.message.ShowMessage('保存成功', 'success')
+          this.$message.success('保存成功')
         } else {
-          this.message.ShowMessage('保存数据出错', 'error')
+          this.$message.error('保存数据出错')
         }
         this.$emit('CallBack', true)
         Bus.$emit('regetdate', true)

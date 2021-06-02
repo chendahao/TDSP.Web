@@ -1,0 +1,252 @@
+[
+  {
+    "tug": "港1",
+    "hasWork": true,
+    "sort": 1,
+    "work": [
+      {
+        "ship": "ship1",
+        "mmsi": "123456789",
+        "type": "靠泊", 
+        "startTime": "13:00",
+        "endTime": ""
+      },
+      {
+        "ship": "ship1",
+        "mmsi": "123456789",
+        "type": "离泊",
+        "startTime": "",
+        "endTime": ""
+      }
+    ]
+  },
+  {
+    "tug": "港2",
+    "hasWork": false,
+    "sort": 2,
+    "work": []
+  },
+  {
+    "tug": "港3",
+    "hasWork": true,
+    "sort": 3,
+    "work": [
+      {
+        "ship": "ship3333",
+        "mmsi": "123456789",
+        "type": "靠泊",
+        "startTime": "13:00",
+        "endTime": "",
+        "remark": "接引水"
+      }
+    ]
+  },
+  {
+    "tug": "港4",
+    "hasWork": true,
+    "sort": 4,
+    "work": [
+      {
+        "ship": "ship3",
+        "mmsi": "123456789",
+        "type": "靠泊",
+        "startTime": "13:00",
+        "endTime": "",
+        "remark": "送引水"
+      },
+      {
+        "ship": "ship2",
+        "mmsi": "123456789",
+        "type": "离泊",
+        "startTime": "",
+        "endTime": ""
+      }
+    ]
+  },
+  {
+    "tug": "港5",
+    "hasWork": true,
+    "sort": 5,
+    "work": [
+      {
+        "ship": "ship3",
+        "mmsi": "123456789",
+        "type": "靠泊",
+        "startTime": "13:00",
+        "endTime": ""
+      }
+    ]
+  },
+  {
+    "tug": "港6",
+    "hasWork": true,
+    "sort": 6,
+    "work": [
+      {
+        "ship": "ship3",
+        "mmsi": "123456789",
+        "type": "靠泊",
+        "startTime": "13:00",
+        "endTime": ""
+      },
+      {
+        "ship": "ship2",
+        "mmsi": "123456789",
+        "type": "离泊",
+        "startTime": "",
+        "endTime": ""
+      },
+      {
+        "ship": "ship3",
+        "mmsi": "123456789",
+        "type": "离泊",
+        "startTime": "",
+        "endTime": ""
+      }
+    ]
+  },
+  {
+    "tug": "港7",
+    "hasWork": true,
+    "sort": 7,
+    "work": [
+      {
+        "ship": "ship3",
+        "mmsi": "123456789",
+        "type": "靠泊",
+        "startTime": "13:00",
+        "endTime": ""
+      },
+      {
+        "ship": "ship2",
+        "mmsi": "123456789",
+        "type": "离泊",
+        "startTime": "",
+        "endTime": ""
+      }
+    ]
+  },
+  {
+    "tug": "港8",
+    "hasWork": true,
+    "sort": 8,
+    "work": [
+      {
+        "ship": "ship3",
+        "mmsi": "123456789",
+        "type": "靠泊",
+        "startTime": "13:00",
+        "endTime": ""
+      },
+      {
+        "ship": "ship2",
+        "mmsi": "123456789",
+        "type": "离泊",
+        "startTime": "",
+        "endTime": ""
+      }
+    ]
+  },
+  {
+    "tug": "港9",
+    "hasWork": true,
+    "sort": 9,
+    "work": [
+      {
+        "ship": "ship3",
+        "mmsi": "123456789",
+        "type": "靠泊",
+        "startTime": "13:00",
+        "endTime": ""
+      },
+      {
+        "ship": "ship2",
+        "mmsi": "123456789",
+        "type": "离泊",
+        "startTime": "",
+        "endTime": ""
+      }
+    ]
+  },
+  {
+    "tug": "港10",
+    "hasWork": false,
+    "sort": 10,
+    "work": []
+  },
+  {
+    "tug": "港11",
+    "hasWork": false,
+    "sort": 11,
+    "work": []
+  },
+  {
+    "tug": "港12",
+    "hasWork": false,
+    "sort": 12,
+    "work": []
+  },
+  {
+    "tug": "港13",
+    "hasWork": false,
+    "sort": 13,
+    "work": []
+  },
+  {
+    "tug": "港14",
+    "hasWork": false,
+    "sort": 314,
+    "work": []
+  },
+  {
+    "tug": "港15",
+    "hasWork": false,
+    "sort": 15,
+    "work": []
+  },
+  {
+    "tug": "港16",
+    "hasWork": false,
+    "sort": 16,
+    "work": []
+  },
+  {
+    "tug": "港17",
+    "hasWork": false,
+    "sort": 17,
+    "work": []
+  },
+  {
+    "tug": "港18",
+    "hasWork": false,
+    "sort": 18,
+    "work": []
+  },
+  {
+    "tug": "港19",
+    "hasWork": false,
+    "sort": 19,
+    "work": []
+  },
+  {
+    "tug": "港20",
+    "hasWork": true,
+    "sort": 20,
+    "work": [
+      {
+        "ship": "ship3",
+        "mmsi": "123456789",
+        "type": "靠泊",
+        "startTime": "13:00",
+        "endTime": ""
+      },
+      {
+        "ship": "ship2",
+        "mmsi": "123456789",
+        "type": "离泊",
+        "startTime": "",
+        "endTime": ""
+      }
+    ]
+  }
+]

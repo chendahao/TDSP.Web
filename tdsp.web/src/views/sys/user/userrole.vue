@@ -55,10 +55,10 @@ export default {
     save: async function () {
       let data = await api.SetUserRoles(this.uname, this.selected)
       if (data.status === 200) {
-        this.message.ShowMessage('保存成功', 'success')
+        this.$message.success('保存成功')
         this.$router.go(-1)
       } else {
-        this.message.ShowMessage('保存数据出错', 'error')
+        this.$message.error('保存数据出错')
       }
     }
   }

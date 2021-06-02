@@ -139,7 +139,7 @@ export default {
       if (msg === true) {
         let { data } = await api.Delete(this.delid)
         if (data.code === 0) {
-          this.message.ShowMessage('删除数据成功', 'success')
+          this.$message.success('删除数据成功')
           this.getdata()
         }
       } else {

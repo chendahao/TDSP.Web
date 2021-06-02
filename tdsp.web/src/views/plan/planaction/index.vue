@@ -423,10 +423,10 @@ export default {
     checkstatus (res) {
       if (res.data.code === 0) {
         // 成功
-        this.message.ShowMessage('执行成功', 'success')
+        this.$message.success('执行成功')
         this.getdata()
       } else if (res.data.code === 1) {
-        this.message.ShowMessage(res.data.msg, 'error')
+        this.$message.error(res.data.msg)
       }
 
       this.dialog = false

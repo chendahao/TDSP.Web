@@ -122,10 +122,10 @@ export default {
           data = await api.Update(this.id, this.editedItem)
         }
         if (data.status === 200 || data.status === 201) {
-          this.message.ShowMessage('保存成功', 'success')
+          this.$message.success('保存成功')
           this.$router.go(-1)
         } else {
-          this.message.ShowMessage('保存数据出错', 'error')
+          this.$message.error('保存数据出错')
         }
       }
     }

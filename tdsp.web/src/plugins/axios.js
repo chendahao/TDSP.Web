@@ -1,8 +1,9 @@
 'use strict'
 
 import axios from 'axios'
-import message from './message'
+import { Message } from 'element-ui'
 import storagedata from '@/plugins/storagedata.js'
+import 'element-ui/lib/theme-chalk/index.css'
 
 // Full config:  https://github.com/axios/axios#request-config
 
@@ -16,7 +17,7 @@ function errorLog (type, err) {
 
 let config = {
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
-  // timeout: 60 * 1000, // Timeout
+  timeout: 60 * 1000 // Timeout
   // withCredentials: true, // Check cross-site Access-Control
   // baseURL: process.env.baseURL || process.env.apiUrl || 'http://192.168.1.103:5000'
 }
@@ -37,7 +38,7 @@ service.interceptors.request.use(
     // Do something with request error
     errorLog('request', error)
     // const code = error.request.status
-    message.ShowMessage('请求出错', 'error')
+    Message.error('请求出错')
 
     // return Promise.reject(error)
   }
@@ -57,16 +58,16 @@ service.interceptors.response.use(
       case 400:
         return error.response
       case 401:
-        message.ShowMessage('没有相关权限或需要登录', 'error')
+        Message.error('没有相关权限或需要登录')
         break
       case 404:
-        message.ShowMessage('没有找到相关数据', 'error')
+        Message.error('没有找到相关数据')
         break
       case 500:
-        // message.ShowMessage('服务器错误', 'error')
+        // Message.error('服务器错误')
         break
       case 504:
-        message.ShowMessage('网关超时', 'error')
+        Message.error('网关超时')
         break
       default:
         return error.response

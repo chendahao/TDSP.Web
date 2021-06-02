@@ -155,7 +155,7 @@ export default {
   methods: {
     save: async function () {
       if (this.geojson.coordinates.length <= 1) {
-        this.message.ShowMessage('请在海图中点选流量线', 'success')
+        this.$message.info('请在海图中点选流量线')
         return
       }
       this.dialog = false

@@ -135,10 +135,10 @@ export default {
     },
     resCallback (res) {
       if (res.code === 0) {
-        this.message.ShowMessage('保存成功', 'success')
+        this.$message.success('保存成功')
         this.$router.go(-1)
       } else {
-        this.message.ShowMessage(res.msg, 'error')
+        this.$message.error(res.msg)
       }
     }
   }

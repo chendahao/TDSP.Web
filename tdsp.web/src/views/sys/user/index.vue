@@ -196,19 +196,19 @@ export default {
     lock: async function (uname) {
       let data = await api.LockUser(uname)
       if (data.status === 200) {
-        this.message.ShowMessage('禁用用户成功', 'success')
+        this.$message.success('禁用用户成功')
         this.getdata()
       } else {
-        this.message.ShowMessage('禁用用户出错', 'error')
+        this.$message.error('禁用用户出错')
       }
     },
     unlock: async function (uname) {
       let data = await api.UnLockUser(uname)
       if (data.status === 200) {
-        this.message.ShowMessage('激活用户成功', 'success')
+        this.$message.success('激活用户成功')
         this.getdata()
       } else {
-        this.message.ShowMessage('激活用户出错', 'error')
+        this.$message.error('激活用户出错')
       }
     },
     deleteitem (name, id) {
@@ -221,11 +221,11 @@ export default {
       if (msg === true) {
         let { data } = await api.DeleteUser(this.delid)
           .then(res => {
-            this.message.ShowMessage('删除数据成功', 'success')
+            this.$message.success('删除数据成功')
             this.getdata()
           })
           .catch(() => {
-            this.message.ShowMessage('删除时出错', 'error')
+            this.$message.error('删除时出错')
           })
       } else {
         this.delid = ''

@@ -5,7 +5,8 @@ import App from './App.vue'
 import router from '@/router'
 import store from '@/store'
 import axios from '@/plugins/axios'
-import message from './plugins/message'
+// import message from './plugins/message'
+import './plugins/elementui' // 引入elementUI message
 import './plugins/format-g'
 
 // import 'xe-utils'
@@ -14,7 +15,7 @@ import './plugins/format-g'
 
 Vue.config.productionTip = true
 
-Vue.prototype.message = message
+// Vue.prototype.message = message
 
 // Vue.use(VXETable)
 

@@ -165,7 +165,7 @@ export default {
         this.client.remove(this.delid)
           .then(res => {
             if (res.code === 0) {
-              this.message.ShowMessage('删除数据成功', 'success')
+              this.$message.success('删除数据成功')
               this.getdata()
             }
           })

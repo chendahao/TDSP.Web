@@ -267,10 +267,10 @@ export default {
         // 保存
         let { data } = await api.AddShip(this.editedItem.worksId, this.editedItem)
         if (data.code === 0) {
-          this.message.ShowMessage('添加数据成功', 'success')
+          this.$message.success('添加数据成功')
           this.getdata()
         } else {
-          this.message.ShowMessage('添加数据出错', 'error')
+          this.$message.error('添加数据出错')
         }
       }
     },
@@ -290,10 +290,10 @@ export default {
       if (msg === true) {
         let { data } = await api.Delete(this.delid)
         if (data.code === 0) {
-          this.message.ShowMessage('删除数据成功', 'success')
+          this.$message.success('删除数据成功')
           this.getdata()
         } else {
-          this.message.ShowMessage('删除数据出错', 'error')
+          this.$message.error('删除数据出错')
         }
       } else {
         this.delid = ''

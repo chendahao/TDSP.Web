@@ -230,25 +230,25 @@ export default {
       // 批量处理
       if (id === 'all') {
         if (this.selectedIds.length === 0) {
-          this.message.ShowMessage('请先选择准备处理的报警', 'info')
+          this.$message.info('请先选择准备处理的报警')
           return
         }
         let { data } = await api.CheckWarning(this.selectedIds)
         if (data.code === 0) {
-          this.message.ShowMessage('批量处理成功', 'success')
+          this.$message.success('批量处理成功')
           this.getdata()
         } else {
-          this.message.ShowMessage('处理数据出错', 'error')
+          this.$message.error('处理数据出错')
         }
       } else {
         let item = []
         item.push(id)
         let { data } = await api.CheckWarning(item)
         if (data.code === 0) {
-          this.message.ShowMessage('处理成功', 'success')
+          this.$message.success('处理成功')
           this.getdata()
         } else {
-          this.message.ShowMessage('处理数据出错', 'error')
+          this.$message.error('处理数据出错')
         }
       }
     },
