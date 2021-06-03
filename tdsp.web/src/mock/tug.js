@@ -1,5 +1,5 @@
-var Mock = require('mockjs')
 import tugstatus from './data/tugstatus.json'
+var Mock = require('mockjs')
 
 export const TugList = () => {
   return Mock.mock({

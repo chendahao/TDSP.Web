@@ -9,10 +9,10 @@ const sysRoutes = {
     icon: 'settings', // 是否需要被缓存
     needLogin: true,
     title: '系统管理',
-    fullwidth: false
-    ,access: ['admin']
+    fullwidth: false,
+    access: ['admin']
   },
-  children: [      
+  children: [
     // 系统管理 sys
     {
       path: '/user',

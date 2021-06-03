@@ -40,8 +40,6 @@ import weather from '@/components/HomeComponents/weather'
 import planaction from '@/components/HomeComponents/planaction'
 import news from '@/components/HomeComponents/news'
 import tide from '@/components/HomeComponents/tide'
-import kj from '@/components/HomeComponents/kj'
-import throughput from '@/components/HomeComponents/throughput'
 export default {
   components: {
     user,
@@ -49,8 +47,6 @@ export default {
     weather,
     planaction,
     news,
-    kj,
-    throughput,
     tide
   },
   data: () => ({

@@ -202,7 +202,7 @@ export default {
       ],
       desserts: [],
       showAll: true,
-      loading: false,
+      loading: false
     }
   },
   filters: {

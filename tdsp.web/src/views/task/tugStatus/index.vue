@@ -9,7 +9,7 @@
     </PageHeader>
     <v-container fluid>
       <v-row justify="start">
-        <v-col md="3" sm="6" xs="12" v-for="(item, index) in workingList">
+        <v-col md="3" sm="6" xs="12" v-for="(item, index) in workingList" :key="index">
           <v-card v-if="item.hasWork" :loading="loading">
             <v-card-title style="padding: 5px 16px 0px 16px;">
               <img src="@/assets/shipicon.png" class="mr-1"/>
@@ -53,7 +53,7 @@
         <v-card-title primary-title>
           无作业拖轮
         </v-card-title>
-        <v-chip v-for="(item, index) in nowWorkList" label class="ma-2">
+        <v-chip v-for="(item, index) in nowWorkList" :key="index" label class="ma-2">
           <v-icon left>
             label
           </v-icon>
@@ -78,7 +78,7 @@ export default {
       loading: false
     }
   },
-  created() {
+  created () {
     this.getdata()
   },
   methods: {
@@ -87,11 +87,11 @@ export default {
       setTimeout(() => {
         const list = TugStatus()
         const datalist = orderBy(list, ['hasWork', 'sort'], ['desc', 'asc'])
-        this.workingList = datalist.filter(item => item.hasWork === true )
-        this.nowWorkList = datalist.filter(item => item.hasWork === false )
-        
+        this.workingList = datalist.filter(item => item.hasWork === true)
+        this.nowWorkList = datalist.filter(item => item.hasWork === false)
+
         this.loading = false
-      }, 1000);
+      }, 1000)
     }
   }
 }

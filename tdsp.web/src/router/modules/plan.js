@@ -12,7 +12,7 @@ const planRoutes = {
     title: '船舶计划',
     fullwidth: false
   },
-  children: [     
+  children: [
     // plan
     // 船舶计划查询
     {

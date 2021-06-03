@@ -116,7 +116,7 @@
     </v-menu>
     <v-dialog
       v-model="pickerDialog"
-      scrollable 
+      scrollable
       persistent :overlay="false"
       max-width="300px"
       transition="dialog-transition"
@@ -190,7 +190,7 @@
           123
         </v-card-title>
         <v-card-text>
-          
+
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
