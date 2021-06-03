@@ -12,9 +12,9 @@
         "endTime": ""
       },
       {
-        "ship": "ship1",
+        "ship": "",
         "mmsi": "123456789",
-        "type": "离泊",
+        "type": "其他",
         "startTime": "",
         "endTime": ""
       }
