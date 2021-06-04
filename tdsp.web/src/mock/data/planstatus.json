@@ -1,0 +1,2959 @@
+[
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.3550443",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1339-75a7-3a0001659e1e",
+      "plan": {
+          "orgName": "华能曹妃甸港口有限公司",
+          "berthingTime": "2021-06-03T19:00:00",
+          "harbor": "开敞",
+          "berthNo": "华能3",
+          "tugs": 2,
+          "tugCorp": "曹拖",
+          "actionPlan": "Berthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 190,
+          "shipWidth": 28,
+          "frontDraft": 5.1,
+          "behindDraft": 5.3,
+          "goodsType": "煤炭",
+          "shipType": "货轮",
+          "loadWeight": 37031,
+          "cargoWeight": 0,
+          "agent": "新翕昊",
+          "maxDraft": 5.3,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413363730",
+          "name": "JI LING 96",
+          "cnName": "吉领96"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "靖江",
+          "nextPort": "靖江",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00",
+          "remark": "接引水"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.5603846",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1340-75a7-3a0001659e29",
+      "plan": {
+          "orgName": "华电曹妃甸重工装备有限公司",
+          "berthingTime": "2021-06-03T17:40:00",
+          "harbor": "第三港池",
+          "berthNo": "3-312B",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 89,
+          "shipWidth": 21.8,
+          "frontDraft": 3.5,
+          "behindDraft": 3.6,
+          "goodsType": "桩基",
+          "shipType": "货轮",
+          "loadWeight": 4284,
+          "cargoWeight": 1600,
+          "agent": "航瑞达",
+          "maxDraft": 3.6,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "412477080",
+          "name": "HAOGANG1",
+          "cnName": "皓港1"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "庄河",
+          "nextPort": "庄河",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.5543323",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1340-75a7-3a0001659e2b",
+      "plan": {
+          "orgName": "华电曹妃甸重工装备有限公司",
+          "berthingTime": "2021-06-03T17:20:00",
+          "harbor": "第三港池",
+          "berthNo": "3-312B",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "ShiftBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 93,
+          "shipWidth": 13.6,
+          "frontDraft": 5.5,
+          "behindDraft": 5.6,
+          "goodsType": "钢板",
+          "shipType": "货轮",
+          "loadWeight": 4020,
+          "cargoWeight": 3900,
+          "agent": "航瑞达",
+          "maxDraft": 5.6,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "412326290",
+          "name": "TIANLONG168",
+          "cnName": "天隆168"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "上海",
+          "nextPort": "曹妃甸",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.3720444",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1340-75a7-3a0001659e31",
+      "plan": {
+          "orgName": "华能曹妃甸港口有限公司",
+          "berthingTime": "2021-06-03T20:00:00",
+          "harbor": "开敞",
+          "berthNo": "华能5",
+          "tugs": 2,
+          "tugCorp": "国拖",
+          "actionPlan": "Berthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 200,
+          "shipWidth": 32,
+          "frontDraft": 10,
+          "behindDraft": 10.5,
+          "goodsType": "煤炭",
+          "shipType": "散货轮",
+          "loadWeight": 45227,
+          "cargoWeight": 20000,
+          "agent": "京通",
+          "maxDraft": 10.5,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "414118000",
+          "name": "HUA HENG 169",
+          "cnName": "华衡169"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "莱州",
+          "nextPort": "莱州",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.5659257",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1434-75a7-3a0001659e50",
+      "plan": {
+          "orgName": "唐山曹妃甸中物港务有限公司",
+          "berthingTime": "2021-06-03T18:00:00",
+          "harbor": "第三港池",
+          "berthNo": "3-113",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 96.9,
+          "shipWidth": 15.8,
+          "frontDraft": 5.8,
+          "behindDraft": 6,
+          "goodsType": "水渣",
+          "shipType": "货轮",
+          "loadWeight": 5051,
+          "cargoWeight": 5000,
+          "agent": "乐洋",
+          "maxDraft": 6,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413240370",
+          "name": "HUIYING169",
+          "cnName": "惠盈169"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "天津",
+          "nextPort": "莱州",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.498681",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1434-75a7-3a0001659e52",
+      "plan": {
+          "orgName": "唐山曹妃甸中物港务有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第三港池",
+          "berthNo": "3-113西",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 149.93,
+          "shipWidth": 21.6,
+          "frontDraft": 3.5,
+          "behindDraft": 5,
+          "goodsType": "机制砂",
+          "shipType": "货轮",
+          "loadWeight": 17325,
+          "cargoWeight": 0,
+          "agent": "泽顺",
+          "maxDraft": 5,
+          "imo": "",
+          "nationality": "",
+          "callSign": "",
+          "mmsi": "413352520",
+          "name": "YONG FENG 98",
+          "cnName": "永丰98"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "上海",
+          "nextPort": "上海",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.5861421",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1436-75a7-3a0001659e63",
+      "plan": {
+          "orgName": "唐山曹妃甸中物港务有限公司",
+          "berthingTime": "2021-06-03T20:30:00",
+          "harbor": "第三港池",
+          "berthNo": "3-111",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 95.9,
+          "shipWidth": 13.8,
+          "frontDraft": 6,
+          "behindDraft": 6.2,
+          "goodsType": "水渣粉",
+          "shipType": "货轮",
+          "loadWeight": 4706,
+          "cargoWeight": 4700,
+          "agent": "航瑞达",
+          "maxDraft": 6.2,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "412425660",
+          "name": "GAO XIN 1",
+          "cnName": "高信1"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "上海",
+          "nextPort": "舟山",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.571688",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1448-75a7-3a0001659e91",
+      "plan": {
+          "orgName": "唐山曹妃甸文丰码头有限公司",
+          "berthingTime": "2021-06-03T18:00:00",
+          "harbor": "第三港池",
+          "berthNo": "3-203",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 126,
+          "shipWidth": 19,
+          "frontDraft": 7.7,
+          "behindDraft": 7.9,
+          "goodsType": "钢材",
+          "shipType": "货轮",
+          "loadWeight": 11009,
+          "cargoWeight": 11009,
+          "agent": "金润海",
+          "maxDraft": 7.9,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413304230",
+          "name": "HENG TAI 27",
+          "cnName": "恒泰27"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "乍浦",
+          "nextPort": "宁波",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.5045094",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1448-75a7-3a0001659e93",
+      "plan": {
+          "orgName": "唐山曹妃甸文丰码头有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第三港池",
+          "berthNo": "3-202",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Berthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 99,
+          "shipWidth": 16,
+          "frontDraft": 2,
+          "behindDraft": 2.8,
+          "goodsType": "钢材",
+          "shipType": "货轮",
+          "loadWeight": 5000,
+          "cargoWeight": 0,
+          "agent": "金润海",
+          "maxDraft": 2.8,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413707030",
+          "name": "TIANYU7",
+          "cnName": "天予7"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "曹妃甸",
+          "nextPort": "佛山",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.511203",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1448-75a7-3a0001659e95",
+      "plan": {
+          "orgName": "唐山曹妃甸文丰码头有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第三港池",
+          "berthNo": "3-201",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 128,
+          "shipWidth": 19,
+          "frontDraft": 3,
+          "behindDraft": 4,
+          "goodsType": "钢材",
+          "shipType": "货轮",
+          "loadWeight": 10468,
+          "cargoWeight": 0,
+          "agent": "鸿旺",
+          "maxDraft": 4,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413248460",
+          "name": "HENG TONG DA",
+          "cnName": "恒通达"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "揭阳",
+          "nextPort": "揭阳",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.516708",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1448-75a7-3a0001659e97",
+      "plan": {
+          "orgName": "唐山曹妃甸文丰码头有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第三港池",
+          "berthNo": "3-204",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 98,
+          "shipWidth": 16,
+          "frontDraft": 1.6,
+          "behindDraft": 2.5,
+          "goodsType": "钢材",
+          "shipType": "货轮",
+          "loadWeight": 5200,
+          "cargoWeight": 0,
+          "agent": "金润海",
+          "maxDraft": 2.5,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413364730",
+          "name": "ZHONG XING 898",
+          "cnName": "中兴898"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "上海",
+          "nextPort": "佛山",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.3763864",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1459-75a7-3a0001659edc",
+      "plan": {
+          "orgName": "曹妃甸港集团股份有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第一港池",
+          "berthNo": "501南",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": null,
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 96.9,
+          "shipWidth": 15.8,
+          "frontDraft": 1.5,
+          "behindDraft": 3.3,
+          "goodsType": "粉煤灰",
+          "shipType": "散货船",
+          "loadWeight": 5009,
+          "cargoWeight": 0,
+          "agent": "振风船舶",
+          "maxDraft": 3.3,
+          "imo": null,
+          "nationality": null,
+          "callSign": null,
+          "mmsi": "413424830",
+          "name": "YI LONG 5",
+          "cnName": "益隆5"
+      },
+      "extended": {
+          "shipAttributes": "内贸",
+          "previousPort": "曹妃甸",
+          "nextPort": "宁波",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.3804894",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1459-75a7-3a0001659ede",
+      "plan": {
+          "orgName": "曹妃甸港集团股份有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第一港池",
+          "berthNo": "506",
+          "tugs": 2,
+          "tugCorp": "曹拖",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": null,
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 189.99,
+          "shipWidth": 32.26,
+          "frontDraft": 12.5,
+          "behindDraft": 12.8,
+          "goodsType": "钒钛粉",
+          "shipType": "散货船",
+          "loadWeight": 55077,
+          "cargoWeight": 45811,
+          "agent": "圣港国际船代",
+          "maxDraft": 12.8,
+          "imo": null,
+          "nationality": null,
+          "callSign": null,
+          "mmsi": "414431000",
+          "name": "ZHONGCHANG528",
+          "cnName": "中昌528"
+      },
+      "extended": {
+          "shipAttributes": "内贸",
+          "previousPort": "曹妃甸",
+          "nextPort": "南通",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4157256",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1459-75a7-3a0001659ee0",
+      "plan": {
+          "orgName": "曹妃甸港集团股份有限公司",
+          "berthingTime": "2021-06-03T17:20:00",
+          "harbor": "第一港池",
+          "berthNo": "507南",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": null,
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 158.21,
+          "shipWidth": 22.6,
+          "frontDraft": 8.7,
+          "behindDraft": 8.9,
+          "goodsType": "钢材",
+          "shipType": "散货船",
+          "loadWeight": 20130,
+          "cargoWeight": 20120,
+          "agent": "金润海物流",
+          "maxDraft": 8.9,
+          "imo": null,
+          "nationality": null,
+          "callSign": null,
+          "mmsi": "413325470",
+          "name": "XING YUAN ZHOU 9",
+          "cnName": "兴远舟9"
+      },
+      "extended": {
+          "shipAttributes": "内贸",
+          "previousPort": "曹妃甸",
+          "nextPort": "海盐",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4322051",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1459-75a7-3a0001659ee2",
+      "plan": {
+          "orgName": "曹妃甸港集团股份有限公司",
+          "berthingTime": "2021-06-03T17:40:00",
+          "harbor": "第一港池",
+          "berthNo": "507北",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": null,
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 99.8,
+          "shipWidth": 15.8,
+          "frontDraft": 5.5,
+          "behindDraft": 5.6,
+          "goodsType": "钢材",
+          "shipType": "散货船",
+          "loadWeight": 5368,
+          "cargoWeight": 5336,
+          "agent": "振风船舶",
+          "maxDraft": 5.6,
+          "imo": null,
+          "nationality": null,
+          "callSign": null,
+          "mmsi": "412550870",
+          "name": "ZHENG WEI SHENG",
+          "cnName": "中伟盛"
+      },
+      "extended": {
+          "shipAttributes": "内贸",
+          "previousPort": "曹妃甸",
+          "nextPort": "广东",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4475698",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1459-75a7-3a0001659ee4",
+      "plan": {
+          "orgName": "曹妃甸港集团股份有限公司",
+          "berthingTime": "2021-06-03T18:20:00",
+          "harbor": "第一港池",
+          "berthNo": "507南",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Berthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": null,
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 96.9,
+          "shipWidth": 15.8,
+          "frontDraft": 1.5,
+          "behindDraft": 3.3,
+          "goodsType": "钢材",
+          "shipType": "散货船",
+          "loadWeight": 5026,
+          "cargoWeight": 0,
+          "agent": "振风船舶",
+          "maxDraft": 3.3,
+          "imo": null,
+          "nationality": null,
+          "callSign": null,
+          "mmsi": "413323470",
+          "name": "TAI PING SHAN 57",
+          "cnName": "太平山57"
+      },
+      "extended": {
+          "shipAttributes": "内贸",
+          "previousPort": "曹妃甸",
+          "nextPort": "福建",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4574946",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1459-75a7-3a0001659ee6",
+      "plan": {
+          "orgName": "曹妃甸港集团股份有限公司",
+          "berthingTime": "2021-06-03T18:40:00",
+          "harbor": "第一港池",
+          "berthNo": "505南",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Berthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": null,
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 109.8,
+          "shipWidth": 23.8,
+          "frontDraft": 3,
+          "behindDraft": 3.1,
+          "goodsType": "碎石",
+          "shipType": "散货船",
+          "loadWeight": 8405,
+          "cargoWeight": 0,
+          "agent": "鸿旺船务",
+          "maxDraft": 3.1,
+          "imo": null,
+          "nationality": null,
+          "callSign": null,
+          "mmsi": "413208810",
+          "name": "KAI HE SHENG SHI",
+          "cnName": "凯和盛世"
+      },
+      "extended": {
+          "shipAttributes": "内贸",
+          "previousPort": "曹妃甸",
+          "nextPort": "江苏省",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4778903",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1459-75a7-3a0001659ee8",
+      "plan": {
+          "orgName": "曹妃甸港集团股份有限公司",
+          "berthingTime": "2021-06-03T20:59:00",
+          "harbor": "第一港池",
+          "berthNo": "509",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": null,
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 131.55,
+          "shipWidth": 18.8,
+          "frontDraft": 7.2,
+          "behindDraft": 7.3,
+          "goodsType": "集装箱",
+          "shipType": "集装箱船",
+          "loadWeight": 8366,
+          "cargoWeight": 6240,
+          "agent": "中远海运",
+          "maxDraft": 7.3,
+          "imo": null,
+          "nationality": null,
+          "callSign": null,
+          "mmsi": "413698750",
+          "name": "HUA XIN 888",
+          "cnName": "华鑫888"
+      },
+      "extended": {
+          "shipAttributes": "内贸",
+          "previousPort": "天津",
+          "nextPort": "天津",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4830032",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1459-75a7-3a0001659eea",
+      "plan": {
+          "orgName": "曹妃甸港集团股份有限公司",
+          "berthingTime": "2021-06-03T19:20:00",
+          "harbor": "第二港池",
+          "berthNo": "2-104南",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": null,
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 99.8,
+          "shipWidth": 15.8,
+          "frontDraft": 3,
+          "behindDraft": 3.1,
+          "goodsType": "钢材",
+          "shipType": "散货船",
+          "loadWeight": 5200,
+          "cargoWeight": 0,
+          "agent": "华强海运",
+          "maxDraft": 3.1,
+          "imo": null,
+          "nationality": null,
+          "callSign": null,
+          "mmsi": "413358450",
+          "name": "JIN FENG HONG",
+          "cnName": "锦丰宏"
+      },
+      "extended": {
+          "shipAttributes": "内贸",
+          "previousPort": "张家港",
+          "nextPort": "曹妃甸",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4878969",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1459-75a7-3a0001659eec",
+      "plan": {
+          "orgName": "曹妃甸港集团股份有限公司",
+          "berthingTime": "2021-06-03T20:00:00",
+          "harbor": "第二港池",
+          "berthNo": "2-106",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": null,
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 109.8,
+          "shipWidth": 23.2,
+          "frontDraft": 4.55,
+          "behindDraft": 4.6,
+          "goodsType": "水渣",
+          "shipType": "散货船",
+          "loadWeight": 7488,
+          "cargoWeight": 7400,
+          "agent": "鸿旺船务",
+          "maxDraft": 4.6,
+          "imo": null,
+          "nationality": null,
+          "callSign": null,
+          "mmsi": "413226350",
+          "name": "YUAN RUI 789",
+          "cnName": "远瑞789"
+      },
+      "extended": {
+          "shipAttributes": "内贸",
+          "previousPort": "曹妃甸",
+          "nextPort": "烟台",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4930523",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1459-75a7-3a0001659eee",
+      "plan": {
+          "orgName": "曹妃甸港集团股份有限公司",
+          "berthingTime": "2021-06-03T20:40:00",
+          "harbor": "第二港池",
+          "berthNo": "2-104北",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": null,
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 149.18,
+          "shipWidth": 21,
+          "frontDraft": 8.65,
+          "behindDraft": 8.65,
+          "goodsType": "钢材",
+          "shipType": "散货船",
+          "loadWeight": 17017,
+          "cargoWeight": 17000,
+          "agent": "鸿源船务",
+          "maxDraft": 8.65,
+          "imo": null,
+          "nationality": null,
+          "callSign": null,
+          "mmsi": "413501160",
+          "name": "AO TENG",
+          "cnName": "奥腾"
+      },
+      "extended": {
+          "shipAttributes": "内贸",
+          "previousPort": "曹妃甸",
+          "nextPort": "嘉兴海盐协和港务",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.5221289",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1500-75a7-3a0001659f53",
+      "plan": {
+          "orgName": "中国石油海洋工程有限公司唐山分公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第三港池",
+          "berthNo": "3-310",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 96,
+          "shipWidth": 15,
+          "frontDraft": 2.8,
+          "behindDraft": 3,
+          "goodsType": "水渣粉",
+          "shipType": "散货轮",
+          "loadWeight": 5100,
+          "cargoWeight": 0,
+          "agent": "旺运",
+          "maxDraft": 3,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "412425930",
+          "name": "XINHAISHENG36",
+          "cnName": "新海升36"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "宁波",
+          "nextPort": "上海",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.3848364",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1503-75a7-3a0001659f98",
+      "plan": {
+          "orgName": "河北华电曹妃甸储运有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第一港池",
+          "berthNo": "809",
+          "tugs": 2,
+          "tugCorp": "曹拖",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 170.99,
+          "shipWidth": 24.2,
+          "frontDraft": 5.7,
+          "behindDraft": 5.9,
+          "goodsType": "煤炭",
+          "shipType": "货轮",
+          "loadWeight": 28041,
+          "cargoWeight": 0,
+          "agent": "新翕昊",
+          "maxDraft": 5.9,
+          "imo": "",
+          "nationality": "",
+          "callSign": "",
+          "mmsi": "413457160",
+          "name": "BOYUANJING",
+          "cnName": "博远景"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "靖江",
+          "nextPort": "烟台",
+          "anchorTime": "2021-06-02T19:04:00"
+      },
+      "status": "waiting"
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.5276192",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1509-75a7-3a0001659fad",
+      "plan": {
+          "orgName": "华电曹妃甸重工装备有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第三港池",
+          "berthNo": "3-312A",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "ShiftBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 89,
+          "shipWidth": 21.8,
+          "frontDraft": 3.5,
+          "behindDraft": 3.6,
+          "goodsType": "桩基",
+          "shipType": "货轮",
+          "loadWeight": 4284,
+          "cargoWeight": 1600,
+          "agent": "航瑞达",
+          "maxDraft": 3.6,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "412477080",
+          "name": "HAOGANG1",
+          "cnName": "皓港1"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "庄河",
+          "nextPort": "庄河",
+          "anchorTime": null
+      },
+      "status": "completed",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00",
+          "remark": "接引水"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4627692",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1511-75a7-3a0001659fc9",
+      "plan": {
+          "orgName": "唐山曹妃甸煤炭港务有限公司",
+          "berthingTime": "2021-06-03T19:40:00",
+          "harbor": "第一港池",
+          "berthNo": "802",
+          "tugs": 2,
+          "tugCorp": "曹拖",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 189.85,
+          "shipWidth": 32,
+          "frontDraft": 11.8,
+          "behindDraft": 12.04,
+          "goodsType": "煤炭",
+          "shipType": "货轮",
+          "loadWeight": 50492,
+          "cargoWeight": 44000,
+          "agent": "浙江海运天津",
+          "maxDraft": 12.04,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413937000",
+          "name": "FU XING 17",
+          "cnName": "富兴17"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "乍浦",
+          "nextPort": "上海",
+          "anchorTime": null
+      },
+      "status": "completed",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.5333537",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1512-75a7-3a000165a00b",
+      "plan": {
+          "orgName": "唐山曹妃甸综合保税区港务有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第三港池",
+          "berthNo": "3-102B",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 99.8,
+          "shipWidth": 15.8,
+          "frontDraft": 2.5,
+          "behindDraft": 3.2,
+          "goodsType": "水渣粉",
+          "shipType": "货轮",
+          "loadWeight": 4992,
+          "cargoWeight": 0,
+          "agent": "东创",
+          "maxDraft": 3.2,
+          "imo": "",
+          "nationality": "",
+          "callSign": "",
+          "mmsi": "412434780",
+          "name": "GUOMAO3",
+          "cnName": "国贸3"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "南通",
+          "nextPort": "宁波",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.5392084",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1512-75a7-3a000165a00d",
+      "plan": {
+          "orgName": "唐山曹妃甸综合保税区港务有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第三港池",
+          "berthNo": "3-101",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 112.67,
+          "shipWidth": 16.5,
+          "frontDraft": 3.5,
+          "behindDraft": 4.2,
+          "goodsType": "水泥",
+          "shipType": "散货轮",
+          "loadWeight": 7498,
+          "cargoWeight": 0,
+          "agent": "东创",
+          "maxDraft": 4.2,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413459830",
+          "name": "CHANG XIN 21",
+          "cnName": "长鑫21"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "宁波",
+          "nextPort": "宁波",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.5466984",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1512-75a7-3a000165a00f",
+      "plan": {
+          "orgName": "唐山曹妃甸综合保税区港务有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第三港池",
+          "berthNo": "3-102A",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 122,
+          "shipWidth": 17.8,
+          "frontDraft": 6.6,
+          "behindDraft": 6.8,
+          "goodsType": "钢材",
+          "shipType": "货轮",
+          "loadWeight": 8488,
+          "cargoWeight": 8488,
+          "agent": "振风",
+          "maxDraft": 6.8,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413707610",
+          "name": "RONG HAI 18",
+          "cnName": "荣海18"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "上海",
+          "nextPort": "揭阳",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.5801268",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1512-75a7-3a000165a011",
+      "plan": {
+          "orgName": "唐山曹妃甸综合保税区港务有限公司",
+          "berthingTime": "2021-06-03T18:30:00",
+          "harbor": "第三港池",
+          "berthNo": "3-102A",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Berthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 149,
+          "shipWidth": 21,
+          "frontDraft": 3.2,
+          "behindDraft": 4,
+          "goodsType": "钢材",
+          "shipType": "货轮",
+          "loadWeight": 17089,
+          "cargoWeight": 0,
+          "agent": "金润海",
+          "maxDraft": 4,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413797000",
+          "name": "XINGYUANZHOU6",
+          "cnName": "兴远舟6"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "上海",
+          "nextPort": "上海",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.3501854",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1512-75a7-3a000165a027",
+      "plan": {
+          "orgName": "中石油京唐液化天然气有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "开敞",
+          "berthNo": "LNG",
+          "tugs": 4,
+          "tugCorp": "曹拖",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": true,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 290,
+          "shipWidth": 46,
+          "frontDraft": 9.6,
+          "behindDraft": 9.6,
+          "goodsType": "石油物资",
+          "shipType": "液货船",
+          "loadWeight": 96355,
+          "cargoWeight": 0,
+          "agent": "兴泰",
+          "maxDraft": 9.6,
+          "imo": "",
+          "nationality": "中国香港",
+          "callSign": "",
+          "mmsi": "477314400",
+          "name": "BEIDOUSTAR",
+          "cnName": "北斗星"
+      },
+      "extended": {
+          "shipAttributes": "外",
+          "previousPort": "澳大利亚",
+          "nextPort": "澳大利亚",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.389016",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1515-75a7-3a000165a0bf",
+      "plan": {
+          "orgName": "国投曹妃甸港口有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第一港池",
+          "berthNo": "203",
+          "tugs": 2,
+          "tugCorp": "国拖",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 200,
+          "shipWidth": 32,
+          "frontDraft": 9.7,
+          "behindDraft": 9.8,
+          "goodsType": "煤炭",
+          "shipType": "货轮",
+          "loadWeight": 57616,
+          "cargoWeight": 0,
+          "agent": "中远",
+          "maxDraft": 9.8,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "412775000",
+          "name": "AN YU SHAN",
+          "cnName": "安裕山"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "阳西",
+          "nextPort": "阳西",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.3931793",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1515-75a7-3a000165a0c3",
+      "plan": {
+          "orgName": "国投曹妃甸港口有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第一港池",
+          "berthNo": "207",
+          "tugs": 2,
+          "tugCorp": "国拖",
+          "actionPlan": "Berthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 150,
+          "shipWidth": 22,
+          "frontDraft": 4.7,
+          "behindDraft": 5,
+          "goodsType": "煤炭",
+          "shipType": "货轮",
+          "loadWeight": 18212,
+          "cargoWeight": 0,
+          "agent": "新港兴",
+          "maxDraft": 5,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "412753980",
+          "name": "XIWANGZHIXING",
+          "cnName": "希望之星"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "镇江",
+          "nextPort": "镇江",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.3974557",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1515-75a7-3a000165a0c9",
+      "plan": {
+          "orgName": "国投曹妃甸港口有限公司",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第一港池",
+          "berthNo": "205",
+          "tugs": 2,
+          "tugCorp": "国拖",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 190,
+          "shipWidth": 32,
+          "frontDraft": 6.5,
+          "behindDraft": 6.8,
+          "goodsType": "煤炭",
+          "shipType": "货轮",
+          "loadWeight": 47154,
+          "cargoWeight": 26000,
+          "agent": "港誉",
+          "maxDraft": 6.8,
+          "imo": "",
+          "nationality": "",
+          "callSign": "",
+          "mmsi": "413363850",
+          "name": "HUAJIANG6",
+          "cnName": "华江6"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "扬州",
+          "nextPort": "扬州",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4205299",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1515-75a7-3a000165a0cd",
+      "plan": {
+          "orgName": "国投曹妃甸港口有限公司",
+          "berthingTime": "2021-06-03T17:20:00",
+          "harbor": "第一港池",
+          "berthNo": "210",
+          "tugs": 2,
+          "tugCorp": "国拖",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 190,
+          "shipWidth": 32,
+          "frontDraft": 11.2,
+          "behindDraft": 11.4,
+          "goodsType": "煤炭",
+          "shipType": "货轮",
+          "loadWeight": 47821,
+          "cargoWeight": 47000,
+          "agent": "中远",
+          "maxDraft": 11.4,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "414777000",
+          "name": "BAO GUANG LING",
+          "cnName": "宝广岭"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "南通",
+          "nextPort": "南通",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4370569",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1515-75a7-3a000165a0cf",
+      "plan": {
+          "orgName": "国投曹妃甸港口有限公司",
+          "berthingTime": "2021-06-03T17:40:00",
+          "harbor": "第一港池",
+          "berthNo": "204",
+          "tugs": 2,
+          "tugCorp": "国拖",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 225,
+          "shipWidth": 32,
+          "frontDraft": 11.4,
+          "behindDraft": 11.6,
+          "goodsType": "煤炭",
+          "shipType": "货轮",
+          "loadWeight": 73856,
+          "cargoWeight": 58000,
+          "agent": "京通",
+          "maxDraft": 11.6,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "414254000",
+          "name": "YIN HE DIAO YU DAO",
+          "cnName": "银河钓鱼岛"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "南京",
+          "nextPort": "南京",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4428064",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1515-75a7-3a000165a0d1",
+      "plan": {
+          "orgName": "国投曹妃甸港口有限公司",
+          "berthingTime": "2021-06-03T18:00:00",
+          "harbor": "第一港池",
+          "berthNo": "204",
+          "tugs": 2,
+          "tugCorp": "国拖",
+          "actionPlan": "Berthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 180,
+          "shipWidth": 29,
+          "frontDraft": 5.6,
+          "behindDraft": 5.8,
+          "goodsType": "煤炭",
+          "shipType": "货轮",
+          "loadWeight": 35045,
+          "cargoWeight": 0,
+          "agent": "新翕昊",
+          "maxDraft": 5.8,
+          "imo": "",
+          "nationality": "",
+          "callSign": "",
+          "mmsi": "412379870",
+          "name": "HUIXIN18",
+          "cnName": "汇鑫18"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "乍浦",
+          "nextPort": "乍浦",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4017979",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1518-75a7-3a000165a1b2",
+      "plan": {
+          "orgName": "曹妃甸首钢京唐成品码头",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第一港池",
+          "berthNo": "301",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 92,
+          "shipWidth": 16,
+          "frontDraft": 3.5,
+          "behindDraft": 3.5,
+          "goodsType": "热卷",
+          "shipType": "货轮",
+          "loadWeight": 3334,
+          "cargoWeight": 0,
+          "agent": "泽洋",
+          "maxDraft": 3.5,
+          "imo": "",
+          "nationality": "",
+          "callSign": "",
+          "mmsi": "412302060",
+          "name": "DONGLI2",
+          "cnName": "东丽2"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "福建",
+          "nextPort": "福建",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4064623",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1518-75a7-3a000165a1b8",
+      "plan": {
+          "orgName": "曹妃甸首钢京唐成品码头",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第一港池",
+          "berthNo": "313B",
+          "tugs": 2,
+          "tugCorp": "曹拖",
+          "actionPlan": "InBerthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 183,
+          "shipWidth": 31,
+          "frontDraft": 11.9,
+          "behindDraft": 11.9,
+          "goodsType": "石灰石",
+          "shipType": "杂货船",
+          "loadWeight": 46000,
+          "cargoWeight": 46000,
+          "agent": "泽洋",
+          "maxDraft": 11.9,
+          "imo": "",
+          "nationality": "",
+          "callSign": "",
+          "mmsi": "414401910",
+          "name": "XEIHAIYONGNING",
+          "cnName": "协海永宁"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "福建",
+          "nextPort": "福建",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4677875",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1518-75a7-3a000165a1bc",
+      "plan": {
+          "orgName": "曹妃甸首钢京唐成品码头",
+          "berthingTime": "2021-06-03T20:00:00",
+          "harbor": "第一港池",
+          "berthNo": "303B",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 145,
+          "shipWidth": 21,
+          "frontDraft": 8,
+          "behindDraft": 8,
+          "goodsType": "钢材",
+          "shipType": "货轮",
+          "loadWeight": 14998,
+          "cargoWeight": 14998,
+          "agent": "京海",
+          "maxDraft": 8,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "412477010",
+          "name": "JINGHAICHANG",
+          "cnName": "京海昌"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "上海",
+          "nextPort": "上海",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4113243",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1518-75a7-3a000165a1be",
+      "plan": {
+          "orgName": "曹妃甸首钢京唐成品码头",
+          "berthingTime": "2021-06-03T17:00:00",
+          "harbor": "第一港池",
+          "berthNo": "312B",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Unberthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 99,
+          "shipWidth": 16,
+          "frontDraft": 3.5,
+          "behindDraft": 3.5,
+          "goodsType": "废钢",
+          "shipType": "货轮",
+          "loadWeight": 5000,
+          "cargoWeight": 0,
+          "agent": "泽洋",
+          "maxDraft": 3.5,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413707030",
+          "name": "TIAN YU 7",
+          "cnName": "天予7"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "福建",
+          "nextPort": "福建",
+          "anchorTime": null
+      },
+      "status": "working",
+      "tug": [
+        {
+          "name": "港1",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港2",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港3",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        },
+        {
+          "name": "港4",
+          "startTime": "12:00",
+          "endTime": "12:00"
+        }
+      ]
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4728321",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1518-75a7-3a000165a1c4",
+      "plan": {
+          "orgName": "曹妃甸首钢京唐成品码头",
+          "berthingTime": "2021-06-03T20:20:00",
+          "harbor": "第一港池",
+          "berthNo": "303B",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Berthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 102,
+          "shipWidth": 16,
+          "frontDraft": 4,
+          "behindDraft": 4,
+          "goodsType": "热卷",
+          "shipType": "货轮",
+          "loadWeight": 6218,
+          "cargoWeight": 0,
+          "agent": "京海",
+          "maxDraft": 4,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413490390",
+          "name": "JINGHAIXING",
+          "cnName": "京海兴"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "上海",
+          "nextPort": "上海",
+          "anchorTime": null
+      },
+      "status": "waiting"
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4262884",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1518-75a7-3a000165a1c6",
+      "plan": {
+          "orgName": "曹妃甸首钢京唐成品码头",
+          "berthingTime": "2021-06-03T17:20:00",
+          "harbor": "第一港池",
+          "berthNo": "312B",
+          "tugs": 0,
+          "tugCorp": "无",
+          "actionPlan": "Berthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 97,
+          "shipWidth": 16,
+          "frontDraft": 5,
+          "behindDraft": 5,
+          "goodsType": "废钢",
+          "shipType": "杂货船",
+          "loadWeight": 6705,
+          "cargoWeight": 5008,
+          "agent": "泽洋",
+          "maxDraft": 5,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "413358030",
+          "name": "HAI CHANG FU",
+          "cnName": "海长福"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "曹妃甸",
+          "nextPort": "曹妃甸",
+          "anchorTime": null
+      },
+      "status": "waiting"
+  },
+  {
+      "audit": {
+          "auditStatus": "Pass",
+          "auditTime": "2021-06-03T16:00:02.4525259",
+          "reviewedBy": "wangjian"
+      },
+      "syncStatus": "Default",
+      "berthingPlanId": "00002021-0603-1518-75a7-3a000165a201",
+      "plan": {
+          "orgName": "国投曹妃甸港口有限公司",
+          "berthingTime": "2021-06-03T18:20:00",
+          "harbor": "第一港池",
+          "berthNo": "210",
+          "tugs": 2,
+          "tugCorp": "国拖",
+          "actionPlan": "Berthing",
+          "isTide": false,
+          "isPilotage": false,
+          "sortKey": "",
+          "periodCode": "BP20210603-3",
+          "planDate": "2021-06-03T00:00:00",
+          "timespan": 3
+      },
+      "ship": {
+          "shipLength": 190,
+          "shipWidth": 32,
+          "frontDraft": 6.1,
+          "behindDraft": 6.2,
+          "goodsType": "煤炭",
+          "shipType": "货轮",
+          "loadWeight": 47101,
+          "cargoWeight": 0,
+          "agent": "中远",
+          "maxDraft": 6.2,
+          "imo": "",
+          "nationality": "中国",
+          "callSign": "",
+          "mmsi": "414767000",
+          "name": "TUNHUA1",
+          "cnName": "银桦1"
+      },
+      "extended": {
+          "shipAttributes": "内",
+          "previousPort": "江阴",
+          "nextPort": "江阴",
+          "anchorTime": null
+      },
+      "status": "waiting"
+  }
+]

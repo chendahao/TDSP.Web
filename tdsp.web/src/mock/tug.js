@@ -1,4 +1,6 @@
 import tugstatus from './data/tugstatus.json'
+import planstatus from './data/planstatus.json'
+import worklist from './data/worklist.json'
 var Mock = require('mockjs')
 
 export const TugList = () => {
@@ -23,4 +25,12 @@ export const TugList = () => {
 
 export const TugStatus = () => {
   return tugstatus
+}
+
+export const PlanStatus = () => {
+  return planstatus
+}
+
+export const workList = () => {
+  return worklist
 }

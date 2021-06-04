@@ -39,14 +39,53 @@ const tugRoutes = {
       }
     },
     {
-      path: '/tug/status',
-      name: 'tugstatus',
-      component: () => import(/* webpackChunkName: "tuglist" */ '@/views/task/tugStatus/index.vue'),
+      path: '/tug/kanban',
+      name: 'tugkanban',
+      component: () => import(/* webpackChunkName: "tuglist" */ '@/views/task/tugKanban/index.vue'),
       meta: {
         keepAlive: false,
         icon: '',
         needLogin: true,
         title: '拖轮作业看板',
+        fullwidth: false,
+        hideInMenu: false
+      }
+    },
+    {
+      path: '/plan/kanban',
+      name: 'plankanban',
+      component: () => import(/* webpackChunkName: "tuglist" */ '@/views/task/planKanban/index.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '船舶计划看板',
+        fullwidth: false,
+        hideInMenu: false
+      }
+    },
+    {
+      path: '/plan/kanban2',
+      name: 'plankanban2',
+      component: () => import(/* webpackChunkName: "tuglist" */ '@/views/task/planKanban/index2.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '船舶计划看板',
+        fullwidth: false,
+        hideInMenu: true
+      }
+    },
+    {
+      path: '/planrecord',
+      name: 'planrecord',
+      component: () => import(/* webpackChunkName: "tuglist" */ '@/views/task/planrecord/index.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '拖轮作业记录',
         fullwidth: false,
         hideInMenu: false
       }

@@ -32,8 +32,8 @@
                     </v-avatar>
                   </v-list-item-avatar>
 
-                  <v-list-item-content v-if="work.ship">
-                    <v-list-item-title>
+                  <v-list-item-content>
+                    <v-list-item-title v-if="work.ship">
                       {{work.ship}}
                       <v-tooltip top>
                         <template v-slot:activator="{ on }">
@@ -43,7 +43,7 @@
                       </v-tooltip>
                     </v-list-item-title>
                     <v-list-item-subtitle v-if="work.startTime">开始时间：{{work.startTime}}</v-list-item-subtitle>
-                    <v-list-item-subtitle v-if="work.remark">备注：{{work.remark}}</v-list-item-subtitle>
+                    <v-list-item-subtitle v-if="work.remark">{{work.remark}}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
                 <v-divider
@@ -59,7 +59,7 @@
       <v-divider></v-divider>
       <v-card flat v-if="nowWorkList.length > 0">
         <v-card-title primary-title>
-          无作业拖轮
+          空闲拖轮
         </v-card-title>
         <v-chip v-for="(item, index) in nowWorkList" :key="index" label class="ma-2">
           <v-icon left>
@@ -158,7 +158,7 @@ export default {
         this.nowWorkList = datalist.filter(item => item.hasWork === false)
 
         this.loading = false
-      }, 1000)
+      }, 150)
     },
     getPlanInfo (ship) {
       console.log(ship)

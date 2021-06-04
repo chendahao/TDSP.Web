@@ -16,7 +16,8 @@
         "mmsi": "123456789",
         "type": "其他",
         "startTime": "",
-        "endTime": ""
+        "endTime": "",
+        "remark": "接送船员"
       }
     ]
   },
