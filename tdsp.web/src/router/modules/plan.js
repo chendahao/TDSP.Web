@@ -16,7 +16,7 @@ const planRoutes = {
     // plan
     // 船舶计划查询
     {
-      path: '/plan/list',
+      path: '/shipplan/list',
       name: 'planlist',
       component: () => import(/* webpackChunkName: "planlist" */ '@/views/plan/planlist/index.vue'),
       meta: {

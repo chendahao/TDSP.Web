@@ -67,7 +67,7 @@ const tugRoutes = {
     {
       path: '/plan/kanban2',
       name: 'plankanban2',
-      component: () => import(/* webpackChunkName: "tuglist" */ '@/views/task/planKanban/index2.vue'),
+      component: () => import(/* webpackChunkName: "plankanban2" */ '@/views/task/planKanban/index2.vue'),
       meta: {
         keepAlive: false,
         icon: '',
@@ -78,9 +78,22 @@ const tugRoutes = {
       }
     },
     {
+      path: '/plan/list',
+      name: 'planlist2',
+      component: () => import(/* webpackChunkName: "planlist2" */ '@/views/task/planKanban/plan.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '船舶计划编排',
+        fullwidth: false,
+        hideInMenu: false
+      }
+    },
+    {
       path: '/planrecord',
       name: 'planrecord',
-      component: () => import(/* webpackChunkName: "tuglist" */ '@/views/task/planrecord/index.vue'),
+      component: () => import(/* webpackChunkName: "planrecord" */ '@/views/task/planrecord/index.vue'),
       meta: {
         keepAlive: false,
         icon: '',

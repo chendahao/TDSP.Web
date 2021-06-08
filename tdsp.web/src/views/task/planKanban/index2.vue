@@ -141,7 +141,7 @@ export default {
     return {
       search: '',
       headers: [
-        { text: '港池名称', groupable: true, sortable: true, value: 'plan.harbor' },,
+        { text: '港池名称', groupable: true, sortable: true, value: 'plan.harbor' },
         { text: '', groupable: false, sortable: false, value: 'harbor' },
         { text: '中文船名', groupable: false, width: '130', sortable: false, value: 'ship.cnName' },
         { text: '英文船名', groupable: false, width: '130', sortable: false, value: 'ship.name' },
