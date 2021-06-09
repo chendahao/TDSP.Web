@@ -60,8 +60,6 @@ export default {
   },
   watch: {
     show (val) {
-      console.log(val)
-      console.log(this.dialogInfo)
       if (val && !this.dialogInfo) {
         this.getPlanInfo()
       }

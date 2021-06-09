@@ -9,6 +9,9 @@ import minifyTheme from 'minify-css-string'
 Vue.use(Vuetify)
 
 export default new Vuetify({
+  icons: {
+    iconfont: 'md'
+  },
   lang: {
     locales: { zhHans },
     current: 'zhHans'

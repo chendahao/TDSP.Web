@@ -1,4 +1,5 @@
 import Layout from '@/components/layout/Layout.vue'
+import LayoutChild from '@/components/layout/LayoutChild.vue'
 
 const chartRoutes = {
   path: '/',
@@ -14,47 +15,57 @@ const chartRoutes = {
   },
   children: [
     // 统计分析 chart
-    // 自定义区域船舶统计
     {
-      path: '/chart/customarea',
-      name: 'CustomAreaChart',
-      component: () => import(/* webpackChunkName: "CustomAreaChart" */ '@/views/chart/customarea/index.vue'),
+      path: '/',
+      component: LayoutChild,
       meta: {
-        keepAlive: false,
-        icon: '',
         needLogin: true,
-        title: '自定义区域船舶统计',
-        fullwidth: false,
-        hideInMenu: false
-      }
-    },
-    // 定线制水域船舶统计
-    {
-      path: '/chart/customline',
-      name: 'CustomLineChart',
-      component: () => import(/* webpackChunkName: "CustomLineChart" */ '@/views/chart/customline/index.vue'),
-      meta: {
-        keepAlive: false,
-        icon: '',
-        needLogin: true,
-        title: '定线制水域船舶统计',
-        fullwidth: false,
-        hideInMenu: false
-      }
-    },
-    // 报告线水域船舶统计
-    {
-      path: '/chart/reportline',
-      name: 'ReportLineChart',
-      component: () => import(/* webpackChunkName: "ReportLineChart" */ '@/views/chart/reportline/index.vue'),
-      meta: {
-        keepAlive: false,
-        icon: '',
-        needLogin: true,
-        title: '报告线水域船舶统计',
-        fullwidth: false,
-        hideInMenu: false
-      }
+        title: '船舶统计',
+        fullwidth: false
+      },
+      children: [
+        {
+          path: '/chart/customarea',
+          name: 'CustomAreaChart',
+          component: () => import(/* webpackChunkName: "CustomAreaChart" */ '@/views/chart/customarea/index.vue'),
+          meta: {
+            keepAlive: false,
+            icon: '',
+            needLogin: true,
+            title: '自定义区域',
+            fullwidth: false,
+            hideInMenu: false
+          }
+        },
+        // 报告线水域船舶统计
+        {
+          path: '/chart/reportline',
+          name: 'ReportLineChart',
+          component: () => import(/* webpackChunkName: "ReportLineChart" */ '@/views/chart/reportline/index.vue'),
+          meta: {
+            keepAlive: false,
+            icon: '',
+            needLogin: true,
+            title: '报告线水域',
+            fullwidth: false,
+            hideInMenu: false
+          }
+        },
+        // 定线制水域船舶统计
+        {
+          path: '/chart/customline',
+          name: 'CustomLineChart',
+          component: () => import(/* webpackChunkName: "CustomLineChart" */ '@/views/chart/customline/index.vue'),
+          meta: {
+            keepAlive: false,
+            icon: '',
+            needLogin: true,
+            title: '定线制水域',
+            fullwidth: false,
+            hideInMenu: false
+          }
+        }
+      ]
     },
     // 港口吞吐量统计
     {

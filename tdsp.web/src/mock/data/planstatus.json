@@ -858,7 +858,7 @@
           "tugs": 2,
           "tugCorp": "曹拖",
           "actionPlan": "Unberthing",
-          "isTide": false,
+          "isTide": true,
           "isPilotage": false,
           "sortKey": null,
           "periodCode": "BP20210603-3",
@@ -893,22 +893,22 @@
       "tug": [
         {
           "name": "港1",
-          "startTime": "12:00",
+          "startTime": "11:10",
           "endTime": "12:00"
         },
         {
           "name": "港2",
-          "startTime": "12:00",
+          "startTime": "11:15",
           "endTime": "12:00"
         },
         {
           "name": "港3",
-          "startTime": "12:00",
+          "startTime": "11:15",
           "endTime": "12:00"
         },
         {
           "name": "港4",
-          "startTime": "12:00",
+          "startTime": "11:30",
           "endTime": "12:00"
         }
       ]
@@ -1599,7 +1599,8 @@
           "nextPort": "烟台",
           "anchorTime": "2021-06-02T19:04:00"
       },
-      "status": "waiting"
+      "status": "waiting",
+      "tug": []
   },
   {
       "audit": {
@@ -2856,7 +2857,8 @@
           "nextPort": "上海",
           "anchorTime": null
       },
-      "status": "waiting"
+      "status": "waiting",
+      "tug": []
   },
   {
       "audit": {
@@ -2905,7 +2907,8 @@
           "nextPort": "曹妃甸",
           "anchorTime": null
       },
-      "status": "waiting"
+      "status": "waiting",
+      "tug": []
   },
   {
       "audit": {
@@ -2954,6 +2957,7 @@
           "nextPort": "江阴",
           "anchorTime": null
       },
-      "status": "waiting"
+      "status": "waiting",
+      "tug": []
   }
 ]

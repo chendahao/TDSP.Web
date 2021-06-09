@@ -86,20 +86,20 @@
                 <v-list>
                   <!-- <v-list-item-group
                   > -->
-                  <div class="item-title1" v-if="item.plan.isPilotage">
-                    <span>名称</span>
-                    <span>备车时间</span>
-                    <span>开始时间</span>
-                    <span>脱开时间</span>
-                    <span>结束时间</span>
-                    <span>引水</span>
+                  <div class="title1" v-if="item.plan.isPilotage">
+                    <span class="title1-item title1-item-1st">名称</span>
+                    <span class="title1-item">备车时间</span>
+                    <span class="title1-item">开始时间</span>
+                    <span class="title1-item">脱开时间</span>
+                    <span class="title1-item">结束时间</span>
+                    <span style="width:60px;text-align: right;">引水</span>
                   </div>
-                  <div class="item-title1" v-else>
-                    <span>名称</span>
-                    <span>备车时间</span>
-                    <span>开始时间</span>
-                    <span>脱开时间</span>
-                    <span>结束时间</span>
+                  <div class="title2" v-else>
+                    <div class="title2-item title2-item-1st">名称</div>
+                    <div class="title2-item">备车时间</div>
+                    <div class="title2-item">开始时间</div>
+                    <div class="title2-item">脱开时间</div>
+                    <div class="title2-item">结束时间</div>
                   </div>
                   <v-divider></v-divider>
                   <template
@@ -111,12 +111,12 @@
                       color="blue"
                     >
                       <v-list-item-content>
-                        <v-list-item-title class="item-title1">
-                          <span>{{tug.name}}</span>
-                          <span>{{tug.beiche ? tug.beiche : ''}}</span>
-                          <span>{{tug.startTime}}</span>
-                          <span>{{tug.tuokai ? tug.tuokai : ''}}</span>
-                          <span>{{tug.endTime}}</span>
+                        <v-list-item-title :class="item.plan.isPilotage === true ? 'title1-content' : 'title2-content'">
+                          <span :class="item.plan.isPilotage === true ? 'title1-item title1-item-1st' : 'title2-item title2-item-1st'">{{tug.name}}</span>
+                          <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.beiche ? tug.beiche : '--:--'}}</span>
+                          <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.startTime ? tug.startTime : '--:--'}}</span>
+                          <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.tuokai ? tug.tuokai : '--:--'}}</span>
+                          <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.endTime ? tug.endTime : '--:--'}}</span>
                           </v-list-item-title>
                         <v-list-item-subtitle v-if="tug.remark">{{tug.remark}}</v-list-item-subtitle>
                         <br>
@@ -691,6 +691,8 @@ export default {
     },
     donePlan (item) {
       console.log(item)
+      this.$message.success('操作成功')
+      // this.getdata()
       // 计划整体完成
     },
     cancelPlan (item) {
@@ -703,7 +705,7 @@ export default {
         // this.client.files2(id, this.userinfo.gh)
         //   .then(() => {
         //     this.$message.success('取消成功')
-        //     this.getData()
+        //     this.getdata()
         //   })
       }).catch(() => {
       })
@@ -729,7 +731,7 @@ export default {
         // this.client.files2(id, this.userinfo.gh)
         //   .then(() => {
         //     this.$message.success('取消成功')
-        //     this.getData()
+        //     this.getdata()
         //   })
       }).catch(() => {
       })
@@ -828,11 +830,42 @@ export default {
   .v-expansion-panel-content__wrap {
     padding: 0px !important;
   }
-  .item-title1 {
+  /* 引水 */
+  .title1 {
     padding: 0px 16px 2px 16px;
     font-size: 0.79rem;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+  }
+  .title1-content {
+    font-size: 0.79rem;
+    width: 100%;
+    display: flex;
+  }
+  .title1-item {
+    width: 19%;
+    text-align: center;
+  }
+  .title1-item-1st {
+    text-align: left;
+  }
+  /* 无引水 */
+  .title2 {
+    padding: 0px 16px 2px 16px;
+    font-size: 0.79rem;
+    width: 100%;
+    display: flex;
+  }
+  .title2-content {
+    font-size: 0.79rem;
+    width: 100%;
+    display: flex;
+  }
+  .title2-item {
+    width: 20%;
+    text-align: center;
+  }
+  .title2-item-1st {
+    text-align: left;
   }
 </style>
