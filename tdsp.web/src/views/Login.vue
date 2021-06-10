@@ -4,7 +4,6 @@
     <div class="bg1"></div>
     <div class="gyl">
       拖轮调度系统
-      <!-- <div class="gy2">拖轮调度系统VTS MIS</div> -->
     </div>
     <div class="bg">
       <div class="wel">用户登录</div>
@@ -65,25 +64,8 @@ export default {
     }
   },
   created () {
-    // 增加通过其他系统跳转登录
-    const query = this.$route.query
-    if (query.ticket) {
-      this.SSOLogin(query.ticket)
-    }
   },
   methods: {
-    SSOLogin: async function (ticket) {
-      // 通过其他系统跳转登录
-      let data = await api.SSO(ticket)
-      if (data.status === 200) {
-        // 将用户信息存储在localstorage中
-        storagedata.setlocalStorage('userdata', JSON.stringify(data.data.user))
-        storagedata.setlocalStorage('usertoken', data.data.token)
-        storagedata.setlocalStorage('logintime', dayjs().format('YYYY-MM-DD HH:mm')) // 登录时间
-        storagedata.setlocalStorage('tokentime', dayjs().format('YYYY-MM-DD HH:mm')) // 最后获取token时间
-        this.$router.replace('/')
-      }
-    },
     login: async function () {
       if (this.$refs.form.validate()) {
         let data = await api.Login(this.username, this.password)

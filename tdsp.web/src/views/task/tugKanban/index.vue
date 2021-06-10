@@ -33,14 +33,14 @@
                   </v-list-item-avatar>
 
                   <v-list-item-content>
-                    <v-list-item-title v-if="work.ship">
+                    <v-list-item-title v-if="work.ship" @click="getPlanInfo(work)" style="cursor: pointer;">
                       {{work.ship}}
-                      <v-tooltip top>
+                      <!-- <v-tooltip top>
                         <template v-slot:activator="{ on }">
-                          <v-icon v-on="on" @click="getPlanInfo(work)">info</v-icon>
+                          <v-icon small v-on="on" @click="getPlanInfo(work)">info</v-icon>
                         </template>
                         <span>关联计划</span>
-                      </v-tooltip>
+                      </v-tooltip> -->
                     </v-list-item-title>
                     <v-list-item-subtitle v-if="work.startTime">开始时间：{{work.startTime}}</v-list-item-subtitle>
                     <v-list-item-subtitle v-if="work.remark">{{work.remark}}</v-list-item-subtitle>

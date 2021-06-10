@@ -2,6 +2,10 @@
   <div>
     <PageHeader :dense="false" headertitle="拖轮信息">
      <v-spacer></v-spacer>
+     <v-btn color="primary" @click="edit('-1','edit')">
+        <v-icon>add</v-icon>
+        新增
+      </v-btn>
       <v-btn text @click="getdata">
         <v-icon>refresh</v-icon>
         刷新
@@ -22,6 +26,47 @@
       >
         <template v-slot:item.heindhook="{ item }">
           {{ item.heindhook === true ? '有' : '无' }}
+        </template>
+        <template v-slot:item.actions="{ item }">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-icon
+                color="info"
+                v-on="on"
+                @click="edit(item.id,'detail')"
+              >
+                view_quilt
+              </v-icon>
+            </template>
+            <span>详细</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-icon
+                color="primary"
+                v-on="on"
+                @click="edit(item.id,'edit')"
+              >
+                edit
+              </v-icon>
+            </template>
+            <span>编辑</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-icon
+                color="warning"
+                v-on="on"
+                @click="deleteitem(item)"
+              >
+                delete
+              </v-icon>
+            </template>
+            <span>删除</span>
+          </v-tooltip>
+        </template>
+        <template v-slot:no-data>
+          <v-btn color="primary" @click="getdata">重试</v-btn>
         </template>
       </v-data-table>
     </v-container>
@@ -54,7 +99,7 @@ export default {
         { text: '倒拖力', groupable: false, sortable: false, value: 'behindDrag' },
         { text: '尾拖钩', groupable: false, sortable: false, value: 'heindhook' },
         { text: '排序号', groupable: false, sortable: false, value: 'sort' },
-        { text: '操作', sortable: false, align: 'center' }
+        { text: '操作', sortable: false, align: 'center', value: 'actions' }
       ]
     }
   },
@@ -84,6 +129,27 @@ export default {
         this.tableData = TugList().data
         this.loading = false
       }, 1500)
+    },
+    edit (id, type) {
+      this.$router.push({
+        name: 'tugedit',
+        query: { id: id, type: type }
+      })
+    },
+    deleteitem (item) {
+      this.$msgbox.confirm('要删除这条数据吗？', '删除确认', {
+        confirmButtonText: '删除',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.$message.success('删除成功')
+        // this.client.files2(id, this.userinfo.gh)
+        //   .then(() => {
+        //     this.$message.success('取消成功')
+        //     this.getdata()
+        //   })
+      }).catch(() => {
+      })
     }
   }
 }

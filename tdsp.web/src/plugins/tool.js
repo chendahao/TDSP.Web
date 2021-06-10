@@ -126,7 +126,7 @@ export const hasOneOf = (targetarr, arr) => {
  * @param {String} titleText 标题
  */
 export const setTitle = (titleText) => {
-  window.document.title = `${titleText ? `${titleText} - ` : ''} 港口调度指挥中心系统`
+  window.document.title = `${titleText ? `${titleText} - ` : ''} 拖轮调度系统`
 }
 
 /**

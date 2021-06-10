@@ -22,6 +22,11 @@
         <v-icon>refresh</v-icon>
         刷新
       </v-btn>
+      <Help>
+        <slot>
+          help
+        </slot>
+      </Help>
     </PageHeader>
     <v-container fluid>
       <div v-if="workingList.length > 0">
@@ -33,13 +38,23 @@
             <v-card>
               <v-list-item two-line>
                 <v-list-item-action class="mr-1">
-                  <v-avatar :color="setHarbor(item.plan.harbor)" size="32">
-                    <span class="white--text headline" style="font-size:0.9rem !important">{{ item.plan.harbor | formatHarbor2 }}</span>
-                  </v-avatar>
+                  <!-- 显示拖轮数量 -->
+                  <v-badge
+                    :content="item.plan.tugs"
+                    offset-x="15"
+                    offset-y="5"
+                    :title="'计划拖轮数量  '+item.plan.tugs"
+                    class="pointer"
+                  >
+                    <v-avatar :color="setHarbor(item.plan.harbor)" size="32">
+                      <span class="white--text headline" style="font-size:0.9rem !important">{{ item.plan.harbor | formatHarbor2 }}</span>
+                    </v-avatar>
+                  </v-badge>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" style="cursor: pointer;">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
+                  <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" class="pointer">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
                   <v-list-item-subtitle>
+                    <v-chip label small class="ma-1" v-if="showAll" dark :color="item.plan.tugCorp === '曹拖' ? 'green':'blue'">{{ item.plan.tugCorp }}</v-chip>
                     <v-chip label small class="ma-1">{{ item.plan.actionPlan | formatPlan }}</v-chip>
                     <v-chip label small class="ma-1">{{ item.plan.berthNo }}</v-chip>
                     <v-chip label small class="ma-1" color="info" v-if="item.plan.isTide" title="乘潮">乘</v-chip>
@@ -280,7 +295,7 @@
                   </v-avatar>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" style="cursor: pointer;">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
+                  <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" class="pointer">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
                   <v-list-item-subtitle>
                     <v-chip label small class="ma-1">{{ item.plan.actionPlan | formatPlan }}</v-chip>
                     <v-chip label small class="ma-1">{{ item.plan.berthNo }}</v-chip>
@@ -329,7 +344,7 @@
                         </v-avatar>
                       </v-list-item-action>
                       <v-list-item-content>
-                        <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" style="cursor: pointer;">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
+                        <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" class="pointer">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
                         <v-list-item-subtitle>
                           <v-chip label small class="ma-1">{{ item.plan.actionPlan | formatPlan }}</v-chip>
                           <v-chip label small class="ma-1">{{ item.plan.berthNo }}</v-chip>
@@ -369,6 +384,44 @@
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>
+            </v-card>
+          </v-col>
+        </v-row>
+      </div>
+      <!-- 作业完毕拖轮 -->
+      <div v-if="unTugList.length > 0">
+        <v-card-title primary-title @click="showUnTugList = !showUnTugList" class="pointer">
+          无拖轮计划船舶
+        </v-card-title>
+        <v-row v-show="showUnTugList">
+          <v-col md="3" sm="6" xs="12" v-for="(item, index) in unTugList" :key="index">
+            <v-card>
+              <v-list-item two-line>
+                <v-list-item-action class="mr-1">
+                  <v-avatar :color="setHarbor(item.plan.harbor)" size="32">
+                    <span class="white--text headline" style="font-size:0.9rem !important">{{ item.plan.harbor | formatHarbor2 }}</span>
+                  </v-avatar>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" class="pointer">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
+                  <v-list-item-subtitle>
+                    <v-chip label small class="ma-1">{{ item.plan.actionPlan | formatPlan }}</v-chip>
+                    <v-chip label small class="ma-1">{{ item.plan.berthNo }}</v-chip>
+                    <v-chip label small class="ma-1" color="info" v-if="item.plan.isTide" title="乘潮">乘</v-chip>
+                    <v-chip label small class="ma-1" color="info" v-if="item.plan.isPilotage" title="引航">引</v-chip>
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+                <v-list-item-action style="display: flex;flex-direction: row;">
+                  <!-- <v-tooltip bottom>
+                    <template v-slot:activator="{ on }">
+                      <v-btn icon color="info" @click="getPlanInfo(item)">
+                        <v-icon v-on="on">info</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>关联计划</span>
+                  </v-tooltip> -->
+                </v-list-item-action>
+              </v-list-item>
             </v-card>
           </v-col>
         </v-row>
@@ -575,6 +628,7 @@
 <script>
 import { mapState } from 'vuex'
 import dayjs from 'dayjs'
+import Help from '@/components/help'
 import { actionPlanFormat } from '@/plugins/format'
 import PageHeader from '@/components/PageHeader'
 import PlanInfo from './planInfo'
@@ -583,7 +637,8 @@ import { orderBy } from 'lodash'
 export default {
   components: {
     PageHeader,
-    PlanInfo
+    PlanInfo,
+    Help
   },
   data () {
     return {
@@ -591,14 +646,16 @@ export default {
       workingList: [],
       waitingList: [],
       completedList: [],
+      unTugList: [],
+      showUnTugList: false, // 无拖轮计划的船舶
       openOnHover: true,
       bottom: true,
       right: true,
-      showAll: false,
+      showAll: false, // 显示全部 默认显示曹拖相关计划 全部显示 包含国托的计划
       loading: false,
       dialog: false,
       model: 1,
-      dialogInfo: false,
+      dialogInfo: false, // 船舶计划
       dialog2: false,
       planInfo: {},
       hasInfo: false,
@@ -661,11 +718,11 @@ export default {
       this.loading = true
       setTimeout(() => {
         let list = PlanStatus()
+        this.unTugList = list.filter(item => item.plan.tugs === 0)
         if (this.showAll === false) {
           list = list.filter(item => (item.plan.tugCorp).indexOf('曹') > -1)
         }
         for (let i = 0; i < list.length; i++) {
-          console.log(list[i].tug)
           if (list[i].tug) {
             for (let j = 0; j < list[i].tug.length; j++) {
               list[i].tug[j].fab = false
@@ -867,5 +924,8 @@ export default {
   }
   .title2-item-1st {
     text-align: left;
+  }
+  .pointer {
+    cursor: pointer;
   }
 </style>

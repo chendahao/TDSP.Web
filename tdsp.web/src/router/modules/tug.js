@@ -39,6 +39,19 @@ const tugRoutes = {
       }
     },
     {
+      path: '/tug/edit',
+      name: 'tugedit',
+      component: () => import(/* webpackChunkName: "tugedit" */ '@/views/task/tugList/edit.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '拖轮信息',
+        fullwidth: false,
+        hideInMenu: true
+      }
+    },
+    {
       path: '/tug/kanban',
       name: 'tugkanban',
       component: () => import(/* webpackChunkName: "tuglist" */ '@/views/task/tugKanban/index.vue'),

@@ -1,4 +1,4 @@
-/**
+ /**
 * class Account Api
 * @description
 */
@@ -34,18 +34,6 @@ const Login = function (username, password, remberMe = false) {
 }
 
 /**
-* SOO
-* @param  {string} ticket
-* @returns request.post Promission
-*/
-const SSO = function (ticket) {
-  let path = `/auth/SSO/login?ticket=${ticket}`
-  let params = {}
-
-  return request.post(path, params)
-}
-
-/**
 * RefreshToken
 * @returns request.post Promission
 */
@@ -65,5 +53,5 @@ const ChangePassword = function (currentPwd, newPwd) {
   return request.put(path, { currentPwd, newPwd })
 }
 export default {
-  Register, Login, RefreshToken, ChangePassword, SSO
+  Register, Login, RefreshToken, ChangePassword
 }

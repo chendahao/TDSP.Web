@@ -52,7 +52,7 @@
           "name": "港1",
           "startTime": "12:00",
           "endTime": "12:00",
-          "remark": "接引水"
+          "remark": "作业备注"
         },
         {
           "name": "港2",
@@ -108,7 +108,7 @@
           "nextPort": "庄河",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -179,7 +179,7 @@
           "nextPort": "曹妃甸",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -321,7 +321,7 @@
           "nextPort": "莱州",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -392,7 +392,7 @@
           "nextPort": "上海",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -463,7 +463,7 @@
           "nextPort": "舟山",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -534,7 +534,7 @@
           "nextPort": "宁波",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -605,7 +605,7 @@
           "nextPort": "佛山",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -676,7 +676,7 @@
           "nextPort": "揭阳",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -747,7 +747,7 @@
           "nextPort": "佛山",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -818,7 +818,7 @@
           "nextPort": "宁波",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -960,7 +960,7 @@
           "nextPort": "海盐",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -1031,7 +1031,7 @@
           "nextPort": "广东",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -1102,7 +1102,7 @@
           "nextPort": "福建",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -1173,7 +1173,7 @@
           "nextPort": "江苏省",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -1244,7 +1244,7 @@
           "nextPort": "天津",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -1315,7 +1315,7 @@
           "nextPort": "曹妃甸",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -1386,7 +1386,7 @@
           "nextPort": "烟台",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -1457,7 +1457,7 @@
           "nextPort": "嘉兴海盐协和港务",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -1528,7 +1528,7 @@
           "nextPort": "上海",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -1649,30 +1649,8 @@
           "nextPort": "庄河",
           "anchorTime": null
       },
-      "status": "completed",
-      "tug": [
-        {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00",
-          "remark": "接引水"
-        },
-        {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
-        },
-        {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
-        },
-        {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
-        }
-      ]
+      "status": "null",
+      "tug": []
   },
   {
       "audit": {
@@ -1792,7 +1770,7 @@
           "nextPort": "宁波",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -1863,7 +1841,7 @@
           "nextPort": "宁波",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -1934,7 +1912,7 @@
           "nextPort": "揭阳",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -2005,7 +1983,7 @@
           "nextPort": "上海",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -2573,7 +2551,7 @@
           "nextPort": "福建",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -2715,7 +2693,7 @@
           "nextPort": "上海",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -2786,7 +2764,7 @@
           "nextPort": "福建",
           "anchorTime": null
       },
-      "status": "working",
+      "status": "null",
       "tug": [
         {
           "name": "港1",
@@ -2857,7 +2835,7 @@
           "nextPort": "上海",
           "anchorTime": null
       },
-      "status": "waiting",
+      "status": "null",
       "tug": []
   },
   {
@@ -2907,7 +2885,7 @@
           "nextPort": "曹妃甸",
           "anchorTime": null
       },
-      "status": "waiting",
+      "status": "null",
       "tug": []
   },
   {

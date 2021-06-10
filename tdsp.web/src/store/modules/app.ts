@@ -15,7 +15,8 @@ export default {
     pwdVisible: false
   },
   getters: {
-    menuList: (state: Object | Function, getters: { [key: string]: Function }, rootState: { userinfo: { roles: string[] } }) => getMenuByRouter(routers, rootState.userinfo.roles)
+    // menuList: (state: Object | Function, getters: { [key: string]: Function }, rootState: { userinfo: { roles: string[] } }) => getMenuByRouter(routers, rootState.userinfo.roles)
+    menuList: (state: Object | Function, getters: { [key: string]: Function }, rootState: { userinfo: { roles: string[] } }) => getMenuByRouter(routers, [])
   },
   mutations: {
     setPwdVisible (state: { pwdVisible: boolean }, type: boolean) {

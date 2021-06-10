@@ -2,6 +2,7 @@
 
 import { RouteConfig, Route } from 'vue-router/types/router'
 import { forEach, hasOneOf, objEqual, sessionSave, sessionRead } from '@/libs/tools'
+import storagedata from '@/plugins/storagedata'
 
 export const TOKEN_KEY = 'token'
 
@@ -41,6 +42,11 @@ export const getMenuByRouter = (list: RouteConfig[], access: string[]): Array<an
     meta: any;
     children?: any[];
   }> = []
+  const userInfo = storagedata.getUserdata()
+  const roles = userInfo.roles
+  if (roles) {
+    access = userInfo.roles
+  }
   forEach(list, (item: RouteConfig) => {
     if (!item.meta || (item.meta && !item.meta.hideInMenu)) {
       const obj: {
