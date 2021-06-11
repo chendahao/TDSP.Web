@@ -120,9 +120,8 @@
           </v-chip>
         </template>
         <template v-slot:item.plan.tugs="{ item }">
-          <span>
-            {{item.plan.tugs}}
-            {{item.plan.tugCorp}}
+          <v-chip v-if="item.plan.tugs > 0" dark small :color="item.plan.tugCorp === '曹拖' ? 'green':'blue'">{{item.plan.tugCorp}} X {{item.plan.tugs}}</v-chip>          <span v-else>
+            无
           </span>
         </template>
         <template v-slot:item.plan.actionPlan="{ item }">
@@ -189,7 +188,7 @@ export default {
         { text: '引航', groupable: false, width: '60', sortable: false, align: 'center', value: 'plan.isPilotage' },
         { text: '动作', groupable: false, width: '100', sortable: false, value: 'plan.actionPlan' },
         { text: '泊位', groupable: false, width: '100', sortable: false, value: 'plan.berthNo' },
-        { text: '拖轮', groupable: false, width: '100', sortable: false, value: 'plan.tugs' },
+        { text: '拖轮', groupable: false, width: '100', sortable: false, align: 'center', value: 'plan.tugs' },
         { text: '货种', groupable: false, width: '100', sortable: false, value: 'ship.goodsType' },
         { text: '代理', groupable: false, width: '100', sortable: false, value: 'ship.agent' },
         { text: '靠离泊时间', groupable: false, width: '120', sortable: true, value: 'plan.berthingTime' },

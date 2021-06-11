@@ -24,8 +24,8 @@
         :search="search"
         :dense="tableDense"
       >
-        <template v-slot:item.heindhook="{ item }">
-          {{ item.heindhook === true ? '有' : '无' }}
+        <template v-slot:item.builtDate="{ item }">
+          {{ item.builtDate | dateFormat }}
         </template>
         <template v-slot:item.actions="{ item }">
           <v-tooltip bottom>
@@ -74,8 +74,10 @@
 </template>
 <script>
 import { mapState } from 'vuex'
+import { tugApi as api } from '@/api/tugApi'
 import { TugList } from '@/mock/tug'
 import PageHeader from '@/components/PageHeader'
+import { orderBy } from 'lodash'
 export default {
   components: {
     PageHeader
@@ -86,19 +88,22 @@ export default {
       setheight: 550,
       tableData: [],
       loading: false,
+      client: new api.TugInfoClient('', this.$axios),
       headers: [
-        { text: '名称', groupable: false, sortable: false, value: 'name' },
-        { text: '船长(米)', groupable: false, sortable: false, value: 'length' },
-        { text: '船宽(米)', groupable: false, sortable: false, value: 'width' },
-        { text: '型深(米)', groupable: false, sortable: false, value: 'depth' },
-        { text: '主机(马力)', groupable: false, sortable: false, value: 'mainEngine' },
-        { text: '转速', groupable: false, sortable: false, value: 'rotatingSpeed' },
-        { text: '满载吃水', groupable: false, sortable: false, value: 'draft' },
-        { text: '航速', groupable: false, sortable: false, value: 'speed' },
-        { text: '正拖力', groupable: false, sortable: false, value: 'fontDrag' },
-        { text: '倒拖力', groupable: false, sortable: false, value: 'behindDrag' },
-        { text: '尾拖钩', groupable: false, sortable: false, value: 'heindhook' },
-        { text: '排序号', groupable: false, sortable: false, value: 'sort' },
+        { text: '船名', groupable: false, sortable: false, value: 'name' },
+        { text: '中文名', groupable: false, sortable: false, value: 'cnName' },
+        { text: 'MMSI', groupable: false, sortable: false, value: 'mmsi' },
+        { text: '船长(米)', groupable: false, sortable: false, value: 'shipLength' },
+        { text: '船宽(米)', groupable: false, sortable: false, value: 'shipWidth' },
+        { text: '型深(米)', groupable: false, sortable: false, value: 'moldedDepth' },
+        { text: '主机(马力)', groupable: false, sortable: false, value: 'enginePower' },
+        { text: '转速', groupable: false, sortable: false, value: 'engineSpeed' },
+        { text: '满载吃水', groupable: false, sortable: false, value: 'fullLoadDraft' },
+        { text: '航速', groupable: false, sortable: false, value: 'maxSpeed' },
+        { text: '正拖力', groupable: false, sortable: false, value: 'forwardDrag' },
+        { text: '倒拖力', groupable: false, sortable: false, value: 'asternDrag' },
+        { text: '尾拖钩', groupable: false, sortable: false, value: 'towingHook' },
+        { text: '建造日期', groupable: false, sortable: false, value: 'builtDate' },
         { text: '操作', sortable: false, align: 'center', value: 'actions' }
       ]
     }
@@ -125,10 +130,17 @@ export default {
   methods: {
     getdata () {
       this.loading = true
-      setTimeout(() => {
-        this.tableData = TugList().data
-        this.loading = false
-      }, 1500)
+      this.client.tugInfo(99, 1)
+        .then(res => {
+          let list = res.values
+          for (let i = 0; i < list.length; i++) {
+            let element = list[i]
+            element.num = element.cnName.replace(/\s+/g,'').replace(/[\u4e00-\u9fa5a-zA-Z]/gm,'') * 1.0
+          }
+          const list2 = orderBy(list, ['num'], ['asc'])
+          this.tableData = list2
+          this.loading = false
+        })
     },
     edit (id, type) {
       this.$router.push({

@@ -14,25 +14,69 @@
           >
             <v-layout wrap>
               <v-flex xs12 sm6 md5>
-                <v-text-field v-model="editedItem.name" label="拖轮名称" :rules="nameRules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model="editedItem.name" label="船名" :rules="nameRules" :readonly="readonly"></v-text-field>
               </v-flex>
-              <v-flex xs12 sm6 offset-md2 md5>
-                <v-text-field v-model="editedItem.anchDepth" label="锚地水深(m)" :rules="depthRules" :readonly="readonly"></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm6 md5>
-                <v-text-field v-model="editedItem.minLen" label="最小船长(m)" :rules="minLenRules" :readonly="readonly"></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm6 offset-md2 md5>
-                <v-text-field v-model="editedItem.maxLen" label="最大船长(m)" :rules="maxLenRules" :readonly="readonly"></v-text-field>
+              <v-flex xs12 sm6 md5 offset-md2>
+                <v-text-field v-model="editedItem.cnName" label="中文名" :rules="nameRules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5>
-                <v-text-field v-model="editedItem.sort" label="排序号" :rules="sortRules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model="editedItem.mmsi" label="MMSI" :rules="minLenRules" :readonly="readonly"></v-text-field>
               </v-flex>
-              <v-flex xs12 sm6 offset-md2 md5>
-                <v-layout row align-center>
-                  <span class="span">是否向下一锚地锚泊</span>
-                  <v-switch color="primary" v-model="editedItem.isNext" :readonly="readonly"></v-switch>
-                </v-layout>
+              <v-flex xs12 sm6 md5 offset-md2>
+                <v-text-field v-model="editedItem.shipLength" label="船长(米)" :rules="rules" :readonly="readonly"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md5>
+                <v-text-field v-model="editedItem.shipWidth" label="船宽(米)" :rules="rules" :readonly="readonly"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md5 offset-md2>
+                <v-text-field v-model="editedItem.moldedDepth" label="型深(米)" :rules="rules" :readonly="readonly"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md5>
+                <v-text-field v-model="editedItem.mainEngine" label="主机(马力)" :rules="rules" :readonly="readonly"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md5 offset-md2>
+                <v-text-field v-model="editedItem.engineSpeed" label="转速" :rules="rules" :readonly="readonly"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md5>
+                <v-text-field v-model="editedItem.fullLoadDraft" label="满载吃水" :rules="rules" :readonly="readonly"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md5 offset-md2>
+                <v-text-field v-model="editedItem.maxSpeed" label="航速" :rules="rules" :readonly="readonly"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md5>
+                <v-text-field v-model="editedItem.forwardDrag" label="正拖力" :rules="rules" :readonly="readonly"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md5 offset-md2>
+                <v-text-field v-model="editedItem.asternDrag" label="倒拖力" :rules="rules" :readonly="readonly"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md5>
+                <v-text-field v-model="editedItem.towingHook" label="尾脱钩" :rules="rules" :readonly="readonly"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md5 offset-md2>
+                <v-menu
+                  v-model="menu"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="290px"
+                >
+                  <template v-slot:activator="{ on }">
+                    <v-text-field
+                      v-model="editedItem.builtDate"
+                      label="建造日期"
+                      prepend-icon="event"
+                      readonly
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker
+                    v-model="editedItem.builtDate"
+                    locale="zh-cn"
+                    @input="menu = false"
+                    :dayFormat="dayformat"
+                  ></v-date-picker>
+                </v-menu>
               </v-flex>
             </v-layout>
           </v-form>
@@ -76,18 +120,16 @@ export default {
         isNext: false,
         anchDepth: ''
       },
+      menu: false,
       // valid
       nameRules: [
         v => !!v || '请输入锚地名称'
       ],
-      depthRules: [
-        v => /^\d+(\.\d+)?$/.test(v) || '请输入格式正确的水深'
+      rules: [
+        v => /^\d+(\.\d+)?$/.test(v) || '输入格式不正确'
       ],
-      minLenRules: [
-        v => /^\d+(\.\d+)?$/.test(v) || '请输入格式正确的最小船长'
-      ],
-      maxLenRules: [
-        v => /^\d+(\.\d+)?$/.test(v) || '请输入格式正确的最大船长'
+      mmsiRules: [
+        v => /^d{9}$/.test(v) || '输入MMSI格式不正确'
       ],
       sortRules: [
         v => /^[0-9]*$/.test(v) || '请输入格式正确的排序号'

@@ -14,9 +14,9 @@ export const TugList = () => {
       'rotatingSpeed|700-900': 1,
       'draft|3-5.1-3': 1,
       'speed|12-13.1': 1,
-      'fontDrag|1': ['-', '65', '51', '52'],
+      'frontDrag|1': ['-', '65', '51', '52'],
       'behindDrag|1': ['56', '65', '51', '52', '70', '40'],
-      'heindhook|1': true,
+      'behindhook|1': true,
       'sort|+1': 1,
       'name|': '@name'
     }]

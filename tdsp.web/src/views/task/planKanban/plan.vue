@@ -602,6 +602,8 @@
                   </template>
                   <v-time-picker
                     v-if="menu2"
+                    scrollable
+                    :allowed-minutes="allowedStep"
                     v-model="plantime"
                     format="24hr"
                     @click:minute="$refs.menu.save(plantime)"
@@ -804,10 +806,15 @@ export default {
     // 设置时间
     setTime (item, tug, type) {
       this.plandate = dayjs().format('YYYY-MM-DD')
-      this.plantime = dayjs().format('HH:mm')
-      console.log(item)
-      console.log(tug)
-      console.log(type)
+      // 当前分钟
+      let nowMinute = dayjs().minute()
+      if (nowMinute % 5 != 0) {
+        nowMinute = Math.round(nowMinute / 10) *10
+      }
+      this.plantime = dayjs().format(`HH:${nowMinute}`)
+      // console.log(item)
+      // console.log(tug)
+      // console.log(type)
       this.dialog2 = true
     },
     // 保存时间
@@ -874,6 +881,8 @@ export default {
     dialog2_clickoutside () {
       this.dialog2 = false
     },
+    allowedMinutes: v => v % 5 === 0,
+    allowedStep: v => v % 5 === 0,
     setHarbor (harbor) {
       if (harbor.indexOf('开敞') > -1) return 'indigo'
       if (harbor.indexOf('一') > -1) return 'teal'

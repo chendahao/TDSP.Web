@@ -69,7 +69,7 @@ module.exports = {
         changeOrigin: true
       },
       '/api': {
-        target: 'http://220.194.226.187:8080',
+        target: 'http://192.168.1.23:8004',
         ws: true,
         changeOrigin: true
       },

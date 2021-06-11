@@ -27,10 +27,11 @@ const service = axios.create(config)
 service.interceptors.request.use(
   function (config) {
     // 如果用户登录
-    if (storagedata.getUserdata()) {
-      let token = storagedata.getlocalStorage('usertoken')
-      config.headers.Authorization = 'Bearer ' + token
-    }
+    // if (storagedata.getUserdata()) {
+    //   let token = storagedata.getlocalStorage('usertoken')
+    //   config.headers.Authorization = 'Bearer ' + token
+    // }
+    config.headers.Authorization = 'Basic YWRtaW46MTIzMTIz'
     // Do something before request is sent
     return config
   },
