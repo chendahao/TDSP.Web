@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader :dense="false" headertitle="拖轮信息">
+    <PageHeader :dense="false" headertitle="拖轮配备调准">
      <v-spacer></v-spacer>
      <v-btn color="primary" @click="edit('-1','edit')">
         <v-icon>add</v-icon>
@@ -15,17 +15,17 @@
       <v-data-table
         :headers="headers"
         :items="tableData"
-        hide-default-footer
-        disable-pagination
-        class="elevation-1"
-        fixed-header
+        :server-items-length="totalData"
         :height="setheight"
+        fixed-header
+        :options.sync="pagination"
+        :footer-props="{
+          'items-per-page-options':rowsperpageitems
+        }"
         :loading="loading"
-        :search="search"
-        :dense="tableDense"
       >
-        <template v-slot:item.builtDate="{ item }">
-          {{ item.builtDate | dateFormat }}
+        <template v-slot:item.lengthRange="{ item }">
+          {{ item.lengthRange.min }}-{{ item.lengthRange.max }}
         </template>
         <template v-slot:item.actions="{ item }">
           <v-tooltip bottom>
@@ -33,7 +33,7 @@
               <v-icon
                 color="info"
                 v-on="on"
-                @click="edit(item.mmsi,'detail')"
+                @click="edit(item.autoId,'detail')"
               >
                 view_quilt
               </v-icon>
@@ -45,7 +45,7 @@
               <v-icon
                 color="primary"
                 v-on="on"
-                @click="edit(item.mmsi,'edit')"
+                @click="edit(item.autoId,'edit')"
               >
                 edit
               </v-icon>
@@ -87,22 +87,16 @@ export default {
       setheight: 550,
       tableData: [],
       loading: false,
-      client: new api.TugInfoClient('', this.$axios),
+      rowsperpageitems: [10, 20, 50],
+      totalData: 0,
+      pagination: {},
+      client: new api.TugStandardClient('', this.$axios),
       headers: [
-        { text: '船名', groupable: false, width: '80', sortable: false, value: 'name' },
-        { text: '中文名', groupable: false, width: '130', sortable: false, value: 'cnName' },
-        { text: 'MMSI', groupable: false, width: '80', sortable: false, value: 'mmsi' },
-        { text: '船长(米)', groupable: false, width: '80', sortable: false, value: 'shipLength' },
-        { text: '船宽(米)', groupable: false, width: '80', sortable: false, value: 'shipWidth' },
-        { text: '型深(米)', groupable: false, width: '80', sortable: false, value: 'moldedDepth' },
-        { text: '主机(马力)', groupable: false, width: '90', sortable: false, value: 'enginePower' },
-        { text: '转速', groupable: false, width: '80', sortable: false, value: 'engineSpeed' },
-        { text: '满载吃水', groupable: false, width: '80', sortable: false, value: 'fullLoadDraft' },
-        { text: '航速', groupable: false, width: '60', sortable: false, value: 'maxSpeed' },
-        { text: '正拖力', groupable: false, width: '60', sortable: false, value: 'forwardDrag' },
-        { text: '倒拖力', groupable: false, width: '60', sortable: false, value: 'asternDrag' },
-        { text: '尾拖钩', groupable: false, width: '80', sortable: false, value: 'towingHook' },
-        { text: '建造日期', groupable: false, width: '130', sortable: false, value: 'builtDate' },
+        { text: '港池名称', groupable: false, width: '80', sortable: false, value: 'harbor' },
+        { text: '船舶类型', groupable: false, width: '130', sortable: false, value: 'shipType' },
+        { text: '长度范围', groupable: false, width: '80', sortable: false, value: 'lengthRange' },
+        { text: '靠泊数量', groupable: false, width: '80', sortable: false, value: 'tugNumber.berth' },
+        { text: '离泊数量', groupable: false, width: '80', sortable: false, value: 'tugNumber.unBerth' },
         { text: '操作', sortable: false, align: 'center', width: '110', value: 'actions' }
       ]
     }
@@ -119,32 +113,56 @@ export default {
       that.setheight = window.innerHeight - 212 + 59
     }
   },
+  watch: {
+    pagination: {
+      handler (newval, oldval) {
+        if (oldval.groupBy) {
+          this.getData()
+        }
+      },
+      deep: true
+    }
+  },
   destroyed () {
     window.onresize = ''
   },
   created () {
     this.setheight = window.innerHeight - 212 + 59
-    this.getdata()
+    this.initData()
   },
   methods: {
-    getdata () {
+    initData () {
       this.loading = true
-      this.client.tugInfo(99, 1)
+      this.client.tugStandard2(null, null, null, null, false)
         .then(res => {
-          let list = res.values
-          for (let i = 0; i < list.length; i++) {
-            let element = list[i]
-            element.num = element.cnName.replace(/\s+/g,'').replace(/[\u4e00-\u9fa5a-zA-Z]/gm,'') * 1.0
-          }
-          const list2 = orderBy(list, ['num'], ['asc'])
-          this.tableData = list2
+          this.tableData = res.values
+          this.pagination.page = res.page.page
+          this.pagination.itemsPerPage = res.page.pageSize
+          this.totalData = res.page.total
+        })
+        .finally(() => {
           this.loading = false
         })
     },
-    edit (mmsi, type) {
+    getdata () {
+      this.loading = true
+      const page = this.pagination
+      const desc = page.sortDesc.length > 0 ? page.sortDesc[0] : false
+      this.client.tugStandard2(page.itemsPerPage, page.page, page.sortBy, this.searchKey, desc)
+        .then(res => {
+          this.tableData = res.values
+          this.pagination.page = res.page.page
+          this.pagination.itemsPerPage = res.page.pageSize
+          this.totalData = res.page.total
+        })
+        .finally(() => {
+          this.loading = false
+        })
+    },
+    edit (autoId, type) {
       this.$router.push({
-        name: 'tugedit',
-        query: { mmsi: mmsi, type: type }
+        name: 'tugstandardedit',
+        query: { autoId: autoId, type: type }
       })
     },
     deleteitem (item) {
@@ -154,7 +172,7 @@ export default {
         type: 'warning'
       }).then(() => {
         console.log(item)
-        this.client.tugInfo5(item.mmsi)
+        this.client.tugStandard4(item.autoId)
           .then(() => {
             this.$message.success('删除成功')
             this.getdata()

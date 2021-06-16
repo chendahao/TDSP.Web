@@ -275,7 +275,7 @@ export class TugInfoClient {
                 }
             }
         }
-        if (status === 200) {
+        if (status === 200 || status === 202) {
             const _responseText = response.data;
             return Promise.resolve<void>(<any>null);
         } else if (status !== 200 && status !== 204) {
@@ -330,7 +330,7 @@ export class TugInfoClient {
                 }
             }
         }
-        if (status === 200) {
+        if (status === 200 || status === 202) {
             const _responseText = response.data;
             return Promise.resolve<void>(<any>null);
         } else if (status !== 200 && status !== 204) {

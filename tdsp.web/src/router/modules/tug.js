@@ -52,6 +52,32 @@ const tugRoutes = {
       }
     },
     {
+      path: '/tug/standard',
+      name: 'tugstandard',
+      component: () => import(/* webpackChunkName: "tugstandard" */ '@/views/task/tugStandard/index.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '配备标准',
+        fullwidth: false,
+        hideInMenu: false
+      }
+    },
+    {
+      path: '/tug/standard/edit',
+      name: 'tugstandardedit',
+      component: () => import(/* webpackChunkName: "tugstandardedit" */ '@/views/task/tugStandard/edit.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '配备标准',
+        fullwidth: false,
+        hideInMenu: true
+      }
+    },
+    {
       path: '/tug/kanban',
       name: 'tugkanban',
       component: () => import(/* webpackChunkName: "tuglist" */ '@/views/task/tugKanban/index.vue'),

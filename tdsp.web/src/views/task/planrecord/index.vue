@@ -83,6 +83,7 @@ import { mapState } from 'vuex'
 import PageHeader from '@/components/PageHeader'
 import { workList } from '@/mock/tug'
 import { orderBy } from 'lodash'
+import { tugApi as api } from '@/api/tugApi'
 import dayjs from 'dayjs'
 export default {
   components: {
@@ -93,6 +94,7 @@ export default {
       menu: false,
       date: dayjs().format('YYYY-MM-DD'),
       setheight: window.innerHeight - 205,
+      client: new api.TugJobClient('', this.$axios),
       headers: [
         { text: '拖轮名称', groupable: true, sortable: true, value: 'tug' },
         { text: '', groupable: false, sortable: false, value: 'harbor' },
@@ -140,6 +142,14 @@ export default {
         this.dataList = workList()
         this.loading = false
       }, 150)
+    },
+    getdata2 () {
+      this.loading = false
+      this.client.tugJob(this.date, 999, 1, null, null, false)
+        .then(res => {
+          console.log(res)
+          this.dataList = res.values
+        })
     }
   }
 }

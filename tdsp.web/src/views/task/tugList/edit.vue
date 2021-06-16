@@ -20,37 +20,37 @@
                 <v-text-field v-model="editedItem.cnName" label="中文名" :rules="nameRules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5>
-                <v-text-field v-model="editedItem.mmsi" label="MMSI" :rules="minLenRules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model="editedItem.mmsi" label="MMSI" :rules="mmsiRules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5 offset-md2>
-                <v-text-field v-model="editedItem.shipLength" label="船长(米)" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.shipLength" label="船长(米)" :rules="rules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5>
-                <v-text-field v-model="editedItem.shipWidth" label="船宽(米)" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.shipWidth" label="船宽(米)" :rules="rules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5 offset-md2>
-                <v-text-field v-model="editedItem.moldedDepth" label="型深(米)" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.moldedDepth" label="型深(米)" :rules="rules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5>
-                <v-text-field v-model="editedItem.mainEngine" label="主机(马力)" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.enginePower" label="主机(马力)" :rules="rules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5 offset-md2>
-                <v-text-field v-model="editedItem.engineSpeed" label="转速" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.engineSpeed" label="转速" :rules="rules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5>
-                <v-text-field v-model="editedItem.fullLoadDraft" label="满载吃水" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.fullLoadDraft" label="满载吃水" :rules="rules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5 offset-md2>
-                <v-text-field v-model="editedItem.maxSpeed" label="航速" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.maxSpeed" label="航速" :rules="rules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5>
-                <v-text-field v-model="editedItem.forwardDrag" label="正拖力" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.forwardDrag" label="正拖力" :rules="rules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5 offset-md2>
-                <v-text-field v-model="editedItem.asternDrag" label="倒拖力" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.asternDrag" label="倒拖力" :rules="rules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5>
-                <v-text-field v-model="editedItem.towingHook" label="尾脱钩" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model="editedItem.towingHook" label="尾脱钩" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5 offset-md2>
                 <v-menu
@@ -93,32 +93,32 @@
 </template>
 
 <script>
-import api from '@/api/navenv/AnchorageApi'
+import { tugApi as api } from '@/api/tugApi'
 import PageHeader from '@/components/PageHeader'
+import dayjs from 'dayjs'
 export default {
   components: {
     PageHeader
   },
   data () {
     return {
-      id: -1,
+      client: new api.TugInfoClient('', this.$axios),
+      mmsi: '-1',
       editedItem: {
-        anchId: '00000000-0000-0000-0000-000000000000',
-        name: '',
-        minLen: '',
-        maxLen: '',
-        sort: '',
-        isNext: false,
-        anchDepth: ''
-      },
-      defaultItem: {
-        anchId: '00000000-0000-0000-0000-000000000000',
-        name: '',
-        minLen: '',
-        maxLen: '',
-        sort: '',
-        isNext: false,
-        anchDepth: ''
+        mmsi: "",
+        name: "",
+        cnName: "",
+        shipLength: '',
+        shipWidth: '',
+        builtDate: dayjs().format('YYYY-MM-DD'),
+        moldedDepth: '',
+        enginePower: '',
+        engineSpeed: '',
+        maxSpeed: '',
+        fullLoadDraft: '',
+        forwardDrag: '',
+        asternDrag: '',
+        towingHook: ""
       },
       menu: false,
       // valid
@@ -129,7 +129,7 @@ export default {
         v => /^\d+(\.\d+)?$/.test(v) || '输入格式不正确'
       ],
       mmsiRules: [
-        v => /^d{9}$/.test(v) || '输入MMSI格式不正确'
+        v => /^\d{9}$/.test(v) || '输入MMSI格式不正确'
       ],
       sortRules: [
         v => /^[0-9]*$/.test(v) || '请输入格式正确的排序号'
@@ -140,18 +140,18 @@ export default {
     }
   },
   created () {
-    this.id = this.$route.query.id
+    this.mmsi = this.$route.query.mmsi
     let type = this.$route.query.type
     if (type === 'edit') {
       this.readonly = false
     }
-    if (this.id !== '-1') {
+    if (this.mmsi !== '-1') {
       this.getItem()
     }
   },
   computed: {
     formTitle () {
-      return this.id === '-1' ? '新增拖轮' : this.readonly === true ? '拖轮信息' : '编辑拖轮'
+      return this.mmsi === '-1' ? '新增拖轮' : this.readonly === true ? '拖轮信息' : '编辑拖轮'
     },
     close () {
       return this.readonly === true ? '关闭' : '取消'
@@ -159,24 +159,39 @@ export default {
   },
   methods: {
     getItem: async function () {
-      let item = await api.GetItemById(this.id)
-      this.editedItem = item.data
+      this.client.tugInfo4(this.mmsi)
+        .then(res => {
+          res.builtDate = dayjs(res.builtDate).format('YYYY-MM-DD')
+          this.editedItem = res
+        })
     },
     save: async function () {
       if (this.$refs.form.validate()) {
         let data = null
-        if (this.id === '-1') {
+        if (this.mmsi === '-1') {
           // 新增
-          data = await api.Create(this.editedItem)
+          this.client.tugInfo2(this.editedItem)
+            .then(res => {
+              if (!res) {
+                this.$message.success('保存成功')
+                this.$router.go(-1)
+              }
+            })
+            .catch(err => {
+              this.$message.error(err)
+            })
         } else {
           // 编辑
-          data = await api.Update(this.editedItem)
-        }
-        if (data.data.code === 0) {
-          this.$message.success('保存成功')
-          this.$router.go(-1)
-        } else {
-          this.$message.error(data.data.message)
+          this.client.tugInfo3(this.mmsi, this.editedItem)
+            .then(res => {
+              if (!res) {
+                this.$message.success('保存成功')
+                this.$router.go(-1)
+              }
+            })
+            .catch(err => {
+              this.$message.error(err)
+            })
         }
       }
     }

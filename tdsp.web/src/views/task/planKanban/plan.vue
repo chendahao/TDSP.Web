@@ -4,8 +4,39 @@
 <template>
   <div>
     <PageHeader :dense="false" headertitle="船舶计划实时看板">
-     <v-spacer></v-spacer>
-      <v-tooltip bottom>
+      <v-layout row wrap>
+        <v-flex md4>
+          <v-menu
+            v-model="menu"
+            :close-on-content-click="false"
+            :nudge-right="40"
+            transition="scale-transition"
+            offset-y
+            min-width="290px"
+          >
+            <template v-slot:activator="{ on }">
+              <v-text-field
+                v-model="date"
+                placeholder="日期"
+                hint="日期"
+                width="200px"
+                persistent-hint
+                append-icon="event"
+                readonly
+                v-on="on"
+              ></v-text-field>
+            </template>
+            <v-date-picker
+              v-model="date"
+              locale="zh-cn"
+              @input="menu = false"
+              :dayFormat="dayformat"
+            ></v-date-picker>
+          </v-menu>
+        </v-flex>
+      </v-layout>
+      <v-spacer></v-spacer>
+      <!-- <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-checkbox
             label="显示全部"
@@ -17,7 +48,7 @@
           ></v-checkbox>
         </template>
         <span>显示全部</span>
-      </v-tooltip>
+      </v-tooltip> -->
       <v-btn text @click="getdata">
         <v-icon>refresh</v-icon>
         刷新
@@ -54,6 +85,8 @@
                 <v-list-item-content>
                   <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" class="pointer">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
                   <v-list-item-subtitle>
+                  </v-list-item-subtitle>
+                  <v-list-item-subtitle>
                     <v-chip label small class="ma-1" v-if="showAll" dark :color="item.plan.tugCorp === '曹拖' ? 'green':'blue'">{{ item.plan.tugCorp }}</v-chip>
                     <v-chip label small class="ma-1">{{ item.plan.actionPlan | formatPlan }}</v-chip>
                     <v-chip label small class="ma-1">{{ item.plan.berthNo }}</v-chip>
@@ -64,7 +97,7 @@
                 <v-list-item-action style="display: flex;flex-direction: row;align-items: center;">
                   <v-tooltip top>
                     <template v-slot:activator="{ on }">
-                      <v-btn icon color="primary" @click="addtug(item)">
+                      <v-btn small icon color="primary" @click="addtug(item)">
                         <v-icon v-on="on">add</v-icon>
                       </v-btn>
                     </template>
@@ -72,7 +105,7 @@
                   </v-tooltip>
                   <v-tooltip top>
                     <template v-slot:activator="{ on }">
-                      <v-btn icon color="green" @click="donePlan(item)">
+                      <v-btn small icon color="green" @click="donePlan(item)">
                         <i class="material-icons" v-on="on">done_outline</i>
                       </v-btn>
                     </template>
@@ -80,7 +113,7 @@
                   </v-tooltip>
                   <v-tooltip top>
                     <template v-slot:activator="{ on }">
-                      <v-btn icon color="warning" @click="cancelPlan(item)">
+                      <v-btn small icon color="warning" @click="cancelPlan(item)">
                         <i class="material-icons" v-on="on">cancel</i>
                       </v-btn>
                     </template>
@@ -636,6 +669,7 @@ import PageHeader from '@/components/PageHeader'
 import PlanInfo from './planInfo'
 import { PlanStatus } from '@/mock/tug'
 import { orderBy } from 'lodash'
+import { tugApi as api } from '@/api/tugApi'
 export default {
   components: {
     PageHeader,
@@ -644,6 +678,7 @@ export default {
   },
   data () {
     return {
+      client: new api.TugScheduleClient('', this.$axios),
       desserts: [],
       workingList: [],
       waitingList: [],
@@ -663,6 +698,8 @@ export default {
       hasInfo: false,
       menu1: false,
       menu2: false,
+      date: dayjs().format('YYYY-MM-DD'),
+      menu: false,
       plandate: dayjs().format('YYYY-MM-DD'),
       plantime: dayjs().format('HH:mm'),
       items: [
@@ -748,6 +785,15 @@ export default {
         this.loading = false
       }, 150)
     },
+    getdata2 () {
+      this.loading = false
+      // 根据日期获取调度计划
+      this.client.tugSchedule2(this.date)
+        .then(res => {
+          
+          console.log(res)
+        })
+    },
     donePlan (item) {
       console.log(item)
       this.$message.success('操作成功')
@@ -811,6 +857,7 @@ export default {
       if (nowMinute % 5 != 0) {
         nowMinute = Math.round(nowMinute / 10) *10
       }
+      if (nowMinute < 10) nowMinute = '0' + nowMinute
       this.plantime = dayjs().format(`HH:${nowMinute}`)
       // console.log(item)
       // console.log(tug)
