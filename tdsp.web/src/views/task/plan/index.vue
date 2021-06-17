@@ -1,7 +1,7 @@
 <template>
   <div>
     <PageHeader headertitle="动态计划查询">
-      <v-layout wrap>
+      <!-- <v-layout wrap>
         <v-flex xs4 sm4 md3>
           <v-menu
             v-model="menu"
@@ -42,7 +42,7 @@
             v-model="timespannow"
           ></v-select>
         </v-flex>
-      </v-layout>
+      </v-layout> -->
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
@@ -52,6 +52,12 @@
         hide-details
         clearable
       ></v-text-field>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn @click="generatePlan" v-on="on" color="primary">生成调度计划</v-btn>
+        </template>
+        <span>生成调度计划</span>
+      </v-tooltip>
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-checkbox
@@ -139,11 +145,25 @@
         <template v-slot:item.frontbehindDraft="{ item }">
           {{ item.ship.frontDraft }}/{{ item.ship.behindDraft }}
         </template>
-        <template v-slot:item.loadcargoWeight="{ item }">
+        <template v-slot:item.loadcargoWeight="{ item }"item.actions>
           {{ item.ship.cargoWeight }}/{{ item.ship.loadWeight }}
         </template>
-          <template v-slot:item.port="{ item }">
+        <template v-slot:item.port="{ item }">
           {{ item.extended.previousPort }}/{{ item.extended.nextPort }}
+        </template>
+        <template v-slot:item.actions="{ item }">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-icon
+                color="info"
+                v-on="on"
+                @click="addSchedule(item.planId)"
+              >
+                add
+              </v-icon>
+            </template>
+            <span>加入调度计划</span>
+          </v-tooltip>
         </template>
         <template v-slot:no-results>
           <v-alert :value="true" color="error" icon="info">没有找到 "{{ search }}" 相关数据</v-alert>
@@ -158,8 +178,9 @@
 <script>
 import { mapState } from 'vuex'
 import dayjs from 'dayjs'
-import { pubApi as pub } from '@/api/pub'
-import { pscApi as psc } from '@/api/plan'
+// import { pubApi as pub } from '@/api/pub'
+// import { pscApi as psc } from '@/api/plan'
+import { tugApi as api } from '@/api/tugApi'
 import { actionPlanFormat } from '@/plugins/format'
 import PageHeader from '@/components/PageHeader'
 export default {
@@ -171,9 +192,10 @@ export default {
       search: '',
       timespan: [],
       setheight: window.innerHeight - 205,
-      client: new psc.BerthingPlanClient('', this.$axios),
-      binfoclient: new pub.BerthInfoClient('', this.$axios),
-      periodclient: new psc.PlanPeriodClient('', this.$axios),
+      // client: new psc.BerthingPlanClient('', this.$axios),
+      client: new api.PlanScheduleClient('', this.$axios),
+      TugScheduleClient: new api.TugScheduleClient('', this.$axios),
+      // periodclient: new psc.PlanPeriodClient('', this.$axios),
       // 时间
       date: '',
       // 时段
@@ -274,14 +296,43 @@ export default {
         this.timespan = res
       })
     },
-    getdata: async function () {
+    // 获取正在执行的时段
+    getTimespanNow () {
+      // 检查是否为正在执行的时段
+      // 正在执行的时段才可以加入其他 船舶的作业计划
+    },
+    // 将没有拖轮或非曹拖的计划加入到拖轮调度计划中
+    addSchedule (id) {
+      this.TugScheduleClient.tugSchedule(id)
+        .then(res => {
+          console.log(res)
+          this.$message.success('创建成功')
+          this.getdata()
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    // 生成当前时段的调度计划
+    generatePlan () {
+      this.TugScheduleClient.now()
+        .then(res => {
+          console.log(res)
+          this.$message.success('生成成功')
+        })
+    },
+    getdata () {
       this.loading = true
-      this.client.getByPeriod(this.date, this.timespannow)
+      let tugCorp = null
+      if (showAll) tugCorp = null
+      else tugCorp = '曹拖'
+      this.client.planSchedule(this.date, tugCorp, 999, 1, null, null, false)
         .then(res => {
           let list = res
-          if (this.showAll === false) {
-            list = list.filter(item => (item.plan.tugCorp).indexOf('曹') > -1)
-          }
+          // 不在需要前台过滤
+          // if (this.showAll === false) {
+          //   list = list.filter(item => (item.plan.tugCorp).indexOf('曹') > -1)
+          // }
           for (let i = 0; i < list.length; i++) {
             let harbor = list[i].plan.harbor
             if ((harbor).indexOf('一') > -1) {

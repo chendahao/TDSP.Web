@@ -11,6 +11,429 @@ import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, Ca
 
 export module tugApi {
 
+export class DutyClient {
+    private instance: AxiosInstance;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(baseUrl?: string, instance?: AxiosInstance) {
+        this.instance = instance ? instance : axios.create();
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
+    }
+
+    /**
+     * 获取日志分页记录
+     * @param pageSize (optional) 页面大小
+     * @param page (optional) 当前页码
+     * @param sortBy (optional) 排序字段
+     * @param searchKey (optional) 搜索值
+     * @param descending (optional) 逆序
+     * @return Success
+     */
+    duty(pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<DutyRecordPageResult> {
+        let url_ = this.baseUrl + "/api/sch/Duty?";
+        if (pageSize !== undefined && pageSize !== null)
+            url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
+        if (page !== undefined && page !== null)
+            url_ += "Page=" + encodeURIComponent("" + page) + "&";
+        if (sortBy !== undefined && sortBy !== null)
+            url_ += "SortBy=" + encodeURIComponent("" + sortBy) + "&";
+        if (searchKey !== undefined && searchKey !== null)
+            url_ += "SearchKey=" + encodeURIComponent("" + searchKey) + "&";
+        if (descending === null)
+            throw new Error("The parameter 'descending' cannot be null.");
+        else if (descending !== undefined)
+            url_ += "Descending=" + encodeURIComponent("" + descending) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processDuty(_response);
+        });
+    }
+
+    protected processDuty(response: AxiosResponse): Promise<DutyRecordPageResult> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = DutyRecordPageResult.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<DutyRecordPageResult>(<any>null);
+    }
+
+    /**
+     * 根据 Id 获取值班记录
+     * @return Success
+     */
+    duty2(id: number , cancelToken?: CancelToken | undefined): Promise<DutyRecord> {
+        let url_ = this.baseUrl + "/api/sch/Duty/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processDuty2(_response);
+        });
+    }
+
+    protected processDuty2(response: AxiosResponse): Promise<DutyRecord> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = DutyRecord.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<DutyRecord>(<any>null);
+    }
+}
+
+export class HarborAliasClient {
+    private instance: AxiosInstance;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(baseUrl?: string, instance?: AxiosInstance) {
+        this.instance = instance ? instance : axios.create();
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
+    }
+
+    /**
+     * 新建记录
+     * @param body (optional) 
+     * @return Success
+     */
+    harborAlias(body: HarborAlias | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/HarborAlias";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ = <AxiosRequestConfig>{
+            data: content_,
+            method: "POST",
+            url: url_,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processHarborAlias(_response);
+        });
+    }
+
+    protected processHarborAlias(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 获取分页结果
+     * @param pageSize (optional) 页面大小
+     * @param page (optional) 当前页码
+     * @param sortBy (optional) 排序字段
+     * @param searchKey (optional) 搜索值
+     * @param descending (optional) 逆序
+     * @return Success
+     */
+    harborAlias2(pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<HarborAliasPageResult> {
+        let url_ = this.baseUrl + "/api/base/HarborAlias?";
+        if (pageSize !== undefined && pageSize !== null)
+            url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
+        if (page !== undefined && page !== null)
+            url_ += "Page=" + encodeURIComponent("" + page) + "&";
+        if (sortBy !== undefined && sortBy !== null)
+            url_ += "SortBy=" + encodeURIComponent("" + sortBy) + "&";
+        if (searchKey !== undefined && searchKey !== null)
+            url_ += "SearchKey=" + encodeURIComponent("" + searchKey) + "&";
+        if (descending === null)
+            throw new Error("The parameter 'descending' cannot be null.");
+        else if (descending !== undefined)
+            url_ += "Descending=" + encodeURIComponent("" + descending) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processHarborAlias2(_response);
+        });
+    }
+
+    protected processHarborAlias2(response: AxiosResponse): Promise<HarborAliasPageResult> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = HarborAliasPageResult.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<HarborAliasPageResult>(<any>null);
+    }
+
+    /**
+     * 更新记录
+     * @param body (optional) 
+     * @return Success
+     */
+    harborAlias3(id: string | null, body: HarborAlias | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/HarborAlias/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ = <AxiosRequestConfig>{
+            data: content_,
+            method: "PUT",
+            url: url_,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processHarborAlias3(_response);
+        });
+    }
+
+    protected processHarborAlias3(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 根据 Id 删除对象
+     * @return Success
+     */
+    harborAlias4(id: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/HarborAlias/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "DELETE",
+            url: url_,
+            headers: {
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processHarborAlias4(_response);
+        });
+    }
+
+    protected processHarborAlias4(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 根据主键获取对象实体
+     * @return Success
+     */
+    harborAlias5(id: string | null , cancelToken?: CancelToken | undefined): Promise<HarborAlias> {
+        let url_ = this.baseUrl + "/api/base/HarborAlias/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processHarborAlias5(_response);
+        });
+    }
+
+    protected processHarborAlias5(response: AxiosResponse): Promise<HarborAlias> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = HarborAlias.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<HarborAlias>(<any>null);
+    }
+}
+
 export class JobRecordClient {
     private instance: AxiosInstance;
     private baseUrl: string;
@@ -23,15 +446,15 @@ export class JobRecordClient {
 
     /**
      * @param date (optional) 
-     * @param pageSize (optional) 
-     * @param page (optional) 
-     * @param sortBy (optional) 
-     * @param searchKey (optional) 
-     * @param descending (optional) 
+     * @param pageSize (optional) 页面大小
+     * @param page (optional) 当前页码
+     * @param sortBy (optional) 排序字段
+     * @param searchKey (optional) 搜索值
+     * @param descending (optional) 逆序
      * @return Success
      */
     jobRecord(date: string | undefined, pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<TugJobRecordPageResult> {
-        let url_ = this.baseUrl + "/api/JobRecord?";
+        let url_ = this.baseUrl + "/api/sch/JobRecord?";
         if (date === null)
             throw new Error("The parameter 'date' cannot be null.");
         else if (date !== undefined)
@@ -98,7 +521,7 @@ export class JobRecordClient {
      * @return Success
      */
     jobRecordAll(mmsi: string | null, date: string , cancelToken?: CancelToken | undefined): Promise<TugJobRecord[]> {
-        let url_ = this.baseUrl + "/api/JobRecord/{mmsi}/{date}";
+        let url_ = this.baseUrl + "/api/sch/JobRecord/{mmsi}/{date}";
         if (mmsi === undefined || mmsi === null)
             throw new Error("The parameter 'mmsi' must be defined.");
         url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
@@ -155,7 +578,7 @@ export class JobRecordClient {
     }
 }
 
-export class TugInfoClient {
+export class PlanScheduleClient {
     private instance: AxiosInstance;
     private baseUrl: string;
     protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
@@ -166,16 +589,24 @@ export class TugInfoClient {
     }
 
     /**
-     * 获取 拖轮信息 分页结果
-     * @param pageSize (optional) 
-     * @param page (optional) 
-     * @param sortBy (optional) 
-     * @param searchKey (optional) 
-     * @param descending (optional) 
+     * 根据日期获取 需要拖轮的 靠离泊计划
+     * @param date (optional) 计划日期
+     * @param tugCorp (optional) 拖轮公司
+     * @param pageSize (optional) 页面大小
+     * @param page (optional) 当前页码
+     * @param sortBy (optional) 排序字段
+     * @param searchKey (optional) 搜索值
+     * @param descending (optional) 逆序
      * @return Success
      */
-    tugInfo(pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<TugInfoPageResult> {
-        let url_ = this.baseUrl + "/api/TugInfo?";
+    planSchedule(date: string | undefined, tugCorp: string | null | undefined, pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<PlanSchedulePageResult> {
+        let url_ = this.baseUrl + "/api/sch/PlanSchedule?";
+        if (date === null)
+            throw new Error("The parameter 'date' cannot be null.");
+        else if (date !== undefined)
+            url_ += "date=" + encodeURIComponent("" + date) + "&";
+        if (tugCorp !== undefined && tugCorp !== null)
+            url_ += "tugCorp=" + encodeURIComponent("" + tugCorp) + "&";
         if (pageSize !== undefined && pageSize !== null)
             url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
         if (page !== undefined && page !== null)
@@ -206,11 +637,11 @@ export class TugInfoClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processTugInfo(_response);
+            return this.processPlanSchedule(_response);
         });
     }
 
-    protected processTugInfo(response: AxiosResponse): Promise<TugInfoPageResult> {
+    protected processPlanSchedule(response: AxiosResponse): Promise<PlanSchedulePageResult> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -224,13 +655,152 @@ export class TugInfoClient {
             const _responseText = response.data;
             let result200: any = null;
             let resultData200  = _responseText;
-            result200 = TugInfoPageResult.fromJS(resultData200);
+            result200 = PlanSchedulePageResult.fromJS(resultData200);
             return result200;
         } else if (status !== 200 && status !== 204) {
             const _responseText = response.data;
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<TugInfoPageResult>(<any>null);
+        return Promise.resolve<PlanSchedulePageResult>(<any>null);
+    }
+
+    /**
+     * 根据日期 获取全部 靠离泊计划
+     * @param date (optional) 
+     * @param pageSize (optional) 页面大小
+     * @param page (optional) 当前页码
+     * @param sortBy (optional) 排序字段
+     * @param searchKey (optional) 搜索值
+     * @param descending (optional) 逆序
+     * @return Success
+     */
+    all(date: string | undefined, pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<PlanSchedulePageResult> {
+        let url_ = this.baseUrl + "/api/sch/PlanSchedule/All?";
+        if (date === null)
+            throw new Error("The parameter 'date' cannot be null.");
+        else if (date !== undefined)
+            url_ += "date=" + encodeURIComponent("" + date) + "&";
+        if (pageSize !== undefined && pageSize !== null)
+            url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
+        if (page !== undefined && page !== null)
+            url_ += "Page=" + encodeURIComponent("" + page) + "&";
+        if (sortBy !== undefined && sortBy !== null)
+            url_ += "SortBy=" + encodeURIComponent("" + sortBy) + "&";
+        if (searchKey !== undefined && searchKey !== null)
+            url_ += "SearchKey=" + encodeURIComponent("" + searchKey) + "&";
+        if (descending === null)
+            throw new Error("The parameter 'descending' cannot be null.");
+        else if (descending !== undefined)
+            url_ += "Descending=" + encodeURIComponent("" + descending) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processAll(_response);
+        });
+    }
+
+    protected processAll(response: AxiosResponse): Promise<PlanSchedulePageResult> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = PlanSchedulePageResult.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<PlanSchedulePageResult>(<any>null);
+    }
+}
+
+export class TugInfoClient {
+    private instance: AxiosInstance;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(baseUrl?: string, instance?: AxiosInstance) {
+        this.instance = instance ? instance : axios.create();
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
+    }
+
+    /**
+     * 获取 拖轮信息 分页结果
+     * @return Success
+     */
+    tugInfoAll(  cancelToken?: CancelToken | undefined): Promise<TugInfo[]> {
+        let url_ = this.baseUrl + "/api/base/TugInfo";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTugInfoAll(_response);
+        });
+    }
+
+    protected processTugInfoAll(response: AxiosResponse): Promise<TugInfo[]> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200!.push(TugInfo.fromJS(item));
+            }
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugInfo[]>(<any>null);
     }
 
     /**
@@ -238,8 +808,8 @@ export class TugInfoClient {
      * @param body (optional) 
      * @return Success
      */
-    tugInfo2(body: TugInfo | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/TugInfo";
+    tugInfo(body: TugInfo | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/TugInfo";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(body);
@@ -261,11 +831,11 @@ export class TugInfoClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processTugInfo2(_response);
+            return this.processTugInfo(_response);
         });
     }
 
-    protected processTugInfo2(response: AxiosResponse): Promise<void> {
+    protected processTugInfo(response: AxiosResponse): Promise<void> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -275,7 +845,7 @@ export class TugInfoClient {
                 }
             }
         }
-        if (status === 200 || status === 202) {
+        if (status === 200) {
             const _responseText = response.data;
             return Promise.resolve<void>(<any>null);
         } else if (status !== 200 && status !== 204) {
@@ -286,15 +856,68 @@ export class TugInfoClient {
     }
 
     /**
+     * @return Success
+     */
+    tugInfo2(mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugInfo> {
+        let url_ = this.baseUrl + "/api/base/TugInfo/{mmsi}";
+        if (mmsi === undefined || mmsi === null)
+            throw new Error("The parameter 'mmsi' must be defined.");
+        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTugInfo2(_response);
+        });
+    }
+
+    protected processTugInfo2(response: AxiosResponse): Promise<TugInfo> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugInfo.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugInfo>(<any>null);
+    }
+
+    /**
      * 更新拖轮信息
-     * @param mmsi (optional) 
      * @param body (optional) 
      * @return Success
      */
-    tugInfo3(mmsi: string | null | undefined, body: TugInfo | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/TugInfo?";
-        if (mmsi !== undefined && mmsi !== null)
-            url_ += "mmsi=" + encodeURIComponent("" + mmsi) + "&";
+    tugInfo3(mmsi: string | null, body: TugInfo | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/TugInfo/{mmsi}";
+        if (mmsi === undefined || mmsi === null)
+            throw new Error("The parameter 'mmsi' must be defined.");
+        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(body);
@@ -330,7 +953,7 @@ export class TugInfoClient {
                 }
             }
         }
-        if (status === 200 || status === 202) {
+        if (status === 200) {
             const _responseText = response.data;
             return Promise.resolve<void>(<any>null);
         } else if (status !== 200 && status !== 204) {
@@ -341,64 +964,11 @@ export class TugInfoClient {
     }
 
     /**
-     * @return Success
-     */
-    tugInfo4(mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugInfo> {
-        let url_ = this.baseUrl + "/api/TugInfo/{mmsi}";
-        if (mmsi === undefined || mmsi === null)
-            throw new Error("The parameter 'mmsi' must be defined.");
-        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
-        url_ = url_.replace(/[?&]$/, "");
-
-        let options_ = <AxiosRequestConfig>{
-            method: "GET",
-            url: url_,
-            headers: {
-                "Accept": "application/json"
-            },
-            cancelToken
-        };
-
-        return this.instance.request(options_).catch((_error: any) => {
-            if (isAxiosError(_error) && _error.response) {
-                return _error.response;
-            } else {
-                throw _error;
-            }
-        }).then((_response: AxiosResponse) => {
-            return this.processTugInfo4(_response);
-        });
-    }
-
-    protected processTugInfo4(response: AxiosResponse): Promise<TugInfo> {
-        const status = response.status;
-        let _headers: any = {};
-        if (response.headers && typeof response.headers === "object") {
-            for (let k in response.headers) {
-                if (response.headers.hasOwnProperty(k)) {
-                    _headers[k] = response.headers[k];
-                }
-            }
-        }
-        if (status === 200) {
-            const _responseText = response.data;
-            let result200: any = null;
-            let resultData200  = _responseText;
-            result200 = TugInfo.fromJS(resultData200);
-            return result200;
-        } else if (status !== 200 && status !== 204) {
-            const _responseText = response.data;
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-        }
-        return Promise.resolve<TugInfo>(<any>null);
-    }
-
-    /**
      * 删除拖轮记录
      * @return Success
      */
-    tugInfo5(mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/TugInfo/{mmsi}";
+    tugInfo4(mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/TugInfo/{mmsi}";
         if (mmsi === undefined || mmsi === null)
             throw new Error("The parameter 'mmsi' must be defined.");
         url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
@@ -419,11 +989,11 @@ export class TugInfoClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processTugInfo5(_response);
+            return this.processTugInfo4(_response);
         });
     }
 
-    protected processTugInfo5(response: AxiosResponse): Promise<void> {
+    protected processTugInfo4(response: AxiosResponse): Promise<void> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -457,15 +1027,15 @@ export class TugJobClient {
     /**
      * 获取 拖轮作业 每天的分页记录
      * @param date (optional) 
-     * @param pageSize (optional) 
-     * @param page (optional) 
-     * @param sortBy (optional) 
-     * @param searchKey (optional) 
-     * @param descending (optional) 
+     * @param pageSize (optional) 页面大小
+     * @param page (optional) 当前页码
+     * @param sortBy (optional) 排序字段
+     * @param searchKey (optional) 搜索值
+     * @param descending (optional) 逆序
      * @return Success
      */
     tugJob(date: string | undefined, pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<TugJobPageResult> {
-        let url_ = this.baseUrl + "/api/TugJob?";
+        let url_ = this.baseUrl + "/api/sch/TugJob?";
         if (date === null)
             throw new Error("The parameter 'date' cannot be null.");
         else if (date !== undefined)
@@ -533,7 +1103,7 @@ export class TugJobClient {
      * @return Success
      */
     tugJob2(body: TugJobDto | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/TugJob";
+        let url_ = this.baseUrl + "/api/sch/TugJob";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(body);
@@ -584,7 +1154,7 @@ export class TugJobClient {
      * @return Success
      */
     tugJob3(id: number , cancelToken?: CancelToken | undefined): Promise<TugJob> {
-        let url_ = this.baseUrl + "/api/TugJob/{id}";
+        let url_ = this.baseUrl + "/api/sch/TugJob/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id));
@@ -639,7 +1209,7 @@ export class TugJobClient {
      * @return Success
      */
     tugJob4(id: number, status: JobStatus | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/TugJob/{id}?";
+        let url_ = this.baseUrl + "/api/sch/TugJob/{id}?";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id));
@@ -694,7 +1264,7 @@ export class TugJobClient {
      * @return Success
      */
     status(status: JobStatus, date: string | null | undefined , cancelToken?: CancelToken | undefined): Promise<TugJob[]> {
-        let url_ = this.baseUrl + "/api/TugJob/status/{status}?";
+        let url_ = this.baseUrl + "/api/sch/TugJob/status/{status}?";
         if (status === undefined || status === null)
             throw new Error("The parameter 'status' must be defined.");
         url_ = url_.replace("{status}", encodeURIComponent("" + status));
@@ -754,7 +1324,7 @@ export class TugJobClient {
      * @return Success
      */
     running(  cancelToken?: CancelToken | undefined): Promise<TugJob[]> {
-        let url_ = this.baseUrl + "/api/TugJob/status/running";
+        let url_ = this.baseUrl + "/api/sch/TugJob/status/running";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ = <AxiosRequestConfig>{
@@ -805,6 +1375,296 @@ export class TugJobClient {
     }
 }
 
+export class TugJobKindClient {
+    private instance: AxiosInstance;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(baseUrl?: string, instance?: AxiosInstance) {
+        this.instance = instance ? instance : axios.create();
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
+    }
+
+    /**
+     * 新建记录
+     * @param body (optional) 
+     * @return Success
+     */
+    tugJobKind(body: TugJobKind | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/TugJobKind";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ = <AxiosRequestConfig>{
+            data: content_,
+            method: "POST",
+            url: url_,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTugJobKind(_response);
+        });
+    }
+
+    protected processTugJobKind(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 获取分页结果
+     * @param pageSize (optional) 页面大小
+     * @param page (optional) 当前页码
+     * @param sortBy (optional) 排序字段
+     * @param searchKey (optional) 搜索值
+     * @param descending (optional) 逆序
+     * @return Success
+     */
+    tugJobKind2(pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<TugJobKindPageResult> {
+        let url_ = this.baseUrl + "/api/base/TugJobKind?";
+        if (pageSize !== undefined && pageSize !== null)
+            url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
+        if (page !== undefined && page !== null)
+            url_ += "Page=" + encodeURIComponent("" + page) + "&";
+        if (sortBy !== undefined && sortBy !== null)
+            url_ += "SortBy=" + encodeURIComponent("" + sortBy) + "&";
+        if (searchKey !== undefined && searchKey !== null)
+            url_ += "SearchKey=" + encodeURIComponent("" + searchKey) + "&";
+        if (descending === null)
+            throw new Error("The parameter 'descending' cannot be null.");
+        else if (descending !== undefined)
+            url_ += "Descending=" + encodeURIComponent("" + descending) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTugJobKind2(_response);
+        });
+    }
+
+    protected processTugJobKind2(response: AxiosResponse): Promise<TugJobKindPageResult> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugJobKindPageResult.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugJobKindPageResult>(<any>null);
+    }
+
+    /**
+     * 更新记录
+     * @param body (optional) 
+     * @return Success
+     */
+    tugJobKind3(id: number, body: TugJobKind | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/TugJobKind/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ = <AxiosRequestConfig>{
+            data: content_,
+            method: "PUT",
+            url: url_,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTugJobKind3(_response);
+        });
+    }
+
+    protected processTugJobKind3(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 根据 Id 删除对象
+     * @return Success
+     */
+    tugJobKind4(id: number , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/TugJobKind/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "DELETE",
+            url: url_,
+            headers: {
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTugJobKind4(_response);
+        });
+    }
+
+    protected processTugJobKind4(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 根据主键获取对象实体
+     * @return Success
+     */
+    tugJobKind5(id: number , cancelToken?: CancelToken | undefined): Promise<TugJobKind> {
+        let url_ = this.baseUrl + "/api/base/TugJobKind/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTugJobKind5(_response);
+        });
+    }
+
+    protected processTugJobKind5(response: AxiosResponse): Promise<TugJobKind> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugJobKind.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugJobKind>(<any>null);
+    }
+}
+
 export class TugScheduleClient {
     private instance: AxiosInstance;
     private baseUrl: string;
@@ -820,7 +1680,7 @@ export class TugScheduleClient {
      * @return Success
      */
     tugScheduleAll(  cancelToken?: CancelToken | undefined): Promise<TugSchedule[]> {
-        let url_ = this.baseUrl + "/api/TugSchedule";
+        let url_ = this.baseUrl + "/api/sch/TugSchedule";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ = <AxiosRequestConfig>{
@@ -875,8 +1735,8 @@ export class TugScheduleClient {
      * @param bpId (optional) 
      * @return Success
      */
-    tugSchedule(bpId: string | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/TugSchedule?";
+    tugSchedule(bpId: string | undefined , cancelToken?: CancelToken | undefined): Promise<TugSchedule> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule?";
         if (bpId === null)
             throw new Error("The parameter 'bpId' cannot be null.");
         else if (bpId !== undefined)
@@ -887,6 +1747,7 @@ export class TugScheduleClient {
             method: "POST",
             url: url_,
             headers: {
+                "Accept": "application/json"
             },
             cancelToken
         };
@@ -902,7 +1763,7 @@ export class TugScheduleClient {
         });
     }
 
-    protected processTugSchedule(response: AxiosResponse): Promise<void> {
+    protected processTugSchedule(response: AxiosResponse): Promise<TugSchedule> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -914,12 +1775,15 @@ export class TugScheduleClient {
         }
         if (status === 200) {
             const _responseText = response.data;
-            return Promise.resolve<void>(<any>null);
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugSchedule.fromJS(resultData200);
+            return result200;
         } else if (status !== 200 && status !== 204) {
             const _responseText = response.data;
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<void>(<any>null);
+        return Promise.resolve<TugSchedule>(<any>null);
     }
 
     /**
@@ -927,7 +1791,7 @@ export class TugScheduleClient {
      * @return Success
      */
     tugSchedule2(date: string , cancelToken?: CancelToken | undefined): Promise<TugSchedule[]> {
-        let url_ = this.baseUrl + "/api/TugSchedule/{date}";
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{date}";
         if (date === undefined || date === null)
             throw new Error("The parameter 'date' must be defined.");
         url_ = url_.replace("{date}", encodeURIComponent("" + date));
@@ -982,15 +1846,14 @@ export class TugScheduleClient {
 
     /**
      * 根据Id 获取 拖轮调度计划
-     * @param id (optional) 
+     * @param id 拖轮调度Id
      * @return Success
      */
-    id(id: number | undefined , cancelToken?: CancelToken | undefined): Promise<TugSchedule> {
-        let url_ = this.baseUrl + "/api/TugSchedule/id?";
-        if (id === null)
-            throw new Error("The parameter 'id' cannot be null.");
-        else if (id !== undefined)
-            url_ += "id=" + encodeURIComponent("" + id) + "&";
+    tugSchedule3(id: number , cancelToken?: CancelToken | undefined): Promise<TugSchedule> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ = <AxiosRequestConfig>{
@@ -1009,11 +1872,11 @@ export class TugScheduleClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processId(_response);
+            return this.processTugSchedule3(_response);
         });
     }
 
-    protected processId(response: AxiosResponse): Promise<TugSchedule> {
+    protected processTugSchedule3(response: AxiosResponse): Promise<TugSchedule> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -1037,22 +1900,313 @@ export class TugScheduleClient {
     }
 
     /**
-     * 增加拖轮
-     * @param id 调度计划Id
-     * @param mmsi (optional) 拖轮MMSI
+     * 根据 期间代码 生成调度计划
+     * @param periodCode (optional) 期间代码
      * @return Success
      */
-    add(id: number, mmsi: string | null | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/TugSchedule/Add/{id}?";
-        if (id === undefined || id === null)
-            throw new Error("The parameter 'id' must be defined.");
-        url_ = url_.replace("{id}", encodeURIComponent("" + id));
-        if (mmsi !== undefined && mmsi !== null)
-            url_ += "mmsi=" + encodeURIComponent("" + mmsi) + "&";
+    generate(periodCode: string | null | undefined , cancelToken?: CancelToken | undefined): Promise<TugSchedule[]> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/Generate?";
+        if (periodCode !== undefined && periodCode !== null)
+            url_ += "periodCode=" + encodeURIComponent("" + periodCode) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ = <AxiosRequestConfig>{
             method: "POST",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processGenerate(_response);
+        });
+    }
+
+    protected processGenerate(response: AxiosResponse): Promise<TugSchedule[]> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200!.push(TugSchedule.fromJS(item));
+            }
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugSchedule[]>(<any>null);
+    }
+
+    /**
+     * 生成当前时段的调度计划
+     * @return Success
+     */
+    now(  cancelToken?: CancelToken | undefined): Promise<TugSchedule[]> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/Generate/now";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "POST",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processNow(_response);
+        });
+    }
+
+    protected processNow(response: AxiosResponse): Promise<TugSchedule[]> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200!.push(TugSchedule.fromJS(item));
+            }
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugSchedule[]>(<any>null);
+    }
+
+    /**
+     * 获取调度下全部拖轮信息
+     * @param id 拖轮调度Id
+     * @return Success
+     */
+    tugsAll(id: number , cancelToken?: CancelToken | undefined): Promise<ScheduleTugItem[]> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTugsAll(_response);
+        });
+    }
+
+    protected processTugsAll(response: AxiosResponse): Promise<ScheduleTugItem[]> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200!.push(ScheduleTugItem.fromJS(item));
+            }
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<ScheduleTugItem[]>(<any>null);
+    }
+
+    /**
+     * 获取调度下全部拖轮信息
+     * @param id 拖轮调度Id
+     * @param mmsi 拖轮MMSI
+     * @return Success
+     */
+    tugs(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<ScheduleTugItem> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        if (mmsi === undefined || mmsi === null)
+            throw new Error("The parameter 'mmsi' must be defined.");
+        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTugs(_response);
+        });
+    }
+
+    protected processTugs(response: AxiosResponse): Promise<ScheduleTugItem> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = ScheduleTugItem.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<ScheduleTugItem>(<any>null);
+    }
+
+    /**
+     * 增加拖轮
+     * @param id 拖轮调度Id
+     * @param mmsi 拖轮MMSI
+     * @return Success
+     */
+    tugs2(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugSchedule> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        if (mmsi === undefined || mmsi === null)
+            throw new Error("The parameter 'mmsi' must be defined.");
+        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "POST",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTugs2(_response);
+        });
+    }
+
+    protected processTugs2(response: AxiosResponse): Promise<TugSchedule> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugSchedule.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugSchedule>(<any>null);
+    }
+
+    /**
+     * 删除拖轮
+     * @param id 拖轮调度Id
+     * @param mmsi 拖轮MMSI
+     * @return Success
+     */
+    tugs3(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        if (mmsi === undefined || mmsi === null)
+            throw new Error("The parameter 'mmsi' must be defined.");
+        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "DELETE",
             url: url_,
             headers: {
             },
@@ -1066,11 +2220,11 @@ export class TugScheduleClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processAdd(_response);
+            return this.processTugs3(_response);
         });
     }
 
-    protected processAdd(response: AxiosResponse): Promise<void> {
+    protected processTugs3(response: AxiosResponse): Promise<void> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -1091,18 +2245,23 @@ export class TugScheduleClient {
     }
 
     /**
-     * 根据 BerthhingPlan 生成调度计划
-     * @param periodCode (optional) 期间代码
+     * 拖轮开始作业
+     * @param id 拖轮调度Id
+     * @param mmsi 拖轮MMSI
      * @return Success
      */
-    generate(periodCode: string | null | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/TugSchedule/Generate?";
-        if (periodCode !== undefined && periodCode !== null)
-            url_ += "periodCode=" + encodeURIComponent("" + periodCode) + "&";
+    start(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}/start";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        if (mmsi === undefined || mmsi === null)
+            throw new Error("The parameter 'mmsi' must be defined.");
+        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ = <AxiosRequestConfig>{
-            method: "POST",
+            method: "PUT",
             url: url_,
             headers: {
             },
@@ -1116,11 +2275,231 @@ export class TugScheduleClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processGenerate(_response);
+            return this.processStart(_response);
         });
     }
 
-    protected processGenerate(response: AxiosResponse): Promise<void> {
+    protected processStart(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 拖轮开始作业
+     * @param id 拖轮调度Id
+     * @param mmsi 拖轮MMSI
+     * @return Success
+     */
+    done(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}/done";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        if (mmsi === undefined || mmsi === null)
+            throw new Error("The parameter 'mmsi' must be defined.");
+        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "PUT",
+            url: url_,
+            headers: {
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processDone(_response);
+        });
+    }
+
+    protected processDone(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 拖轮完车
+     * @param id 拖轮调度Id
+     * @param mmsi 拖轮MMSI
+     * @return Success
+     */
+    finish(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}/finish";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        if (mmsi === undefined || mmsi === null)
+            throw new Error("The parameter 'mmsi' must be defined.");
+        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "PUT",
+            url: url_,
+            headers: {
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processFinish(_response);
+        });
+    }
+
+    protected processFinish(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 拖轮取消作业
+     * @param id 拖轮调度Id
+     * @param mmsi 拖轮MMSI
+     * @return Success
+     */
+    cancel(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}/cancel";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        if (mmsi === undefined || mmsi === null)
+            throw new Error("The parameter 'mmsi' must be defined.");
+        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "PUT",
+            url: url_,
+            headers: {
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processCancel(_response);
+        });
+    }
+
+    protected processCancel(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 拖轮备车
+     * @param id 拖轮调度Id
+     * @param mmsi 拖轮MMSI
+     * @return Success
+     */
+    standBy(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}/standBy";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        if (mmsi === undefined || mmsi === null)
+            throw new Error("The parameter 'mmsi' must be defined.");
+        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "PUT",
+            url: url_,
+            headers: {
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processStandBy(_response);
+        });
+    }
+
+    protected processStandBy(response: AxiosResponse): Promise<void> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -1157,7 +2536,7 @@ export class TugStandardClient {
      * @return Success
      */
     tugStandard(body: TugStandard | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/TugStandard";
+        let url_ = this.baseUrl + "/api/base/TugStandard";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(body);
@@ -1205,15 +2584,15 @@ export class TugStandardClient {
 
     /**
      * 获取分页结果
-     * @param pageSize (optional) 
-     * @param page (optional) 
-     * @param sortBy (optional) 
-     * @param searchKey (optional) 
-     * @param descending (optional) 
+     * @param pageSize (optional) 页面大小
+     * @param page (optional) 当前页码
+     * @param sortBy (optional) 排序字段
+     * @param searchKey (optional) 搜索值
+     * @param descending (optional) 逆序
      * @return Success
      */
     tugStandard2(pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<TugStandardPageResult> {
-        let url_ = this.baseUrl + "/api/TugStandard?";
+        let url_ = this.baseUrl + "/api/base/TugStandard?";
         if (pageSize !== undefined && pageSize !== null)
             url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
         if (page !== undefined && page !== null)
@@ -1277,7 +2656,7 @@ export class TugStandardClient {
      * @return Success
      */
     tugStandard3(id: number, body: TugStandard | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/TugStandard/{id}";
+        let url_ = this.baseUrl + "/api/base/TugStandard/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id));
@@ -1331,7 +2710,7 @@ export class TugStandardClient {
      * @return Success
      */
     tugStandard4(id: number , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/TugStandard/{id}";
+        let url_ = this.baseUrl + "/api/base/TugStandard/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id));
@@ -1381,7 +2760,7 @@ export class TugStandardClient {
      * @return Success
      */
     tugStandard5(id: number , cancelToken?: CancelToken | undefined): Promise<TugStandard> {
-        let url_ = this.baseUrl + "/api/TugStandard/{id}";
+        let url_ = this.baseUrl + "/api/base/TugStandard/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id));
@@ -1446,7 +2825,7 @@ export class TugStateClient {
      * @return Success
      */
     tugStateAll(  cancelToken?: CancelToken | undefined): Promise<TugState[]> {
-        let url_ = this.baseUrl + "/api/TugState";
+        let url_ = this.baseUrl + "/api/sch/TugState";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ = <AxiosRequestConfig>{
@@ -1501,7 +2880,7 @@ export class TugStateClient {
      * @return Success
      */
     tugState(mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugState> {
-        let url_ = this.baseUrl + "/api/TugState/{mmsi}";
+        let url_ = this.baseUrl + "/api/sch/TugState/{mmsi}";
         if (mmsi === undefined || mmsi === null)
             throw new Error("The parameter 'mmsi' must be defined.");
         url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
@@ -1566,7 +2945,7 @@ export class TugStatusClient {
      * @return Success
      */
     tugStatusAll(  cancelToken?: CancelToken | undefined): Promise<TugState[]> {
-        let url_ = this.baseUrl + "/api/TugStatus";
+        let url_ = this.baseUrl + "/api/sch/TugStatus";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ = <AxiosRequestConfig>{
@@ -1621,7 +3000,7 @@ export class TugStatusClient {
      * @return Success
      */
     tugStatus(mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugState> {
-        let url_ = this.baseUrl + "/api/TugStatus/{mmsi}";
+        let url_ = this.baseUrl + "/api/sch/TugStatus/{mmsi}";
         if (mmsi === undefined || mmsi === null)
             throw new Error("The parameter 'mmsi' must be defined.");
         url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
@@ -1671,11 +3050,361 @@ export class TugStatusClient {
     }
 }
 
+export class VesselTypeClient {
+    private instance: AxiosInstance;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(baseUrl?: string, instance?: AxiosInstance) {
+        this.instance = instance ? instance : axios.create();
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
+    }
+
+    /**
+     * 获取 大船类型列表
+     * @return Success
+     */
+    types(  cancelToken?: CancelToken | undefined): Promise<string[]> {
+        let url_ = this.baseUrl + "/api/base/VesselType/Types";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTypes(_response);
+        });
+    }
+
+    protected processTypes(response: AxiosResponse): Promise<string[]> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200!.push(item);
+            }
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<string[]>(<any>null);
+    }
+
+    /**
+     * 新建记录
+     * @param body (optional) 
+     * @return Success
+     */
+    vesselType(body: VesselType | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/VesselType";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ = <AxiosRequestConfig>{
+            data: content_,
+            method: "POST",
+            url: url_,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processVesselType(_response);
+        });
+    }
+
+    protected processVesselType(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 获取分页结果
+     * @param pageSize (optional) 页面大小
+     * @param page (optional) 当前页码
+     * @param sortBy (optional) 排序字段
+     * @param searchKey (optional) 搜索值
+     * @param descending (optional) 逆序
+     * @return Success
+     */
+    vesselType2(pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<VesselTypePageResult> {
+        let url_ = this.baseUrl + "/api/base/VesselType?";
+        if (pageSize !== undefined && pageSize !== null)
+            url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
+        if (page !== undefined && page !== null)
+            url_ += "Page=" + encodeURIComponent("" + page) + "&";
+        if (sortBy !== undefined && sortBy !== null)
+            url_ += "SortBy=" + encodeURIComponent("" + sortBy) + "&";
+        if (searchKey !== undefined && searchKey !== null)
+            url_ += "SearchKey=" + encodeURIComponent("" + searchKey) + "&";
+        if (descending === null)
+            throw new Error("The parameter 'descending' cannot be null.");
+        else if (descending !== undefined)
+            url_ += "Descending=" + encodeURIComponent("" + descending) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processVesselType2(_response);
+        });
+    }
+
+    protected processVesselType2(response: AxiosResponse): Promise<VesselTypePageResult> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = VesselTypePageResult.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<VesselTypePageResult>(<any>null);
+    }
+
+    /**
+     * 更新记录
+     * @param body (optional) 
+     * @return Success
+     */
+    vesselType3(id: string | null, body: VesselType | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/VesselType/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ = <AxiosRequestConfig>{
+            data: content_,
+            method: "PUT",
+            url: url_,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processVesselType3(_response);
+        });
+    }
+
+    protected processVesselType3(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 根据 Id 删除对象
+     * @return Success
+     */
+    vesselType4(id: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/base/VesselType/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "DELETE",
+            url: url_,
+            headers: {
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processVesselType4(_response);
+        });
+    }
+
+    protected processVesselType4(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 根据主键获取对象实体
+     * @return Success
+     */
+    vesselType5(id: string | null , cancelToken?: CancelToken | undefined): Promise<VesselType> {
+        let url_ = this.baseUrl + "/api/base/VesselType/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processVesselType5(_response);
+        });
+    }
+
+    protected processVesselType5(response: AxiosResponse): Promise<VesselType> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = VesselType.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<VesselType>(<any>null);
+    }
+}
+
+/** 分页数据 */
 export class Paging implements IPaging {
     readonly skip?: number;
+    /** 总数量 */
     total?: number;
+    /** 总页数 */
     pages?: number;
+    /** 页面大小 */
     pageSize?: number;
+    /** 当前页码 */
     page?: number;
 
     constructor(data?: IPaging) {
@@ -1718,18 +3447,392 @@ export class Paging implements IPaging {
     }
 }
 
+/** 分页数据 */
 export interface IPaging {
     skip?: number;
+    /** 总数量 */
     total?: number;
+    /** 总页数 */
     pages?: number;
+    /** 页面大小 */
     pageSize?: number;
+    /** 当前页码 */
     page?: number;
 }
 
+/** 拖轮作业时间 包括 备车/开始/脱开/完车 */
+export class WorkTimePart implements IWorkTimePart {
+    /** 备车时间
+stand by engine */
+    standBy?: string | undefined;
+    /** 开始时间 */
+    start?: string | undefined;
+    /** 脱开时间 */
+    tugOff?: string | undefined;
+    /** 完车时间 */
+    finish?: string | undefined;
+
+    constructor(data?: IWorkTimePart) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.standBy = _data["standBy"];
+            this.start = _data["start"];
+            this.tugOff = _data["tugOff"];
+            this.finish = _data["finish"];
+        }
+    }
+
+    static fromJS(data: any): WorkTimePart {
+        data = typeof data === 'object' ? data : {};
+        let result = new WorkTimePart();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["standBy"] = this.standBy;
+        data["start"] = this.start;
+        data["tugOff"] = this.tugOff;
+        data["finish"] = this.finish;
+        return data; 
+    }
+}
+
+/** 拖轮作业时间 包括 备车/开始/脱开/完车 */
+export interface IWorkTimePart {
+    /** 备车时间
+stand by engine */
+    standBy?: string | undefined;
+    /** 开始时间 */
+    start?: string | undefined;
+    /** 脱开时间 */
+    tugOff?: string | undefined;
+    /** 完车时间 */
+    finish?: string | undefined;
+}
+
+/** 值班记录 明细 */
+export class DutyRecordItem implements IDutyRecordItem {
+    autoId?: number;
+    /** 记录主键 */
+    recordId?: number;
+    /** 调度计划Id
+CCHP.TDSP.Models.TugSchedule.PlanId */
+    planId?: number | undefined;
+    workTime?: WorkTimePart;
+    /** 拖轮名称 */
+    tugNames?: string | undefined;
+    /** 接送引水的拖轮 名称 */
+    pilotTug?: string | undefined;
+    /** 备注 */
+    remarks?: string | undefined;
+
+    constructor(data?: IDutyRecordItem) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.autoId = _data["autoId"];
+            this.recordId = _data["recordId"];
+            this.planId = _data["planId"];
+            this.workTime = _data["workTime"] ? WorkTimePart.fromJS(_data["workTime"]) : <any>undefined;
+            this.tugNames = _data["tugNames"];
+            this.pilotTug = _data["pilotTug"];
+            this.remarks = _data["remarks"];
+        }
+    }
+
+    static fromJS(data: any): DutyRecordItem {
+        data = typeof data === 'object' ? data : {};
+        let result = new DutyRecordItem();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["autoId"] = this.autoId;
+        data["recordId"] = this.recordId;
+        data["planId"] = this.planId;
+        data["workTime"] = this.workTime ? this.workTime.toJSON() : <any>undefined;
+        data["tugNames"] = this.tugNames;
+        data["pilotTug"] = this.pilotTug;
+        data["remarks"] = this.remarks;
+        return data; 
+    }
+}
+
+/** 值班记录 明细 */
+export interface IDutyRecordItem {
+    autoId?: number;
+    /** 记录主键 */
+    recordId?: number;
+    /** 调度计划Id
+CCHP.TDSP.Models.TugSchedule.PlanId */
+    planId?: number | undefined;
+    workTime?: WorkTimePart;
+    /** 拖轮名称 */
+    tugNames?: string | undefined;
+    /** 接送引水的拖轮 名称 */
+    pilotTug?: string | undefined;
+    /** 备注 */
+    remarks?: string | undefined;
+}
+
+/** 值班记录 */
+export class DutyRecord implements IDutyRecord {
+    recordId?: number;
+    /** 值班日期 */
+    date?: string;
+    /** 值班调度员 (姓名) */
+    dispatcher?: string | undefined;
+    /** 交班人 */
+    shifter?: string | undefined;
+    /** 接班人 */
+    successor?: string | undefined;
+    items?: DutyRecordItem[] | undefined;
+    /** 备注 */
+    remarks?: string | undefined;
+
+    constructor(data?: IDutyRecord) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.recordId = _data["recordId"];
+            this.date = _data["date"];
+            this.dispatcher = _data["dispatcher"];
+            this.shifter = _data["shifter"];
+            this.successor = _data["successor"];
+            if (Array.isArray(_data["items"])) {
+                this.items = [] as any;
+                for (let item of _data["items"])
+                    this.items!.push(DutyRecordItem.fromJS(item));
+            }
+            this.remarks = _data["remarks"];
+        }
+    }
+
+    static fromJS(data: any): DutyRecord {
+        data = typeof data === 'object' ? data : {};
+        let result = new DutyRecord();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["recordId"] = this.recordId;
+        data["date"] = this.date;
+        data["dispatcher"] = this.dispatcher;
+        data["shifter"] = this.shifter;
+        data["successor"] = this.successor;
+        if (Array.isArray(this.items)) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
+        }
+        data["remarks"] = this.remarks;
+        return data; 
+    }
+}
+
+/** 值班记录 */
+export interface IDutyRecord {
+    recordId?: number;
+    /** 值班日期 */
+    date?: string;
+    /** 值班调度员 (姓名) */
+    dispatcher?: string | undefined;
+    /** 交班人 */
+    shifter?: string | undefined;
+    /** 接班人 */
+    successor?: string | undefined;
+    items?: DutyRecordItem[] | undefined;
+    /** 备注 */
+    remarks?: string | undefined;
+}
+
+/** 数据分页结果 */
+export class DutyRecordPageResult implements IDutyRecordPageResult {
+    page?: Paging;
+    /** 分页数据 */
+    readonly values?: DutyRecord[] | undefined;
+
+    constructor(data?: IDutyRecordPageResult) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.page = _data["page"] ? Paging.fromJS(_data["page"]) : <any>undefined;
+            if (Array.isArray(_data["values"])) {
+                (<any>this).values = [] as any;
+                for (let item of _data["values"])
+                    (<any>this).values!.push(DutyRecord.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): DutyRecordPageResult {
+        data = typeof data === 'object' ? data : {};
+        let result = new DutyRecordPageResult();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["page"] = this.page ? this.page.toJSON() : <any>undefined;
+        if (Array.isArray(this.values)) {
+            data["values"] = [];
+            for (let item of this.values)
+                data["values"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+/** 数据分页结果 */
+export interface IDutyRecordPageResult {
+    page?: Paging;
+    /** 分页数据 */
+    values?: DutyRecord[] | undefined;
+}
+
+/** 港池 */
+export class HarborAlias implements IHarborAlias {
+    /** 港池名称 */
+    name?: string | undefined;
+    /** 别名 */
+    alias!: string;
+
+    constructor(data?: IHarborAlias) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.name = _data["name"];
+            this.alias = _data["alias"];
+        }
+    }
+
+    static fromJS(data: any): HarborAlias {
+        data = typeof data === 'object' ? data : {};
+        let result = new HarborAlias();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["alias"] = this.alias;
+        return data; 
+    }
+}
+
+/** 港池 */
+export interface IHarborAlias {
+    /** 港池名称 */
+    name?: string | undefined;
+    /** 别名 */
+    alias: string;
+}
+
+/** 数据分页结果 */
+export class HarborAliasPageResult implements IHarborAliasPageResult {
+    page?: Paging;
+    /** 分页数据 */
+    readonly values?: HarborAlias[] | undefined;
+
+    constructor(data?: IHarborAliasPageResult) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.page = _data["page"] ? Paging.fromJS(_data["page"]) : <any>undefined;
+            if (Array.isArray(_data["values"])) {
+                (<any>this).values = [] as any;
+                for (let item of _data["values"])
+                    (<any>this).values!.push(HarborAlias.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): HarborAliasPageResult {
+        data = typeof data === 'object' ? data : {};
+        let result = new HarborAliasPageResult();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["page"] = this.page ? this.page.toJSON() : <any>undefined;
+        if (Array.isArray(this.values)) {
+            data["values"] = [];
+            for (let item of this.values)
+                data["values"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+/** 数据分页结果 */
+export interface IHarborAliasPageResult {
+    page?: Paging;
+    /** 分页数据 */
+    values?: HarborAlias[] | undefined;
+}
+
+/** 船舶名称 */
 export class ShipNamePart implements IShipNamePart {
+    /** MMSI */
     mmsi!: string;
+    /** 中文船名 */
     name!: string;
+    /** 英文船名 */
     cnName!: string;
+    /** 船舶全名 英文/中文 */
     readonly fullName?: string | undefined;
 
     constructor(data?: IShipNamePart) {
@@ -1767,28 +3870,38 @@ export class ShipNamePart implements IShipNamePart {
     }
 }
 
+/** 船舶名称 */
 export interface IShipNamePart {
+    /** MMSI */
     mmsi: string;
+    /** 中文船名 */
     name: string;
+    /** 英文船名 */
     cnName: string;
+    /** 船舶全名 英文/中文 */
     fullName?: string | undefined;
 }
 
+/** 作业事件 包括 分配任务/备车/开始/脱开/完成/取消 等事件 */
 export enum JobEvent {
-    _0 = 0,
-    _1 = 1,
-    _16 = 16,
-    _32 = 32,
-    _48 = 48,
-    _128 = 128,
-    __1 = -1,
+    Default = "Default",
+    Scheduled = "Scheduled",
+    StandBy = "StandBy",
+    Start = "Start",
+    TugOff = "TugOff",
+    Finish = "Finish",
+    Cancel = "Cancel",
 }
 
+/** 作业执行记录 */
 export class TugJobRecord implements ITugJobRecord {
     autoId?: number;
+    /** 作业类型 */
     jobKind!: string;
+    /** 调度计划 Id */
     planId?: number | undefined;
     tug?: ShipNamePart;
+    /** 作业时间 */
     time?: string;
     event?: JobEvent;
 
@@ -1831,17 +3944,23 @@ export class TugJobRecord implements ITugJobRecord {
     }
 }
 
+/** 作业执行记录 */
 export interface ITugJobRecord {
     autoId?: number;
+    /** 作业类型 */
     jobKind: string;
+    /** 调度计划 Id */
     planId?: number | undefined;
     tug?: ShipNamePart;
+    /** 作业时间 */
     time?: string;
     event?: JobEvent;
 }
 
+/** 数据分页结果 */
 export class TugJobRecordPageResult implements ITugJobRecordPageResult {
     page?: Paging;
+    /** 分页数据 */
     readonly values?: TugJobRecord[] | undefined;
 
     constructor(data?: ITugJobRecordPageResult) {
@@ -1883,25 +4002,540 @@ export class TugJobRecordPageResult implements ITugJobRecordPageResult {
     }
 }
 
+/** 数据分页结果 */
 export interface ITugJobRecordPageResult {
     page?: Paging;
+    /** 分页数据 */
     values?: TugJobRecord[] | undefined;
 }
 
-export class TugInfo implements ITugInfo {
-    mmsi?: string | undefined;
-    name?: string | undefined;
-    cnName?: string | undefined;
+/** 靠离泊计划活动类型 <list type="bullet"><item><description> None (无动作)</description></item><item><description> Anchoring (锚泊)</description></item><item><description> Berthing (靠泊) </description></item><item><description> Unberthing (离泊) </description></item><item><description> InBerthing (正在靠泊) </description></item><item><description> InUnBerthing (正在离泊) </description></item><item><description> ShiftUnberthing (移泊离) </description></item><item><description> ShiftBerthing (移泊靠) </description></item></list> */
+export enum PlanActionTypes {
+    None = "None",
+    Anchoring = "Anchoring",
+    Berthing = "Berthing",
+    InBerthing = "InBerthing",
+    ShiftUnberthing = "ShiftUnberthing",
+    ShiftBerthing = "ShiftBerthing",
+    InUnBerthing = "InUnBerthing",
+    Unberthing = "Unberthing",
+}
+
+/** 调度信息 */
+export class SchedulePart implements ISchedulePart {
+    /** 计划时间 */
+    planTime?: string;
+    /** 调度时间 */
+    scheduleTime?: string;
+
+    constructor(data?: ISchedulePart) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.planTime = _data["planTime"];
+            this.scheduleTime = _data["scheduleTime"];
+        }
+    }
+
+    static fromJS(data: any): SchedulePart {
+        data = typeof data === 'object' ? data : {};
+        let result = new SchedulePart();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["planTime"] = this.planTime;
+        data["scheduleTime"] = this.scheduleTime;
+        return data; 
+    }
+}
+
+/** 调度信息 */
+export interface ISchedulePart {
+    /** 计划时间 */
+    planTime?: string;
+    /** 调度时间 */
+    scheduleTime?: string;
+}
+
+/** 靠泊计划部分 */
+export class BerthingPlanPart implements IBerthingPlanPart {
+    /** 期间代码 */
+    periodCode!: string;
+    /** 计划日期 */
+    planDate!: string;
+    /** 时段 (1-4) */
+    timespan!: number;
+    /** 单位名称 */
+    orgName!: string;
+    /** 靠离泊时间 */
+    berthingTime!: string;
+    /** 港池名称 */
+    harbor!: string;
+    /** 靠离泊位编号 */
+    berthNo!: string;
+    /** 拖轮数量 */
+    tugs?: number;
+    /** 拖轮公司 */
+    tugCorp?: string | undefined;
+    actionPlan!: PlanActionTypes;
+    /** 是否乘潮 */
+    isTide!: boolean;
+    /** 是否需要引航 */
+    isPilotage!: boolean;
+    /** 排序 */
+    sortKey?: string | undefined;
+
+    constructor(data?: IBerthingPlanPart) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.periodCode = _data["periodCode"];
+            this.planDate = _data["planDate"];
+            this.timespan = _data["timespan"];
+            this.orgName = _data["orgName"];
+            this.berthingTime = _data["berthingTime"];
+            this.harbor = _data["harbor"];
+            this.berthNo = _data["berthNo"];
+            this.tugs = _data["tugs"];
+            this.tugCorp = _data["tugCorp"];
+            this.actionPlan = _data["actionPlan"];
+            this.isTide = _data["isTide"];
+            this.isPilotage = _data["isPilotage"];
+            this.sortKey = _data["sortKey"];
+        }
+    }
+
+    static fromJS(data: any): BerthingPlanPart {
+        data = typeof data === 'object' ? data : {};
+        let result = new BerthingPlanPart();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["periodCode"] = this.periodCode;
+        data["planDate"] = this.planDate;
+        data["timespan"] = this.timespan;
+        data["orgName"] = this.orgName;
+        data["berthingTime"] = this.berthingTime;
+        data["harbor"] = this.harbor;
+        data["berthNo"] = this.berthNo;
+        data["tugs"] = this.tugs;
+        data["tugCorp"] = this.tugCorp;
+        data["actionPlan"] = this.actionPlan;
+        data["isTide"] = this.isTide;
+        data["isPilotage"] = this.isPilotage;
+        data["sortKey"] = this.sortKey;
+        return data; 
+    }
+}
+
+/** 靠泊计划部分 */
+export interface IBerthingPlanPart {
+    /** 期间代码 */
+    periodCode: string;
+    /** 计划日期 */
+    planDate: string;
+    /** 时段 (1-4) */
+    timespan: number;
+    /** 单位名称 */
+    orgName: string;
+    /** 靠离泊时间 */
+    berthingTime: string;
+    /** 港池名称 */
+    harbor: string;
+    /** 靠离泊位编号 */
+    berthNo: string;
+    /** 拖轮数量 */
+    tugs?: number;
+    /** 拖轮公司 */
+    tugCorp?: string | undefined;
+    actionPlan: PlanActionTypes;
+    /** 是否乘潮 */
+    isTide: boolean;
+    /** 是否需要引航 */
+    isPilotage: boolean;
+    /** 排序 */
+    sortKey?: string | undefined;
+}
+
+/** 船舶信息 */
+export class ShipInfoPart implements IShipInfoPart {
+    /** MMSI */
+    mmsi!: string;
+    /** 中文船名 */
+    name!: string;
+    /** 英文船名 */
+    cnName!: string;
+    /** 船舶全名 英文/中文 */
+    readonly fullName?: string | undefined;
+    /** 船长(米) */
     shipLength!: number;
+    /** 船宽 */
     shipWidth!: number;
+    /** 前吃水 */
+    frontDraft!: number;
+    /** 后吃水 */
+    behindDraft!: number;
+    /** 货物种类 */
+    goodsType!: string;
+    /** 船舶类型 */
+    shipType!: string;
+    /** 载重量 */
+    loadWeight!: number;
+    /** 载货量 */
+    cargoWeight!: number;
+    /** 货运代理 */
+    agent?: string | undefined;
+    /** 最大吃水深度 */
+    readonly maxDraft?: number;
+    /** 船舶IMO编号 */
+    imo?: string | undefined;
+    /** 国籍 */
+    nationality?: string | undefined;
+    /** 船舶呼号 */
+    callSign?: string | undefined;
+
+    constructor(data?: IShipInfoPart) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.mmsi = _data["mmsi"];
+            this.name = _data["name"];
+            this.cnName = _data["cnName"];
+            (<any>this).fullName = _data["fullName"];
+            this.shipLength = _data["shipLength"];
+            this.shipWidth = _data["shipWidth"];
+            this.frontDraft = _data["frontDraft"];
+            this.behindDraft = _data["behindDraft"];
+            this.goodsType = _data["goodsType"];
+            this.shipType = _data["shipType"];
+            this.loadWeight = _data["loadWeight"];
+            this.cargoWeight = _data["cargoWeight"];
+            this.agent = _data["agent"];
+            (<any>this).maxDraft = _data["maxDraft"];
+            this.imo = _data["imo"];
+            this.nationality = _data["nationality"];
+            this.callSign = _data["callSign"];
+        }
+    }
+
+    static fromJS(data: any): ShipInfoPart {
+        data = typeof data === 'object' ? data : {};
+        let result = new ShipInfoPart();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["mmsi"] = this.mmsi;
+        data["name"] = this.name;
+        data["cnName"] = this.cnName;
+        data["fullName"] = this.fullName;
+        data["shipLength"] = this.shipLength;
+        data["shipWidth"] = this.shipWidth;
+        data["frontDraft"] = this.frontDraft;
+        data["behindDraft"] = this.behindDraft;
+        data["goodsType"] = this.goodsType;
+        data["shipType"] = this.shipType;
+        data["loadWeight"] = this.loadWeight;
+        data["cargoWeight"] = this.cargoWeight;
+        data["agent"] = this.agent;
+        data["maxDraft"] = this.maxDraft;
+        data["imo"] = this.imo;
+        data["nationality"] = this.nationality;
+        data["callSign"] = this.callSign;
+        return data; 
+    }
+}
+
+/** 船舶信息 */
+export interface IShipInfoPart {
+    /** MMSI */
+    mmsi: string;
+    /** 中文船名 */
+    name: string;
+    /** 英文船名 */
+    cnName: string;
+    /** 船舶全名 英文/中文 */
+    fullName?: string | undefined;
+    /** 船长(米) */
+    shipLength: number;
+    /** 船宽 */
+    shipWidth: number;
+    /** 前吃水 */
+    frontDraft: number;
+    /** 后吃水 */
+    behindDraft: number;
+    /** 货物种类 */
+    goodsType: string;
+    /** 船舶类型 */
+    shipType: string;
+    /** 载重量 */
+    loadWeight: number;
+    /** 载货量 */
+    cargoWeight: number;
+    /** 货运代理 */
+    agent?: string | undefined;
+    /** 最大吃水深度 */
+    maxDraft?: number;
+    /** 船舶IMO编号 */
+    imo?: string | undefined;
+    /** 国籍 */
+    nationality?: string | undefined;
+    /** 船舶呼号 */
+    callSign?: string | undefined;
+}
+
+/** 计划船舶扩展信息 */
+export class ExtendedShipPart implements IExtendedShipPart {
+    /** 船舶属性 (内贸/外贸/外派) */
+    shipAttributes?: string | undefined;
+    /** 上一港 */
+    previousPort?: string | undefined;
+    /** 下一港 */
+    nextPort?: string | undefined;
+    /** 锚时(下锚时间) */
+    anchorTime?: string | undefined;
+
+    constructor(data?: IExtendedShipPart) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.shipAttributes = _data["shipAttributes"];
+            this.previousPort = _data["previousPort"];
+            this.nextPort = _data["nextPort"];
+            this.anchorTime = _data["anchorTime"];
+        }
+    }
+
+    static fromJS(data: any): ExtendedShipPart {
+        data = typeof data === 'object' ? data : {};
+        let result = new ExtendedShipPart();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["shipAttributes"] = this.shipAttributes;
+        data["previousPort"] = this.previousPort;
+        data["nextPort"] = this.nextPort;
+        data["anchorTime"] = this.anchorTime;
+        return data; 
+    }
+}
+
+/** 计划船舶扩展信息 */
+export interface IExtendedShipPart {
+    /** 船舶属性 (内贸/外贸/外派) */
+    shipAttributes?: string | undefined;
+    /** 上一港 */
+    previousPort?: string | undefined;
+    /** 下一港 */
+    nextPort?: string | undefined;
+    /** 锚时(下锚时间) */
+    anchorTime?: string | undefined;
+}
+
+/** 靠泊计划调度信息 包括 船舶信息/船舶扩展信息/靠离泊计划/调度信息 */
+export class PlanSchedule implements IPlanSchedule {
+    /** 主键 */
+    planId?: string;
+    /** 调度日期 */
+    date?: string;
+    /** 申报单位名称 */
+    orgName!: string;
+    actionPlan!: PlanActionTypes;
+    /** 备注 */
+    remark?: string | undefined;
+    schedule!: SchedulePart;
+    plan!: BerthingPlanPart;
+    ship!: ShipInfoPart;
+    extended!: ExtendedShipPart;
+
+    constructor(data?: IPlanSchedule) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+        if (!data) {
+            this.schedule = new SchedulePart();
+            this.plan = new BerthingPlanPart();
+            this.ship = new ShipInfoPart();
+            this.extended = new ExtendedShipPart();
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.planId = _data["planId"];
+            this.date = _data["date"];
+            this.orgName = _data["orgName"];
+            this.actionPlan = _data["actionPlan"];
+            this.remark = _data["remark"];
+            this.schedule = _data["schedule"] ? SchedulePart.fromJS(_data["schedule"]) : new SchedulePart();
+            this.plan = _data["plan"] ? BerthingPlanPart.fromJS(_data["plan"]) : new BerthingPlanPart();
+            this.ship = _data["ship"] ? ShipInfoPart.fromJS(_data["ship"]) : new ShipInfoPart();
+            this.extended = _data["extended"] ? ExtendedShipPart.fromJS(_data["extended"]) : new ExtendedShipPart();
+        }
+    }
+
+    static fromJS(data: any): PlanSchedule {
+        data = typeof data === 'object' ? data : {};
+        let result = new PlanSchedule();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["planId"] = this.planId;
+        data["date"] = this.date;
+        data["orgName"] = this.orgName;
+        data["actionPlan"] = this.actionPlan;
+        data["remark"] = this.remark;
+        data["schedule"] = this.schedule ? this.schedule.toJSON() : <any>undefined;
+        data["plan"] = this.plan ? this.plan.toJSON() : <any>undefined;
+        data["ship"] = this.ship ? this.ship.toJSON() : <any>undefined;
+        data["extended"] = this.extended ? this.extended.toJSON() : <any>undefined;
+        return data; 
+    }
+}
+
+/** 靠泊计划调度信息 包括 船舶信息/船舶扩展信息/靠离泊计划/调度信息 */
+export interface IPlanSchedule {
+    /** 主键 */
+    planId?: string;
+    /** 调度日期 */
+    date?: string;
+    /** 申报单位名称 */
+    orgName: string;
+    actionPlan: PlanActionTypes;
+    /** 备注 */
+    remark?: string | undefined;
+    schedule: SchedulePart;
+    plan: BerthingPlanPart;
+    ship: ShipInfoPart;
+    extended: ExtendedShipPart;
+}
+
+/** 数据分页结果 */
+export class PlanSchedulePageResult implements IPlanSchedulePageResult {
+    page?: Paging;
+    /** 分页数据 */
+    readonly values?: PlanSchedule[] | undefined;
+
+    constructor(data?: IPlanSchedulePageResult) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.page = _data["page"] ? Paging.fromJS(_data["page"]) : <any>undefined;
+            if (Array.isArray(_data["values"])) {
+                (<any>this).values = [] as any;
+                for (let item of _data["values"])
+                    (<any>this).values!.push(PlanSchedule.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PlanSchedulePageResult {
+        data = typeof data === 'object' ? data : {};
+        let result = new PlanSchedulePageResult();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["page"] = this.page ? this.page.toJSON() : <any>undefined;
+        if (Array.isArray(this.values)) {
+            data["values"] = [];
+            for (let item of this.values)
+                data["values"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+/** 数据分页结果 */
+export interface IPlanSchedulePageResult {
+    page?: Paging;
+    /** 分页数据 */
+    values?: PlanSchedule[] | undefined;
+}
+
+/** 拖轮信息 */
+export class TugInfo implements ITugInfo {
+    /** 船舶 MMSI */
+    mmsi?: string | undefined;
+    /** 船名 */
+    name?: string | undefined;
+    /** 中文船名 */
+    cnName?: string | undefined;
+    /** 船长(米) */
+    shipLength!: number;
+    /** 船宽 */
+    shipWidth!: number;
+    /** 建成日期/完工日期 */
     builtDate?: string | undefined;
+    /** 型深 */
     moldedDepth?: number | undefined;
+    /** 主机功率 (马力) */
     enginePower?: number;
+    /** 主机转速 RPM */
     engineSpeed?: number;
+    /** 最大航速 (节) */
     maxSpeed?: number | undefined;
+    /** 满载吃水 */
     fullLoadDraft?: number;
+    /** 正拖力 (T) */
     forwardDrag?: number;
+    /** 倒拖力 (T) */
     asternDrag?: number;
+    /** 尾拖钩 */
     towingHook?: string | undefined;
 
     constructor(data?: ITugInfo) {
@@ -1959,73 +4593,43 @@ export class TugInfo implements ITugInfo {
     }
 }
 
+/** 拖轮信息 */
 export interface ITugInfo {
+    /** 船舶 MMSI */
     mmsi?: string | undefined;
+    /** 船名 */
     name?: string | undefined;
+    /** 中文船名 */
     cnName?: string | undefined;
+    /** 船长(米) */
     shipLength: number;
+    /** 船宽 */
     shipWidth: number;
+    /** 建成日期/完工日期 */
     builtDate?: string | undefined;
+    /** 型深 */
     moldedDepth?: number | undefined;
+    /** 主机功率 (马力) */
     enginePower?: number;
+    /** 主机转速 RPM */
     engineSpeed?: number;
+    /** 最大航速 (节) */
     maxSpeed?: number | undefined;
+    /** 满载吃水 */
     fullLoadDraft?: number;
+    /** 正拖力 (T) */
     forwardDrag?: number;
+    /** 倒拖力 (T) */
     asternDrag?: number;
+    /** 尾拖钩 */
     towingHook?: string | undefined;
 }
 
-export class TugInfoPageResult implements ITugInfoPageResult {
-    page?: Paging;
-    readonly values?: TugInfo[] | undefined;
-
-    constructor(data?: ITugInfoPageResult) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.page = _data["page"] ? Paging.fromJS(_data["page"]) : <any>undefined;
-            if (Array.isArray(_data["values"])) {
-                (<any>this).values = [] as any;
-                for (let item of _data["values"])
-                    (<any>this).values!.push(TugInfo.fromJS(item));
-            }
-        }
-    }
-
-    static fromJS(data: any): TugInfoPageResult {
-        data = typeof data === 'object' ? data : {};
-        let result = new TugInfoPageResult();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["page"] = this.page ? this.page.toJSON() : <any>undefined;
-        if (Array.isArray(this.values)) {
-            data["values"] = [];
-            for (let item of this.values)
-                data["values"].push(item.toJSON());
-        }
-        return data; 
-    }
-}
-
-export interface ITugInfoPageResult {
-    page?: Paging;
-    values?: TugInfo[] | undefined;
-}
-
+/** 作业时间 包括 开始时间/完成时间 */
 export class JobTimePart implements IJobTimePart {
+    /** 开始时间 */
     start?: string | undefined;
+    /** 作业完成时间 */
     finish?: string | undefined;
 
     constructor(data?: IJobTimePart) {
@@ -2059,30 +4663,42 @@ export class JobTimePart implements IJobTimePart {
     }
 }
 
+/** 作业时间 包括 开始时间/完成时间 */
 export interface IJobTimePart {
+    /** 开始时间 */
     start?: string | undefined;
+    /** 作业完成时间 */
     finish?: string | undefined;
 }
 
+/** 作业状态 */
 export enum JobStatus {
-    _0 = 0,
-    _1 = 1,
-    _16 = 16,
-    _32 = 32,
-    _128 = 128,
-    __1 = -1,
+    Default = "Default",
+    Scheduled = "Scheduled",
+    StandBy = "StandBy",
+    Running = "Running",
+    Done = "Done",
+    Cancle = "Cancle",
 }
 
+/** 拖轮作业 记录 拖轮作业情况,根据作业事件 变更 <see cref="T:CCHP.TDSP.Models.TugState">拖轮状态</see> */
 export class TugJob implements ITugJob {
     autoId?: number;
     tug?: ShipNamePart;
+    /** 作业类型 */
     jobKind!: string;
+    /** 备注 */
     note?: string | undefined;
+    /** 拖轮调度计划 Id
+CCHP.TDSP.Models.TugSchedule.PlanId */
     planId?: number | undefined;
     jobTime?: JobTimePart;
     status?: JobStatus;
+    /** 创建时间 */
     created!: string;
+    /** 更新时间 */
     updated!: string;
+    /** 作业创建人 */
     createdBy?: string | undefined;
 
     constructor(data?: ITugJob) {
@@ -2132,21 +4748,31 @@ export class TugJob implements ITugJob {
     }
 }
 
+/** 拖轮作业 记录 拖轮作业情况,根据作业事件 变更 <see cref="T:CCHP.TDSP.Models.TugState">拖轮状态</see> */
 export interface ITugJob {
     autoId?: number;
     tug?: ShipNamePart;
+    /** 作业类型 */
     jobKind: string;
+    /** 备注 */
     note?: string | undefined;
+    /** 拖轮调度计划 Id
+CCHP.TDSP.Models.TugSchedule.PlanId */
     planId?: number | undefined;
     jobTime?: JobTimePart;
     status?: JobStatus;
+    /** 创建时间 */
     created: string;
+    /** 更新时间 */
     updated: string;
+    /** 作业创建人 */
     createdBy?: string | undefined;
 }
 
+/** 数据分页结果 */
 export class TugJobPageResult implements ITugJobPageResult {
     page?: Paging;
+    /** 分页数据 */
     readonly values?: TugJob[] | undefined;
 
     constructor(data?: ITugJobPageResult) {
@@ -2188,8 +4814,10 @@ export class TugJobPageResult implements ITugJobPageResult {
     }
 }
 
+/** 数据分页结果 */
 export interface ITugJobPageResult {
     page?: Paging;
+    /** 分页数据 */
     values?: TugJob[] | undefined;
 }
 
@@ -2243,14 +4871,141 @@ export interface ITugJobDto {
     jobKind: string;
 }
 
-export class VesselInfoPart implements IVesselInfoPart {
-    mmsi!: string;
+/** 拖轮作业类型 */
+export class TugJobKind implements ITugJobKind {
+    jobKind?: number;
+    /** 作业类型名称 */
     name!: string;
+    /** 说明 */
+    description?: string | undefined;
+    /** 计划内作业
+计划内作业通过 拖轮作业计划管理
+计划外 临时调度,不需要作业计划 */
+    planed?: boolean;
+
+    constructor(data?: ITugJobKind) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.jobKind = _data["jobKind"];
+            this.name = _data["name"];
+            this.description = _data["description"];
+            this.planed = _data["planed"];
+        }
+    }
+
+    static fromJS(data: any): TugJobKind {
+        data = typeof data === 'object' ? data : {};
+        let result = new TugJobKind();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["jobKind"] = this.jobKind;
+        data["name"] = this.name;
+        data["description"] = this.description;
+        data["planed"] = this.planed;
+        return data; 
+    }
+}
+
+/** 拖轮作业类型 */
+export interface ITugJobKind {
+    jobKind?: number;
+    /** 作业类型名称 */
+    name: string;
+    /** 说明 */
+    description?: string | undefined;
+    /** 计划内作业
+计划内作业通过 拖轮作业计划管理
+计划外 临时调度,不需要作业计划 */
+    planed?: boolean;
+}
+
+/** 数据分页结果 */
+export class TugJobKindPageResult implements ITugJobKindPageResult {
+    page?: Paging;
+    /** 分页数据 */
+    readonly values?: TugJobKind[] | undefined;
+
+    constructor(data?: ITugJobKindPageResult) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.page = _data["page"] ? Paging.fromJS(_data["page"]) : <any>undefined;
+            if (Array.isArray(_data["values"])) {
+                (<any>this).values = [] as any;
+                for (let item of _data["values"])
+                    (<any>this).values!.push(TugJobKind.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): TugJobKindPageResult {
+        data = typeof data === 'object' ? data : {};
+        let result = new TugJobKindPageResult();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["page"] = this.page ? this.page.toJSON() : <any>undefined;
+        if (Array.isArray(this.values)) {
+            data["values"] = [];
+            for (let item of this.values)
+                data["values"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+/** 数据分页结果 */
+export interface ITugJobKindPageResult {
+    page?: Paging;
+    /** 分页数据 */
+    values?: TugJobKind[] | undefined;
+}
+
+/** 货船信息 */
+export class VesselInfoPart implements IVesselInfoPart {
+    /** MMSI */
+    mmsi!: string;
+    /** 中文船名 */
+    name!: string;
+    /** 英文船名 */
     cnName!: string;
+    /** 船舶全名 英文/中文 */
     readonly fullName?: string | undefined;
-    readonly shipType?: string | undefined;
+    /** 船舶类型 */
+    vesselType?: string | undefined;
+    /** 内外贸
+内贸/外贸 */
     tradeType?: string | undefined;
-    readonly dwt?: number;
+    /** 载重 (吨) */
+    dwt?: number;
+    /** 吃水深度 (米) */
+    draught?: number;
+    /** 船长(米) */
+    length!: number;
+    /** 船宽 */
+    width!: number;
 
     constructor(data?: IVesselInfoPart) {
         if (data) {
@@ -2267,9 +5022,12 @@ export class VesselInfoPart implements IVesselInfoPart {
             this.name = _data["name"];
             this.cnName = _data["cnName"];
             (<any>this).fullName = _data["fullName"];
-            (<any>this).shipType = _data["shipType"];
+            this.vesselType = _data["vesselType"];
             this.tradeType = _data["tradeType"];
-            (<any>this).dwt = _data["dwt"];
+            this.dwt = _data["dwt"];
+            this.draught = _data["draught"];
+            this.length = _data["length"];
+            this.width = _data["width"];
         }
     }
 
@@ -2286,36 +5044,68 @@ export class VesselInfoPart implements IVesselInfoPart {
         data["name"] = this.name;
         data["cnName"] = this.cnName;
         data["fullName"] = this.fullName;
-        data["shipType"] = this.shipType;
+        data["vesselType"] = this.vesselType;
         data["tradeType"] = this.tradeType;
         data["dwt"] = this.dwt;
+        data["draught"] = this.draught;
+        data["length"] = this.length;
+        data["width"] = this.width;
         return data; 
     }
 }
 
+/** 货船信息 */
 export interface IVesselInfoPart {
+    /** MMSI */
     mmsi: string;
+    /** 中文船名 */
     name: string;
+    /** 英文船名 */
     cnName: string;
+    /** 船舶全名 英文/中文 */
     fullName?: string | undefined;
-    shipType?: string | undefined;
+    /** 船舶类型 */
+    vesselType?: string | undefined;
+    /** 内外贸
+内贸/外贸 */
     tradeType?: string | undefined;
+    /** 载重 (吨) */
     dwt?: number;
+    /** 吃水深度 (米) */
+    draught?: number;
+    /** 船长(米) */
+    length: number;
+    /** 船宽 */
+    width: number;
 }
 
+/** 大船 作业类型 靠泊/离泊/移泊 */
 export enum VesselJobType {
-    _1 = 1,
-    _4 = 4,
-    __1 = -1,
+    Berthing = "Berthing",
+    Unberthing = "Unberthing",
+    ShiftBerthing = "ShiftBerthing",
+    Other = "Other",
 }
 
+/** 大船作业内容 部分 */
 export class VesselJobPart implements IVesselJobPart {
     jobType?: VesselJobType;
+    /** 作业类型 */
     jobKind!: string;
+    /** 港池 */
     harbor?: string | undefined;
+    /** 作业泊位 */
     berthNo?: string | undefined;
-    tugNumber?: number;
+    /** 计划拖轮数
+靠离泊计划上报的拖轮数量 */
+    planTugs!: number;
+    /** 作业所需 拖轮数量
+根据规则计算所得拖轮数量 */
+    tugNumber!: number;
+    /** 作业所需 拖轮总功率
+CCHP.TDSP.Models.TugInfo.EnginePower */
     totalPower?: number;
+    /** 是否接送引水 */
     isTransPilot?: boolean;
 
     constructor(data?: IVesselJobPart) {
@@ -2333,6 +5123,7 @@ export class VesselJobPart implements IVesselJobPart {
             this.jobKind = _data["jobKind"];
             this.harbor = _data["harbor"];
             this.berthNo = _data["berthNo"];
+            this.planTugs = _data["planTugs"];
             this.tugNumber = _data["tugNumber"];
             this.totalPower = _data["totalPower"];
             this.isTransPilot = _data["isTransPilot"];
@@ -2352,6 +5143,7 @@ export class VesselJobPart implements IVesselJobPart {
         data["jobKind"] = this.jobKind;
         data["harbor"] = this.harbor;
         data["berthNo"] = this.berthNo;
+        data["planTugs"] = this.planTugs;
         data["tugNumber"] = this.tugNumber;
         data["totalPower"] = this.totalPower;
         data["isTransPilot"] = this.isTransPilot;
@@ -2359,75 +5151,47 @@ export class VesselJobPart implements IVesselJobPart {
     }
 }
 
+/** 大船作业内容 部分 */
 export interface IVesselJobPart {
     jobType?: VesselJobType;
+    /** 作业类型 */
     jobKind: string;
+    /** 港池 */
     harbor?: string | undefined;
+    /** 作业泊位 */
     berthNo?: string | undefined;
-    tugNumber?: number;
+    /** 计划拖轮数
+靠离泊计划上报的拖轮数量 */
+    planTugs: number;
+    /** 作业所需 拖轮数量
+根据规则计算所得拖轮数量 */
+    tugNumber: number;
+    /** 作业所需 拖轮总功率
+CCHP.TDSP.Models.TugInfo.EnginePower */
     totalPower?: number;
+    /** 是否接送引水 */
     isTransPilot?: boolean;
 }
 
-export class WorkTimePart implements IWorkTimePart {
-    standBy?: string | undefined;
-    start?: string | undefined;
-    tugOff?: string | undefined;
-    finish?: string | undefined;
-
-    constructor(data?: IWorkTimePart) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.standBy = _data["standBy"];
-            this.start = _data["start"];
-            this.tugOff = _data["tugOff"];
-            this.finish = _data["finish"];
-        }
-    }
-
-    static fromJS(data: any): WorkTimePart {
-        data = typeof data === 'object' ? data : {};
-        let result = new WorkTimePart();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["standBy"] = this.standBy;
-        data["start"] = this.start;
-        data["tugOff"] = this.tugOff;
-        data["finish"] = this.finish;
-        return data; 
-    }
-}
-
-export interface IWorkTimePart {
-    standBy?: string | undefined;
-    start?: string | undefined;
-    tugOff?: string | undefined;
-    finish?: string | undefined;
-}
-
+/** 调度任务 拖轮列表 */
 export class ScheduleTugItem implements IScheduleTugItem {
     autoId?: number;
+    /** 拖轮调度计划 Id */
     planId?: number;
     owner?: TugSchedule;
+    /** 拖轮 MMSI */
     mmsi?: string | undefined;
+    /** 拖轮 船名 */
     name?: string | undefined;
+    /** 拖轮功率 (马力) */
     enginePower?: number;
+    /** 是否接引水 */
     getPilot?: boolean;
+    /** 是否送引水 */
     escortPilog?: boolean;
     status?: JobStatus;
     workTime?: WorkTimePart;
+    /** 更新时间 */
     updateTime?: string;
 
     constructor(data?: IScheduleTugItem) {
@@ -2479,39 +5243,60 @@ export class ScheduleTugItem implements IScheduleTugItem {
     }
 }
 
+/** 调度任务 拖轮列表 */
 export interface IScheduleTugItem {
     autoId?: number;
+    /** 拖轮调度计划 Id */
     planId?: number;
     owner?: TugSchedule;
+    /** 拖轮 MMSI */
     mmsi?: string | undefined;
+    /** 拖轮 船名 */
     name?: string | undefined;
+    /** 拖轮功率 (马力) */
     enginePower?: number;
+    /** 是否接引水 */
     getPilot?: boolean;
+    /** 是否送引水 */
     escortPilog?: boolean;
     status?: JobStatus;
     workTime?: WorkTimePart;
+    /** 更新时间 */
     updateTime?: string;
 }
 
-export enum PlanStatus {
-    _0 = 0,
-    _1 = 1,
-    _32 = 32,
-    _128 = 128,
-    __1 = -1,
+/** 拖轮调度状态 */
+export enum ScheduleStatus {
+    Default = "Default",
+    Scheduled = "Scheduled",
+    Running = "Running",
+    Done = "Done",
+    Expired = "Expired",
+    Cancle = "Cancle",
 }
 
+/** 拖轮调度计划 根据 靠离泊计划 生成调度计划 */
 export class TugSchedule implements ITugSchedule {
     planId?: number;
+    /** 计划来源Id
+CCHP.VTS.Models.PlanSchedule.PlanId */
     sourceId?: string | undefined;
+    /** 期间代码 */
+    periodCode!: string;
+    /** 作业日期 */
     date?: string;
     vessel?: VesselInfoPart;
     job?: VesselJobPart;
+    /** 实际拖轮总功率
+CCHP.TDSP.Models.TugSchedule.TugsCCHP.TDSP.Models.TugInfo.EnginePower */
     totalPower?: number;
+    /** 实际拖轮数量 */
     tugCount?: number;
     time?: JobTimePart;
+    /** 参加作业的 拖轮列表 */
     tugs?: ScheduleTugItem[] | undefined;
-    status?: PlanStatus;
+    status?: ScheduleStatus;
+    /** 创建人 */
     createdBy?: string | undefined;
 
     constructor(data?: ITugSchedule) {
@@ -2527,6 +5312,7 @@ export class TugSchedule implements ITugSchedule {
         if (_data) {
             this.planId = _data["planId"];
             this.sourceId = _data["sourceId"];
+            this.periodCode = _data["periodCode"];
             this.date = _data["date"];
             this.vessel = _data["vessel"] ? VesselInfoPart.fromJS(_data["vessel"]) : <any>undefined;
             this.job = _data["job"] ? VesselJobPart.fromJS(_data["job"]) : <any>undefined;
@@ -2554,6 +5340,7 @@ export class TugSchedule implements ITugSchedule {
         data = typeof data === 'object' ? data : {};
         data["planId"] = this.planId;
         data["sourceId"] = this.sourceId;
+        data["periodCode"] = this.periodCode;
         data["date"] = this.date;
         data["vessel"] = this.vessel ? this.vessel.toJSON() : <any>undefined;
         data["job"] = this.job ? this.job.toJSON() : <any>undefined;
@@ -2571,23 +5358,37 @@ export class TugSchedule implements ITugSchedule {
     }
 }
 
+/** 拖轮调度计划 根据 靠离泊计划 生成调度计划 */
 export interface ITugSchedule {
     planId?: number;
+    /** 计划来源Id
+CCHP.VTS.Models.PlanSchedule.PlanId */
     sourceId?: string | undefined;
+    /** 期间代码 */
+    periodCode: string;
+    /** 作业日期 */
     date?: string;
     vessel?: VesselInfoPart;
     job?: VesselJobPart;
+    /** 实际拖轮总功率
+CCHP.TDSP.Models.TugSchedule.TugsCCHP.TDSP.Models.TugInfo.EnginePower */
     totalPower?: number;
+    /** 实际拖轮数量 */
     tugCount?: number;
     time?: JobTimePart;
+    /** 参加作业的 拖轮列表 */
     tugs?: ScheduleTugItem[] | undefined;
-    status?: PlanStatus;
+    status?: ScheduleStatus;
+    /** 创建人 */
     createdBy?: string | undefined;
 }
 
+/** 长度范围 */
 export class LengthRangePart implements ILengthRangePart {
-    min?: number;
-    max?: number;
+    /** 最小值 */
+    min!: number;
+    /** 最大值 */
+    max!: number;
 
     constructor(data?: ILengthRangePart) {
         if (data) {
@@ -2620,13 +5421,19 @@ export class LengthRangePart implements ILengthRangePart {
     }
 }
 
+/** 长度范围 */
 export interface ILengthRangePart {
-    min?: number;
-    max?: number;
+    /** 最小值 */
+    min: number;
+    /** 最大值 */
+    max: number;
 }
 
+/** 所需拖轮数量 */
 export class TugNumberPart implements ITugNumberPart {
+    /** 靠泊 数量 */
     berth?: number;
+    /** 离泊 数量 */
     unBerth?: number;
 
     constructor(data?: ITugNumberPart) {
@@ -2660,17 +5467,23 @@ export class TugNumberPart implements ITugNumberPart {
     }
 }
 
+/** 所需拖轮数量 */
 export interface ITugNumberPart {
+    /** 靠泊 数量 */
     berth?: number;
+    /** 离泊 数量 */
     unBerth?: number;
 }
 
+/** 拖轮配备标准 */
 export class TugStandard implements ITugStandard {
     autoId?: number;
-    harbor?: string | undefined;
-    shipType?: string | undefined;
-    lengthRange?: LengthRangePart;
-    tugNumber?: TugNumberPart;
+    /** 港池名称 */
+    harbor!: string;
+    /** 船舶类型 */
+    vesselTypes!: string[];
+    lenRange!: LengthRangePart;
+    tugs!: TugNumberPart;
 
     constructor(data?: ITugStandard) {
         if (data) {
@@ -2679,15 +5492,24 @@ export class TugStandard implements ITugStandard {
                     (<any>this)[property] = (<any>data)[property];
             }
         }
+        if (!data) {
+            this.vesselTypes = [];
+            this.lenRange = new LengthRangePart();
+            this.tugs = new TugNumberPart();
+        }
     }
 
     init(_data?: any) {
         if (_data) {
             this.autoId = _data["autoId"];
             this.harbor = _data["harbor"];
-            this.shipType = _data["shipType"];
-            this.lengthRange = _data["lengthRange"] ? LengthRangePart.fromJS(_data["lengthRange"]) : <any>undefined;
-            this.tugNumber = _data["tugNumber"] ? TugNumberPart.fromJS(_data["tugNumber"]) : <any>undefined;
+            if (Array.isArray(_data["vesselTypes"])) {
+                this.vesselTypes = [] as any;
+                for (let item of _data["vesselTypes"])
+                    this.vesselTypes!.push(item);
+            }
+            this.lenRange = _data["lenRange"] ? LengthRangePart.fromJS(_data["lenRange"]) : new LengthRangePart();
+            this.tugs = _data["tugs"] ? TugNumberPart.fromJS(_data["tugs"]) : new TugNumberPart();
         }
     }
 
@@ -2702,23 +5524,32 @@ export class TugStandard implements ITugStandard {
         data = typeof data === 'object' ? data : {};
         data["autoId"] = this.autoId;
         data["harbor"] = this.harbor;
-        data["shipType"] = this.shipType;
-        data["lengthRange"] = this.lengthRange ? this.lengthRange.toJSON() : <any>undefined;
-        data["tugNumber"] = this.tugNumber ? this.tugNumber.toJSON() : <any>undefined;
+        if (Array.isArray(this.vesselTypes)) {
+            data["vesselTypes"] = [];
+            for (let item of this.vesselTypes)
+                data["vesselTypes"].push(item);
+        }
+        data["lenRange"] = this.lenRange ? this.lenRange.toJSON() : <any>undefined;
+        data["tugs"] = this.tugs ? this.tugs.toJSON() : <any>undefined;
         return data; 
     }
 }
 
+/** 拖轮配备标准 */
 export interface ITugStandard {
     autoId?: number;
-    harbor?: string | undefined;
-    shipType?: string | undefined;
-    lengthRange?: LengthRangePart;
-    tugNumber?: TugNumberPart;
+    /** 港池名称 */
+    harbor: string;
+    /** 船舶类型 */
+    vesselTypes: string[];
+    lenRange: LengthRangePart;
+    tugs: TugNumberPart;
 }
 
+/** 数据分页结果 */
 export class TugStandardPageResult implements ITugStandardPageResult {
     page?: Paging;
+    /** 分页数据 */
     readonly values?: TugStandard[] | undefined;
 
     constructor(data?: ITugStandardPageResult) {
@@ -2760,27 +5591,38 @@ export class TugStandardPageResult implements ITugStandardPageResult {
     }
 }
 
+/** 数据分页结果 */
 export interface ITugStandardPageResult {
     page?: Paging;
+    /** 分页数据 */
     values?: TugStandard[] | undefined;
 }
 
+/** 拖轮状态 包含 简化状态和详细状态 简化状态 为 空闲->作业中 包括 空闲->接受调度->备车->作业中->脱开->空闲 */
 export enum TugStatus {
-    _0 = 0,
-    _1 = 1,
-    _16 = 16,
-    _32 = 32,
-    _48 = 48,
+    Idle = "Idle",
+    Scheduled = "Scheduled",
+    StandBy = "StandBy",
+    Running = "Running",
+    TugOff = "TugOff",
 }
 
+/** 拖轮状态 */
 export class TugState implements ITugState {
+    /** MMSI */
     mmsi?: string | undefined;
+    /** 中文船名 */
     name!: string;
+    /** 英文船名 */
     cnName!: string;
+    /** 船舶全名 英文/中文 */
     readonly fullName?: string | undefined;
+    /** 作业类型 */
     jobKind!: string;
+    /** 拖轮调度计划 Id */
     planId?: number | undefined;
     status?: TugStatus;
+    /** 更新时间 */
     updateTime?: string;
 
     constructor(data?: ITugState) {
@@ -2826,15 +5668,132 @@ export class TugState implements ITugState {
     }
 }
 
+/** 拖轮状态 */
 export interface ITugState {
+    /** MMSI */
     mmsi?: string | undefined;
+    /** 中文船名 */
     name: string;
+    /** 英文船名 */
     cnName: string;
+    /** 船舶全名 英文/中文 */
     fullName?: string | undefined;
+    /** 作业类型 */
     jobKind: string;
+    /** 拖轮调度计划 Id */
     planId?: number | undefined;
     status?: TugStatus;
+    /** 更新时间 */
     updateTime?: string;
+}
+
+/** 货船类型 用于 拖轮作业标准 CCHP.TDSP.Models.TugStandard.VesselTypes */
+export class VesselType implements IVesselType {
+    /** 类型名称 */
+    name?: string | undefined;
+    /** 货物关键字 */
+    keyWrods!: string[];
+
+    constructor(data?: IVesselType) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+        if (!data) {
+            this.keyWrods = [];
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.name = _data["name"];
+            if (Array.isArray(_data["keyWrods"])) {
+                this.keyWrods = [] as any;
+                for (let item of _data["keyWrods"])
+                    this.keyWrods!.push(item);
+            }
+        }
+    }
+
+    static fromJS(data: any): VesselType {
+        data = typeof data === 'object' ? data : {};
+        let result = new VesselType();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        if (Array.isArray(this.keyWrods)) {
+            data["keyWrods"] = [];
+            for (let item of this.keyWrods)
+                data["keyWrods"].push(item);
+        }
+        return data; 
+    }
+}
+
+/** 货船类型 用于 拖轮作业标准 CCHP.TDSP.Models.TugStandard.VesselTypes */
+export interface IVesselType {
+    /** 类型名称 */
+    name?: string | undefined;
+    /** 货物关键字 */
+    keyWrods: string[];
+}
+
+/** 数据分页结果 */
+export class VesselTypePageResult implements IVesselTypePageResult {
+    page?: Paging;
+    /** 分页数据 */
+    readonly values?: VesselType[] | undefined;
+
+    constructor(data?: IVesselTypePageResult) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.page = _data["page"] ? Paging.fromJS(_data["page"]) : <any>undefined;
+            if (Array.isArray(_data["values"])) {
+                (<any>this).values = [] as any;
+                for (let item of _data["values"])
+                    (<any>this).values!.push(VesselType.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): VesselTypePageResult {
+        data = typeof data === 'object' ? data : {};
+        let result = new VesselTypePageResult();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["page"] = this.page ? this.page.toJSON() : <any>undefined;
+        if (Array.isArray(this.values)) {
+            data["values"] = [];
+            for (let item of this.values)
+                data["values"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+/** 数据分页结果 */
+export interface IVesselTypePageResult {
+    page?: Paging;
+    /** 分页数据 */
+    values?: VesselType[] | undefined;
 }
 
 export class ApiException extends Error {

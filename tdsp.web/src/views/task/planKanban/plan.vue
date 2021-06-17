@@ -65,7 +65,7 @@
           作业船舶
         </v-card-title>
         <v-row justify="start">
-          <v-col md="4" sm="6" xs="12" v-for="(item, index) in workingList" :key="index">
+          <v-col md="3" sm="6" xs="12" v-for="(item, index) in workingList" :key="index">
             <v-card>
               <v-list-item two-line>
                 <v-list-item-action class="mr-1">
@@ -136,18 +136,18 @@
                   > -->
                   <div class="title1" v-if="item.plan.isPilotage">
                     <span class="title1-item title1-item-1st">名称</span>
-                    <span class="title1-item">备车时间</span>
+                    <!-- <span class="title1-item">备车时间</span> -->
                     <span class="title1-item">开始时间</span>
                     <span class="title1-item">脱开时间</span>
-                    <span class="title1-item">结束时间</span>
+                    <!-- <span class="title1-item">结束时间</span> -->
                     <span style="width:60px;text-align: right;">引水</span>
                   </div>
                   <div class="title2" v-else>
                     <div class="title2-item title2-item-1st">名称</div>
-                    <div class="title2-item">备车时间</div>
+                    <!-- <div class="title2-item">备车时间</div> -->
                     <div class="title2-item">开始时间</div>
                     <div class="title2-item">脱开时间</div>
-                    <div class="title2-item">结束时间</div>
+                    <!-- <div class="title2-item">结束时间</div> -->
                   </div>
                   <v-divider></v-divider>
                   <template
@@ -161,20 +161,22 @@
                       <v-list-item-content>
                         <v-list-item-title :class="item.plan.isPilotage === true ? 'title1-content' : 'title2-content'">
                           <span :class="item.plan.isPilotage === true ? 'title1-item title1-item-1st' : 'title2-item title2-item-1st'">{{tug.name}}</span>
-                          <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.beiche ? tug.beiche : '--:--'}}</span>
+                          <!-- <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.beiche ? tug.beiche : '--:--'}}</span> -->
                           <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.startTime ? tug.startTime : '--:--'}}</span>
                           <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.tuokai ? tug.tuokai : '--:--'}}</span>
-                          <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.endTime ? tug.endTime : '--:--'}}</span>
+                          <!-- <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.endTime ? tug.endTime : '--:--'}}</span> -->
                           </v-list-item-title>
                         <v-list-item-subtitle v-if="tug.remark">{{tug.remark}}</v-list-item-subtitle>
                         <br>
                         <div style="display: flex;flex-direction: row;align-items: center;">
-                          <v-btn x-small text color="success" @click="setTime(item, tug , 1)">备车</v-btn>
-                          <v-btn x-small text color="success" @click="setTime(item, tug , 2)">开始</v-btn>
-                          <v-btn x-small text color="success" @click="setTime(item, tug , 3)">脱开</v-btn>
-                          <v-btn x-small text color="success" @click="setTime(item, tug , 4)">结束</v-btn>
-                          <v-btn x-small text color="indigo lighten-2" @click="cancelTug(item, tug)">取消</v-btn>
-                          <div v-if="item.plan.isPilotage" style="display: flex;flex-direction: row;align-items: center;">
+                          <v-btn x-small text color="info" @click="setTime(item, tug, 'standBy')">备车</v-btn>
+                          <v-btn x-small text color="success" @click="setTime(item, tug, 'start')">开始</v-btn>
+                          <v-btn x-small text color="success" @click="setTime(item, tug, 'finish')">脱开</v-btn>
+                          <v-btn x-small text color="info" @click="setTime(item, tug, 'done')">完车</v-btn>
+                          <!-- done完成 结束 -->
+                          <v-btn x-small text color="indigo lighten-2" @click="setTime(item, tug, 'cancel')">取消</v-btn>
+                          <!-- <v-btn x-small text color="indigo lighten-2" @click="cancelTug(item, tug)">取消</v-btn> -->
+                          <div v-if="item.plan.isPilotage" style="display: flex;flex-direction: row;align-items: center; display:none">
                             <v-divider vertical></v-divider>
                             <v-btn x-small text color="success" @click="setTime(item, tug , 4)">接引水</v-btn>
                             <v-btn x-small text color="success" @click="setTime(item, tug , 4)">送引水</v-btn>
@@ -762,11 +764,11 @@ export default {
           list = list.filter(item => (item.plan.tugCorp).indexOf('曹') > -1)
         }
         for (let i = 0; i < list.length; i++) {
-          if (list[i].tug) {
-            for (let j = 0; j < list[i].tug.length; j++) {
-              list[i].tug[j].fab = false
-            }
-          }
+          // if (list[i].tug) {
+          //   for (let j = 0; j < list[i].tug.length; j++) {
+          //     list[i].tug[j].fab = false
+          //   }
+          // }
           let harbor = list[i].plan.harbor
           if ((harbor).indexOf('一') > -1) {
             list[i].plan.harbor = '1' + harbor
@@ -786,12 +788,33 @@ export default {
       }, 150)
     },
     getdata2 () {
-      this.loading = false
+      this.loading = true
       // 根据日期获取调度计划
       this.client.tugSchedule2(this.date)
         .then(res => {
-          
+          if (res.length > 0) {
+            let list = res
+            for (let i = 0; i < list.length; i++) {
+              let harbor = list[i].job.harbor
+              if ((harbor).indexOf('一') > -1) {
+                list[i].job.harbor = '1' + harbor
+              } else if ((harbor).indexOf('二') > -1) {
+                list[i].job.harbor = '2' + harbor
+              } else if ((harbor).indexOf('三') > -1) {
+                list[i].job.harbor = '3' + harbor
+              } else {
+                list[i].job.harbor = '0' + harbor
+              }
+              const datalist = orderBy(list, ['job.harbor'], ['asc'])
+              this.workingList = datalist.filter(item => item.status === 'Scheduled' || item.status === 'Running')
+              this.waitingList = datalist.filter(item => item.status === 'Default')
+              this.completedList = datalist.filter(item => item.status === 'Done')
+            }
+          }
           console.log(res)
+        })
+        .finally(() => {
+          this.loading = false
         })
     },
     donePlan (item) {
@@ -849,21 +872,51 @@ export default {
       this.tugs = []
       this.dialog = false
     },
-    // 设置时间
+    // 设置当前时间 无手动设置时间
     setTime (item, tug, type) {
-      this.plandate = dayjs().format('YYYY-MM-DD')
-      // 当前分钟
-      let nowMinute = dayjs().minute()
-      if (nowMinute % 5 != 0) {
-        nowMinute = Math.round(nowMinute / 10) *10
+      // type = start done finish cancel standBy
+      const id  = 'id'
+      const mmsi  = 'mmsi'
+      if (type === 'start') {
+        this.TugScheduleClient.start(id, mmsi)
+          .then(res => {
+            console.log(res)
+          })
+      } else if (type === 'done') {
+        this.TugScheduleClient.done(id, mmsi)
+          .then(res => {
+            console.log(res)
+          })
+      } else if (type === 'finish') {
+        this.TugScheduleClient.finish(id, mmsi)
+          .then(res => {
+            console.log(res)
+          })
+      } else if (type === 'cancel') {
+        this.TugScheduleClient.cancel(id, mmsi)
+          .then(res => {
+            console.log(res)
+          })
+      } else if (type === 'standBy') {
+        this.TugScheduleClient.standBy(id, mmsi)
+          .then(res => {
+            console.log(res)
+          })
       }
-      if (nowMinute < 10) nowMinute = '0' + nowMinute
-      this.plantime = dayjs().format(`HH:${nowMinute}`)
-      // console.log(item)
-      // console.log(tug)
-      // console.log(type)
-      this.dialog2 = true
+
     },
+    // 手动设置时间 (备车、开始、脱开、结束)
+    // setTime (item, tug, type) {
+    //   this.plandate = dayjs().format('YYYY-MM-DD')
+    //   // 设置显示的分钟为0 5 10 5分钟一个间隔
+    //   let nowMinute = dayjs().minute()
+    //   if (nowMinute % 5 != 0) {
+    //     nowMinute = Math.round(nowMinute / 10) *10
+    //   }
+    //   if (nowMinute < 10) nowMinute = '0' + nowMinute
+    //   this.plantime = dayjs().format(`HH:${nowMinute}`)
+    //   this.dialog2 = true
+    // },
     // 保存时间
     savePlanTime () {
       console.log(this.plandate)
@@ -956,7 +1009,7 @@ export default {
     display: flex;
   }
   .title1-item {
-    width: 19%;
+    width: 31%;
     text-align: center;
   }
   .title1-item-1st {
@@ -975,7 +1028,7 @@ export default {
     display: flex;
   }
   .title2-item {
-    width: 20%;
+    width: 33%;
     text-align: center;
   }
   .title2-item-1st {

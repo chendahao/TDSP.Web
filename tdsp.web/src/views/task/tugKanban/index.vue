@@ -1,7 +1,11 @@
 <template>
   <div>
     <PageHeader :dense="false" headertitle="拖轮实时作业看板">
-     <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-btn color="primary" @click="addJob">
+        <v-icon>add</v-icon>
+        增加作业
+      </v-btn>
       <v-btn text @click="getdata">
         <v-icon>refresh</v-icon>
         刷新
@@ -76,6 +80,27 @@
       max-width="400px"
       transition="dialog-transition"
     >
+      <v-card>
+        <v-card-title primary-title>
+          添加拖轮作业
+        </v-card-title>
+        <v-card-text>
+          
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="success">text</v-btn>
+          <v-btn text>text</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog
+      v-model="dialog"
+      scrollable
+      :overlay="false"
+      max-width="400px"
+      transition="dialog-transition"
+    >
       <v-card v-if="hasInfo">
         <!-- <v-card-title primary-title>
           <v-spacer></v-spacer>
@@ -142,6 +167,7 @@ export default {
       loading: false,
       dialog: false,
       planInfo: {},
+      dialog_job: false,
       hasInfo: false
     }
   },
@@ -159,6 +185,9 @@ export default {
 
         this.loading = false
       }, 150)
+    },
+    addJob () {
+      
     },
     getPlanInfo (ship) {
       console.log(ship)

@@ -68,7 +68,12 @@ module.exports = {
         ws: true,
         changeOrigin: true
       },
-      '/api': {
+      '/api/base': {
+        target: 'http://192.168.1.23:8004',
+        ws: true,
+        changeOrigin: true
+      },
+      '/api/sch': {
         target: 'http://192.168.1.23:8004',
         ws: true,
         changeOrigin: true
