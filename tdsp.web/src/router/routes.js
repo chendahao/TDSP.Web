@@ -15,8 +15,8 @@ import rugRoutes from './modules/tug'
 export default [
   ...baseRoutes,
   NenvRoutes,
-  planRoutes,
+  // planRoutes,
   rugRoutes,
-  chartRoutes,
+  // chartRoutes,
   sysRoutes
 ]
