@@ -2,9 +2,9 @@
  * 拖轮计划编排
 -->
 <template>
-  <div>
-    <PageHeader :dense="false" headertitle="船舶计划实时看板">
-      <v-layout row wrap>
+  <div :style="{'background-color':$vuetify.theme.dark? '#082338':'#f1f5f8'}">
+    <PageHeader :dense="false" headertitle="计划编排">
+      <!-- <v-layout row wrap>
         <v-flex md4>
           <v-menu
             v-model="menu"
@@ -34,7 +34,7 @@
             ></v-date-picker>
           </v-menu>
         </v-flex>
-      </v-layout>
+      </v-layout> -->
       <v-spacer></v-spacer>
       <!-- <v-tooltip bottom>
         <template v-slot:activator="{ on }">
@@ -67,10 +67,10 @@
         <v-row justify="start">
           <v-col md="3" sm="6" xs="12" v-for="(item, index) in workingList" :key="index">
             <v-card>
-              <v-list-item two-line>
-                <v-list-item-action class="mr-1">
+              <v-list-item>
+                <!-- <v-list-item-action> -->
                   <!-- 显示拖轮数量 -->
-                  <v-badge
+                  <!-- <v-badge
                     :content="item.plan.tugs"
                     offset-x="15"
                     offset-y="5"
@@ -80,74 +80,90 @@
                     <v-avatar :color="setHarbor(item.plan.harbor)" size="32">
                       <span class="white--text headline" style="font-size:0.9rem !important">{{ item.plan.harbor | formatHarbor2 }}</span>
                     </v-avatar>
-                  </v-badge>
-                </v-list-item-action>
+                  </v-badge> -->
+                <!-- </v-list-item-action> -->
                 <v-list-item-content>
                   <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" class="pointer">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
                   <v-list-item-subtitle>
+                    <!-- 显示国拖曹拖 -->
+                    <!-- <v-chip label small class="ma-1" v-if="showAll" dark :color="item.plan.tugCorp === '曹拖' ? 'green':'blue'">{{ item.plan.tugCorp }}</v-chip> -->
+                    <v-chip :color="setHarbor(item.plan.harbor)" label small dark class="mr-1 mt-1 mb-1">{{item.plan.harbor | formatHarbor}}-{{ item.plan.berthNo }}</v-chip>
+                    <v-chip label small class="mr-1 mt-1 mb-1">{{ item.plan.actionPlan | formatPlan }}</v-chip>
+                    <v-chip label small class="mr-1 mt-1 mb-1" color="info" v-if="item.plan.isTide" title="乘潮">乘</v-chip>
+                    <v-chip label small class="mr-1 mt-1 mb-1" color="info" v-if="item.plan.isPilotage" title="引航">引</v-chip>
                   </v-list-item-subtitle>
                   <v-list-item-subtitle>
-                    <v-chip label small class="ma-1" v-if="showAll" dark :color="item.plan.tugCorp === '曹拖' ? 'green':'blue'">{{ item.plan.tugCorp }}</v-chip>
-                    <v-chip label small class="ma-1">{{ item.plan.actionPlan | formatPlan }}</v-chip>
-                    <v-chip label small class="ma-1">{{ item.plan.berthNo }}</v-chip>
-                    <v-chip label small class="ma-1" color="info" v-if="item.plan.isTide" title="乘潮">乘</v-chip>
-                    <v-chip label small class="ma-1" color="info" v-if="item.plan.isPilotage" title="引航">引</v-chip>
+                    <v-chip class="mr-1" label x-small>总功率20000</v-chip>
+                    <v-chip v-if="item.plan.isPilotage" class="mr-1" label x-small>接  港1</v-chip>
+                    <v-chip v-if="item.plan.isPilotage" class="mr-1" label x-small>送  港2</v-chip>
                   </v-list-item-subtitle>
                 </v-list-item-content>
-                <v-list-item-action style="display: flex;flex-direction: row;align-items: center;">
-                  <v-tooltip top>
-                    <template v-slot:activator="{ on }">
-                      <v-btn small icon color="primary" @click="addtug(item)">
-                        <v-icon v-on="on">add</v-icon>
+                <!-- <v-list-item-action style="display: flex;flex-direction: row;align-items: center;"> -->
+                <!-- <v-list-item-action> -->
+                  <v-speed-dial
+                    v-model="item.fab"
+                    bottom
+                    right
+                    direction="left"
+                    open-on-hover
+                    transition="slide-x-reverse-transition"
+                    style="position: absolute;bottom: 35px;right:5px"
+                  >
+                    <template v-slot:activator>
+                      <v-btn
+                        v-model="item.fab"
+                        color="blue darken-2"
+                        dark
+                        x-small
+                        fab
+                        style="position: relative;"
+                      >
+                        <v-icon v-if="item.fab">
+                          close
+                        </v-icon>
+                        <v-icon v-else>
+                          more
+                        </v-icon>
                       </v-btn>
                     </template>
-                    <span>派遣拖轮</span>
-                  </v-tooltip>
-                  <v-tooltip top>
-                    <template v-slot:activator="{ on }">
-                      <v-btn small icon color="green" @click="donePlan(item)">
-                        <i class="material-icons" v-on="on">done_outline</i>
-                      </v-btn>
-                    </template>
-                    <span>任务完成</span>
-                  </v-tooltip>
-                  <v-tooltip top>
-                    <template v-slot:activator="{ on }">
-                      <v-btn small icon color="warning" @click="cancelPlan(item)">
-                        <i class="material-icons" v-on="on">cancel</i>
-                      </v-btn>
-                    </template>
-                    <span>任务取消</span>
-                  </v-tooltip>
-                  <!-- <v-tooltip bottom>
-                    <template v-slot:activator="{ on }">
-                      <v-btn icon color="info" @click="getPlanInfo(item)">
-                        <v-icon v-on="on">info</v-icon>
-                      </v-btn>
-                    </template>
-                    <span>关联计划</span>
-                  </v-tooltip> -->
-                </v-list-item-action>
+                    <v-tooltip top>
+                      <template v-slot:activator="{ on }">
+                        <v-btn x-small fab color="primary" @click="addtug(item)">
+                          <v-icon v-on="on">add</v-icon>
+                        </v-btn>
+                      </template>
+                      <span>派遣拖轮</span>
+                    </v-tooltip>
+                    <v-tooltip top>
+                      <template v-slot:activator="{ on }">
+                        <v-btn x-small dark fab color="green" @click="donePlan(item)">
+                          <i class="material-icons" v-on="on">done_outline</i>
+                        </v-btn>
+                      </template>
+                      <span>任务完成</span>
+                    </v-tooltip>
+                    <v-tooltip top>
+                      <template v-slot:activator="{ on }">
+                        <v-btn x-small fab color="warning" @click="cancelPlan(item)">
+                          <i class="material-icons" v-on="on">cancel</i>
+                        </v-btn>
+                      </template>
+                      <span>任务取消</span>
+                    </v-tooltip>
+                  </v-speed-dial>
+                <!-- </v-list-item-action> -->
               </v-list-item>
               <v-divider></v-divider>
               <v-card flat>
                 <v-list>
                   <!-- <v-list-item-group
                   > -->
-                  <div class="title1" v-if="item.plan.isPilotage">
-                    <span class="title1-item title1-item-1st">名称</span>
-                    <!-- <span class="title1-item">备车时间</span> -->
-                    <span class="title1-item">开始时间</span>
-                    <span class="title1-item">脱开时间</span>
-                    <!-- <span class="title1-item">结束时间</span> -->
-                    <span style="width:60px;text-align: right;">引水</span>
-                  </div>
-                  <div class="title2" v-else>
+                  <div class="title2">
                     <div class="title2-item title2-item-1st">名称</div>
                     <!-- <div class="title2-item">备车时间</div> -->
                     <div class="title2-item">开始时间</div>
                     <div class="title2-item">脱开时间</div>
-                    <!-- <div class="title2-item">结束时间</div> -->
+                    <div class="title2-item">完成时间</div>
                   </div>
                   <v-divider></v-divider>
                   <template
@@ -159,33 +175,52 @@
                       color="blue"
                     >
                       <v-list-item-content>
-                        <v-list-item-title :class="item.plan.isPilotage === true ? 'title1-content' : 'title2-content'">
-                          <span :class="item.plan.isPilotage === true ? 'title1-item title1-item-1st' : 'title2-item title2-item-1st'">{{tug.name}}</span>
-                          <!-- <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.beiche ? tug.beiche : '--:--'}}</span> -->
-                          <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.startTime ? tug.startTime : '--:--'}}</span>
-                          <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.tuokai ? tug.tuokai : '--:--'}}</span>
-                          <!-- <span :class="item.plan.isPilotage === true ? 'title1-item' : 'title2-item'">{{tug.endTime ? tug.endTime : '--:--'}}</span> -->
+                        <v-list-item-title class="title2-content">
+                          <span class="title2-item title2-item-1st">{{tug.name}}</span>
+                          <!-- <span class="title2-item">{{tug.beiche ? tug.beiche : '--'}}</span> -->
+                          <span class="title2-item">{{tug.startTime ? tug.startTime : '--'}}</span>
+                          <span class="title2-item">{{tug.tuokai ? tug.tuokai : '--'}}</span>
+                          <span class="title2-item">{{tug.endTime ? tug.endTime : '--'}}</span>
                           </v-list-item-title>
                         <v-list-item-subtitle v-if="tug.remark">{{tug.remark}}</v-list-item-subtitle>
                         <br>
                         <div style="display: flex;flex-direction: row;align-items: center;">
                           <v-btn x-small text color="info" @click="setTime(item, tug, 'standBy')">备车</v-btn>
                           <v-btn x-small text color="success" @click="setTime(item, tug, 'start')">开始</v-btn>
-                          <v-btn x-small text color="success" @click="setTime(item, tug, 'finish')">脱开</v-btn>
-                          <v-btn x-small text color="info" @click="setTime(item, tug, 'done')">完车</v-btn>
+                          <v-btn x-small text color="success" @click="setTime(item, tug, 'done')">脱开</v-btn>
+                          <v-btn x-small text color="success" @click="setTime(item, tug, 'finish')">完成</v-btn>
                           <!-- done完成 结束 -->
-                          <v-btn x-small text color="indigo lighten-2" @click="setTime(item, tug, 'cancel')">取消</v-btn>
+                          <v-menu offset-y>
+                            <template v-slot:activator="{ on, attrs }">
+                              <v-btn x-small text color="#455A64" v-bind="attrs" v-on="on">更多</v-btn>
+                            </template>
+                            <v-list dense>
+                              <v-list-item>
+                                <v-btn small text color="info" @click="setTime(item, tug, 'done')">完车</v-btn>
+                              </v-list-item>
+                              <v-list-item v-if="item.plan.isPilotage">
+                                <v-btn small text color="success" @click="setTime(item, tug , 4)">接引水</v-btn>
+                              </v-list-item>
+                              <v-list-item v-if="item.plan.isPilotage">
+                                <v-btn small text color="success" @click="setTime(item, tug , 4)">送引水</v-btn>
+                              </v-list-item>
+                              <v-list-item>
+                                <v-btn v-if="!tug.startTime" small text color="error lighten-2" @click="removeTug(item, tug)">删除</v-btn>
+                                <v-btn v-else small text color="indigo lighten-2" @click="setTime(item, tug, 'cancel')">取消</v-btn>
+                              </v-list-item>
+                            </v-list>
+                          </v-menu>
                           <!-- <v-btn x-small text color="indigo lighten-2" @click="cancelTug(item, tug)">取消</v-btn> -->
-                          <div v-if="item.plan.isPilotage" style="display: flex;flex-direction: row;align-items: center; display:none">
+                          <!-- <div v-if="item.plan.isPilotage" style="display: flex;flex-direction: row;align-items: center; display:none">
                             <v-divider vertical></v-divider>
                             <v-btn x-small text color="success" @click="setTime(item, tug , 4)">接引水</v-btn>
                             <v-btn x-small text color="success" @click="setTime(item, tug , 4)">送引水</v-btn>
-                          </div>
+                          </div> -->
                         </div>
                       </v-list-item-content>
-                      <v-list-item-action v-if="item.plan.isPilotage" style="margin-left: 0px;margin: 0px;justify-content:space-around">
+                      <!-- <v-list-item-action v-if="item.plan.isPilotage" style="margin-left: 0px;margin: 0px;justify-content:space-around">
                         <v-checkbox dense label="接" on-icon="check_box" off-icon="check_box_outline_blank"></v-checkbox>
-                        <v-checkbox dense label="送" on-icon="check_box" off-icon="check_box_outline_blank"></v-checkbox>
+                        <v-checkbox dense label="送" on-icon="check_box" off-icon="check_box_outline_blank"></v-checkbox> -->
                         <!-- 菜单 -->
                         <!-- <v-menu
                           open-on-hover
@@ -301,7 +336,7 @@
                             <span>开始</span>
                           </v-tooltip>
                         </v-speed-dial> -->
-                      </v-list-item-action>
+                      <!-- </v-list-item-action> -->
                     </v-list-item>
                     <v-divider
                       v-if="index < item.tug.length - 1"
@@ -681,6 +716,7 @@ export default {
   data () {
     return {
       client: new api.TugScheduleClient('', this.$axios),
+      planclient: new api.PlanScheduleClient('', this.$axios),
       desserts: [],
       workingList: [],
       waitingList: [],
@@ -729,7 +765,11 @@ export default {
       return actionPlanFormat(val)
     },
     formatHarbor (val) {
-      return val.replace(/[0-9]/ig, '')
+      const harbor = val.replace(/[0-9]/ig, '')
+      if (harbor.indexOf('开敞') > -1) return '开敞'
+      if (harbor.indexOf('一') > -1) return '一港池'
+      if (harbor.indexOf('二') > -1) return '二港池'
+      if (harbor.indexOf('三') > -1) return '三港池'
     },
     formatHarbor2 (val) {
       const harbor = val.replace(/[0-9]/ig, '')
@@ -764,6 +804,7 @@ export default {
           list = list.filter(item => (item.plan.tugCorp).indexOf('曹') > -1)
         }
         for (let i = 0; i < list.length; i++) {
+          list[i].fab = false
           // if (list[i].tug) {
           //   for (let j = 0; j < list[i].tug.length; j++) {
           //     list[i].tug[j].fab = false
@@ -790,7 +831,7 @@ export default {
     getdata2 () {
       this.loading = true
       // 根据日期获取调度计划
-      this.client.tugSchedule2(this.date)
+      this.client.tugScheduleAll()
         .then(res => {
           if (res.length > 0) {
             let list = res
@@ -849,6 +890,21 @@ export default {
       }
       this.dialog = true
     },
+    removeTug (item, tug) {
+      this.$msgbox.confirm('要删除这条拖轮吗？', '删除确认', {
+        confirmButtonText: '删除',
+        cancelButtonText: '关闭',
+        type: 'warning'
+      }).then(() => {
+        this.$message.success('删除成功')
+        // this.client.files2(id, this.userinfo.gh)
+        //   .then(() => {
+        //     this.$message.success('取消成功')
+        //     this.getdata()
+        //   })
+      }).catch(() => {
+      })
+    },
     cancelTug (item, tug) {
       this.$msgbox.confirm('要取消这条计划吗？', '取消确认', {
         confirmButtonText: '取消',
@@ -875,8 +931,8 @@ export default {
     // 设置当前时间 无手动设置时间
     setTime (item, tug, type) {
       // type = start done finish cancel standBy
-      const id  = 'id'
-      const mmsi  = 'mmsi'
+      const id = 'id'
+      const mmsi = 'mmsi'
       if (type === 'start') {
         this.TugScheduleClient.start(id, mmsi)
           .then(res => {
@@ -903,7 +959,6 @@ export default {
             console.log(res)
           })
       }
-
     },
     // 手动设置时间 (备车、开始、脱开、结束)
     // setTime (item, tug, type) {
@@ -923,57 +978,15 @@ export default {
       console.log(this.plantime)
       this.dialog2 = false
     },
-    getPlanInfo (ship) {
-      this.planInfo = {
-        audit: {
-          auditStatus: 'Pass',
-          auditTime: '2021-06-03T16:00:02.3550443',
-          reviewedBy: 'wangjian'
-        },
-        syncStatus: 'Default',
-        berthingPlanId: '00002021-0603-1339-75a7-3a0001659e1e',
-        plan: {
-          orgName: '华能曹妃甸港口有限公司',
-          berthingTime: '2021-06-03T19:00:00',
-          harbor: '开敞',
-          berthNo: '华能3',
-          tugs: 2,
-          tugCorp: '曹拖',
-          actionPlan: '靠泊',
-          isTide: false,
-          isPilotage: false,
-          sortKey: '',
-          periodCode: 'BP20210603-3',
-          planDate: '2021-06-03T00:00:00',
-          timespan: 3
-        },
-        ship: {
-          shipLength: 190,
-          shipWidth: 28,
-          frontDraft: 5.1,
-          behindDraft: 5.3,
-          goodsType: '煤炭',
-          shipType: '货轮',
-          loadWeight: 37031,
-          cargoWeight: 0,
-          agent: '新翕昊',
-          maxDraft: 5.3,
-          imo: '',
-          nationality: '中国',
-          callSign: '',
-          mmsi: '413363730',
-          name: 'JI LING 96',
-          cnName: '吉领96'
-        },
-        extended: {
-          shipAttributes: '内',
-          previousPort: '靖江',
-          nextPort: '靖江',
-          anchorTime: null
-        }
-      }
-      this.hasInfo = true
-      this.dialogInfo = true
+    getPlanInfo (item) {
+      const id = item.planId
+      this.planclient.planSchedule2(id)
+        .then(res => {
+          console.log(res)
+          this.planInfo = res
+          this.hasInfo = true
+          this.dialogInfo = true
+        })
     },
     planInfoCallBack (val) {
       this.dialogInfo = val
@@ -1028,7 +1041,7 @@ export default {
     display: flex;
   }
   .title2-item {
-    width: 33%;
+    width: 25%;
     text-align: center;
   }
   .title2-item-1st {
@@ -1036,5 +1049,6 @@ export default {
   }
   .pointer {
     cursor: pointer;
+    font-size: 1.2rem;
   }
 </style>

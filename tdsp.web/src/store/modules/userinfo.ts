@@ -36,7 +36,7 @@ export default {
      * @returns {Promise<any>}
      */
     set ({ commit, state, dispatch }: { commit:Commit, state: any, dispatch: Dispatch }, info: {info: object}) {
-      return new Promise(resolve => {
+      return new Promise(() => {
         // store 赋值
         commit('setinfo', info)
         // 持久化
@@ -47,7 +47,6 @@ export default {
           user: true
         }, { root: true })
         // end
-        resolve()
       })
     },
     clearInfo ({ commit, state }: {commit: Commit, state: any}) {
@@ -68,7 +67,7 @@ export default {
      * @returns {Promise<any>}
      */
     load ({ commit, state, dispatch }: { commit:Commit, state: any, dispatch: Dispatch }) {
-      return new Promise(async resolve => {
+      return new Promise(async () => {
         // store 赋值
         const info = await dispatch('db/get', {
           dbName: 'sys',
@@ -81,7 +80,6 @@ export default {
         state.roles = info.roles
         state.userName = info.userName
         // end
-        resolve()
       })
     }
   }

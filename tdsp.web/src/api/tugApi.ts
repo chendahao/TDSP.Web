@@ -452,6 +452,7 @@ export class JobRecordClient {
      * @param searchKey (optional) 搜索值
      * @param descending (optional) 逆序
      * @return Success
+     * @deprecated
      */
     jobRecord(date: string | undefined, pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<TugJobRecordPageResult> {
         let url_ = this.baseUrl + "/api/sch/JobRecord?";
@@ -519,6 +520,7 @@ export class JobRecordClient {
     /**
      * 根据 拖轮mmsi 查询 每日作业记录
      * @return Success
+     * @deprecated
      */
     jobRecordAll(mmsi: string | null, date: string , cancelToken?: CancelToken | undefined): Promise<TugJobRecord[]> {
         let url_ = this.baseUrl + "/api/sch/JobRecord/{mmsi}/{date}";
@@ -589,8 +591,7 @@ export class PlanScheduleClient {
     }
 
     /**
-     * 根据日期获取 需要拖轮的 靠离泊计划
-     * @param date (optional) 计划日期
+     * 当前时段 需要拖轮的 靠离泊计划
      * @param tugCorp (optional) 拖轮公司
      * @param pageSize (optional) 页面大小
      * @param page (optional) 当前页码
@@ -599,12 +600,8 @@ export class PlanScheduleClient {
      * @param descending (optional) 逆序
      * @return Success
      */
-    planSchedule(date: string | undefined, tugCorp: string | null | undefined, pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<PlanSchedulePageResult> {
+    planSchedule(tugCorp: string | null | undefined, pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<PlanSchedulePageResult> {
         let url_ = this.baseUrl + "/api/sch/PlanSchedule?";
-        if (date === null)
-            throw new Error("The parameter 'date' cannot be null.");
-        else if (date !== undefined)
-            url_ += "date=" + encodeURIComponent("" + date) + "&";
         if (tugCorp !== undefined && tugCorp !== null)
             url_ += "tugCorp=" + encodeURIComponent("" + tugCorp) + "&";
         if (pageSize !== undefined && pageSize !== null)
@@ -665,8 +662,7 @@ export class PlanScheduleClient {
     }
 
     /**
-     * 根据日期 获取全部 靠离泊计划
-     * @param date (optional) 
+     * 当前时段 获取全部 靠离泊计划
      * @param pageSize (optional) 页面大小
      * @param page (optional) 当前页码
      * @param sortBy (optional) 排序字段
@@ -674,12 +670,8 @@ export class PlanScheduleClient {
      * @param descending (optional) 逆序
      * @return Success
      */
-    all(date: string | undefined, pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<PlanSchedulePageResult> {
+    all(pageSize: number | null | undefined, page: number | null | undefined, sortBy: string | null | undefined, searchKey: string | null | undefined, descending: boolean | undefined , cancelToken?: CancelToken | undefined): Promise<PlanSchedulePageResult> {
         let url_ = this.baseUrl + "/api/sch/PlanSchedule/All?";
-        if (date === null)
-            throw new Error("The parameter 'date' cannot be null.");
-        else if (date !== undefined)
-            url_ += "date=" + encodeURIComponent("" + date) + "&";
         if (pageSize !== undefined && pageSize !== null)
             url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
         if (page !== undefined && page !== null)
@@ -735,6 +727,60 @@ export class PlanScheduleClient {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
         return Promise.resolve<PlanSchedulePageResult>(<any>null);
+    }
+
+    /**
+     * 根据 计划Id 获取 靠离泊计划
+     * @return Success
+     */
+    planSchedule2(planId: string , cancelToken?: CancelToken | undefined): Promise<PlanSchedule> {
+        let url_ = this.baseUrl + "/api/sch/PlanSchedule/{planId}";
+        if (planId === undefined || planId === null)
+            throw new Error("The parameter 'planId' must be defined.");
+        url_ = url_.replace("{planId}", encodeURIComponent("" + planId));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processPlanSchedule2(_response);
+        });
+    }
+
+    protected processPlanSchedule2(response: AxiosResponse): Promise<PlanSchedule> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = PlanSchedule.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<PlanSchedule>(<any>null);
     }
 }
 
@@ -1204,61 +1250,6 @@ export class TugJobClient {
     }
 
     /**
-     * 更新 作业状态
-     * @param status (optional) 
-     * @return Success
-     */
-    tugJob4(id: number, status: JobStatus | undefined , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/sch/TugJob/{id}?";
-        if (id === undefined || id === null)
-            throw new Error("The parameter 'id' must be defined.");
-        url_ = url_.replace("{id}", encodeURIComponent("" + id));
-        if (status === null)
-            throw new Error("The parameter 'status' cannot be null.");
-        else if (status !== undefined)
-            url_ += "status=" + encodeURIComponent("" + status) + "&";
-        url_ = url_.replace(/[?&]$/, "");
-
-        let options_ = <AxiosRequestConfig>{
-            method: "PUT",
-            url: url_,
-            headers: {
-            },
-            cancelToken
-        };
-
-        return this.instance.request(options_).catch((_error: any) => {
-            if (isAxiosError(_error) && _error.response) {
-                return _error.response;
-            } else {
-                throw _error;
-            }
-        }).then((_response: AxiosResponse) => {
-            return this.processTugJob4(_response);
-        });
-    }
-
-    protected processTugJob4(response: AxiosResponse): Promise<void> {
-        const status = response.status;
-        let _headers: any = {};
-        if (response.headers && typeof response.headers === "object") {
-            for (let k in response.headers) {
-                if (response.headers.hasOwnProperty(k)) {
-                    _headers[k] = response.headers[k];
-                }
-            }
-        }
-        if (status === 200) {
-            const _responseText = response.data;
-            return Promise.resolve<void>(<any>null);
-        } else if (status !== 200 && status !== 204) {
-            const _responseText = response.data;
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-        }
-        return Promise.resolve<void>(<any>null);
-    }
-
-    /**
      * 根据状态查询 作业
      * @param date (optional) 
      * @return Success
@@ -1372,6 +1363,168 @@ export class TugJobClient {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
         return Promise.resolve<TugJob[]>(<any>null);
+    }
+
+    /**
+     * 开始作业
+     * @return Success
+     */
+    start(jobId: number , cancelToken?: CancelToken | undefined): Promise<TugJob> {
+        let url_ = this.baseUrl + "/api/sch/TugJob/{jobId}/start";
+        if (jobId === undefined || jobId === null)
+            throw new Error("The parameter 'jobId' must be defined.");
+        url_ = url_.replace("{jobId}", encodeURIComponent("" + jobId));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "PUT",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processStart(_response);
+        });
+    }
+
+    protected processStart(response: AxiosResponse): Promise<TugJob> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugJob.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugJob>(<any>null);
+    }
+
+    /**
+     * 开始作业
+     * @return Success
+     */
+    done(jobId: number , cancelToken?: CancelToken | undefined): Promise<TugJob> {
+        let url_ = this.baseUrl + "/api/sch/TugJob/{jobId}/done";
+        if (jobId === undefined || jobId === null)
+            throw new Error("The parameter 'jobId' must be defined.");
+        url_ = url_.replace("{jobId}", encodeURIComponent("" + jobId));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "PUT",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processDone(_response);
+        });
+    }
+
+    protected processDone(response: AxiosResponse): Promise<TugJob> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugJob.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugJob>(<any>null);
+    }
+
+    /**
+     * 开始作业
+     * @return Success
+     */
+    tugOff(jobId: number , cancelToken?: CancelToken | undefined): Promise<TugJob> {
+        let url_ = this.baseUrl + "/api/sch/TugJob/{jobId}/TugOff";
+        if (jobId === undefined || jobId === null)
+            throw new Error("The parameter 'jobId' must be defined.");
+        url_ = url_.replace("{jobId}", encodeURIComponent("" + jobId));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "PUT",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processTugOff(_response);
+        });
+    }
+
+    protected processTugOff(response: AxiosResponse): Promise<TugJob> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugJob.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugJob>(<any>null);
     }
 }
 
@@ -1732,7 +1885,7 @@ export class TugScheduleClient {
 
     /**
      * 新建调度计划
-     * @param bpId (optional) 
+     * @param bpId (optional) 靠离泊计划的ID CCHP.VTS.Models.PlanSchedule.PlanId
      * @return Success
      */
     tugSchedule(bpId: string | undefined , cancelToken?: CancelToken | undefined): Promise<TugSchedule> {
@@ -1900,6 +2053,122 @@ export class TugScheduleClient {
     }
 
     /**
+     * 拖轮接引水
+     * @param planId 拖轮调度Id
+     * @param mmsi (optional) 拖轮MMSI
+     * @return Success
+     */
+    pickup(planId: number, mmsi: string | null | undefined , cancelToken?: CancelToken | undefined): Promise<TugSchedule> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{planId}/Pilot/Pickup?";
+        if (planId === undefined || planId === null)
+            throw new Error("The parameter 'planId' must be defined.");
+        url_ = url_.replace("{planId}", encodeURIComponent("" + planId));
+        if (mmsi !== undefined && mmsi !== null)
+            url_ += "mmsi=" + encodeURIComponent("" + mmsi) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "PUT",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processPickup(_response);
+        });
+    }
+
+    protected processPickup(response: AxiosResponse): Promise<TugSchedule> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugSchedule.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugSchedule>(<any>null);
+    }
+
+    /**
+     * 拖轮送引水
+     * @param planId 拖轮调度Id
+     * @param mmsi (optional) 拖轮MMSI
+     * @return Success
+     */
+    send(planId: number, mmsi: string | null | undefined , cancelToken?: CancelToken | undefined): Promise<TugSchedule> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{planId}/Pilot/Send?";
+        if (planId === undefined || planId === null)
+            throw new Error("The parameter 'planId' must be defined.");
+        url_ = url_.replace("{planId}", encodeURIComponent("" + planId));
+        if (mmsi !== undefined && mmsi !== null)
+            url_ += "mmsi=" + encodeURIComponent("" + mmsi) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "PUT",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processSend(_response);
+        });
+    }
+
+    protected processSend(response: AxiosResponse): Promise<TugSchedule> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugSchedule.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugSchedule>(<any>null);
+    }
+
+    /**
      * 根据 期间代码 生成调度计划
      * @param periodCode (optional) 期间代码
      * @return Success
@@ -2014,14 +2283,14 @@ export class TugScheduleClient {
 
     /**
      * 获取调度下全部拖轮信息
-     * @param id 拖轮调度Id
+     * @param planId 拖轮调度Id
      * @return Success
      */
-    tugsAll(id: number , cancelToken?: CancelToken | undefined): Promise<ScheduleTugItem[]> {
-        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs";
-        if (id === undefined || id === null)
-            throw new Error("The parameter 'id' must be defined.");
-        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+    tugsAll(planId: number , cancelToken?: CancelToken | undefined): Promise<TugJob[]> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{planId}/tugs";
+        if (planId === undefined || planId === null)
+            throw new Error("The parameter 'planId' must be defined.");
+        url_ = url_.replace("{planId}", encodeURIComponent("" + planId));
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ = <AxiosRequestConfig>{
@@ -2044,7 +2313,7 @@ export class TugScheduleClient {
         });
     }
 
-    protected processTugsAll(response: AxiosResponse): Promise<ScheduleTugItem[]> {
+    protected processTugsAll(response: AxiosResponse): Promise<TugJob[]> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -2061,23 +2330,23 @@ export class TugScheduleClient {
             if (Array.isArray(resultData200)) {
                 result200 = [] as any;
                 for (let item of resultData200)
-                    result200!.push(ScheduleTugItem.fromJS(item));
+                    result200!.push(TugJob.fromJS(item));
             }
             return result200;
         } else if (status !== 200 && status !== 204) {
             const _responseText = response.data;
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<ScheduleTugItem[]>(<any>null);
+        return Promise.resolve<TugJob[]>(<any>null);
     }
 
     /**
-     * 获取调度下全部拖轮信息
+     * 获取调度下指定拖轮信息
      * @param id 拖轮调度Id
      * @param mmsi 拖轮MMSI
      * @return Success
      */
-    tugs(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<ScheduleTugItem> {
+    tugs(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugJob> {
         let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
@@ -2107,7 +2376,7 @@ export class TugScheduleClient {
         });
     }
 
-    protected processTugs(response: AxiosResponse): Promise<ScheduleTugItem> {
+    protected processTugs(response: AxiosResponse): Promise<TugJob> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -2121,13 +2390,13 @@ export class TugScheduleClient {
             const _responseText = response.data;
             let result200: any = null;
             let resultData200  = _responseText;
-            result200 = ScheduleTugItem.fromJS(resultData200);
+            result200 = TugJob.fromJS(resultData200);
             return result200;
         } else if (status !== 200 && status !== 204) {
             const _responseText = response.data;
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<ScheduleTugItem>(<any>null);
+        return Promise.resolve<TugJob>(<any>null);
     }
 
     /**
@@ -2250,7 +2519,7 @@ export class TugScheduleClient {
      * @param mmsi 拖轮MMSI
      * @return Success
      */
-    start(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+    start2(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugJob> {
         let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}/start";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
@@ -2264,6 +2533,7 @@ export class TugScheduleClient {
             method: "PUT",
             url: url_,
             headers: {
+                "Accept": "application/json"
             },
             cancelToken
         };
@@ -2275,11 +2545,11 @@ export class TugScheduleClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processStart(_response);
+            return this.processStart2(_response);
         });
     }
 
-    protected processStart(response: AxiosResponse): Promise<void> {
+    protected processStart2(response: AxiosResponse): Promise<TugJob> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -2291,12 +2561,15 @@ export class TugScheduleClient {
         }
         if (status === 200) {
             const _responseText = response.data;
-            return Promise.resolve<void>(<any>null);
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugJob.fromJS(resultData200);
+            return result200;
         } else if (status !== 200 && status !== 204) {
             const _responseText = response.data;
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<void>(<any>null);
+        return Promise.resolve<TugJob>(<any>null);
     }
 
     /**
@@ -2305,7 +2578,7 @@ export class TugScheduleClient {
      * @param mmsi 拖轮MMSI
      * @return Success
      */
-    done(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+    done2(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
         let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}/done";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
@@ -2330,11 +2603,11 @@ export class TugScheduleClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processDone(_response);
+            return this.processDone2(_response);
         });
     }
 
-    protected processDone(response: AxiosResponse): Promise<void> {
+    protected processDone2(response: AxiosResponse): Promise<void> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -2445,61 +2718,6 @@ export class TugScheduleClient {
     }
 
     protected processCancel(response: AxiosResponse): Promise<void> {
-        const status = response.status;
-        let _headers: any = {};
-        if (response.headers && typeof response.headers === "object") {
-            for (let k in response.headers) {
-                if (response.headers.hasOwnProperty(k)) {
-                    _headers[k] = response.headers[k];
-                }
-            }
-        }
-        if (status === 200) {
-            const _responseText = response.data;
-            return Promise.resolve<void>(<any>null);
-        } else if (status !== 200 && status !== 204) {
-            const _responseText = response.data;
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-        }
-        return Promise.resolve<void>(<any>null);
-    }
-
-    /**
-     * 拖轮备车
-     * @param id 拖轮调度Id
-     * @param mmsi 拖轮MMSI
-     * @return Success
-     */
-    standBy(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}/standBy";
-        if (id === undefined || id === null)
-            throw new Error("The parameter 'id' must be defined.");
-        url_ = url_.replace("{id}", encodeURIComponent("" + id));
-        if (mmsi === undefined || mmsi === null)
-            throw new Error("The parameter 'mmsi' must be defined.");
-        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
-        url_ = url_.replace(/[?&]$/, "");
-
-        let options_ = <AxiosRequestConfig>{
-            method: "PUT",
-            url: url_,
-            headers: {
-            },
-            cancelToken
-        };
-
-        return this.instance.request(options_).catch((_error: any) => {
-            if (isAxiosError(_error) && _error.response) {
-                return _error.response;
-            } else {
-                throw _error;
-            }
-        }).then((_response: AxiosResponse) => {
-            return this.processStandBy(_response);
-        });
-    }
-
-    protected processStandBy(response: AxiosResponse): Promise<void> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -2928,28 +3146,67 @@ export class TugStateClient {
         }
         return Promise.resolve<TugState>(<any>null);
     }
-}
-
-export class TugStatusClient {
-    private instance: AxiosInstance;
-    private baseUrl: string;
-    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
-
-    constructor(baseUrl?: string, instance?: AxiosInstance) {
-        this.instance = instance ? instance : axios.create();
-        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
-    }
 
     /**
-     * 获取全部拖轮状态
+     * 刷新
      * @return Success
      */
-    tugStatusAll(  cancelToken?: CancelToken | undefined): Promise<TugState[]> {
-        let url_ = this.baseUrl + "/api/sch/TugStatus";
+    refresh(  cancelToken?: CancelToken | undefined): Promise<void> {
+        let url_ = this.baseUrl + "/api/sch/TugState/Refresh";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ = <AxiosRequestConfig>{
-            method: "GET",
+            method: "POST",
+            url: url_,
+            headers: {
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processRefresh(_response);
+        });
+    }
+
+    protected processRefresh(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * 备车
+     * @return Success
+     */
+    standby(mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugState> {
+        let url_ = this.baseUrl + "/api/sch/TugState/{mmsi}/standby";
+        if (mmsi === undefined || mmsi === null)
+            throw new Error("The parameter 'mmsi' must be defined.");
+        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "PUT",
             url: url_,
             headers: {
                 "Accept": "application/json"
@@ -2964,11 +3221,11 @@ export class TugStatusClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processTugStatusAll(_response);
+            return this.processStandby(_response);
         });
     }
 
-    protected processTugStatusAll(response: AxiosResponse): Promise<TugState[]> {
+    protected processStandby(response: AxiosResponse): Promise<TugState> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -2982,32 +3239,28 @@ export class TugStatusClient {
             const _responseText = response.data;
             let result200: any = null;
             let resultData200  = _responseText;
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(TugState.fromJS(item));
-            }
+            result200 = TugState.fromJS(resultData200);
             return result200;
         } else if (status !== 200 && status !== 204) {
             const _responseText = response.data;
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<TugState[]>(<any>null);
+        return Promise.resolve<TugState>(<any>null);
     }
 
     /**
-     * 根据 mmsi 获取 拖轮状态
+     * 完车
      * @return Success
      */
-    tugStatus(mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugState> {
-        let url_ = this.baseUrl + "/api/sch/TugStatus/{mmsi}";
+    finish2(mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugState> {
+        let url_ = this.baseUrl + "/api/sch/TugState/{mmsi}/finish";
         if (mmsi === undefined || mmsi === null)
             throw new Error("The parameter 'mmsi' must be defined.");
         url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ = <AxiosRequestConfig>{
-            method: "GET",
+            method: "PUT",
             url: url_,
             headers: {
                 "Accept": "application/json"
@@ -3022,11 +3275,11 @@ export class TugStatusClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processTugStatus(_response);
+            return this.processFinish2(_response);
         });
     }
 
-    protected processTugStatus(response: AxiosResponse): Promise<TugState> {
+    protected processFinish2(response: AxiosResponse): Promise<TugState> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -3886,10 +4139,9 @@ export interface IShipNamePart {
 export enum JobEvent {
     Default = "Default",
     Scheduled = "Scheduled",
-    StandBy = "StandBy",
     Start = "Start",
     TugOff = "TugOff",
-    Finish = "Finish",
+    Done = "Done",
     Cancel = "Cancel",
 }
 
@@ -4625,211 +4877,14 @@ export interface ITugInfo {
     towingHook?: string | undefined;
 }
 
-/** 作业时间 包括 开始时间/完成时间 */
-export class JobTimePart implements IJobTimePart {
-    /** 开始时间 */
-    start?: string | undefined;
-    /** 作业完成时间 */
-    finish?: string | undefined;
-
-    constructor(data?: IJobTimePart) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.start = _data["start"];
-            this.finish = _data["finish"];
-        }
-    }
-
-    static fromJS(data: any): JobTimePart {
-        data = typeof data === 'object' ? data : {};
-        let result = new JobTimePart();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["start"] = this.start;
-        data["finish"] = this.finish;
-        return data; 
-    }
-}
-
-/** 作业时间 包括 开始时间/完成时间 */
-export interface IJobTimePart {
-    /** 开始时间 */
-    start?: string | undefined;
-    /** 作业完成时间 */
-    finish?: string | undefined;
-}
-
-/** 作业状态 */
-export enum JobStatus {
-    Default = "Default",
-    Scheduled = "Scheduled",
-    StandBy = "StandBy",
-    Running = "Running",
-    Done = "Done",
-    Cancle = "Cancle",
-}
-
-/** 拖轮作业 记录 拖轮作业情况,根据作业事件 变更 <see cref="T:CCHP.TDSP.Models.TugState">拖轮状态</see> */
-export class TugJob implements ITugJob {
-    autoId?: number;
-    tug?: ShipNamePart;
-    /** 作业类型 */
-    jobKind!: string;
-    /** 备注 */
-    note?: string | undefined;
-    /** 拖轮调度计划 Id
-CCHP.TDSP.Models.TugSchedule.PlanId */
-    planId?: number | undefined;
-    jobTime?: JobTimePart;
-    status?: JobStatus;
-    /** 创建时间 */
-    created!: string;
-    /** 更新时间 */
-    updated!: string;
-    /** 作业创建人 */
-    createdBy?: string | undefined;
-
-    constructor(data?: ITugJob) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.autoId = _data["autoId"];
-            this.tug = _data["tug"] ? ShipNamePart.fromJS(_data["tug"]) : <any>undefined;
-            this.jobKind = _data["jobKind"];
-            this.note = _data["note"];
-            this.planId = _data["planId"];
-            this.jobTime = _data["jobTime"] ? JobTimePart.fromJS(_data["jobTime"]) : <any>undefined;
-            this.status = _data["status"];
-            this.created = _data["created"];
-            this.updated = _data["updated"];
-            this.createdBy = _data["createdBy"];
-        }
-    }
-
-    static fromJS(data: any): TugJob {
-        data = typeof data === 'object' ? data : {};
-        let result = new TugJob();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["autoId"] = this.autoId;
-        data["tug"] = this.tug ? this.tug.toJSON() : <any>undefined;
-        data["jobKind"] = this.jobKind;
-        data["note"] = this.note;
-        data["planId"] = this.planId;
-        data["jobTime"] = this.jobTime ? this.jobTime.toJSON() : <any>undefined;
-        data["status"] = this.status;
-        data["created"] = this.created;
-        data["updated"] = this.updated;
-        data["createdBy"] = this.createdBy;
-        return data; 
-    }
-}
-
-/** 拖轮作业 记录 拖轮作业情况,根据作业事件 变更 <see cref="T:CCHP.TDSP.Models.TugState">拖轮状态</see> */
-export interface ITugJob {
-    autoId?: number;
-    tug?: ShipNamePart;
-    /** 作业类型 */
-    jobKind: string;
-    /** 备注 */
-    note?: string | undefined;
-    /** 拖轮调度计划 Id
-CCHP.TDSP.Models.TugSchedule.PlanId */
-    planId?: number | undefined;
-    jobTime?: JobTimePart;
-    status?: JobStatus;
-    /** 创建时间 */
-    created: string;
-    /** 更新时间 */
-    updated: string;
-    /** 作业创建人 */
-    createdBy?: string | undefined;
-}
-
-/** 数据分页结果 */
-export class TugJobPageResult implements ITugJobPageResult {
-    page?: Paging;
-    /** 分页数据 */
-    readonly values?: TugJob[] | undefined;
-
-    constructor(data?: ITugJobPageResult) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.page = _data["page"] ? Paging.fromJS(_data["page"]) : <any>undefined;
-            if (Array.isArray(_data["values"])) {
-                (<any>this).values = [] as any;
-                for (let item of _data["values"])
-                    (<any>this).values!.push(TugJob.fromJS(item));
-            }
-        }
-    }
-
-    static fromJS(data: any): TugJobPageResult {
-        data = typeof data === 'object' ? data : {};
-        let result = new TugJobPageResult();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["page"] = this.page ? this.page.toJSON() : <any>undefined;
-        if (Array.isArray(this.values)) {
-            data["values"] = [];
-            for (let item of this.values)
-                data["values"].push(item.toJSON());
-        }
-        return data; 
-    }
-}
-
-/** 数据分页结果 */
-export interface ITugJobPageResult {
-    page?: Paging;
-    /** 分页数据 */
-    values?: TugJob[] | undefined;
-}
-
-export class TugJobDto implements ITugJobDto {
-    /** 拖轮 MMSI */
+/** 拖轮名称部分 */
+export class TugNamePart implements ITugNamePart {
+    /** MMSI */
     mmsi!: string;
-    /** 拖轮名称 */
+    /** 中文船名 */
     name!: string;
-    /** 作业类型 */
-    jobKind!: string;
 
-    constructor(data?: ITugJobDto) {
+    constructor(data?: ITugNamePart) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -4842,13 +4897,12 @@ export class TugJobDto implements ITugJobDto {
         if (_data) {
             this.mmsi = _data["mmsi"];
             this.name = _data["name"];
-            this.jobKind = _data["jobKind"];
         }
     }
 
-    static fromJS(data: any): TugJobDto {
+    static fromJS(data: any): TugNamePart {
         data = typeof data === 'object' ? data : {};
-        let result = new TugJobDto();
+        let result = new TugNamePart();
         result.init(data);
         return result;
     }
@@ -4857,130 +4911,16 @@ export class TugJobDto implements ITugJobDto {
         data = typeof data === 'object' ? data : {};
         data["mmsi"] = this.mmsi;
         data["name"] = this.name;
-        data["jobKind"] = this.jobKind;
         return data; 
     }
 }
 
-export interface ITugJobDto {
-    /** 拖轮 MMSI */
+/** 拖轮名称部分 */
+export interface ITugNamePart {
+    /** MMSI */
     mmsi: string;
-    /** 拖轮名称 */
+    /** 中文船名 */
     name: string;
-    /** 作业类型 */
-    jobKind: string;
-}
-
-/** 拖轮作业类型 */
-export class TugJobKind implements ITugJobKind {
-    jobKind?: number;
-    /** 作业类型名称 */
-    name!: string;
-    /** 说明 */
-    description?: string | undefined;
-    /** 计划内作业
-计划内作业通过 拖轮作业计划管理
-计划外 临时调度,不需要作业计划 */
-    planed?: boolean;
-
-    constructor(data?: ITugJobKind) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.jobKind = _data["jobKind"];
-            this.name = _data["name"];
-            this.description = _data["description"];
-            this.planed = _data["planed"];
-        }
-    }
-
-    static fromJS(data: any): TugJobKind {
-        data = typeof data === 'object' ? data : {};
-        let result = new TugJobKind();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["jobKind"] = this.jobKind;
-        data["name"] = this.name;
-        data["description"] = this.description;
-        data["planed"] = this.planed;
-        return data; 
-    }
-}
-
-/** 拖轮作业类型 */
-export interface ITugJobKind {
-    jobKind?: number;
-    /** 作业类型名称 */
-    name: string;
-    /** 说明 */
-    description?: string | undefined;
-    /** 计划内作业
-计划内作业通过 拖轮作业计划管理
-计划外 临时调度,不需要作业计划 */
-    planed?: boolean;
-}
-
-/** 数据分页结果 */
-export class TugJobKindPageResult implements ITugJobKindPageResult {
-    page?: Paging;
-    /** 分页数据 */
-    readonly values?: TugJobKind[] | undefined;
-
-    constructor(data?: ITugJobKindPageResult) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.page = _data["page"] ? Paging.fromJS(_data["page"]) : <any>undefined;
-            if (Array.isArray(_data["values"])) {
-                (<any>this).values = [] as any;
-                for (let item of _data["values"])
-                    (<any>this).values!.push(TugJobKind.fromJS(item));
-            }
-        }
-    }
-
-    static fromJS(data: any): TugJobKindPageResult {
-        data = typeof data === 'object' ? data : {};
-        let result = new TugJobKindPageResult();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["page"] = this.page ? this.page.toJSON() : <any>undefined;
-        if (Array.isArray(this.values)) {
-            data["values"] = [];
-            for (let item of this.values)
-                data["values"].push(item.toJSON());
-        }
-        return data; 
-    }
-}
-
-/** 数据分页结果 */
-export interface ITugJobKindPageResult {
-    page?: Paging;
-    /** 分页数据 */
-    values?: TugJobKind[] | undefined;
 }
 
 /** 货船信息 */
@@ -5173,28 +5113,14 @@ CCHP.TDSP.Models.TugInfo.EnginePower */
     isTransPilot?: boolean;
 }
 
-/** 调度任务 拖轮列表 */
-export class ScheduleTugItem implements IScheduleTugItem {
-    autoId?: number;
-    /** 拖轮调度计划 Id */
-    planId?: number;
-    owner?: TugSchedule;
-    /** 拖轮 MMSI */
-    mmsi?: string | undefined;
-    /** 拖轮 船名 */
-    name?: string | undefined;
-    /** 拖轮功率 (马力) */
-    enginePower?: number;
-    /** 是否接引水 */
-    getPilot?: boolean;
-    /** 是否送引水 */
-    escortPilog?: boolean;
-    status?: JobStatus;
-    workTime?: WorkTimePart;
-    /** 更新时间 */
-    updateTime?: string;
+/** 作业时间 包括 开始时间/脱开时间/完成时间 */
+export class JobTimePart implements IJobTimePart {
+    /** 开始时间 */
+    start?: string | undefined;
+    /** 作业完成时间 */
+    finish?: string | undefined;
 
-    constructor(data?: IScheduleTugItem) {
+    constructor(data?: IJobTimePart) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -5205,64 +5131,32 @@ export class ScheduleTugItem implements IScheduleTugItem {
 
     init(_data?: any) {
         if (_data) {
-            this.autoId = _data["autoId"];
-            this.planId = _data["planId"];
-            this.owner = _data["owner"] ? TugSchedule.fromJS(_data["owner"]) : <any>undefined;
-            this.mmsi = _data["mmsi"];
-            this.name = _data["name"];
-            this.enginePower = _data["enginePower"];
-            this.getPilot = _data["getPilot"];
-            this.escortPilog = _data["escortPilog"];
-            this.status = _data["status"];
-            this.workTime = _data["workTime"] ? WorkTimePart.fromJS(_data["workTime"]) : <any>undefined;
-            this.updateTime = _data["updateTime"];
+            this.start = _data["start"];
+            this.finish = _data["finish"];
         }
     }
 
-    static fromJS(data: any): ScheduleTugItem {
+    static fromJS(data: any): JobTimePart {
         data = typeof data === 'object' ? data : {};
-        let result = new ScheduleTugItem();
+        let result = new JobTimePart();
         result.init(data);
         return result;
     }
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["autoId"] = this.autoId;
-        data["planId"] = this.planId;
-        data["owner"] = this.owner ? this.owner.toJSON() : <any>undefined;
-        data["mmsi"] = this.mmsi;
-        data["name"] = this.name;
-        data["enginePower"] = this.enginePower;
-        data["getPilot"] = this.getPilot;
-        data["escortPilog"] = this.escortPilog;
-        data["status"] = this.status;
-        data["workTime"] = this.workTime ? this.workTime.toJSON() : <any>undefined;
-        data["updateTime"] = this.updateTime;
+        data["start"] = this.start;
+        data["finish"] = this.finish;
         return data; 
     }
 }
 
-/** 调度任务 拖轮列表 */
-export interface IScheduleTugItem {
-    autoId?: number;
-    /** 拖轮调度计划 Id */
-    planId?: number;
-    owner?: TugSchedule;
-    /** 拖轮 MMSI */
-    mmsi?: string | undefined;
-    /** 拖轮 船名 */
-    name?: string | undefined;
-    /** 拖轮功率 (马力) */
-    enginePower?: number;
-    /** 是否接引水 */
-    getPilot?: boolean;
-    /** 是否送引水 */
-    escortPilog?: boolean;
-    status?: JobStatus;
-    workTime?: WorkTimePart;
-    /** 更新时间 */
-    updateTime?: string;
+/** 作业时间 包括 开始时间/脱开时间/完成时间 */
+export interface IJobTimePart {
+    /** 开始时间 */
+    start?: string | undefined;
+    /** 作业完成时间 */
+    finish?: string | undefined;
 }
 
 /** 拖轮调度状态 */
@@ -5273,6 +5167,52 @@ export enum ScheduleStatus {
     Done = "Done",
     Expired = "Expired",
     Cancle = "Cancle",
+}
+
+/** 接送引水信息 */
+export class PilotInfoPart implements IPilotInfoPart {
+    /** 接引水 拖轮名称 */
+    pickup?: string | undefined;
+    /** 送引水 拖轮名称 */
+    send?: string | undefined;
+
+    constructor(data?: IPilotInfoPart) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.pickup = _data["pickup"];
+            this.send = _data["send"];
+        }
+    }
+
+    static fromJS(data: any): PilotInfoPart {
+        data = typeof data === 'object' ? data : {};
+        let result = new PilotInfoPart();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["pickup"] = this.pickup;
+        data["send"] = this.send;
+        return data; 
+    }
+}
+
+/** 接送引水信息 */
+export interface IPilotInfoPart {
+    /** 接引水 拖轮名称 */
+    pickup?: string | undefined;
+    /** 送引水 拖轮名称 */
+    send?: string | undefined;
 }
 
 /** 拖轮调度计划 根据 靠离泊计划 生成调度计划 */
@@ -5294,8 +5234,9 @@ CCHP.TDSP.Models.TugSchedule.TugsCCHP.TDSP.Models.TugInfo.EnginePower */
     tugCount?: number;
     time?: JobTimePart;
     /** 参加作业的 拖轮列表 */
-    tugs?: ScheduleTugItem[] | undefined;
+    tugs?: TugJob[] | undefined;
     status?: ScheduleStatus;
+    pilot?: PilotInfoPart;
     /** 创建人 */
     createdBy?: string | undefined;
 
@@ -5322,9 +5263,10 @@ CCHP.TDSP.Models.TugSchedule.TugsCCHP.TDSP.Models.TugInfo.EnginePower */
             if (Array.isArray(_data["tugs"])) {
                 this.tugs = [] as any;
                 for (let item of _data["tugs"])
-                    this.tugs!.push(ScheduleTugItem.fromJS(item));
+                    this.tugs!.push(TugJob.fromJS(item));
             }
             this.status = _data["status"];
+            this.pilot = _data["pilot"] ? PilotInfoPart.fromJS(_data["pilot"]) : <any>undefined;
             this.createdBy = _data["createdBy"];
         }
     }
@@ -5353,6 +5295,7 @@ CCHP.TDSP.Models.TugSchedule.TugsCCHP.TDSP.Models.TugInfo.EnginePower */
                 data["tugs"].push(item.toJSON());
         }
         data["status"] = this.status;
+        data["pilot"] = this.pilot ? this.pilot.toJSON() : <any>undefined;
         data["createdBy"] = this.createdBy;
         return data; 
     }
@@ -5377,10 +5320,383 @@ CCHP.TDSP.Models.TugSchedule.TugsCCHP.TDSP.Models.TugInfo.EnginePower */
     tugCount?: number;
     time?: JobTimePart;
     /** 参加作业的 拖轮列表 */
-    tugs?: ScheduleTugItem[] | undefined;
+    tugs?: TugJob[] | undefined;
     status?: ScheduleStatus;
+    pilot?: PilotInfoPart;
     /** 创建人 */
     createdBy?: string | undefined;
+}
+
+/** 拖轮作业时间 */
+export class TugJobTimesPart implements ITugJobTimesPart {
+    /** 开始时间 */
+    start?: string | undefined;
+    /** 脱开时间 */
+    tugOff?: string | undefined;
+    /** 作业完成时间 */
+    finish?: string | undefined;
+
+    constructor(data?: ITugJobTimesPart) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.start = _data["start"];
+            this.tugOff = _data["tugOff"];
+            this.finish = _data["finish"];
+        }
+    }
+
+    static fromJS(data: any): TugJobTimesPart {
+        data = typeof data === 'object' ? data : {};
+        let result = new TugJobTimesPart();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["start"] = this.start;
+        data["tugOff"] = this.tugOff;
+        data["finish"] = this.finish;
+        return data; 
+    }
+}
+
+/** 拖轮作业时间 */
+export interface ITugJobTimesPart {
+    /** 开始时间 */
+    start?: string | undefined;
+    /** 脱开时间 */
+    tugOff?: string | undefined;
+    /** 作业完成时间 */
+    finish?: string | undefined;
+}
+
+/** 作业状态 */
+export enum JobStatus {
+    Default = "Default",
+    Scheduled = "Scheduled",
+    Running = "Running",
+    TugOff = "TugOff",
+    Done = "Done",
+    Cancle = "Cancle",
+}
+
+/** 拖轮作业 记录 拖轮作业情况,根据作业事件 变更 <see cref="T:CCHP.TDSP.Models.TugState">拖轮状态</see> */
+export class TugJob implements ITugJob {
+    autoId?: number;
+    tug!: TugNamePart;
+    /** 作业类型 */
+    jobKind!: string;
+    /** 备注 */
+    note?: string | undefined;
+    /** 拖轮调度计划 Id
+CCHP.TDSP.Models.TugSchedule.PlanId */
+    planId?: number | undefined;
+    owner?: TugSchedule;
+    jobTime?: TugJobTimesPart;
+    status?: JobStatus;
+    /** 创建时间 */
+    created!: string;
+    /** 更新时间 */
+    updated!: string;
+    /** 作业创建人 */
+    createdBy?: string | undefined;
+
+    constructor(data?: ITugJob) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+        if (!data) {
+            this.tug = new TugNamePart();
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.autoId = _data["autoId"];
+            this.tug = _data["tug"] ? TugNamePart.fromJS(_data["tug"]) : new TugNamePart();
+            this.jobKind = _data["jobKind"];
+            this.note = _data["note"];
+            this.planId = _data["planId"];
+            this.owner = _data["owner"] ? TugSchedule.fromJS(_data["owner"]) : <any>undefined;
+            this.jobTime = _data["jobTime"] ? TugJobTimesPart.fromJS(_data["jobTime"]) : <any>undefined;
+            this.status = _data["status"];
+            this.created = _data["created"];
+            this.updated = _data["updated"];
+            this.createdBy = _data["createdBy"];
+        }
+    }
+
+    static fromJS(data: any): TugJob {
+        data = typeof data === 'object' ? data : {};
+        let result = new TugJob();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["autoId"] = this.autoId;
+        data["tug"] = this.tug ? this.tug.toJSON() : <any>undefined;
+        data["jobKind"] = this.jobKind;
+        data["note"] = this.note;
+        data["planId"] = this.planId;
+        data["owner"] = this.owner ? this.owner.toJSON() : <any>undefined;
+        data["jobTime"] = this.jobTime ? this.jobTime.toJSON() : <any>undefined;
+        data["status"] = this.status;
+        data["created"] = this.created;
+        data["updated"] = this.updated;
+        data["createdBy"] = this.createdBy;
+        return data; 
+    }
+}
+
+/** 拖轮作业 记录 拖轮作业情况,根据作业事件 变更 <see cref="T:CCHP.TDSP.Models.TugState">拖轮状态</see> */
+export interface ITugJob {
+    autoId?: number;
+    tug: TugNamePart;
+    /** 作业类型 */
+    jobKind: string;
+    /** 备注 */
+    note?: string | undefined;
+    /** 拖轮调度计划 Id
+CCHP.TDSP.Models.TugSchedule.PlanId */
+    planId?: number | undefined;
+    owner?: TugSchedule;
+    jobTime?: TugJobTimesPart;
+    status?: JobStatus;
+    /** 创建时间 */
+    created: string;
+    /** 更新时间 */
+    updated: string;
+    /** 作业创建人 */
+    createdBy?: string | undefined;
+}
+
+/** 数据分页结果 */
+export class TugJobPageResult implements ITugJobPageResult {
+    page?: Paging;
+    /** 分页数据 */
+    readonly values?: TugJob[] | undefined;
+
+    constructor(data?: ITugJobPageResult) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.page = _data["page"] ? Paging.fromJS(_data["page"]) : <any>undefined;
+            if (Array.isArray(_data["values"])) {
+                (<any>this).values = [] as any;
+                for (let item of _data["values"])
+                    (<any>this).values!.push(TugJob.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): TugJobPageResult {
+        data = typeof data === 'object' ? data : {};
+        let result = new TugJobPageResult();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["page"] = this.page ? this.page.toJSON() : <any>undefined;
+        if (Array.isArray(this.values)) {
+            data["values"] = [];
+            for (let item of this.values)
+                data["values"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+/** 数据分页结果 */
+export interface ITugJobPageResult {
+    page?: Paging;
+    /** 分页数据 */
+    values?: TugJob[] | undefined;
+}
+
+export class TugJobDto implements ITugJobDto {
+    tug!: TugNamePart;
+    /** 作业类型 */
+    jobKind!: string;
+    /** 备注 */
+    note?: string | undefined;
+
+    constructor(data?: ITugJobDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+        if (!data) {
+            this.tug = new TugNamePart();
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.tug = _data["tug"] ? TugNamePart.fromJS(_data["tug"]) : new TugNamePart();
+            this.jobKind = _data["jobKind"];
+            this.note = _data["note"];
+        }
+    }
+
+    static fromJS(data: any): TugJobDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new TugJobDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["tug"] = this.tug ? this.tug.toJSON() : <any>undefined;
+        data["jobKind"] = this.jobKind;
+        data["note"] = this.note;
+        return data; 
+    }
+}
+
+export interface ITugJobDto {
+    tug: TugNamePart;
+    /** 作业类型 */
+    jobKind: string;
+    /** 备注 */
+    note?: string | undefined;
+}
+
+/** 拖轮作业类型 */
+export class TugJobKind implements ITugJobKind {
+    jobKind?: number;
+    /** 作业类型名称 */
+    name!: string;
+    /** 说明 */
+    description?: string | undefined;
+    /** 计划内作业
+计划内作业通过 拖轮作业计划管理
+计划外 临时调度,不需要作业计划 */
+    planed?: boolean;
+
+    constructor(data?: ITugJobKind) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.jobKind = _data["jobKind"];
+            this.name = _data["name"];
+            this.description = _data["description"];
+            this.planed = _data["planed"];
+        }
+    }
+
+    static fromJS(data: any): TugJobKind {
+        data = typeof data === 'object' ? data : {};
+        let result = new TugJobKind();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["jobKind"] = this.jobKind;
+        data["name"] = this.name;
+        data["description"] = this.description;
+        data["planed"] = this.planed;
+        return data; 
+    }
+}
+
+/** 拖轮作业类型 */
+export interface ITugJobKind {
+    jobKind?: number;
+    /** 作业类型名称 */
+    name: string;
+    /** 说明 */
+    description?: string | undefined;
+    /** 计划内作业
+计划内作业通过 拖轮作业计划管理
+计划外 临时调度,不需要作业计划 */
+    planed?: boolean;
+}
+
+/** 数据分页结果 */
+export class TugJobKindPageResult implements ITugJobKindPageResult {
+    page?: Paging;
+    /** 分页数据 */
+    readonly values?: TugJobKind[] | undefined;
+
+    constructor(data?: ITugJobKindPageResult) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.page = _data["page"] ? Paging.fromJS(_data["page"]) : <any>undefined;
+            if (Array.isArray(_data["values"])) {
+                (<any>this).values = [] as any;
+                for (let item of _data["values"])
+                    (<any>this).values!.push(TugJobKind.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): TugJobKindPageResult {
+        data = typeof data === 'object' ? data : {};
+        let result = new TugJobKindPageResult();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["page"] = this.page ? this.page.toJSON() : <any>undefined;
+        if (Array.isArray(this.values)) {
+            data["values"] = [];
+            for (let item of this.values)
+                data["values"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+/** 数据分页结果 */
+export interface ITugJobKindPageResult {
+    page?: Paging;
+    /** 分页数据 */
+    values?: TugJobKind[] | undefined;
 }
 
 /** 长度范围 */
@@ -5598,30 +5914,82 @@ export interface ITugStandardPageResult {
     values?: TugStandard[] | undefined;
 }
 
-/** 拖轮状态 包含 简化状态和详细状态 简化状态 为 空闲->作业中 包括 空闲->接受调度->备车->作业中->脱开->空闲 */
+/** 拖轮状态 包含 简化状态和详细状态 简化状态 为 空闲->作业中 包括 空闲->接受调度->作业中->脱开->空闲 */
 export enum TugStatus {
     Idle = "Idle",
     Scheduled = "Scheduled",
-    StandBy = "StandBy",
     Running = "Running",
     TugOff = "TugOff",
+}
+
+/** 拖轮引擎状态 */
+export enum EngineStatus {
+    Off = "Off",
+    On = "On",
+}
+
+/** 拖轮引擎状态 */
+export class EngineStatusPart implements IEngineStatusPart {
+    status!: EngineStatus;
+    /** 最近一次备车时间 */
+    standBy?: string | undefined;
+    /** 最近一次完车时间 */
+    finish?: string | undefined;
+
+    constructor(data?: IEngineStatusPart) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.status = _data["status"];
+            this.standBy = _data["standBy"];
+            this.finish = _data["finish"];
+        }
+    }
+
+    static fromJS(data: any): EngineStatusPart {
+        data = typeof data === 'object' ? data : {};
+        let result = new EngineStatusPart();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["status"] = this.status;
+        data["standBy"] = this.standBy;
+        data["finish"] = this.finish;
+        return data; 
+    }
+}
+
+/** 拖轮引擎状态 */
+export interface IEngineStatusPart {
+    status: EngineStatus;
+    /** 最近一次备车时间 */
+    standBy?: string | undefined;
+    /** 最近一次完车时间 */
+    finish?: string | undefined;
 }
 
 /** 拖轮状态 */
 export class TugState implements ITugState {
     /** MMSI */
     mmsi?: string | undefined;
-    /** 中文船名 */
+    /** 拖轮名称 */
     name!: string;
-    /** 英文船名 */
-    cnName!: string;
-    /** 船舶全名 英文/中文 */
-    readonly fullName?: string | undefined;
     /** 作业类型 */
     jobKind!: string;
     /** 拖轮调度计划 Id */
     planId?: number | undefined;
     status?: TugStatus;
+    engine?: EngineStatusPart;
     /** 更新时间 */
     updateTime?: string;
 
@@ -5638,11 +6006,10 @@ export class TugState implements ITugState {
         if (_data) {
             this.mmsi = _data["mmsi"];
             this.name = _data["name"];
-            this.cnName = _data["cnName"];
-            (<any>this).fullName = _data["fullName"];
             this.jobKind = _data["jobKind"];
             this.planId = _data["planId"];
             this.status = _data["status"];
+            this.engine = _data["engine"] ? EngineStatusPart.fromJS(_data["engine"]) : <any>undefined;
             this.updateTime = _data["updateTime"];
         }
     }
@@ -5658,11 +6025,10 @@ export class TugState implements ITugState {
         data = typeof data === 'object' ? data : {};
         data["mmsi"] = this.mmsi;
         data["name"] = this.name;
-        data["cnName"] = this.cnName;
-        data["fullName"] = this.fullName;
         data["jobKind"] = this.jobKind;
         data["planId"] = this.planId;
         data["status"] = this.status;
+        data["engine"] = this.engine ? this.engine.toJSON() : <any>undefined;
         data["updateTime"] = this.updateTime;
         return data; 
     }
@@ -5672,17 +6038,14 @@ export class TugState implements ITugState {
 export interface ITugState {
     /** MMSI */
     mmsi?: string | undefined;
-    /** 中文船名 */
+    /** 拖轮名称 */
     name: string;
-    /** 英文船名 */
-    cnName: string;
-    /** 船舶全名 英文/中文 */
-    fullName?: string | undefined;
     /** 作业类型 */
     jobKind: string;
     /** 拖轮调度计划 Id */
     planId?: number | undefined;
     status?: TugStatus;
+    engine?: EngineStatusPart;
     /** 更新时间 */
     updateTime?: string;
 }

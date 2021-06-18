@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-toolbar :dense="dense" :class="toolbarclass" style="border-bottom: 2px #E4E4E4 solid;">
+    <v-toolbar :dense="dense" :class="toolbarclass" :style="{'border-bottom':$vuetify.theme.dark? '2px #082338 solid':'2px #f1f5f8 solid'}">
       <div v-if="headertitle">
         <v-toolbar-title>
           <span v-if="icon" class="header-icon">

@@ -50,7 +50,7 @@
       "tug": [
         {
           "name": "港1",
-          "startTime": "12:00",
+          "startTime": null,
           "endTime": "12:00",
           "remark": "作业备注"
         },

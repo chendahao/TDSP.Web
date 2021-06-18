@@ -129,12 +129,12 @@ export default {
   methods: {
     getdata () {
       this.loading = true
-      this.client.tugInfo(99, 1)
+      this.client.tugInfoAll()
         .then(res => {
-          let list = res.values
+          let list = res
           for (let i = 0; i < list.length; i++) {
             let element = list[i]
-            element.num = element.cnName.replace(/\s+/g,'').replace(/[\u4e00-\u9fa5a-zA-Z]/gm,'') * 1.0
+            element.num = element.cnName.replace(/\s+/g, '').replace(/[\u4e00-\u9fa5a-zA-Z]/gm, '') * 1.0
           }
           const list2 = orderBy(list, ['num'], ['asc'])
           this.tableData = list2
@@ -154,7 +154,7 @@ export default {
         type: 'warning'
       }).then(() => {
         console.log(item)
-        this.client.tugInfo5(item.mmsi)
+        this.client.tugInfo4(item.mmsi)
           .then(() => {
             this.$message.success('删除成功')
             this.getdata()

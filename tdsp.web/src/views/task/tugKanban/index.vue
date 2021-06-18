@@ -85,7 +85,7 @@
           添加拖轮作业
         </v-card-title>
         <v-card-text>
-          
+
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -187,7 +187,7 @@ export default {
       }, 150)
     },
     addJob () {
-      
+
     },
     getPlanInfo (ship) {
       console.log(ship)

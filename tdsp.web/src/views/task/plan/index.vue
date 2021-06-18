@@ -145,7 +145,7 @@
         <template v-slot:item.frontbehindDraft="{ item }">
           {{ item.ship.frontDraft }}/{{ item.ship.behindDraft }}
         </template>
-        <template v-slot:item.loadcargoWeight="{ item }"item.actions>
+        <template v-slot:item.loadcargoWeight="{ item }">
           {{ item.ship.cargoWeight }}/{{ item.ship.loadWeight }}
         </template>
         <template v-slot:item.port="{ item }">

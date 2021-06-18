@@ -105,9 +105,9 @@ export default {
       client: new api.TugInfoClient('', this.$axios),
       mmsi: '-1',
       editedItem: {
-        mmsi: "",
-        name: "",
-        cnName: "",
+        mmsi: '',
+        name: '',
+        cnName: '',
         shipLength: '',
         shipWidth: '',
         builtDate: dayjs().format('YYYY-MM-DD'),
@@ -118,7 +118,7 @@ export default {
         fullLoadDraft: '',
         forwardDrag: '',
         asternDrag: '',
-        towingHook: ""
+        towingHook: ''
       },
       menu: false,
       // valid
@@ -159,7 +159,7 @@ export default {
   },
   methods: {
     getItem: async function () {
-      this.client.tugInfo4(this.mmsi)
+      this.client.tugInfo2(this.mmsi)
         .then(res => {
           res.builtDate = dayjs(res.builtDate).format('YYYY-MM-DD')
           this.editedItem = res
@@ -170,7 +170,7 @@ export default {
         let data = null
         if (this.mmsi === '-1') {
           // 新增
-          this.client.tugInfo2(this.editedItem)
+          this.client.tugInfo(this.editedItem)
             .then(res => {
               if (!res) {
                 this.$message.success('保存成功')

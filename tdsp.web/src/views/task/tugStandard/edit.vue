@@ -58,8 +58,8 @@ export default {
       client: new api.TugInfoClient('', this.$axios),
       mmsi: '-1',
       editedItem: {
-        autoId: "",
-        harbor: "",
+        autoId: '',
+        harbor: '',
         lengthRange: {
           min: '',
           max: ''
