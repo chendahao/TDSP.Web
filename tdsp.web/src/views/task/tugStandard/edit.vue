@@ -13,23 +13,40 @@
             lazy-validation
           >
             <v-layout wrap>
-              <v-flex xs12 sm6 md5>
+              <v-flex xs12 sm12 md12>
                 <v-text-field v-model="editedItem.harbor" label="港池名称" :readonly="readonly"></v-text-field>
               </v-flex>
-              <v-flex xs12 sm6 md5 offset-md2>
-                <v-text-field v-model="editedItem.shipType" label="船舶类型" :readonly="readonly"></v-text-field>
+              <v-flex xs12 sm12 md12>
+                <v-combobox
+                  v-model="editedItem.vesselTypes"
+                  :items="items"
+                  chips
+                  clearable
+                  label="船舶类型"
+                  multiple
+                >
+                  <template v-slot:selection="{ attrs, item, select, selected }">
+                    <v-chip
+                      v-bind="attrs"
+                      :input-value="selected"
+                      @click="select"
+                    >
+                      <strong>{{ item }}</strong>&nbsp;
+                    </v-chip>
+                  </template>
+                </v-combobox>
               </v-flex>
               <v-flex xs12 sm6 md5>
-                <v-text-field v-model="editedItem.lengthRange.min" label="最小长度" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.lenRange.min" label="最小长度" :rules="rules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5 offset-md2>
-                <v-text-field v-model.number="editedItem.lengthRange.max" label="最大长度" :rules="rules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.lenRange.max" label="最大长度" :rules="rules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5>
-                <v-text-field v-model.number="editedItem.tugNumber.berth" label="靠泊 数量" :rules="numRules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.tugs.berth" label="靠泊 数量" :rules="numRules" :readonly="readonly"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md5 offset-md2>
-                <v-text-field v-model.number="editedItem.tugNumber.unBerth" label="离泊 数量" :rules="numRules" :readonly="readonly"></v-text-field>
+                <v-text-field v-model.number="editedItem.tugs.unBerth" label="离泊 数量" :rules="numRules" :readonly="readonly"></v-text-field>
               </v-flex>
             </v-layout>
           </v-form>
@@ -55,20 +72,22 @@ export default {
   },
   data () {
     return {
-      client: new api.TugInfoClient('', this.$axios),
-      mmsi: '-1',
+      client: new api.TugStandardClient('', this.$axios),
+      autoId: '-1',
       editedItem: {
-        autoId: '',
+        autoId: 0,
         harbor: '',
-        lengthRange: {
+        lenRange: {
           min: '',
           max: ''
         },
-        tugNumber: {
+        tugs: {
           berth: '',
           unBerth: ''
         }
       },
+      chips: [],
+      items: ['杂货', '集装箱', '散货', '油船', 'LNG'],
       menu: false,
       // valid
       nameRules: [
@@ -89,18 +108,18 @@ export default {
     }
   },
   created () {
-    this.mmsi = this.$route.query.mmsi
+    this.autoId = this.$route.query.autoId
     let type = this.$route.query.type
     if (type === 'edit') {
       this.readonly = false
     }
-    if (this.mmsi !== '-1') {
+    if (this.autoId !== '-1') {
       this.getItem()
     }
   },
   computed: {
     formTitle () {
-      return this.mmsi === '-1' ? '新增拖轮' : this.readonly === true ? '拖轮信息' : '编辑拖轮'
+      return this.autoId === '-1' ? '新增配备标准' : this.readonly === true ? '拖轮配备标准' : '编辑拖轮配备标准'
     },
     close () {
       return this.readonly === true ? '关闭' : '取消'
@@ -108,18 +127,21 @@ export default {
   },
   methods: {
     getItem: async function () {
-      this.client.tugInfo4(this.mmsi)
+      this.client.tugStandard5(this.autoId)
         .then(res => {
-          res.builtDate = dayjs(res.builtDate).format('YYYY-MM-DD')
           this.editedItem = res
         })
+    },
+    remove (item) {
+      this.editedItem.vesselTypes.editedItem.vesselTypes(this.chips.indexOf(item), 1)
+      this.editedItem.vesselTypes = [...this.editedItem.vesselTypes]
     },
     save: async function () {
       if (this.$refs.form.validate()) {
         let data = null
-        if (this.mmsi === '-1') {
+        if (this.autoId === '-1') {
           // 新增
-          this.client.tugInfo2(this.editedItem)
+          this.client.tugStandard(this.editedItem)
             .then(res => {
               if (!res) {
                 this.$message.success('保存成功')
@@ -131,7 +153,7 @@ export default {
             })
         } else {
           // 编辑
-          this.client.tugInfo3(this.mmsi, this.editedItem)
+          this.client.tugStandard3(this.autoId, this.editedItem)
             .then(res => {
               if (!res) {
                 this.$message.success('保存成功')

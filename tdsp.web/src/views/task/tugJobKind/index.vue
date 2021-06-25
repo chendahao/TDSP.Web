@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader :dense="false" headertitle="拖轮配备调准">
+    <PageHeader :dense="false" headertitle="拖轮作业类型">
      <v-spacer></v-spacer>
      <v-btn color="primary" @click="edit('-1','edit')">
         <v-icon>add</v-icon>
@@ -10,6 +10,13 @@
         <v-icon>refresh</v-icon>
         刷新
       </v-btn>
+      <Help>
+        <slot>
+          计划内作业 计划内作业通过 拖轮作业计划管理
+          <br />
+          计划外 临时调度,不需要作业计划
+        </slot>
+      </Help>
     </PageHeader>
     <v-container fluid>
       <v-data-table
@@ -24,26 +31,14 @@
         }"
         :loading="loading"
       >
-        <template v-slot:item.vesselTypes="{ item }">
-          <v-chip
-            class="ml-1"
-            color="primary"
-            small
-            v-for="(i, index) in item.vesselTypes" :key="index"
-          >
-            {{ i }}
-          </v-chip> 
-        </template>
-        <template v-slot:item.lengthRange="{ item }">
-          {{ item.lenRange.min }}-{{ item.lenRange.max }}
-        </template>
+        
         <template v-slot:item.actions="{ item }">
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
               <v-icon
                 color="info"
                 v-on="on"
-                @click="edit(item.autoId,'detail')"
+                @click="edit(item.jobKind,'detail')"
               >
                 view_quilt
               </v-icon>
@@ -55,7 +50,7 @@
               <v-icon
                 color="primary"
                 v-on="on"
-                @click="edit(item.autoId,'edit')"
+                @click="edit(item.jobKind,'edit')"
               >
                 edit
               </v-icon>
@@ -85,11 +80,12 @@
 <script>
 import { mapState } from 'vuex'
 import { tugApi as api } from '@/api/tugApi'
+import Help from '@/components/help'
 import PageHeader from '@/components/PageHeader'
-import { orderBy } from 'lodash'
 export default {
   components: {
-    PageHeader
+    PageHeader,
+    Help
   },
   data () {
     return {
@@ -100,14 +96,12 @@ export default {
       rowsperpageitems: [10, 20, 50],
       totalData: 0,
       pagination: {},
-      client: new api.TugStandardClient('', this.$axios),
+      client: new api.TugJobKindClient('', this.$axios),
       headers: [
-        { text: '港池名称', groupable: false, width: '80', sortable: false, value: 'harbor' },
-        { text: '船舶类型', groupable: false, width: '130', align: 'center', sortable: false, value: 'vesselTypes' },
-        { text: '长度范围', groupable: false, width: '80', align: 'center', sortable: false, value: 'lengthRange' },
-        { text: '靠泊数量', groupable: false, width: '80', align: 'center', sortable: false, value: 'tugs.berth' },
-        { text: '离泊数量', groupable: false, width: '80', align: 'center', sortable: false, value: 'tugs.unBerth' },
-        { text: '操作', sortable: false, align: 'center', width: '110', value: 'actions' }
+        { text: '作业类型名称', groupable: false, sortable: false, value: 'name' },
+        { text: '说明', groupable: false, sortable: false, value: 'description' },
+        { text: '是否关联计划', groupable: false, sortable: false, value: 'planed' },
+        { text: '操作', sortable: false, align: 'center', value: 'actions' }
       ]
     }
   },
@@ -143,7 +137,7 @@ export default {
   methods: {
     initData () {
       this.loading = true
-      this.client.tugStandard2(null, null, null, null, false)
+      this.client.tugJobKind2(null, null, null, null, false)
         .then(res => {
           this.tableData = res.values
           this.pagination.page = res.page.page
@@ -158,7 +152,7 @@ export default {
       this.loading = true
       const page = this.pagination
       const desc = page.sortDesc.length > 0 ? page.sortDesc[0] : false
-      this.client.tugStandard2(page.itemsPerPage, page.page, page.sortBy, this.searchKey, desc)
+      this.client.tugJobKind2(page.itemsPerPage, page.page, page.sortBy, this.searchKey, desc)
         .then(res => {
           this.tableData = res.values
           this.pagination.page = res.page.page
@@ -169,10 +163,10 @@ export default {
           this.loading = false
         })
     },
-    edit (autoId, type) {
+    edit (jobKind, type) {
       this.$router.push({
-        name: 'tugstandardedit',
-        query: { autoId: autoId, type: type }
+        name: 'tugjobkindedit',
+        query: { jobKind: jobKind, type: type }
       })
     },
     deleteitem (item) {
@@ -182,7 +176,7 @@ export default {
         type: 'warning'
       }).then(() => {
         console.log(item)
-        this.client.tugStandard4(item.autoId)
+        this.client.tugJobKind4(item.jobKind)
           .then(() => {
             this.$message.success('删除成功')
             this.getdata()

@@ -78,6 +78,45 @@ const tugRoutes = {
       }
     },
     {
+      path: '/tug/tugjobkind',
+      name: 'tugjobkind',
+      component: () => import(/* webpackChunkName: "tugjobkind" */ '@/views/task/tugJobKind/index.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '作业类型',
+        fullwidth: false,
+        hideInMenu: false
+      }
+    },
+    {
+      path: '/tug/tugjobkind/edit',
+      name: 'tugjobkindedit',
+      component: () => import(/* webpackChunkName: "tugjobkindedit" */ '@/views/task/tugJobKind/edit.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '作业类型',
+        fullwidth: false,
+        hideInMenu: true
+      }
+    },
+    {
+      path: '/tug/status',
+      name: 'tugstatus',
+      component: () => import(/* webpackChunkName: "tuglist" */ '@/views/task/tugStatus/index.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '拖轮实时状态',
+        fullwidth: false,
+        hideInMenu: false
+      }
+    },
+    {
       path: '/tug/kanban',
       name: 'tugkanban',
       component: () => import(/* webpackChunkName: "tuglist" */ '@/views/task/tugKanban/index.vue'),

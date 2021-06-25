@@ -35,3 +35,10 @@ Vue.filter('MDDFormat', function (value) {
 Vue.prototype.dayformat = function (d) {
   return dayjs(d).format('D')
 }
+
+// 格式化日时间 HH:mm 动态计划等
+Vue.filter('timeFormat', function (value) {
+  if (!value) return ''
+  if (!dayjs(value).isValid()) return value
+  return dayjs(value).format('HH:mm')
+})

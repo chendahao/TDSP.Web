@@ -858,29 +858,36 @@ export default {
           this.loading = false
         })
     },
+    // 完成拖轮调度
     donePlan (item) {
       console.log(item)
-      this.$message.success('操作成功')
-      // this.getdata()
-      // 计划整体完成
+      // 一个大船调度的整体完成
+      this.client.done2(item.id)
+        .then(res => {
+          console.log(res)
+          this.$message.success('完成成功')
+          this.getdata()
+        })
     },
+    // 取消整体大船的计划
     cancelPlan (item) {
       this.$msgbox.confirm('要取消这条计划吗？', '取消确认', {
         confirmButtonText: '取消',
         cancelButtonText: '关闭',
         type: 'warning'
       }).then(() => {
-        this.$message.success('取消成功')
-        // this.client.files2(id, this.userinfo.gh)
-        //   .then(() => {
-        //     this.$message.success('取消成功')
-        //     this.getdata()
-        //   })
+        this.client.cancel(item.id)
+          .then(() => {
+            this.$message.success('取消成功')
+            this.getdata()
+          })
       }).catch(() => {
       })
     },
+    // 增加拖轮
     addtug (item) {
       console.log(item)
+      // 需要从拖轮列表中读取拖轮信息
       // tugList 空闲的拖轮
       this.tugList2 = []
       this.tugList = []

@@ -1420,7 +1420,7 @@ export class TugJobClient {
     }
 
     /**
-     * 开始作业
+     * 完成作业
      * @return Success
      */
     done(jobId: number , cancelToken?: CancelToken | undefined): Promise<TugJob> {
@@ -1474,11 +1474,11 @@ export class TugJobClient {
     }
 
     /**
-     * 开始作业
+     * 与大船脱开
      * @return Success
      */
-    tugOff(jobId: number , cancelToken?: CancelToken | undefined): Promise<TugJob> {
-        let url_ = this.baseUrl + "/api/sch/TugJob/{jobId}/TugOff";
+    tugoff(jobId: number , cancelToken?: CancelToken | undefined): Promise<TugJob> {
+        let url_ = this.baseUrl + "/api/sch/TugJob/{jobId}/tugoff";
         if (jobId === undefined || jobId === null)
             throw new Error("The parameter 'jobId' must be defined.");
         url_ = url_.replace("{jobId}", encodeURIComponent("" + jobId));
@@ -1500,11 +1500,11 @@ export class TugJobClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processTugOff(_response);
+            return this.processTugoff(_response);
         });
     }
 
-    protected processTugOff(response: AxiosResponse): Promise<TugJob> {
+    protected processTugoff(response: AxiosResponse): Promise<TugJob> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -2053,6 +2053,116 @@ export class TugScheduleClient {
     }
 
     /**
+     * 完成拖轮调度
+     * @param id 拖轮调度Id
+     * @return Success
+     */
+    done2(id: number , cancelToken?: CancelToken | undefined): Promise<TugSchedule> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/done";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "POST",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processDone2(_response);
+        });
+    }
+
+    protected processDone2(response: AxiosResponse): Promise<TugSchedule> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugSchedule.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugSchedule>(<any>null);
+    }
+
+    /**
+     * 完成拖轮调度
+     * @param id 拖轮调度Id
+     * @return Success
+     */
+    cancel(id: number , cancelToken?: CancelToken | undefined): Promise<TugSchedule> {
+        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/cancel";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "POST",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processCancel(_response);
+        });
+    }
+
+    protected processCancel(response: AxiosResponse): Promise<TugSchedule> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugSchedule.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<TugSchedule>(<any>null);
+    }
+
+    /**
      * 拖轮接引水
      * @param planId 拖轮调度Id
      * @param mmsi (optional) 拖轮MMSI
@@ -2573,12 +2683,12 @@ export class TugScheduleClient {
     }
 
     /**
-     * 拖轮开始作业
+     * 拖轮完成作业
      * @param id 拖轮调度Id
      * @param mmsi 拖轮MMSI
      * @return Success
      */
-    done2(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+    done3(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugJob> {
         let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}/done";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
@@ -2592,6 +2702,7 @@ export class TugScheduleClient {
             method: "PUT",
             url: url_,
             headers: {
+                "Accept": "application/json"
             },
             cancelToken
         };
@@ -2603,11 +2714,11 @@ export class TugScheduleClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processDone2(_response);
+            return this.processDone3(_response);
         });
     }
 
-    protected processDone2(response: AxiosResponse): Promise<void> {
+    protected processDone3(response: AxiosResponse): Promise<TugJob> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -2619,67 +2730,15 @@ export class TugScheduleClient {
         }
         if (status === 200) {
             const _responseText = response.data;
-            return Promise.resolve<void>(<any>null);
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugJob.fromJS(resultData200);
+            return result200;
         } else if (status !== 200 && status !== 204) {
             const _responseText = response.data;
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<void>(<any>null);
-    }
-
-    /**
-     * 拖轮完车
-     * @param id 拖轮调度Id
-     * @param mmsi 拖轮MMSI
-     * @return Success
-     */
-    finish(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}/finish";
-        if (id === undefined || id === null)
-            throw new Error("The parameter 'id' must be defined.");
-        url_ = url_.replace("{id}", encodeURIComponent("" + id));
-        if (mmsi === undefined || mmsi === null)
-            throw new Error("The parameter 'mmsi' must be defined.");
-        url_ = url_.replace("{mmsi}", encodeURIComponent("" + mmsi));
-        url_ = url_.replace(/[?&]$/, "");
-
-        let options_ = <AxiosRequestConfig>{
-            method: "PUT",
-            url: url_,
-            headers: {
-            },
-            cancelToken
-        };
-
-        return this.instance.request(options_).catch((_error: any) => {
-            if (isAxiosError(_error) && _error.response) {
-                return _error.response;
-            } else {
-                throw _error;
-            }
-        }).then((_response: AxiosResponse) => {
-            return this.processFinish(_response);
-        });
-    }
-
-    protected processFinish(response: AxiosResponse): Promise<void> {
-        const status = response.status;
-        let _headers: any = {};
-        if (response.headers && typeof response.headers === "object") {
-            for (let k in response.headers) {
-                if (response.headers.hasOwnProperty(k)) {
-                    _headers[k] = response.headers[k];
-                }
-            }
-        }
-        if (status === 200) {
-            const _responseText = response.data;
-            return Promise.resolve<void>(<any>null);
-        } else if (status !== 200 && status !== 204) {
-            const _responseText = response.data;
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-        }
-        return Promise.resolve<void>(<any>null);
+        return Promise.resolve<TugJob>(<any>null);
     }
 
     /**
@@ -2688,7 +2747,7 @@ export class TugScheduleClient {
      * @param mmsi 拖轮MMSI
      * @return Success
      */
-    cancel(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<void> {
+    cancel2(id: number, mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugJob> {
         let url_ = this.baseUrl + "/api/sch/TugSchedule/{id}/tugs/{mmsi}/cancel";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
@@ -2702,6 +2761,7 @@ export class TugScheduleClient {
             method: "PUT",
             url: url_,
             headers: {
+                "Accept": "application/json"
             },
             cancelToken
         };
@@ -2713,11 +2773,11 @@ export class TugScheduleClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processCancel(_response);
+            return this.processCancel2(_response);
         });
     }
 
-    protected processCancel(response: AxiosResponse): Promise<void> {
+    protected processCancel2(response: AxiosResponse): Promise<TugJob> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -2729,12 +2789,15 @@ export class TugScheduleClient {
         }
         if (status === 200) {
             const _responseText = response.data;
-            return Promise.resolve<void>(<any>null);
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = TugJob.fromJS(resultData200);
+            return result200;
         } else if (status !== 200 && status !== 204) {
             const _responseText = response.data;
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<void>(<any>null);
+        return Promise.resolve<TugJob>(<any>null);
     }
 }
 
@@ -3252,7 +3315,7 @@ export class TugStateClient {
      * 完车
      * @return Success
      */
-    finish2(mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugState> {
+    finish(mmsi: string | null , cancelToken?: CancelToken | undefined): Promise<TugState> {
         let url_ = this.baseUrl + "/api/sch/TugState/{mmsi}/finish";
         if (mmsi === undefined || mmsi === null)
             throw new Error("The parameter 'mmsi' must be defined.");
@@ -3275,11 +3338,11 @@ export class TugStateClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processFinish2(_response);
+            return this.processFinish(_response);
         });
     }
 
-    protected processFinish2(response: AxiosResponse): Promise<TugState> {
+    protected processFinish(response: AxiosResponse): Promise<TugState> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
