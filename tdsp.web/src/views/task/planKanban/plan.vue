@@ -128,23 +128,23 @@
                     </template>
                     <v-tooltip top>
                       <template v-slot:activator="{ on }">
-                        <v-btn x-small fab color="primary" @click="addtug(item)">
+                        <v-btn x-small dark fab color="blue darken-2" @click="addtug(item)">
                           <v-icon v-on="on">add</v-icon>
                         </v-btn>
                       </template>
-                      <span>派遣拖轮</span>
+                      <span>增派拖轮</span>
                     </v-tooltip>
                     <v-tooltip top>
                       <template v-slot:activator="{ on }">
-                        <v-btn x-small dark fab color="green" @click="donePlan(item)">
-                          <i class="material-icons" v-on="on">done_outline</i>
+                        <v-btn x-small dark fab color="blue darken-2" @click="donePlan(item)">
+                          <i class="material-icons" v-on="on">done</i>
                         </v-btn>
                       </template>
                       <span>任务完成</span>
                     </v-tooltip>
                     <v-tooltip top>
                       <template v-slot:activator="{ on }">
-                        <v-btn x-small fab color="warning" @click="cancelPlan(item)">
+                        <v-btn x-small dark fab color="blue darken-2" @click="cancelPlan(item)">
                           <i class="material-icons" v-on="on">cancel</i>
                         </v-btn>
                       </template>
@@ -205,8 +205,9 @@
                                 <v-btn small text color="success" @click="setTime(item, tug , 4)">送引水</v-btn>
                               </v-list-item>
                               <v-list-item>
-                                <v-btn v-if="!tug.startTime" small text color="error lighten-2" @click="removeTug(item, tug)">删除</v-btn>
-                                <v-btn v-else small text color="indigo lighten-2" @click="setTime(item, tug, 'cancel')">取消</v-btn>
+                                <!-- 任务没有开始时可以删除拖轮安排，开始后取消任务 -->
+                                <v-btn v-if="!tug.startTime" small text color="error lighten-2" @click="removeTug(item, tug)">移除拖轮</v-btn>
+                                <v-btn v-else small text color="indigo lighten-2" @click="setTime(item, tug, 'cancel')">取消任务</v-btn>
                               </v-list-item>
                             </v-list>
                           </v-menu>
@@ -537,7 +538,7 @@
                       </v-list-item-action>
 
                       <v-list-item-content>
-                        <v-list-item-title>{{item}}</v-list-item-title>
+                        <v-list-item-title>{{item.name}}</v-list-item-title>
                         <!-- <v-list-item-subtitle>Hangouts message</v-list-item-subtitle> -->
                       </v-list-item-content>
                     </template>
@@ -566,7 +567,7 @@
                             </v-list-item-action>
 
                             <v-list-item-content>
-                              <v-list-item-title>{{item}}</v-list-item-title>
+                              <v-list-item-title>{{item.name}}</v-list-item-title>
                               <!-- <v-list-item-subtitle>{{item}}</v-list-item-subtitle> -->
                             </v-list-item-content>
                           </template>
@@ -699,6 +700,7 @@
 </template>
 <script>
 import { mapState } from 'vuex'
+import mixin from '@/views/task/mixin/tugRealTimeStatus'
 import dayjs from 'dayjs'
 import Help from '@/components/help'
 import { actionPlanFormat } from '@/plugins/format'
@@ -713,6 +715,7 @@ export default {
     PlanInfo,
     Help
   },
+  mixins: [mixin],
   data () {
     return {
       client: new api.TugScheduleClient('', this.$axios),
@@ -722,6 +725,7 @@ export default {
       waitingList: [],
       completedList: [],
       unTugList: [],
+      activePlan: {}, // 选中的计划
       showUnTugList: false, // 无拖轮计划的船舶
       openOnHover: true,
       bottom: true,
@@ -886,15 +890,9 @@ export default {
     },
     // 增加拖轮
     addtug (item) {
-      console.log(item)
-      // 需要从拖轮列表中读取拖轮信息
-      // tugList 空闲的拖轮
-      this.tugList2 = []
-      this.tugList = []
-      for (let i = 1; i < 26; i++) {
-        if (i % 2 === 0) this.tugList.push('曹港' + i)
-        if (i % 2 === 1) this.tugList2.push('曹港' + i)
-      }
+      this.tugs = []
+      this.activePlan = item
+      this.getTugStatus()
       this.dialog = true
     },
     removeTug (item, tug) {
@@ -927,11 +925,20 @@ export default {
       }).catch(() => {
       })
     },
+    // 确认派遣的拖轮
+    // ???? 是否需要移除已选拖轮
     tugsave () {
       console.log(this.tugs)
+      const planId = this.activePlan.planId
+      for (let i = 0; i < this.tugs.length; i++) {
+        const element = this.tugs[i]
+        this.client.tugs2(planId, element,mmsi)
+      }
       this.dialog = false
     },
+    // 关闭派遣拖轮的窗口
     tugcancel () {
+      this.activePlan = {}
       this.tugs = []
       this.dialog = false
     },

@@ -253,13 +253,7 @@ export default {
   },
   created () {
     this.setheight = window.innerHeight - 212 + 59
-    // 获取当前时间时段
-    if (this.timespannow === 0) {
-      this.gettimespans()
-      this.getplanperiod()
-    } else {
-      this.getdata()
-    }
+    this.getdata()
   },
   computed: {
     ...mapState('tabledense', [
@@ -267,40 +261,11 @@ export default {
     ])
   },
   watch: {
-    date: function (newVal, oldVal) {
-      if (oldVal !== '') {
-        this.getdata()
-      }
-    },
-    timespannow: function (newVal, oldVal) {
-      if (oldVal !== 0) {
-        this.getdata()
-      }
-    },
     showAll () {
       this.getdata()
     }
   },
   methods: {
-    // 获取当前时间和时段
-    getplanperiod: async function () {
-      this.periodclient.getNext()
-        .then(res => {
-          this.date = dayjs(res.period.planDate).format('YYYY-MM-DD')
-          this.timespannow = res.period.timespan
-          this.getdata()
-        })
-    },
-    gettimespans: async function () {
-      this.periodclient.getTimeSpans().then(res => {
-        this.timespan = res
-      })
-    },
-    // 获取正在执行的时段
-    getTimespanNow () {
-      // 检查是否为正在执行的时段
-      // 正在执行的时段才可以加入其他 船舶的作业计划
-    },
     // 将没有拖轮或非曹拖的计划加入到拖轮调度计划中
     addSchedule (id) {
       this.TugScheduleClient.tugSchedule(id)
@@ -324,11 +289,11 @@ export default {
     getdata () {
       this.loading = true
       let tugCorp = null
-      if (showAll) tugCorp = null
+      if (this.showAll) tugCorp = null
       else tugCorp = '曹拖'
-      this.client.planSchedule(this.date, tugCorp, 999, 1, null, null, false)
+      this.client.planSchedule(tugCorp, 999, 1, null, null, false)
         .then(res => {
-          let list = res
+          let list = res.values
           // 不在需要前台过滤
           // if (this.showAll === false) {
           //   list = list.filter(item => (item.plan.tugCorp).indexOf('曹') > -1)
