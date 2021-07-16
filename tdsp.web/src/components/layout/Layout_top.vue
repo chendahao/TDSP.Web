@@ -65,7 +65,7 @@
 <script>
 import { mapState, mapActions, mapMutations } from 'vuex'
 import ChangePwd from '@/components/ChangePwd.vue'
-import AlarmClock from './AlarmClock'
+import AlarmClock from './AlarmClock/AlarmClock.vue'
 import storagedata from '@/plugins/storagedata.js'
 export default {
   components: {

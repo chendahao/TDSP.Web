@@ -131,7 +131,7 @@ export default {
       loading: false
     }
   },
-  created() {
+  created () {
     this.getdata()
   },
   filters: {
@@ -158,7 +158,7 @@ export default {
       this.loading = true
       this.client.tugStateAll()
         .then(res => {
-          this.items = res.filter(i => i.status != 'Idle')
+          this.items = res.filter(i => i.status !== 'Idle')
           this.items2 = res.filter(i => i.status === 'Idle')
           this.loading = false
         })
@@ -169,7 +169,7 @@ export default {
           this.getdata()
         })
     },
-    statusSetDark(val) {
+    statusSetDark (val) {
       if (val === 'Idle') return false
       return true
     },

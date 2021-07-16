@@ -47,17 +47,46 @@
           "anchorTime": null
       },
       "status": "working",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": null,
-          "endTime": "12:00",
-          "remark": "作业备注"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港2",
+            "mmsi": "412271030",
+            "name": "CAO GANG 2"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "name": "CAO GANG 1"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -109,26 +138,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -180,26 +276,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -251,26 +414,93 @@
           "anchorTime": null
       },
       "status": "working",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -322,26 +552,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -393,26 +690,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -464,26 +828,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -535,26 +966,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -606,26 +1104,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -677,26 +1242,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -748,26 +1380,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -819,26 +1518,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -890,26 +1656,93 @@
           "anchorTime": null
       },
       "status": "working",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "11:10",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "11:15",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "11:15",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "11:30",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -961,26 +1794,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1032,26 +1932,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1103,26 +2070,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1174,26 +2208,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1245,26 +2346,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1316,26 +2484,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1387,26 +2622,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1458,26 +2760,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1529,26 +2898,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1600,7 +3036,7 @@
           "anchorTime": "2021-06-02T19:04:00"
       },
       "status": "waiting",
-      "tug": []
+      "tugs": []
   },
   {
       "audit": {
@@ -1650,7 +3086,7 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": []
+      "tugs": []
   },
   {
       "audit": {
@@ -1700,26 +3136,93 @@
           "anchorTime": null
       },
       "status": "completed",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1771,26 +3274,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1842,26 +3412,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1913,26 +3550,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -1984,26 +3688,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2055,26 +3826,86 @@
           "anchorTime": null
       },
       "status": "working",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "name": "CAO GANG 1",
+            "mmsi": "412271020"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "cnName": "曹港2",
+            "name": "CAO GANG 2",
+            "mmsi": "412271030"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "cnName": "曹港6",
+            "mmsi": "412271830",
+            "name": "CAO GANG 6"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "cnName": "曹港26",
+            "mmsi": "412272230",
+            "name": "CAO GANG 26"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2126,26 +3957,85 @@
           "anchorTime": null
       },
       "status": "working",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2197,26 +4087,93 @@
           "anchorTime": null
       },
       "status": "working",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2268,26 +4225,93 @@
           "anchorTime": null
       },
       "status": "working",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2339,26 +4363,93 @@
           "anchorTime": null
       },
       "status": "working",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2410,26 +4501,93 @@
           "anchorTime": null
       },
       "status": "working",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2481,26 +4639,93 @@
           "anchorTime": null
       },
       "status": "working",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2552,26 +4777,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2623,26 +4915,94 @@
           "anchorTime": null
       },
       "status": "working",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "name": "CAO GANG 1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2694,26 +5054,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2765,26 +5192,93 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": [
+      "tugs": [
         {
-          "name": "港1",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 0,
+          "tug": {
+            "cnName": "曹港1",
+            "mmsi": "412271020",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港2",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 2,
+          "tug": {
+            "mmsi": "412271030",
+            "name": "CAO GANG 2",
+            "cnName": "曹港2",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港3",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 3,
+          "tug": {
+            "mmsi": "412271830",
+            "name": "CAO GANG 6",
+            "cnName": "曹港6",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         },
         {
-          "name": "港4",
-          "startTime": "12:00",
-          "endTime": "12:00"
+          "jobId": 4,
+          "tug": {
+            "mmsi": "412272230",
+            "name": "CAO GANG 26",
+            "cnName": "曹港26",
+            "startTime": "12:00",
+            "endTime": "12:00"
+          },
+          "jobKind": "string",
+          "note": "string",
+          "planId": 0,
+          "jobTime": {
+            "start": "2021-07-14T02:05:54.423Z",
+            "tugOff": "2021-07-14T02:05:54.423Z",
+            "finish": "2021-07-14T02:05:54.423Z"
+          },
+          "status": "Default",
+          "created": "2021-07-14T02:05:54.423Z",
+          "updated": "2021-07-14T02:05:54.423Z",
+          "createdBy": "string"
         }
       ]
   },
@@ -2836,7 +5330,7 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": []
+      "tugs": []
   },
   {
       "audit": {
@@ -2886,7 +5380,7 @@
           "anchorTime": null
       },
       "status": "null",
-      "tug": []
+      "tugs": []
   },
   {
       "audit": {
@@ -2936,6 +5430,6 @@
           "anchorTime": null
       },
       "status": "waiting",
-      "tug": []
+      "tugs": []
   }
 ]

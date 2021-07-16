@@ -28,5 +28,9 @@ new Vue({
   router,
   store,
   vuetify,
-  render: h => h(App)
+  render: h => h(App),
+  mounted() {
+    // 加载本地存储的备忘录
+    this.$store.dispatch('alarmList/load').then(() => {})
+  }
 }).$mount('#app')

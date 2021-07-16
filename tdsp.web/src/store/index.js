@@ -4,6 +4,9 @@ import fullscreen from './modules/fullscreen'
 import tabledense from './modules/tabledense'
 import app from './modules/app'
 import userinfo from './modules/userinfo'
+import alarmList from './modules/alarmList'
+import tugList from './modules/tugList'
+import db from './modules/db'
 
 Vue.use(Vuex)
 
@@ -28,6 +31,9 @@ export default new Vuex.Store({
     fullscreen,
     tabledense,
     app,
-    userinfo
+    userinfo,
+    alarmList,
+    tugList,
+    db
   }
 })

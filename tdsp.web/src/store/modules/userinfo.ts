@@ -22,11 +22,11 @@ export default {
       state.userName = info.userName
     }
   },
-  getters: {
-    getUserInfo (state: {info: object}) {
-      return state
-    }
-  },
+  // getters: {
+  //   getUserInfo (state: {info: object}) {
+  //     return state
+  //   }
+  // },
   actions: {
     /**
      * @description 设置用户数据

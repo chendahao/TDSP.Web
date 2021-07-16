@@ -1,8 +1,8 @@
 import { tugApi as api } from '@/api/tugApi'
 var mixin = {
-  data() {
+  data () {
     return {
-      tugClient: new api.TugStateClient('', this.$axios),
+      tugClient: new api.TugStateClient('', this.$axios)
     }
   },
   methods: {
@@ -12,7 +12,7 @@ var mixin = {
           // 空闲
           this.tugList = res.filter(i => i.status === 'Idle')
           // 非空闲
-          this.tugList2 = res.filter(i => i.status != 'Idle') 
+          this.tugList2 = res.filter(i => i.status !== 'Idle')
         })
     }
   }

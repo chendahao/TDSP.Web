@@ -89,8 +89,8 @@ export default {
       loading: false,
       client: new api.TugInfoClient('', this.$axios),
       headers: [
-        { text: '船名', groupable: false, width: '80', sortable: false, value: 'name' },
-        { text: '中文名', groupable: false, width: '130', sortable: false, value: 'cnName' },
+        { text: '船名', groupable: false, width: '150', sortable: false, value: 'name' },
+        { text: '中文名', groupable: false, width: '110', sortable: false, value: 'cnName' },
         { text: 'MMSI', groupable: false, width: '80', sortable: false, value: 'mmsi' },
         { text: '船长(米)', groupable: false, width: '80', sortable: false, value: 'shipLength' },
         { text: '船宽(米)', groupable: false, width: '80', sortable: false, value: 'shipWidth' },

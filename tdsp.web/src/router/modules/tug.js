@@ -180,6 +180,32 @@ const tugRoutes = {
         fullwidth: false,
         hideInMenu: false
       }
+    },
+    {
+      path: '/duty',
+      name: 'duty',
+      component: () => import(/* webpackChunkName: "duty" */ '@/views/task/duty/index.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '值班日志',
+        fullwidth: false,
+        hideInMenu: false
+      }
+    },
+    {
+      path: '/duty/detail',
+      name: 'dutydetail',
+      component: () => import(/* webpackChunkName: "duty" */ '@/views/task/duty/detail.vue'),
+      meta: {
+        keepAlive: false,
+        icon: '',
+        needLogin: true,
+        title: '值班日志',
+        fullwidth: false,
+        hideInMenu: true
+      }
     }
   ]
 }

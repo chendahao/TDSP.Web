@@ -39,20 +39,19 @@
 
         <v-divider></v-divider>
         <v-list>
-          <v-list-item-group multiple style="max-height:450px;overflow:auto">
+          <v-list-item-group v-model="selectList" multiple style="max-height:450px;overflow:auto">
             <template v-for="(item, index) in items">
-              <v-list-item :key="index">
+              <v-list-item :key="`alarm-${index}`" :value="item">
                 <template v-slot:default="{ active }">
                   <v-list-item-content>
                     <v-list-item-title v-text="item.title" class="text--primary"></v-list-item-title>
-                    <!-- <v-list-item-subtitle
+                    <v-list-item-subtitle
                       class="text--primary"
-                      v-text="item.headline"
-                    ></v-list-item-subtitle> -->
-                    <div class="text--primary" v-if="item.subtitle">
-                      {{item.subtitle}}
-                    </div>
-                    <!-- <v-list-item-subtitle v-text="item.subtitle"></v-list-item-subtitle> -->
+                      v-text="item.content"
+                    ></v-list-item-subtitle>
+                    <!-- <div class="text--primary" v-if="item.content">
+                      {{item.content}}
+                    </div> -->
                   </v-list-item-content>
 
                   <v-list-item-action>
@@ -71,6 +70,7 @@
                 :key="index"
               ></v-divider>
             </template>
+            <span v-if="items.length <= 0">当前没有备忘录</span>
           </v-list-item-group>
         </v-list>
         <v-card-actions>
@@ -102,7 +102,7 @@
               <v-chip small class="ml-1" title="1小时" @click="setTime(1)">1小时</v-chip>
               <v-chip small class="ml-1" title="2小时" @click="setTime(2)">2小时</v-chip>
               <v-chip small class="ml-1" title="4小时" @click="setTime(4)">4小时</v-chip>
-              <v-chip small class="ml-1" :title="timevalue" @click="pickerDialog = true">{{timevalue}}</v-chip>
+              <v-chip small class="ml-1" :title="timevalue" @click="setTimeByUser">{{timevalue}}</v-chip>
               <v-chip small class="ml-1" title="不提醒" @click="setTime(0)">不提醒</v-chip>
             </v-chip-group>
           </v-form>
@@ -178,24 +178,11 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="success" @click="setAlarmTime">确认</v-btn>
-          <v-btn text @click="pickerDialog = false">取消</v-btn>
+          <v-btn text @click="setAlarmTimeCancel">取消</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
     <div v-if="showAlarm" class="alarmCard">
-      <!-- <v-card v-for="" class="elevation-8" min-width="400px">
-        <v-card-title primary-title>
-          title
-          <v-spacer></v-spacer>
-          123
-        </v-card-title>
-        <v-card-text>
-
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-        </v-card-actions>
-      </v-card> -->
       <v-alert
         border="left"
         color="green"
@@ -237,6 +224,7 @@
 </template>
 <script>
 import dayjs from 'dayjs'
+import { mapState } from 'vuex'
 var relativeTime = require('dayjs/plugin/relativeTime')
 var updateLocale = require('dayjs/plugin/updateLocale')
 require('dayjs/locale/zh-cn')
@@ -278,61 +266,49 @@ export default {
       menu: false,
       time: null,
       err: '',
+      selectList: [],
       timevalue: '其他时间',
+      setTimevalue: false,
       record: {
+        id: 0,
         title: '',
         content: '',
         dateTime: '',
         status: 0, // 0 初始状态； 2 延后； 3 完成
         alarm: true
       },
-      items: [
-        {
-          alarm: true,
-          status: 0,
-          dateTime: '2021-5-8 10:50',
-          subtitle: `备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1备忘1?`,
-          title: '备忘1备忘1备忘1'
-        },
-        {
-          alarm: false,
-          status: 0,
-          dateTime: '2021-5-10 10:20',
-          subtitle: `Wish I could come, but I'm out of town this weekend.`,
-          title: 'me, Scrott, Jennifer'
-        },
-        {
-          alarm: true,
-          status: 0,
-          dateTime: '2021-5-10 10:20',
-          subtitle: 'Do you have Paris recommendations? Have you ever been?',
-          title: 'Sandra Adams'
-        },
-        {
-          alarm: true,
-          status: 0,
-          dateTime: '2021-5-10 10:20',
-          subtitle: 'Have any ideas about what we should get Heidi for her birthday?',
-          title: 'Trevor Hansen'
-        },
-        {
-          alarm: true,
-          status: 0,
-          dateTime: '2021-5-10 10:20',
-          subtitle: '',
-          title: 'Britta Holt'
-        }
-      ],
+      setTimeVal: 0.5,
       messages: 0,
       showAlarm: false
     }
+  },
+  computed: {
+    ...mapState({
+      items: state => state.alarmList.list
+    })
   },
   filters: {
     relativeTime (val) {
       return dayjs(val).fromNow()
     }
   },
+  mounted () {
+    const item = this.items[0]
+    this.$notify.info({
+      title: `备忘事件提醒：${item.title}`,
+      position: 'bottom-right',
+      dangerouslyUseHTMLString: true,
+      showClose: true,
+      message: `<p>内容 ${item.content}</p><p>时间 ${item.dateTime}</p>`,
+      duration: 0
+    });
+  },
   methods: {
+    // 选择其他时间
+    setTimeByUser () {
+      this.closeOnClick = false
+      this.pickerDialog = true
+    },
     setAlarmTime () {
       this.snackbar = true
       const t = dayjs(this.date1 + '' + this.time1)
@@ -343,26 +319,69 @@ export default {
         return
       }
       this.timevalue = t.format('MM-DD HH:mm')
-      this.record.dateTime = t.format('YYY-MM-DD HH:mm')
+      this.setTimevalue = true
+      this.record.dateTime = t.format('YYYY-MM-DD HH:mm')
       this.pickerDialog = false
+      setTimeout(() => {
+        this.closeOnClick = true
+      }, 100)
+    },
+    setAlarmTimeCancel () {
+      this.pickerDialog = false
+      this.setTimevalue = false
+      setTimeout(() => {
+        this.closeOnClick = true
+      }, 100)
     },
     // 保存新增的提醒
     saveInfo () {
       this.dialog = false
+      const id = dayjs().valueOf()
+      this.record.id = id
+      if (this.timevalue === '其他时间' && this.setTimevalue === true) {
+        const t = dayjs(this.date1 + '' + this.time1)
+        this.record.dateTime = t.format('YYYY-MM-DD HH:mm')
+      }
+      if (this.record.dateTime === '') {
+        this.record.dateTime = dayjs().add(this.setTimeVal, 'hour').format('YYYY-MM-DD HH:mm')
+      }
+      this.$store.dispatch('alarmList/add', this.record)
       this.menuvalue = false
+      this.$message.success('保存成功')
+      this.refreshInfo()
+    },
+    refreshInfo () {
+      this.record = {
+        id: 0,
+        title: '',
+        content: '',
+        dateTime: '',
+        status: 0, // 0 初始状态； 2 延后； 3 完成
+        alarm: true
+      }
+      this.setTimevalue = false
     },
     setMenuValue () {
       this.menuvalue = !this.menuvalue
     },
     completeAlarm () {
-      this.showAlarm = true
+      for (let i = 0; i < this.selectList.length; i++) {
+        const element = this.selectList[i]
+        this.$store.dispatch('alarmList/remove', element)
+      }
+      // this.showAlarm = true
+    },
+    completeAlarmOne (item) {
+      console.log(item)
+      // this.$store.dispatch('alarmList/remove', item)
     },
     setTime (val) {
       if (val <= 0) {
         this.record.alarm = false
       }
+      this.setTimeVal = val
       this.timevalue = '其他时间'
-      this.record.dateTime = dayjs().add(val, 'hour').format('YYY-MM-DD HH:mm')
+      this.record.dateTime = dayjs().add(val, 'hour').format('YYYY-MM-DD HH:mm')
     }
   }
 }

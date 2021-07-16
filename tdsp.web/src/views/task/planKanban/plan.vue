@@ -167,7 +167,7 @@
                   </div>
                   <v-divider></v-divider>
                   <template
-                    v-for="(tug, index) in item.tug"
+                    v-for="(tug, index) in item.tugs"
                   >
                     <v-list-item
                       :key="index"
@@ -176,11 +176,11 @@
                     >
                       <v-list-item-content>
                         <v-list-item-title class="title2-content">
-                          <span class="title2-item title2-item-1st">{{tug.name}}</span>
+                          <span class="title2-item title2-item-1st">{{tug.tug.cnName}}</span>
                           <!-- <span class="title2-item">{{tug.beiche ? tug.beiche : '--'}}</span> -->
-                          <span class="title2-item">{{tug.startTime ? tug.startTime : '--'}}</span>
-                          <span class="title2-item">{{tug.tuokai ? tug.tuokai : '--'}}</span>
-                          <span class="title2-item">{{tug.endTime ? tug.endTime : '--'}}</span>
+                          <span class="title2-item">{{tug.jobTime.start ? formatSortTime(tug.jobTime.start) : '--'}}</span>
+                          <span class="title2-item">{{tug.jobTime.tugOff ? formatSortTime(tug.jobTime.tugOff) : '--'}}</span>
+                          <span class="title2-item">{{tug.jobTime.finish ? formatSortTime(tug.jobTime.finish) : '--'}}</span>
                           </v-list-item-title>
                         <v-list-item-subtitle v-if="tug.remark">{{tug.remark}}</v-list-item-subtitle>
                         <br>
@@ -205,8 +205,8 @@
                                 <v-btn small text color="success" @click="setTime(item, tug , 4)">送引水</v-btn>
                               </v-list-item>
                               <v-list-item>
-                                <!-- 任务没有开始时可以删除拖轮安排，开始后取消任务 -->
-                                <v-btn v-if="!tug.startTime" small text color="error lighten-2" @click="removeTug(item, tug)">移除拖轮</v-btn>
+                                <!-- 任务没有开始时可以删除拖轮安排，开始后仅取消任务 -->
+                                <v-btn v-if="!tug.jobTime.start" small text color="error lighten-2" @click="removeTug(item, tug)">移除拖轮</v-btn>
                                 <v-btn v-else small text color="indigo lighten-2" @click="setTime(item, tug, 'cancel')">取消任务</v-btn>
                               </v-list-item>
                             </v-list>
@@ -340,7 +340,7 @@
                       <!-- </v-list-item-action> -->
                     </v-list-item>
                     <v-divider
-                      v-if="index < item.tug.length - 1"
+                      v-if="index < item.tugs.length - 1"
                       :key="index * 10 + 10"
                     ></v-divider>
                   </template>
@@ -375,7 +375,7 @@
                   </v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-action style="display: flex;flex-direction: row;align-items: center;">
-                  <v-tooltip bottom>
+                  <v-tooltip top>
                     <template v-slot:activator="{ on }">
                       <v-btn icon color="primary" @click="addtug(item)">
                         <v-icon v-on="on">add</v-icon>
@@ -424,7 +424,7 @@
                         </v-list-item-subtitle>
                       </v-list-item-content>
                       <v-list-item-action style="display: flex;flex-direction: row;">
-                        <v-tooltip bottom>
+                        <v-tooltip top>
                           <template v-slot:activator="{ on }">
                             <v-btn icon color="info" @click="getPlanInfo(item)">
                               <v-icon v-on="on">info</v-icon>
@@ -440,13 +440,13 @@
                       <v-list-item-group
                       >
                         <v-list-item
-                          v-for="(tug, index) in item.tug"
+                          v-for="(tug, index) in item.tugs"
                           :key="index"
                           dense
                           color="blue-grey"
                         >
                           <v-list-item-content>
-                            <v-list-item-title>{{tug.name}}-{{tug.startTime}}</v-list-item-title>
+                            <v-list-item-title>{{tug.tug.cnName}}-{{formatSortTime(tug.jobTime.start)}}</v-list-item-title>
                             <v-list-item-subtitle v-if="tug.remark">{{tug.remark}}</v-list-item-subtitle>
                           </v-list-item-content>
                         </v-list-item>
@@ -509,6 +509,15 @@
       <v-card>
         <v-card-title primary-title>
           派遣拖轮
+          <v-spacer></v-spacer>
+          <v-tooltip top>
+            <template v-slot:activator="{ on }">
+              <v-btn text icon @click="refreshTugStatus">
+                <v-icon v-on="on">refresh</v-icon>
+              </v-btn>
+            </template>
+            <span>刷新状态</span>
+          </v-tooltip>
         </v-card-title>
         <v-card-text style="padding:0px">
           <v-list
@@ -516,14 +525,14 @@
             dense
           >
           <!-- subheader -->
-            <v-subheader>附近空闲拖轮</v-subheader>
+            <v-subheader>空闲拖轮</v-subheader>
             <v-list-item-group
               v-model="tugs"
               multiple
             >
               <v-row no-gutters>
                 <v-col md="3" v-for="(item, index) in tugList" :key="index">
-                  <v-list-item color="blue" :value="item" class="ma-1">
+                  <v-list-item color="blue" :value="item.mmsi" class="ma-1">
                     <template v-slot:default="{ active }">
                       <v-list-item-action style="margin: 0px 10px 0px 0px;">
                         <v-checkbox
@@ -538,7 +547,7 @@
                       </v-list-item-action>
 
                       <v-list-item-content>
-                        <v-list-item-title>{{item.name}}</v-list-item-title>
+                        <v-list-item-title :title="item.name">{{item.name}}</v-list-item-title>
                         <!-- <v-list-item-subtitle>Hangouts message</v-list-item-subtitle> -->
                       </v-list-item-content>
                     </template>
@@ -546,37 +555,29 @@
                 </v-col>
               </v-row>
               <v-divider></v-divider>
-              <v-expansion-panels accordion flat>
-                <v-expansion-panel>
-                  <v-expansion-panel-header style="height:64px;padding: 0px">
-                    <v-subheader>其他拖轮</v-subheader>
-                  </v-expansion-panel-header>
-                  <v-expansion-panel-content style="padding: 0px">
-                    <v-row no-gutters>
-                      <v-col md="3" v-for="(item, index) in tugList2" :key="index">
-                        <v-list-item color="blue" :value="item" class="ma-1">
-                          <template v-slot:default="{ active }">
-                            <v-list-item-action style="margin: 0px 10px 0px 0px;">
-                              <v-checkbox
-                                :input-value="active"
-                                on-icon="check_box"
-                                off-icon="check_box_outline_blank"
-                                dense
-                                color="primary"
-                              ></v-checkbox>
-                            </v-list-item-action>
+              <v-subheader>非空闲拖轮</v-subheader>
+              <v-row no-gutters>
+                <v-col md="3" v-for="(item, index) in tugList2" :key="index">
+                  <v-list-item color="blue" :value="item.mmsi" class="ma-1">
+                    <template v-slot:default="{ active }">
+                      <v-list-item-action style="margin: 0px 10px 0px 0px;">
+                        <v-checkbox
+                          :input-value="active"
+                          on-icon="check_box"
+                          off-icon="check_box_outline_blank"
+                          dense
+                          color="primary"
+                        ></v-checkbox>
+                      </v-list-item-action>
 
-                            <v-list-item-content>
-                              <v-list-item-title>{{item.name}}</v-list-item-title>
-                              <!-- <v-list-item-subtitle>{{item}}</v-list-item-subtitle> -->
-                            </v-list-item-content>
-                          </template>
-                        </v-list-item>
-                      </v-col>
-                    </v-row>
-                  </v-expansion-panel-content>
-                </v-expansion-panel>
-              </v-expansion-panels>
+                      <v-list-item-content>
+                        <v-list-item-title :title="item.name">{{item.name}}</v-list-item-title>
+                        <!-- <v-list-item-subtitle>{{item}}</v-list-item-subtitle> -->
+                      </v-list-item-content>
+                    </template>
+                  </v-list-item>
+                </v-col>
+              </v-row>
               <!-- <v-subheader>其他拖轮</v-subheader>
               <v-row no-gutters>
                 <v-col md="3" v-for="(item, index) in tugList2" :key="index">
@@ -609,6 +610,7 @@
       </v-card>
     </v-dialog>
     <plan-info :show='dialogInfo' :ship='planInfo' v-on:CallBack="planInfoCallBack"></plan-info>
+    <!-- 手动设置时间 -->
     <v-dialog
       v-model="dialog2"
       scrollable
@@ -734,6 +736,7 @@ export default {
       loading: false,
       dialog: false,
       model: 1,
+      panel: 0,
       dialogInfo: false, // 船舶计划
       dialog2: false,
       planInfo: {},
@@ -891,9 +894,16 @@ export default {
     // 增加拖轮
     addtug (item) {
       this.tugs = []
+      this.tugs = item.tugs.map(i => {
+        return i.tug.mmsi
+      })
+      console.log(this.tugs)
       this.activePlan = item
       this.getTugStatus()
       this.dialog = true
+    },
+    refreshTugStatus () {
+      this.getTugStatus()
     },
     removeTug (item, tug) {
       this.$msgbox.confirm('要删除这条拖轮吗？', '删除确认', {
@@ -932,7 +942,7 @@ export default {
       const planId = this.activePlan.planId
       for (let i = 0; i < this.tugs.length; i++) {
         const element = this.tugs[i]
-        this.client.tugs2(planId, element,mmsi)
+        this.client.tugs2(planId, element, mmsi)
       }
       this.dialog = false
     },
@@ -974,6 +984,11 @@ export default {
           })
       }
     },
+    formatSortTime (value) {
+      if (!value) return ''
+      if (!dayjs(value).isValid()) return value
+      return dayjs(value).format('HH:mm')
+    },
     // 手动设置时间 (备车、开始、脱开、结束)
     // setTime (item, tug, type) {
     //   this.plandate = dayjs().format('YYYY-MM-DD')
@@ -994,6 +1009,7 @@ export default {
     },
     getPlanInfo (item) {
       const id = item.planId
+      // 获取计划的详细信息
       this.planclient.planSchedule2(id)
         .then(res => {
           console.log(res)
