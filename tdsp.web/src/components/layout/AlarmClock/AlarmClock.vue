@@ -46,7 +46,6 @@
                   <v-list-item-content>
                     <v-list-item-title v-text="item.title" class="text--primary"></v-list-item-title>
                     <v-list-item-subtitle
-                      class="text--primary"
                       v-text="item.content"
                     ></v-list-item-subtitle>
                     <!-- <div class="text--primary" v-if="item.content">
@@ -70,7 +69,7 @@
                 :key="index"
               ></v-divider>
             </template>
-            <span v-if="items.length <= 0">当前没有备忘录</span>
+            <span v-if="items.length <= 0" style="color:rgba(0, 0, 0, 0.6);margin-left:20px">当前没有备忘录</span>
           </v-list-item-group>
         </v-list>
         <v-card-actions>
@@ -227,6 +226,8 @@ import dayjs from 'dayjs'
 import { mapState } from 'vuex'
 var relativeTime = require('dayjs/plugin/relativeTime')
 var updateLocale = require('dayjs/plugin/updateLocale')
+var isSameOrAfter = require('dayjs/plugin/isSameOrAfter')
+dayjs.extend(isSameOrAfter)
 require('dayjs/locale/zh-cn')
 dayjs.locale('zh-cn')
 dayjs.extend(relativeTime)
@@ -248,6 +249,7 @@ dayjs.updateLocale('zh-cn', {
     yy: '%d 年'
   }
 })
+var autoCheck = ''
 export default {
   data () {
     return {
@@ -292,18 +294,35 @@ export default {
       return dayjs(val).fromNow()
     }
   },
+  destroyed () {
+    autoCheck = ''
+  },
   mounted () {
-    const item = this.items[0]
-    this.$notify.info({
-      title: `备忘事件提醒：${item.title}`,
-      position: 'bottom-right',
-      dangerouslyUseHTMLString: true,
-      showClose: true,
-      message: `<p>内容 ${item.content}</p><p>时间 ${item.dateTime}</p>`,
-      duration: 0
-    });
+    this.autoShowInfo()
   },
   methods: {
+    autoShowInfo () {
+      autoCheck = setInterval(() => {
+        for (let i = 0; i < this.items.length; i++) {
+          const element = this.items[i]
+          if (element.alarm === false) continue
+          if (element.showInfo === false && dayjs().isSameOrAfter(element.dateTime)) {
+            this.showNotify(element)
+            this.$store.dispatch('alarmList/hadShow', element)
+          }
+        }
+      }, 1000 * 60);
+    },
+    showNotify (item) {
+      this.$notify.info({
+        title: `备忘事件提醒：${item.title}`,
+        position: 'bottom-right',
+        dangerouslyUseHTMLString: true,
+        showClose: true,
+        message: `<p>内容:『 ${item.content} 』</p><p>时间: ${item.dateTime}</p>`,
+        duration: 0
+      });
+    },
     // 选择其他时间
     setTimeByUser () {
       this.closeOnClick = false
@@ -326,6 +345,7 @@ export default {
         this.closeOnClick = true
       }, 100)
     },
+
     setAlarmTimeCancel () {
       this.pickerDialog = false
       this.setTimevalue = false
@@ -345,6 +365,7 @@ export default {
       if (this.record.dateTime === '') {
         this.record.dateTime = dayjs().add(this.setTimeVal, 'hour').format('YYYY-MM-DD HH:mm')
       }
+      this.record.showInfo = false
       this.$store.dispatch('alarmList/add', this.record)
       this.menuvalue = false
       this.$message.success('保存成功')

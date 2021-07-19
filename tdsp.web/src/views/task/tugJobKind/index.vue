@@ -31,7 +31,14 @@
         }"
         :loading="loading"
       >
-        
+        <template v-slot:item.planed="{ item }">
+          <span v-if="item.planed === false">
+            否
+          </span>
+          <v-chip v-else color="info" small>
+            是
+          </v-chip>
+        </template>
         <template v-slot:item.actions="{ item }">
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">

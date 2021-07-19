@@ -1,12 +1,13 @@
 import { Commit, Dispatch } from 'vuex'
 import { remove, indexOf, concat } from 'lodash'
 interface alarmItem {
-  id: number,
-  title: string,
-  content: string,
-  dateTime: string,
+  id: number, // id
+  title: string, //标题
+  content: string, // 内容
+  dateTime: string, // 提醒事件
   status: number, // 0 初始状态； 2 延后； 3 完成
-  alarm: boolean
+  alarm: boolean, // 是否需要提醒
+  showInfo: boolean // 是否显示提醒
 }
 
 interface alarmState {
@@ -28,6 +29,10 @@ export default {
     FinishAlarm(state: alarmState, item: alarmItem) {
       const index = indexOf(state.list, item)
       state.list.splice(index, 1)
+    },
+    HadShowAlarm(state: alarmState, item: alarmItem) {
+      const index = indexOf(state.list, item)
+      state.list[index].showInfo = true
     }
   },
   actions: {
@@ -42,6 +47,15 @@ export default {
     },
     remove ({ commit, state, dispatch }: { commit:Commit, state: any, dispatch: Dispatch }, item: {item: alarmItem}) {
       commit('FinishAlarm', item)
+      dispatch('db/set', {
+        dbName: 'alarm',
+        path: '',
+        value: state.list,
+        user: false
+      }, { root: true })
+    },
+    hadShow  ({ commit, state, dispatch }: { commit:Commit, state: any, dispatch: Dispatch }, item: {item: alarmItem}) {
+      commit('HadShowAlarm', item)
       dispatch('db/set', {
         dbName: 'alarm',
         path: '',

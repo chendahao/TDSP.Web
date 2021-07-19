@@ -77,25 +77,25 @@
                     :title="'计划拖轮数量  '+item.plan.tugs"
                     class="pointer"
                   >
-                    <v-avatar :color="setHarbor(item.plan.harbor)" size="32">
-                      <span class="white--text headline" style="font-size:0.9rem !important">{{ item.plan.harbor | formatHarbor2 }}</span>
+                    <v-avatar :color="setHarbor(item.job.harbor)" size="32">
+                      <span class="white--text headline" style="font-size:0.9rem !important">{{ item.job.harbor | formatHarbor2 }}</span>
                     </v-avatar>
                   </v-badge> -->
                 <!-- </v-list-item-action> -->
                 <v-list-item-content>
-                  <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" class="pointer">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
+                  <v-list-item-title :title="item.vessel.cnName" @click="getPlanInfo(item)" class="pointer">{{item.vessel.cnName}}<span style="font-size: small;color: gray;">({{item.vessel.name}})</span></v-list-item-title>
                   <v-list-item-subtitle>
                     <!-- 显示国拖曹拖 -->
                     <!-- <v-chip label small class="ma-1" v-if="showAll" dark :color="item.plan.tugCorp === '曹拖' ? 'green':'blue'">{{ item.plan.tugCorp }}</v-chip> -->
-                    <v-chip :color="setHarbor(item.plan.harbor)" label small dark class="mr-1 mt-1 mb-1">{{item.plan.harbor | formatHarbor}}-{{ item.plan.berthNo }}</v-chip>
-                    <v-chip label small class="mr-1 mt-1 mb-1">{{ item.plan.actionPlan | formatPlan }}</v-chip>
+                    <v-chip :color="setHarbor(item.job.harbor)" label small dark class="mr-1 mt-1 mb-1">{{item.job.harbor | formatHarbor}}-{{ item.job.berthNo }}</v-chip>
+                    <v-chip label small class="mr-1 mt-1 mb-1">{{ item.job.jobKind | formatPlan }}</v-chip>
                     <v-chip label small class="mr-1 mt-1 mb-1" color="info" v-if="item.plan.isTide" title="乘潮">乘</v-chip>
-                    <v-chip label small class="mr-1 mt-1 mb-1" color="info" v-if="item.plan.isPilotage" title="引航">引</v-chip>
+                    <v-chip label small class="mr-1 mt-1 mb-1" color="info" v-if="item.job.isTransPilot" title="引航">引</v-chip>
                   </v-list-item-subtitle>
                   <v-list-item-subtitle>
                     <v-chip class="mr-1" label x-small>总功率20000</v-chip>
-                    <v-chip v-if="item.plan.isPilotage" class="mr-1" label x-small>接  港1</v-chip>
-                    <v-chip v-if="item.plan.isPilotage" class="mr-1" label x-small>送  港2</v-chip>
+                    <v-chip v-if="item.job.isTransPilot" class="mr-1" label x-small>接  港1</v-chip>
+                    <v-chip v-if="item.job.isTransPilot" class="mr-1" label x-small>送  港2</v-chip>
                   </v-list-item-subtitle>
                 </v-list-item-content>
                 <!-- <v-list-item-action style="display: flex;flex-direction: row;align-items: center;"> -->
@@ -198,10 +198,10 @@
                               <v-list-item>
                                 <v-btn small text color="info" @click="setTime(item, tug, 'done')">完车</v-btn>
                               </v-list-item>
-                              <v-list-item v-if="item.plan.isPilotage">
+                              <v-list-item v-if="item.job.isTransPilot">
                                 <v-btn small text color="success" @click="setTime(item, tug , 4)">接引水</v-btn>
                               </v-list-item>
-                              <v-list-item v-if="item.plan.isPilotage">
+                              <v-list-item v-if="item.job.isTransPilot">
                                 <v-btn small text color="success" @click="setTime(item, tug , 4)">送引水</v-btn>
                               </v-list-item>
                               <v-list-item>
@@ -212,14 +212,14 @@
                             </v-list>
                           </v-menu>
                           <!-- <v-btn x-small text color="indigo lighten-2" @click="cancelTug(item, tug)">取消</v-btn> -->
-                          <!-- <div v-if="item.plan.isPilotage" style="display: flex;flex-direction: row;align-items: center; display:none">
+                          <!-- <div v-if="item.job.isTransPilot" style="display: flex;flex-direction: row;align-items: center; display:none">
                             <v-divider vertical></v-divider>
                             <v-btn x-small text color="success" @click="setTime(item, tug , 4)">接引水</v-btn>
                             <v-btn x-small text color="success" @click="setTime(item, tug , 4)">送引水</v-btn>
                           </div> -->
                         </div>
                       </v-list-item-content>
-                      <!-- <v-list-item-action v-if="item.plan.isPilotage" style="margin-left: 0px;margin: 0px;justify-content:space-around">
+                      <!-- <v-list-item-action v-if="item.job.isTransPilot" style="margin-left: 0px;margin: 0px;justify-content:space-around">
                         <v-checkbox dense label="接" on-icon="check_box" off-icon="check_box_outline_blank"></v-checkbox>
                         <v-checkbox dense label="送" on-icon="check_box" off-icon="check_box_outline_blank"></v-checkbox> -->
                         <!-- 菜单 -->
@@ -361,17 +361,17 @@
             <v-card>
               <v-list-item two-line>
                 <v-list-item-action class="mr-1">
-                  <v-avatar :color="setHarbor(item.plan.harbor)" size="32">
-                    <span class="white--text headline" style="font-size:0.9rem !important">{{ item.plan.harbor | formatHarbor2 }}</span>
+                  <v-avatar :color="setHarbor(item.job.harbor)" size="32">
+                    <span class="white--text headline" style="font-size:0.9rem !important">{{ item.job.harbor | formatHarbor2 }}</span>
                   </v-avatar>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" class="pointer">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
+                  <v-list-item-title :title="item.vessel.cnName" @click="getPlanInfo(item)" class="pointer">{{item.vessel.cnName}}<span style="font-size: small;color: gray;">({{item.vessel.name}})</span></v-list-item-title>
                   <v-list-item-subtitle>
-                    <v-chip label small class="ma-1">{{ item.plan.actionPlan | formatPlan }}</v-chip>
-                    <v-chip label small class="ma-1">{{ item.plan.berthNo }}</v-chip>
-                    <v-chip label small class="ma-1" color="info" v-if="item.plan.isTide" title="乘潮">乘</v-chip>
-                    <v-chip label small class="ma-1" color="info" v-if="item.plan.isPilotage" title="引航">引</v-chip>
+                    <v-chip label small class="ma-1">{{ item.job.jobType | formatPlan }}</v-chip>
+                    <v-chip label small class="ma-1">{{ item.job.berthNo }}</v-chip>
+                    <!-- <v-chip label small class="ma-1" color="info" v-if="item.plan.isTide" title="乘潮">乘</v-chip> -->
+                    <v-chip label small class="ma-1" color="info" v-if="item.job.isTransPilot" title="引航">引</v-chip>
                   </v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-action style="display: flex;flex-direction: row;align-items: center;">
@@ -410,17 +410,17 @@
                   <v-expansion-panel-header style="height:64px;padding: 0px">
                     <v-list-item two-line>
                       <v-list-item-action class="mr-1">
-                        <v-avatar :color="setHarbor(item.plan.harbor)" size="32">
-                          <span class="white--text headline" style="font-size:0.9rem !important">{{ item.plan.harbor | formatHarbor2 }}</span>
+                        <v-avatar :color="setHarbor(item.job.harbor)" size="32">
+                          <span class="white--text headline" style="font-size:0.9rem !important">{{ item.job.harbor | formatHarbor2 }}</span>
                         </v-avatar>
                       </v-list-item-action>
                       <v-list-item-content>
-                        <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" class="pointer">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
+                        <v-list-item-title :title="item.vessel.cnName" @click="getPlanInfo(item)" class="pointer">{{item.vessel.cnName}}<span style="font-size: small;color: gray;">({{item.vessel.name}})</span></v-list-item-title>
                         <v-list-item-subtitle>
-                          <v-chip label small class="ma-1">{{ item.plan.actionPlan | formatPlan }}</v-chip>
-                          <v-chip label small class="ma-1">{{ item.plan.berthNo }}</v-chip>
-                          <v-chip label small class="ma-1" color="info" v-if="item.plan.isTide" title="乘潮">乘</v-chip>
-                          <v-chip label small class="ma-1" color="info" v-if="item.plan.isPilotage" title="引航">引</v-chip>
+                          <v-chip label small class="ma-1">{{ item.job.jobType | formatPlan }}</v-chip>
+                          <v-chip label small class="ma-1">{{ item.job.berthNo }}</v-chip>
+                          <!-- <v-chip label small class="ma-1" color="info" v-if="item.plan.isTide" title="乘潮">乘</v-chip> -->
+                          <v-chip label small class="ma-1" color="info" v-if="item.job.isTransPilot" title="引航">引</v-chip>
                         </v-list-item-subtitle>
                       </v-list-item-content>
                       <v-list-item-action style="display: flex;flex-direction: row;">
@@ -469,17 +469,17 @@
             <v-card>
               <v-list-item two-line>
                 <v-list-item-action class="mr-1">
-                  <v-avatar :color="setHarbor(item.plan.harbor)" size="32">
-                    <span class="white--text headline" style="font-size:0.9rem !important">{{ item.plan.harbor | formatHarbor2 }}</span>
+                  <v-avatar :color="setHarbor(item.job.harbor)" size="32">
+                    <span class="white--text headline" style="font-size:0.9rem !important">{{ item.job.harbor | formatHarbor2 }}</span>
                   </v-avatar>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title :title="item.ship.cnName" @click="getPlanInfo(item)" class="pointer">{{item.ship.cnName}}<span style="font-size: small;color: gray;">({{item.ship.name}})</span></v-list-item-title>
+                  <v-list-item-title :title="item.vessel.cnName" @click="getPlanInfo(item)" class="pointer">{{item.vessel.cnName}}<span style="font-size: small;color: gray;">({{item.vessel.name}})</span></v-list-item-title>
                   <v-list-item-subtitle>
-                    <v-chip label small class="ma-1">{{ item.plan.actionPlan | formatPlan }}</v-chip>
-                    <v-chip label small class="ma-1">{{ item.plan.berthNo }}</v-chip>
-                    <v-chip label small class="ma-1" color="info" v-if="item.plan.isTide" title="乘潮">乘</v-chip>
-                    <v-chip label small class="ma-1" color="info" v-if="item.plan.isPilotage" title="引航">引</v-chip>
+                    <v-chip label small class="ma-1">{{ item.job.jobType | formatPlan }}</v-chip>
+                    <v-chip label small class="ma-1">{{ item.job.berthNo }}</v-chip>
+                    <!-- <v-chip label small class="ma-1" color="info" v-if="item.plan.isTide" title="乘潮">乘</v-chip> -->
+                    <v-chip label small class="ma-1" color="info" v-if="item.job.isTransPilot" title="引航">引</v-chip>
                   </v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-action style="display: flex;flex-direction: row;">
@@ -711,6 +711,7 @@ import PlanInfo from './planInfo'
 import { PlanStatus } from '@/mock/tug'
 import { orderBy } from 'lodash'
 import { tugApi as api } from '@/api/tugApi'
+import { VFileInput } from 'vuetify/lib'
 export default {
   components: {
     PageHeader,
@@ -804,39 +805,6 @@ export default {
   methods: {
     getdata () {
       this.loading = true
-      setTimeout(() => {
-        let list = PlanStatus()
-        this.unTugList = list.filter(item => item.plan.tugs === 0)
-        if (this.showAll === false) {
-          list = list.filter(item => (item.plan.tugCorp).indexOf('曹') > -1)
-        }
-        for (let i = 0; i < list.length; i++) {
-          list[i].fab = false
-          // if (list[i].tug) {
-          //   for (let j = 0; j < list[i].tug.length; j++) {
-          //     list[i].tug[j].fab = false
-          //   }
-          // }
-          let harbor = list[i].plan.harbor
-          if ((harbor).indexOf('一') > -1) {
-            list[i].plan.harbor = '1' + harbor
-          } else if ((harbor).indexOf('二') > -1) {
-            list[i].plan.harbor = '2' + harbor
-          } else if ((harbor).indexOf('三') > -1) {
-            list[i].plan.harbor = '3' + harbor
-          } else {
-            list[i].plan.harbor = '0' + harbor
-          }
-        }
-        const datalist = orderBy(list, ['plan.harbor'], ['asc'])
-        this.workingList = datalist.filter(item => item.status === 'working')
-        this.waitingList = datalist.filter(item => item.status === 'waiting')
-        this.completedList = datalist.filter(item => item.status === 'completed')
-        this.loading = false
-      }, 150)
-    },
-    getdata2 () {
-      this.loading = true
       // 根据日期获取调度计划
       this.client.tugScheduleAll()
         .then(res => {
@@ -859,7 +827,6 @@ export default {
               this.completedList = datalist.filter(item => item.status === 'Done')
             }
           }
-          console.log(res)
         })
         .finally(() => {
           this.loading = false
@@ -894,10 +861,11 @@ export default {
     // 增加拖轮
     addtug (item) {
       this.tugs = []
-      this.tugs = item.tugs.map(i => {
-        return i.tug.mmsi
-      })
-      console.log(this.tugs)
+      if (item.tugs) {
+        this.tugs = item.tugs.map(i => {
+          return i.tug.mmsi
+        })
+      }
       this.activePlan = item
       this.getTugStatus()
       this.dialog = true
@@ -942,7 +910,7 @@ export default {
       const planId = this.activePlan.planId
       for (let i = 0; i < this.tugs.length; i++) {
         const element = this.tugs[i]
-        this.client.tugs2(planId, element, mmsi)
+        this.client.tugs2(planId, element)
       }
       this.dialog = false
     },
@@ -1008,7 +976,7 @@ export default {
       this.dialog2 = false
     },
     getPlanInfo (item) {
-      const id = item.planId
+      const id = item.sourceId
       // 获取计划的详细信息
       this.planclient.planSchedule2(id)
         .then(res => {

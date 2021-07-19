@@ -46,10 +46,10 @@ export default {
   },
   data () {
     return {
-      client: new api.TugInfoClient('', this.$axios),
+      client: new api.TugJobKindClient('', this.$axios),
       jobKind: '-1',
       editedItem: {
-        jobKind: '',
+        jobKind: 0,
         name: '',
         description: '',
         planed: false
@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     getItem: async function () {
-      this.client.tugInfo4(this.jobKind)
+      this.client.tugJobKind5(this.jobKind)
         .then(res => {
           res.builtDate = dayjs(res.builtDate).format('YYYY-MM-DD')
           this.editedItem = res
